@@ -11,12 +11,24 @@
   "scripts": {
     "deploy": "rm -rf public; brunch build --production; surge public",
     "lint": "eslint --ext .js,.jsx --ignore-pattern public",
-    "start": "brunch watch --server"
+    "start": "brunch watch --server",
+    "knex": "knex"
   },
   "dependencies": {
     "normalize.css": "^4.2.0",
     "react": "^15.3.1",
-    "react-dom": "^15.3.1"
+    "react-dom": "^15.3.1",
+    "body-parser": "^1.15.2",
+    "boom": "^4.2.0",
+    "cookie-parser": "^1.4.3",
+    "dotenv": "^2.0.0",
+    "express": "^4.14.0",
+    "humps": "^2.0.0",
+    "knex": "^0.12.6",
+    "morgan": "^1.7.0",
+    "pg": "^6.1.0",
+    "react": "^15.4.0",
+    "react-dom": "^15.4.0"
   },
   "devDependencies": {
     "auto-reload-brunch": "^2.7.1",
