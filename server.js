@@ -49,7 +49,7 @@ const favorites = require('./routes/favorites');
 
 app.use(users);
 app.use(token);
-// app.use(lessons);
+app.use(lessons);
 // app.use(wishlist);
 app.use(favorites);
 
