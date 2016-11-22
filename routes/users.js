@@ -6,8 +6,8 @@ const express = require('express');
 const jwt = require('jsonwebtoken');
 const knex = require('../knex');
 const { camelizeKeys, decamelizeKeys } = require('humps');
-const ev = require('express-validations');
-const validations = require('../validations/users.js')
+const ev = require('express-validation');
+const validations = require('../validations/users')
 
 // eslint-disable-next-line new-cap
 const router = express.Router();
