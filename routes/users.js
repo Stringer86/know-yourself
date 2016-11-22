@@ -23,7 +23,7 @@ const authorize = function(req, res, next) {
   });
 };
 
-router.post('/api/users', ev(validations.post), (req, res, next) => {
+router.post('/api/user', ev(validations.post), (req, res, next) => {
   const { firstName, lastName, userName, email, password } = req.body;
 
   knex('users')
@@ -71,6 +71,25 @@ router.get('/api/user', authorize, (req, res, next) => {
 
       const userInfo = camelizeKeys(rows)
       res.send(userInfo);
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
+
+router.patch('/api/user', authorize, (req, res, next) => {
+  const { userId } = req.token;
+  console.log(userId);
+  const { firstName, lastName, photoUrl, bio } = req.body;
+  console.log(firstName);
+
+  knex('users')
+    .where('id', userId)
+    .update({
+      first_name: firstName,
+      last_name: lastName,
+      photo_url: photoUrl,
+      bio: bio
     })
     .catch((err) => {
       next(err);
