@@ -51,7 +51,7 @@ app.use(users);
 app.use(token);
 // app.use(lessons);
 // app.use(wishlist);
-// app.use(favorites);
+app.use(favorites);
 
 app.use((_req, res) => {
   res.sendStatus(404);
