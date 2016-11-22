@@ -9,9 +9,7 @@ exports.seed = function(knex) {
           id: 1,
           question: "do you even?",
           category: "React",
-          user_id: "1",
-          created_at: new Date('2016-06-29 14:26:16 UTC'),
-          updated_at: new Date('2016-06-29 14:26:16 UTC')
+          user_id: 1,
         }]
       );
     })

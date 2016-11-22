@@ -15,5 +15,5 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-  return knex.schema.dropTable('lessons');
+  return knex.schema.dropTable('wish_list');
 };
