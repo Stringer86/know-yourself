@@ -24,4 +24,26 @@ router.get('/api/lessons', (_req, res, next) => {
     });
 });
 
+router.get('/api/lessons/:id', (req, res, next) => {
+
+  const id = Number.parseInt(req.params.id);
+  console.log(id);
+
+  knex('lessons')
+  .where('id', id)
+  .first()
+  .then((row) => {
+    if (!row) {
+      throw boom.create(404, 'Not Found');
+    }
+
+    const lesson = camelizeKeys(row);
+
+    res.send(lesson);
+  })
+  .catch((err) => {
+    next(err);
+  });
+});
+
 module.exports = router;
