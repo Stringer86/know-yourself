@@ -9,7 +9,22 @@ exports.seed = function(knex) {
           id: 1,
           question: "do you even?",
           category: "React",
-          user_id: 1,
+          upvotes: 5,
+          user_id: 1
+        },
+        {
+          id: 2,
+          question: "do you like?",
+          category: "Angular",
+          upvotes: 20,
+          user_id: 1
+        },
+        {
+          id: 3,
+          question: "do you jeeze?",
+          category: "Ember",
+          upvotes: 42,
+          user_id: 1
         }]
       );
     })

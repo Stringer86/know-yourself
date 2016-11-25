@@ -5,7 +5,7 @@ exports.up = function(knex) {
     table.increments();
     table.string('question').notNullable().defaultTo('');
     table.string('category').notNullable().defaultTo('');
-
+    table.integer('upvotes').defaultTo(0);
     table.integer('user_id')
       .notNullable()
       .references('id')

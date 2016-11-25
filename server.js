@@ -44,13 +44,13 @@ app.use((req, res, next) => {
 const users = require('./routes/users');
 const token = require('./routes/token');
 const lessons = require('./routes/lessons');
-const wishlist = require('./routes/wishlist');
+const wishList = require('./routes/wishList');
 const favorites = require('./routes/favorites');
 
 app.use(users);
 app.use(token);
 app.use(lessons);
-// app.use(wishlist);
+app.use(wishList);
 app.use(favorites);
 
 app.use((_req, res) => {
