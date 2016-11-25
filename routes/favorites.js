@@ -23,6 +23,43 @@ const authorize = function(req, res, next) {
   });
 };
 
+
+router.post('/api/favorites', authorize, (req, res, next) => {
+  const { userId } = req.token;
+  const { lessonId } = req.body;
+
+  const insertLesson = { lessonId, userId };
+
+  knex('favorites')
+    .select(knex.raw('1=1'))
+    .where('lesson_id', lessonId)
+    .where('user_id', userId)
+    .first()
+    .then((exists) => {
+      if (exists) {
+        throw next(boom.create(404, 'User already favorited this lesson'));
+      } else {
+        return knex('favorites')
+          .insert(decamelizeKeys(insertLesson), '*')
+          .then((rows) => {
+            if (!rows) {
+              throw next(boom.create(404, 'Lesson not found'))
+            }
+
+            const lesson = camelizeKeys(rows[0]);
+
+            res.send(lesson);
+          })
+          .catch((err) => {
+            next(err);
+          });
+      }
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
+
 router.get('/api/favorites', authorize, (req, res, next) => {
   const { userId } = req.token;
   console.log(userId);

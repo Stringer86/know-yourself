@@ -1,8 +1,8 @@
 {
-  "name": "",
+  "name": "dev_connect",
   "version": "0.1.0",
-  "author": "",
-  "description": "",
+  "author": "Chase Klingel <klingelchase@gmail.com>",
+  "description": "Ryan Sobol's React skeleton for Brunch",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -45,5 +45,7 @@
     "postcss-brunch": "^2.0.1",
     "surge": "^0.18.0",
     "uglify-js-brunch": "^2.0.1"
-  }
+  },
+  "main": ".eslintrc.js",
+  "keywords": []
 }

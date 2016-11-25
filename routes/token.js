@@ -19,11 +19,11 @@ const authorize = function(req, res, next) {
   });
 }
 
-router.get('/token', authorize, (req, res) => {
+router.get('/api/token', authorize, (req, res) => {
   res.send(res.verify);
 });
 
-router.post('/token', ev(validations.post), (req, res, next) => {
+router.post('/api/token', ev(validations.post), (req, res, next) => {
   const { email, password } = req.body;
 
   let user;
