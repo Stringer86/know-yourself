@@ -63,6 +63,7 @@ router.post('/api/token', ev(validations.post), (req, res, next) => {
     });
 });
 
+
 router.delete('/token', (_req, res, _next) => {
   res.clearCookie('token');
   res.send(true);

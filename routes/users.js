@@ -79,9 +79,8 @@ router.get('/api/user', authorize, (req, res, next) => {
 
 router.patch('/api/user', authorize, (req, res, next) => {
   const { userId } = req.token;
-  console.log(userId);
+
   const { firstName, lastName, photoUrl, bio } = req.body;
-  console.log(firstName);
 
   knex('users')
     .where('id', userId)
