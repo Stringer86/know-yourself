@@ -16,7 +16,7 @@ export default class Main extends React.Component {
         <Match pattern="/" exactly render={
           () => <Home
             lessons={this.props.lessons}
-            />
+            getLessons={this.props.getLessons}/>
         }/>
         </div>
     </div>
