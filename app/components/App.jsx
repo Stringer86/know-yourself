@@ -1,6 +1,6 @@
 import { BrowserRouter } from 'react-router';
-import Footer from './Footer';
-import Header from './Header';
+// import Footer from './Footer';
+// import Header from './Header';
 import Main from './Main';
 import React from 'react';
 
@@ -11,9 +11,9 @@ export default class App extends React.Component {
 
     this.state = {
 
-      isLoggedIn = false,
+      isLoggedIn: false,
 
-      lessons = []
+      lessons: []
     }
   }
 
@@ -35,13 +35,13 @@ export default class App extends React.Component {
     return (
       <BrowserRouter>
       <div>
-        <Header />
+        {/* <Header /> */}
         <main>
           <Main
             { ... this.state }
             getLessons={this.getLessons}/>
         </main>
-        <Footer />
+        {/* <Footer /> */}
       </div>
       </BrowserRouter>
     )
