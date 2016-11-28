@@ -1,8 +1,27 @@
 import React from 'react';
-import NotFound from './NotFound';
+// import NotFound from './NotFound';
 import Home from './Home';
-import ArticleRead from './ArticleRead';
-import ArticleWrite from './ArticleWrite';
-import Category from './Category';
-import Profile from './Profile';
-import Auth from './Auth';
+// import LessonRead from './LessonRead';
+// import LessonWrite from './LessonWrite';
+// import Category from './Category';
+// import Profile from './Profile';
+// import Auth from './Auth';
+
+
+export default class Main extends React.Component {
+
+  render() {
+    <div className="container">
+        <div className="row">
+        <Match pattern="/" exactly render={
+          () => <Home
+            lessons={this.props.lessons}
+            />
+        }/>
+        </div>
+    </div>
+  }
+
+
+
+}
