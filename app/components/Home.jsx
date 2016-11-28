@@ -7,12 +7,13 @@ import Feed from './Feed';
 export default class Home extends React.Component {
 
   render() {
-    <div className="container">
+      return (
+      <div>
       <Feed lessons={this.props.lessons}
-            getLessons={this.getLessons}
+            getLessons={this.props.getLessons}
             />
-        </div>
-    </div>
+      </div>
+      )
   }
 
 
