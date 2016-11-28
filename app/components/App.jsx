@@ -1,9 +1,22 @@
+import { BrowserRouter } from 'react-router';
+import Footer from './Footer';
+import Header from './Header';
+import Main from './Main';
 import React from 'react';
 
-const App = React.createClass({
-  render() {
-    return <h1>Hello world</h1>;
-  }
-});
 
-export default App;
+export default class App extends React.Component {
+  render() {
+    return (
+      <BrowserRouter>
+      <div>
+        <Header />
+        <main>
+          <Main />
+        </main>
+        <Footer />
+      </div>
+      </BrowserRouter>
+    )
+  }
+};
