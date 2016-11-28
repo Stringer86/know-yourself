@@ -6,11 +6,14 @@ import Home from './Home';
 // import Category from './Category';
 // import Profile from './Profile';
 // import Auth from './Auth';
+import { Match, Miss } from 'react-router';
+
 
 
 export default class Main extends React.Component {
 
   render() {
+    return (
     <div className="container">
         <div className="row">
         <Match pattern="/" exactly render={
@@ -20,6 +23,7 @@ export default class Main extends React.Component {
         }/>
         </div>
     </div>
+  )
   }
 
 

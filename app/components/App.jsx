@@ -3,6 +3,9 @@ import { BrowserRouter } from 'react-router';
 // import Header from './Header';
 import Main from './Main';
 import React from 'react';
+import axios from 'axios';
+import { Match, Miss } from 'react-router';
+
 
 
 export default class App extends React.Component {
@@ -28,7 +31,7 @@ export default class App extends React.Component {
   }
 
   getLessons(lessons) {
-    this.setState({ lessons: lessons })
+    this.setState( { lessons: lessons } );
   }
 
   render() {
@@ -38,8 +41,8 @@ export default class App extends React.Component {
         {/* <Header /> */}
         <main>
           <Main
-            { ... this.state }
-            getLessons={this.getLessons}/>
+            lessons={this.state.lessons}
+            getLessons={this.getLessons.bind(this)}/>
         </main>
         {/* <Footer /> */}
       </div>
