@@ -1,12 +1,10 @@
 import { BrowserRouter } from 'react-router';
-// import Footer from './Footer';
-// import Header from './Header';
+import Footer from './Footer';
+import Header from './Header';
 import Main from './Main';
 import React from 'react';
 import axios from 'axios';
 import { Match, Miss } from 'react-router';
-
-
 
 export default class App extends React.Component {
   constructor(props) {
@@ -38,7 +36,7 @@ export default class App extends React.Component {
     return (
       <BrowserRouter>
       <div>
-        {/* <Header /> */}
+        <Header />
         <main>
           <Main
             lessons={this.state.lessons}
@@ -46,7 +44,7 @@ export default class App extends React.Component {
             isLoggedIn={this.state.isLoggedIn}
             />
         </main>
-        {/* <Footer /> */}
+        <Footer />
       </div>
       </BrowserRouter>
     )

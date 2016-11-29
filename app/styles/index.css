@@ -1,3 +1,115 @@
 body {
   color: #333;
 }
+
+/* resets */
+
+/* fix this hover background */
+nav ul li:hover {
+   background: none;
+}
+
+a {
+  color: white;
+}
+
+nav {
+  background: none;
+  border-bottom: 1px solid lightgrey;
+  box-shadow: none;
+}
+
+#logo {
+  position: relative;
+  top: 15px;
+  color: black;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 16px;
+}
+
+#auth-list li a,
+#category-list li a {
+  color: #333;
+}
+
+#category-list li a {
+  position: relative;
+  top: 0;
+  color: rgba(0,0,0,.44);
+}
+
+/* hero */
+
+#hero-container {
+  margin-top: 75px;
+}
+
+#hero-img {
+  background: url("https://static.pexels.com/photos/38892/pexels-photo-38892.jpeg");
+  background-size: cover;
+  height: 500px;
+}
+
+#hero-img:before {
+  content: '';
+	position: absolute;
+	top: 138px;
+  height: 500px;
+	right: 0;
+	left: 0;
+	background-image: linear-gradient(to bottom right,#000,#eee);
+	opacity: .3;
+  z-index: 1;
+}
+
+#hero-img p {
+  position: relative;
+  z-index: 10;
+  color: white;
+  padding-top: 80px;
+  margin-left: 25px;
+  font-size: 32px;
+  font-weight: bold;
+  width: 560px;
+}
+
+#signup-button {
+  position: relative;
+  z-index: 10;
+  display: block;
+  width: 140px;
+  border-radius: 15px;
+  line-height: 32px;
+  text-align: center;
+  background: forestgreen;
+  height: 32px;
+  margin-left: 25px;
+}
+
+/* Lesson Card */
+
+.img-circle {
+   border-radius: 50%;
+}
+
+.card {
+ min-height: 350px;
+ max-height: 350px;
+}
+
+.btn {
+ margin-left: 80%;
+ margin-bottom: 2%;
+}
+
+footer {
+  height: 65px;
+  background: black;
+}
+
+footer p {
+  margin-left: 25px;
+  color: lightgrey; 
+  padding-top: 30px;
+}

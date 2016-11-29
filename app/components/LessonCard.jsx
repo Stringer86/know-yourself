@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 
 export default class LessonCard extends React.Component {
 
+
   render() {
     return (
       <div className="row">
