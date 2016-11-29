@@ -16,7 +16,6 @@ export default class Feed extends React.Component {
   }
 
   render() {
-    console.log(this.props.lessons);
     const lessonList = this.props.lessons.map((lesson, index) => {
       return <LessonCard data={lesson}
                          key={index}

@@ -14,7 +14,13 @@ export default class App extends React.Component {
 
       isLoggedIn: false,
 
-      lessons: []
+      lessons: [],
+
+      user: {
+        userName: '',
+        bio: '',
+        photoUrl: ''
+      }
     }
   }
 
@@ -29,10 +35,15 @@ export default class App extends React.Component {
   }
 
   getLessons(lessons) {
-    this.setState( { lessons: lessons } );
+    this.setState({ lessons: lessons });
+  }
+
+  getUserInfo(user) {
+    this.setState({ user: user });
   }
 
   render() {
+    console.log(this.state.user);
     return (
       <BrowserRouter>
       <div>
@@ -41,10 +52,12 @@ export default class App extends React.Component {
             />
         <main>
           <Main
+            user={this.state.user}
+            getUserInfo={this.getUserInfo.bind(this)}
             lessons={this.state.lessons}
             getLessons={this.getLessons.bind(this)}
             isLoggedIn={this.state.isLoggedIn}
-            />
+          />
         </main>
         <Footer />
       </div>
