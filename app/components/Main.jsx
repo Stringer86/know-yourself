@@ -1,5 +1,5 @@
 import React from 'react';
-// import NotFound from './NotFound';
+import NotFound from './NotFound';
 import Home from './Home';
 // import LessonRead from './LessonRead';
 // import LessonWrite from './LessonWrite';
