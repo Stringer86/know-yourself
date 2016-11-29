@@ -23,7 +23,7 @@ export default class Header extends React.Component {
           <div className="col s12">
 
             <div className="col s8">
-              <h1 id="logo">dev connect</h1>
+              <h1><Link to="/" id="logo">dev connect</Link></h1>
             </div>
 
             <div className="col s4">
@@ -38,6 +38,7 @@ export default class Header extends React.Component {
               <ul id="auth-list">
                 <li id="write-hook"><Link to="">Write a lesson</Link></li>
                 <li onClick={this.logOut.bind(this)}><Link to="/" style={{color: 'orange'}}>Log Out</Link></li>
+                <li><Link to="/profile" style={{color: 'orange'}}>My Profile</Link></li>
               </ul>
             }
             </div>
