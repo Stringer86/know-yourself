@@ -60,8 +60,8 @@ router.post('/api/user', ev(validations.post), (req, res, next) => {
 });
 
 router.get('/api/user', authorize, (req, res, next) => {
+  console.log('wipppdy!');
   const { userId } = req.token;
-  console.log(userId);
 
   knex('users')
     .innerJoin('lessons', 'users.id', 'lessons.user_id')

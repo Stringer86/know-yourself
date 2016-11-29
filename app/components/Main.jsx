@@ -18,7 +18,10 @@ export default class Main extends React.Component {
         <Match pattern="/" exactly render={
           () => <Home
             lessons={this.props.lessons}
-            getLessons={this.props.getLessons}/>
+            getLessons={this.props.getLessons}
+            wishes={this.props.wishes}
+            getWishList={this.props.getWishList}
+          />
         }/>
         <Match pattern="/signup" exactly render={
           () => <SignUp
@@ -26,12 +29,13 @@ export default class Main extends React.Component {
         }/>
         <Match pattern="/signin" exactly render={
           () => <SignIn
+                authUser={this.props.authUser}
               />
         }/>
         <Match pattern="/profile" exactly render={
           () => <Profile
-            user={this.props.user}
-            getUserInfo={this.props.getUserInfo}
+            userData={this.props.userData}
+            getUserData={this.props.getUserData}
           />
         }/>
         <Miss component={NotFound} />

@@ -54,7 +54,7 @@ app.use(wishList);
 app.use(favorites);
 
 app.use((_req, res) => {
-  res.sendStatus(404);
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 app.use((err, _req, res, _next) => {

@@ -10,11 +10,11 @@ export default class SignIn extends React.Component {
       email: this.refs['email'].value,
       password: this.refs['password'].value
         })
-        .then(function (response) {
-            console.log(response);
+        .then(function (res) {
+          this.props.authUser(true).bind(this);
         })
         .catch(function (error) {
-            console.log(error);
+          console.log(error);
         });
   }
 
@@ -32,7 +32,7 @@ export default class SignIn extends React.Component {
             <div className="col s10 offset-s1">
               <label>Password</label>
               <input type="password" ref="password" />
-              <button type="button" name="button" onClick={this.signIn.bind(this)}><Link to="/">Sign-In</Link></button>
+              <button type="button" name="button" onClick={this.signIn.bind(this)}>Sign In</button>
             </div>
           </form>
           </div>
