@@ -18,15 +18,15 @@ export default class App extends React.Component {
     }
   }
 
-  // componentDidMount() {
-  //   axios.get('/api/token')
-  //     .then(res => {
-  //       this.setState({ isLoggedIn: res.data });
-  //     })
-  //     .catch(err => {
-  //       this.setState({ loadErr: err });
-  //     });
-  // }
+  componentDidMount() {
+    axios.get('/api/token')
+      .then(res => {
+        this.setState({ isLoggedIn: res.data });
+      })
+      .catch(err => {
+        this.setState({ loadErr: err });
+      });
+  }
 
   getLessons(lessons) {
     this.setState( { lessons: lessons } );
@@ -36,7 +36,9 @@ export default class App extends React.Component {
     return (
       <BrowserRouter>
       <div>
-        <Header />
+        <Header
+            isLoggedIn={this.state.isLoggedIn}
+            />
         <main>
           <Main
             lessons={this.state.lessons}

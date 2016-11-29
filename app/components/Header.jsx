@@ -3,6 +3,8 @@ import Nav from './Nav';
 
 export default class Header extends React.Component {
   render() {
-    return <Nav />;
+    return <Nav
+              isLoggedIn={this.props.isLoggedIn}
+            />;
   }
 }

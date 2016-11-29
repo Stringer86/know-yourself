@@ -1,7 +1,21 @@
 import React from 'react';
+import axios from 'axios';
 import { Link } from 'react-router';
 
 export default class Nav extends React.Component {
+
+  logOut(event) {
+    event.preventDefault();
+
+    axios.delete('/token')
+      .then(res => {
+        console.log(res.data);
+      })
+      .catch(function (error) {
+          console.log(error);
+      });
+  }
+
   render() {
     return (
       <nav>
@@ -13,11 +27,19 @@ export default class Nav extends React.Component {
             </div>
 
             <div className="col s4">
+            {!this.props.isLoggedIn &&
               <ul id="auth-list">
                 <li id="write-hook"><Link to="">Write a lesson</Link></li>
-                <li><Link to="" style={{color: 'orange'}}>Sign in</Link></li>
-                <li><Link to="" style={{color: 'orange'}}>Sign up</Link></li>
+                <li><Link to="/signin" style={{color: 'orange'}}>Sign in</Link></li>
+                <li><Link to="/signup" style={{color: 'orange'}}>Sign up</Link></li>
               </ul>
+            }
+            {this.props.isLoggedIn &&
+              <ul id="auth-list">
+                <li id="write-hook"><Link to="">Write a lesson</Link></li>
+                <li onClick={this.logOut.bind(this)}><Link to="/" style={{color: 'orange'}}>Log Out</Link></li>
+              </ul>
+            }
             </div>
 
           </div>
