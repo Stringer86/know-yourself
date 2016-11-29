@@ -36,6 +36,12 @@ export default class Main extends React.Component {
           () => <Profile
             userData={this.props.userData}
             getUserData={this.props.getUserData}
+            favorites={this.props.favorites}
+            getFavorites={this.props.getFavorites}
+            myLessons={this.props.myLessons}
+            getMyLessons={this.props.getMyLessons}
+            incompleteLessons={this.props.incompleteLessons}
+            getIncompleteLessons={this.props.getIncompleteLessons}
           />
         }/>
         <Miss component={NotFound} />

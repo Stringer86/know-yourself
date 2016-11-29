@@ -62,7 +62,6 @@ router.post('/api/favorites', authorize, (req, res, next) => {
 
 router.get('/api/favorites', authorize, (req, res, next) => {
   const { userId } = req.token;
-  console.log(userId);
 
   knex('favorites')
     .innerJoin('lessons', 'lessons.id', 'favorites.lesson_id')

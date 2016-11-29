@@ -22,7 +22,7 @@ export default class WishList extends React.Component {
       />
     });
 
-
+    console.log(Wishes);
     return (
       <div className="row">
         { Wishes }

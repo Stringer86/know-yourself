@@ -13,7 +13,7 @@ export default class LessonCard extends React.Component {
         <h4><strong>{this.props.data.title}</strong></h4>
         <p><strong>Category:</strong> {this.props.data.category}</p>
         <p><strong>Concept:</strong> {this.props.data.concept}</p>
-        <p><strong>Description:</strong>  {this.props.data.description}</p>
+        <p><strong>Description:</strong>{this.props.data.description}</p>
         <p>{this.props.data.body.substring(0, 200)}...</p>
         <div className="btn">read</div>
       </div>

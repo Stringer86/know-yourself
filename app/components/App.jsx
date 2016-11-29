@@ -16,9 +16,15 @@ export default class App extends React.Component {
 
       lessons: [],
 
+      myLessons: [],
+
+      incompleteLessons: [],
+
       wishes: [],
 
-      userData: []
+      userData: [],
+
+      favorites: [],
     }
   }
 
@@ -40,8 +46,20 @@ export default class App extends React.Component {
     this.setState({ userData: userData });
   }
 
+  getMyLessons(myLessons) {
+    this.setState({ myLessons: myLessons})
+  }
+
+  getIncompleteLessons(incompleteLessons) {
+    this.setState({ incompleteLessons: incompleteLessons})
+  }
+
   getWishList(wishes) {
     this.setState({ wishes: wishes })
+  }
+
+  getFavorites(favorites) {
+    this.setState({ favorites: favorites })
   }
 
   authUser(bool) {
@@ -66,6 +84,12 @@ export default class App extends React.Component {
             isLoggedIn={this.state.isLoggedIn}
             wishes={this.state.wishes}
             getWishList={this.getWishList.bind(this)}
+            favorites={this.state.favorites}
+            getFavorites={this.getFavorites.bind(this)}
+            myLessons={this.state.myLessons}
+            getMyLessons={this.getMyLessons.bind(this)}
+            incompleteLessons={this.state.incompleteLessons}
+            getIncompleteLessons={this.getIncompleteLessons.bind(this)}
           />
         </main>
         <Footer />
