@@ -26,7 +26,8 @@ const authorize = function(req, res, next) {
 
 router.get('/api/lessons', (_req, res, next) => {
   knex('lessons')
-    .orderBy('updated_at')
+    .innerJoin('users', 'users.id', 'lessons.user_id')
+    .orderBy('lessons.updated_at')
     .then((rows) => {
       const lessons = camelizeKeys(rows);
 

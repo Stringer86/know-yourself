@@ -20,15 +20,15 @@ export default class App extends React.Component {
     }
   }
 
-  componentDidMount() {
-    axios.get('/api/token')
-      .then(res => {
-        this.setState({ isLoggedIn: res.data });
-      })
-      .catch(err => {
-        this.setState({ loadErr: err });
-      });
-  }
+  // componentDidMount() {
+  //   axios.get('/api/token')
+  //     .then(res => {
+  //       this.setState({ isLoggedIn: res.data });
+  //     })
+  //     .catch(err => {
+  //       this.setState({ loadErr: err });
+  //     });
+  // }
 
   getLessons(lessons) {
     this.setState( { lessons: lessons } );
@@ -42,7 +42,9 @@ export default class App extends React.Component {
         <main>
           <Main
             lessons={this.state.lessons}
-            getLessons={this.getLessons.bind(this)}/>
+            getLessons={this.getLessons.bind(this)}
+            isLoggedIn={this.state.isLoggedIn}
+            />
         </main>
         {/* <Footer /> */}
       </div>

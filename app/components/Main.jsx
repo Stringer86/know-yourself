@@ -5,23 +5,25 @@ import Home from './Home';
 // import LessonWrite from './LessonWrite';
 // import Category from './Category';
 // import Profile from './Profile';
-// import Auth from './Auth';
-import { Match, Miss } from 'react-router';
-
-
+import { Match, Miss, Link} from 'react-router';
+import Auth from './Auth';
 
 export default class Main extends React.Component {
 
   render() {
     return (
-    <div className="container">
         <div className="row">
+        <Link to="/login">bob</Link>
         <Match pattern="/" exactly render={
           () => <Home
             lessons={this.props.lessons}
             getLessons={this.props.getLessons}/>
         }/>
-        </div>
+        <Match pattern="/login" exactly render={
+          () => <Auth
+              isLoggedIn={this.props.isLoggedIn}
+              />
+        }/>
     </div>
   )
   }
