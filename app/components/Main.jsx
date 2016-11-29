@@ -4,7 +4,7 @@ import Home from './Home';
 // import LessonRead from './LessonRead';
 // import LessonWrite from './LessonWrite';
 // import Category from './Category';
-// import Profile from './Profile';
+import Profile from './Profile';
 import { Match, Miss, Link} from 'react-router';
 import SignUp from './SignUp';
 import SignIn from './SignIn';
@@ -14,7 +14,7 @@ export default class Main extends React.Component {
   render() {
     return (
       <div className="row">
-        <Link to="/login" style={{'marginTop': '65px', color: 'black'}}>bob</Link>
+        <Link to="/profile" style={{'marginTop': '65px', color: 'black'}}>bob</Link>
         <Match pattern="/" exactly render={
           () => <Home
             lessons={this.props.lessons}

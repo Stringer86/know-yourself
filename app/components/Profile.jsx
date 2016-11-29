@@ -1,5 +1,5 @@
 import React from 'react';
-// import axios from 'axios';
+import axios from 'axios';
 // import ProfileImg from './ProfileImg';
 // import Info from './Info';
 // import Lessons from './Lessons';
