@@ -14,7 +14,7 @@ export default class Main extends React.Component {
   render() {
     return (
       <div className="row">
-        <Link to="/login">bob</Link>
+        <Link to="/login" style={{'marginTop': '65px', color: 'black'}}>bob</Link>
         <Match pattern="/" exactly render={
           () => <Home
             lessons={this.props.lessons}
@@ -28,10 +28,6 @@ export default class Main extends React.Component {
           () => <SignIn
               />
         }/>
-        <Match pattern="/login" exactly render={
-          () => <Auth isLoggedIn={this.props.isLoggedIn} />
-        }/>
-
         <Match pattern="/profile" exactly render={
           () => <Profile
             user={this.props.user}
