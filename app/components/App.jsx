@@ -18,11 +18,7 @@ export default class App extends React.Component {
 
       wishes: [],
 
-      user: {
-        userName: '',
-        bio: '',
-        photoUrl: ''
-      }
+      userData: []
     }
   }
 
@@ -40,12 +36,16 @@ export default class App extends React.Component {
     this.setState({ lessons: lessons });
   }
 
-  getUserInfo(user) {
-    this.setState({ user: user });
+  getUserData(userData) {
+    this.setState({ user: userData });
   }
 
   getWishList(wishes) {
     this.setState({ wishes: wishes})
+  }
+
+  authUser(bool) {
+    this.setState({ isLoggedIn: bool})
   }
 
   render() {
@@ -54,10 +54,12 @@ export default class App extends React.Component {
       <div>
         <Header
             isLoggedIn={this.state.isLoggedIn}
+            authUser={this.authUser.bind(this)}
             />
         <main>
           <Main
-            user={this.state.user}
+            authUser={this.authUser.bind(this)}
+            userData={this.state.userData}
             getUserInfo={this.getUserInfo.bind(this)}
             lessons={this.state.lessons}
             getLessons={this.getLessons.bind(this)}
