@@ -1,2 +1,2 @@
-import React from 'react';
-import IncompleteLessonsCard from './IncompleteLessonsCard';
+// import React from 'react';
+// import IncompleteLessonsCard from './IncompleteLessonsCard';

@@ -1,2 +1,2 @@
-import React from 'react';
-import FavoritesCard from './FavoritesCard';
+// import React from 'react';
+// import FavoritesCard from './FavoritesCard';

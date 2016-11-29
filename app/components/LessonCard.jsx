@@ -8,7 +8,7 @@ export default class LessonCard extends React.Component {
   render() {
     return (
       <div className="row">
-      <div className="col s7 card">
+      <div className="col s12 card">
         <p><img className="img-circle" src={this.props.data.photoUrl} height='30px' width='30px' />By: {this.props.data.firstName}</p>
         <h4><strong>{this.props.data.title}</strong></h4>
         <p><strong>Category:</strong> {this.props.data.category}</p>
@@ -16,7 +16,6 @@ export default class LessonCard extends React.Component {
         <p><strong>Description:</strong>  {this.props.data.description}</p>
         <p>{this.props.data.body.substring(0, 200)}...</p>
         <div className="btn">read</div>
-
       </div>
       </div>
     )

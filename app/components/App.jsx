@@ -16,6 +16,8 @@ export default class App extends React.Component {
 
       lessons: [],
 
+      wishes: [],
+
       user: {
         userName: '',
         bio: '',
@@ -42,6 +44,10 @@ export default class App extends React.Component {
     this.setState({ user: user });
   }
 
+  getWishList(wishes) {
+    this.setState({ wishes: wishes})
+  }
+
   render() {
     return (
       <BrowserRouter>
@@ -56,6 +62,8 @@ export default class App extends React.Component {
             lessons={this.state.lessons}
             getLessons={this.getLessons.bind(this)}
             isLoggedIn={this.state.isLoggedIn}
+            wishes={this.state.wishes}
+            getWishList={this.getWishList.bind(this)}
           />
         </main>
         <Footer />
