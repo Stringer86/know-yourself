@@ -8,7 +8,7 @@ export default class Lessons extends React.Component {
   componentDidMount() {
       axios.get('/api/user')
         .then(res => {
-          console.log("fakdljfka");
+          console.log(res.data);
           this.props.getMyLessons(res.data).bind(this);
         })
         .catch(err => {
@@ -34,7 +34,7 @@ export default class Lessons extends React.Component {
 
     return (
           <div>
-              { myLessons}
+              { myLessons }
           </div>
     );
   }

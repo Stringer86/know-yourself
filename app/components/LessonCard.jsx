@@ -9,7 +9,7 @@ export default class LessonCard extends React.Component {
     return (
       <div className="row">
       <div className="col s12 card">
-        <p><img className="img-circle" src={this.props.data.photoUrl} height='30px' width='30px' />By: {this.props.data.firstName}</p>
+        <p><img className="img-circle" src={this.props.data.photoUrl} height='40px' width='40px' />By: {this.props.data.firstName}</p>
         <h4><strong>{this.props.data.title}</strong></h4>
         <p><strong>Category:</strong> {this.props.data.category}</p>
         <p><strong>Concept:</strong> {this.props.data.concept}</p>

@@ -32,7 +32,7 @@ export default class Main extends React.Component {
                 authUser={this.props.authUser}
               />
         }/>
-        <Match pattern="/profile" exactly render={
+        <Match pattern="/profile" render={
           () => <Profile
             userData={this.props.userData}
             getUserData={this.props.getUserData}
