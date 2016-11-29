@@ -13,7 +13,7 @@ export default class Main extends React.Component {
 
   render() {
     return (
-        <div className="row">
+      <div className="row">
         <Link to="/login">bob</Link>
         <Match pattern="/" exactly render={
           () => <Home
@@ -28,10 +28,18 @@ export default class Main extends React.Component {
           () => <SignIn
               />
         }/>
-    </div>
-  )
+        <Match pattern="/login" exactly render={
+          () => <Auth isLoggedIn={this.props.isLoggedIn} />
+        }/>
+
+        <Match pattern="/profile" exactly render={
+          () => <Profile
+            user={this.props.user}
+            getUserInfo={this.props.getUserInfo}
+          />
+        }/>
+        <Miss component={NotFound} />
+      </div>
+    );
   }
-
-
-
 }
