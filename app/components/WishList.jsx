@@ -8,7 +8,6 @@ export default class WishList extends React.Component {
   componentWillMount() {
     axios.get('/api/wishList')
       .then(res => {
-        console.log(res);
         this.props.getWishList(res.data).bind(this);
       })
       .catch(err => {
