@@ -9,13 +9,13 @@ export default class SignIn extends React.Component {
     axios.post('/api/token', {
       email: this.refs['email'].value,
       password: this.refs['password'].value
-        })
-        .then(function (res) {
-          this.props.authUser(true).bind(this);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
+    })
+    .then(res => {
+      this.props.authUser(true).bind(this);
+    })
+    .catch(err => {
+      console.log(err);
+    });
   }
 
   render() {

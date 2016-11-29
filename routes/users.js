@@ -60,7 +60,6 @@ router.post('/api/user', ev(validations.post), (req, res, next) => {
 });
 
 router.get('/api/user', authorize, (req, res, next) => {
-  console.log('wipppdy!');
   const { userId } = req.token;
 
   knex('users')
