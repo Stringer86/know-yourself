@@ -11,8 +11,8 @@ export default class Header extends React.Component {
       .then(res => {
         this.props.logoutUser(res.data).bind(this);
       })
-      .catch(function (error) {
-          console.log(error);
+      .catch(err => {
+        console.log(err);
       });
   }
 
