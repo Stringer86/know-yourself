@@ -2,7 +2,6 @@ import React from 'react';
 import NotFound from './NotFound';
 import Home from './Home';
 import Category from './Category';
-import WriteAnswer from './WriteAnswer';
 import WriteLesson from './WriteLesson';
 import ReadLesson from './ReadLesson';
 // import Category from './Category';
@@ -54,11 +53,8 @@ export default class Main extends React.Component {
                 getLessons={this.props.getLessons}
               />
         }/>
-        <Match pattern="/write-lesson" render={
-          () => <WriteLesson />
-        }/>
-        <Match pattern="/write-answer/:id?" render={
-          () => <WriteAnswer
+        <Match pattern="/write-lesson/:id?" render={
+          () => <WriteLesson
             getWish={this.props.getWish}
             wishItem={this.props.wishItem}
           />
