@@ -2,7 +2,6 @@ import React from 'react';
 import Wish from './Wish';
 import axios from 'axios';
 
-
 export default class WishList extends React.Component {
 
   componentWillMount() {
@@ -16,15 +15,19 @@ export default class WishList extends React.Component {
   }
 
   render() {
-    const Wishes = this.props.wishes.map((wish, index) => {
-      return <Wish data={wish}
-                    key={index}
+    const wishes = this.props.wishes.map((wish, index) => {
+      return <Wish
+        answering={this.props.answering}
+        getAnswering={this.props.getAnswering}
+        data={wish}
+        key={index}
+        id={index}
       />
     });
 
     return (
       <div className="row">
-        { Wishes }
+        { wishes }
       </div>
     )
   }

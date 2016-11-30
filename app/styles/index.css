@@ -83,6 +83,26 @@ nav {
   margin-left: 25px;
 }
 
+/* wishlist */
+
+.arrow-up {
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+
+  border-bottom: 25px solid black;
+}
+
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+
+  border-top: 25px solid black;
+}
+
 /* Lesson Card */
 
 .img-circle {

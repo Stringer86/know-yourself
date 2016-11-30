@@ -25,6 +25,10 @@ export default class App extends React.Component {
       userData: [],
 
       favorites: [],
+
+      answering: true,
+
+      wishItem: []
     }
   }
 
@@ -66,6 +70,15 @@ export default class App extends React.Component {
     this.setState({ isLoggedIn: bool});
   }
 
+  getAnswering(bool) {
+    this.setState({ answering: bool });
+  }
+
+  getWish(wishItem) {
+    console.log(wishItem);
+    this.setState({ wishItem: wishItem });
+  }
+
   render() {
     return (
       <BrowserRouter>
@@ -76,6 +89,8 @@ export default class App extends React.Component {
             />
         <main>
           <Main
+            answering={this.state.answering}
+            getAnswering={this.getAnswering.bind(this)}
             authUser={this.authUser.bind(this)}
             userData={this.state.userData}
             getUserData={this.getUserData.bind(this)}
@@ -90,6 +105,8 @@ export default class App extends React.Component {
             getMyLessons={this.getMyLessons.bind(this)}
             incompleteLessons={this.state.incompleteLessons}
             getIncompleteLessons={this.getIncompleteLessons.bind(this)}
+            getWish={this.getWish.bind(this)}
+            wishItem={this.state.wishItem}
           />
         </main>
         <Footer />

@@ -1,9 +1,10 @@
 import React from 'react';
 import NotFound from './NotFound';
 import Home from './Home';
-// import LessonRead from './LessonRead';
-// import LessonWrite from './LessonWrite';
 import Category from './Category';
+import WriteLesson from './WriteLesson';
+// import ReadLesson from './Readlesson';
+// import Category from './Category';
 import Profile from './Profile';
 import { Match, Miss, Link} from 'react-router';
 import SignUp from './SignUp';
@@ -17,6 +18,8 @@ export default class Main extends React.Component {
         <Link to="/profile" style={{'marginTop': '65px', color: 'black'}}>bob</Link>
         <Match pattern="/" exactly render={
           () => <Home
+            answering={this.props.answering}
+            getAnswering={this.props.getAnswering}
             lessons={this.props.lessons}
             getLessons={this.props.getLessons}
             wishes={this.props.wishes}
@@ -49,6 +52,14 @@ export default class Main extends React.Component {
                 lessons={this.props.lessons}
                 getLessons={this.props.getLessons}
               />
+        }/>
+        <Match pattern="/write-lesson/:id?" render={
+          () => <WriteLesson
+            answering={this.props.answering}
+            getAnswering={this.props.getAnswering}
+            getWish={this.props.getWish}
+            wishItem={this.props.wishItem}
+          />
         }/>
         <Miss component={NotFound} />
       </div>
