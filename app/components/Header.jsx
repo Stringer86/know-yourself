@@ -46,14 +46,14 @@ export default class Header extends React.Component {
           </div>
           <div className="col s12">
             <ul id="category-list">
-              <li><Link to="">Angular 1</Link></li>
-              <li><Link to="">Angular 2</Link></li>
-              <li><Link to="">Backbone</Link></li>
-              <li><Link to="">Ember</Link></li>
-              <li><Link to="">Meteor</Link></li>
-              <li><Link to="">Polymer</Link></li>
-              <li><Link to="">React</Link></li>
-              <li><Link to="">Vue</Link></li>
+              <li><Link to="/category/Angular">Angular 1</Link></li>
+              <li><Link to="/category/Angular2">Angular 2</Link></li>
+              <li><Link to="/category/Backbone">Backbone</Link></li>
+              <li><Link to="/category/Ember">Ember</Link></li>
+              <li><Link to="/category/Meteor">Meteor</Link></li>
+              <li><Link to="/category/Polymer">Polymer</Link></li>
+              <li><Link to="/category/React">React</Link></li>
+              <li><Link to="/category/Vue">Vue</Link></li>
             </ul>
           </div>
         </div>

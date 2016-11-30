@@ -19,8 +19,9 @@ export default class IncompleteLessons extends React.Component {
     if(this.props.incompleteLessons.length === 0) {
       return <div></div>
     }
+    const incompleteLessons = this.props.incompleteLessons;
 
-    const myIncompleteLessons = this.props.incompleteLessons.filter((e) => {
+    const myIncompleteLessons = incompleteLessons.filter((e) => {
       if (e.published === false) {
         return e;
       }

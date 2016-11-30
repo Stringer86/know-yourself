@@ -8,7 +8,7 @@ import { Match, Link} from 'react-router';
 
 export default class Profile extends React.Component {
   componentWillMount() {
-      axios.get('/api/user')
+      axios.get('/api/userData')
         .then(res => {
           this.props.getUserData(res.data).bind(this);
         })
@@ -21,18 +21,33 @@ export default class Profile extends React.Component {
     if (this.props.userData.length === 0) {
       return <div></div>;
     }
+    console.log(this.props.userData[0].photoUrl.length);
+
     return (
       <div className="container">
         <div className="row">
           <div className="row">
             <div className="col s7 offset-s2">
               <h3>{this.props.userData[0].firstName} {this.props.userData[0].lastName}</h3>
-              <h5>{this.props.userData[0].bio}</h5>
+              {this.props.userData[0].bio.length > 0 &&
+                <h5>{this.props.userData[0].bio}</h5>
+              }
+              {this.props.userData[0].bio.length < 1 &&
+                <div className="row">
+                  <div className="btn col s3">Add bio</div>
+                </div>
+              }
+              {this.props.userData[0].photoUrl.length < 1 &&
+                <div className="row">
+                  <div className="btn col s3">Add photo</div>
+                </div>
+              }
             </div>
-            <div className="col s2">
-              <img className="img-circle" src={this.props.userData[0].photoUrl} height="100px" width="100px;" />
-            </div>
-
+              <div className="col s2">
+              {this.props.userData[0].photoUrl.length > 0 &&
+                <img className="img-circle" src={this.props.userData[0].photoUrl} height="100px" width="100px;" />
+              }
+              </div>
 
           </div>
         <br></br>

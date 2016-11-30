@@ -9,7 +9,7 @@ exports.up = function(knex) {
     table.string('user_name').unique().notNullable();
     table.string('email').unique().notNullable();
     table.specificType('hashed_password', 'char(60)');
-    table.string('photo_url');
+    table.string('photo_url').default('');
     table.text('bio').defaultTo('');
     table.timestamps(true, true);
   });

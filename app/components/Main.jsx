@@ -3,7 +3,7 @@ import NotFound from './NotFound';
 import Home from './Home';
 // import LessonRead from './LessonRead';
 // import LessonWrite from './LessonWrite';
-// import Category from './Category';
+import Category from './Category';
 import Profile from './Profile';
 import { Match, Miss, Link} from 'react-router';
 import SignUp from './SignUp';
@@ -43,6 +43,12 @@ export default class Main extends React.Component {
             incompleteLessons={this.props.incompleteLessons}
             getIncompleteLessons={this.props.getIncompleteLessons}
           />
+        }/>
+        <Match pattern="/category" render={
+          () => <Category
+                lessons={this.props.lessons}
+                getLessons={this.props.getLessons}
+              />
         }/>
         <Miss component={NotFound} />
       </div>

@@ -76,6 +76,20 @@ router.get('/api/user', authorize, (req, res, next) => {
     });
 });
 
+router.get('/api/userData', authorize, (req, res, next) => {
+  const { userId } = req.token;
+
+  knex('users')
+    .where('id', userId)
+    .then((rows) => {
+      const userData = camelizeKeys(rows)
+      res.send(userData);
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
+
 router.patch('/api/user', authorize, (req, res, next) => {
   const { userId } = req.token;
 
