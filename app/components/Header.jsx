@@ -29,7 +29,7 @@ export default class Header extends React.Component {
             <div className="col s4">
             {!this.props.isLoggedIn &&
               <ul id="auth-list">
-                <li id="write-hook"><Link to="">Write a lesson</Link></li>
+                <li id="write-hook"><Link to="/write-lesson">Write a lesson</Link></li>
                 <li><Link to="/signin" style={{color: 'orange'}}>Sign in</Link></li>
                 <li><Link to="/signup" style={{color: 'orange'}}>Sign up</Link></li>
               </ul>

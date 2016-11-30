@@ -10,15 +10,15 @@ export default class WishList extends React.Component {
         this.props.getWishList(res.data).bind(this);
       })
       .catch(err => {
-        console.log(err);
+        return err;
       });
   }
 
   render() {
     const wishes = this.props.wishes.map((wish, index) => {
       return <Wish
-        answering={this.props.answering}
-        getAnswering={this.props.getAnswering}
+        upVote={this.props.upVote}
+        downVote={this.props.downVote}
         data={wish}
         key={index}
         id={index}
@@ -26,7 +26,7 @@ export default class WishList extends React.Component {
     });
 
     return (
-      <div className="row">
+      <div className="row" id="wishlist-container">
         { wishes }
       </div>
     )

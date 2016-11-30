@@ -17,8 +17,8 @@ export default class Home extends React.Component {
       </div>
       <div className="col s4">
       <WishList
-        answering={this.props.answering}
-        getAnswering={this.props.getAnswering}
+        upVote={this.props.upVote}
+        downVote={this.props.downVote}
         wishes={this.props.wishes}
         getWishList={this.props.getWishList}
       />

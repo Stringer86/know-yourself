@@ -11,7 +11,7 @@ export default class Feed extends React.Component {
         this.props.getLessons(res.data).bind(this);
       })
       .catch(err => {
-        console.log(err);
+        return err;
       });
   }
 

@@ -45,9 +45,43 @@ router.post('/api/wishList', authorize, ev(validations.post), (req, res, next) =
     });
 });
 
+router.patch('/api/wishList/:id', authorize, (req, res, next) => {
+  console.log('here');
+  const { userId } = req.token;
+  const { upvotes } = req.body;
+  const id = Number.parseInt(req.params.id);
+
+  if (Number.isNaN(id)) {
+    return next();
+  }
+
+  knex('wish_list')
+    .where('id', id)
+    .first()
+    .then((wish) => {
+      if (!wish) {
+        throw next(boom.create(404, 'Question not found'));
+      }
+
+      const updateWish = { upvotes };
+
+      return knex('wish_list')
+        .update(decamelizeKeys(updateWish), '*')
+        .where('id', id);
+    })
+    .then((rows) => {
+      const wish = camelizeKeys(rows[0]);
+
+      res.send(wish);
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
+
 router.get('/api/wishList', (req, res, next) => {
   knex('wish_list')
-    .orderBy('upvotes', 'desc')
+    .orderBy('upvotes', 'asc')
     .then((rows) => {
       const wishList = camelizeKeys(rows);
 

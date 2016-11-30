@@ -26,8 +26,6 @@ export default class App extends React.Component {
 
       favorites: [],
 
-      answering: true,
-
       wishItem: []
     }
   }
@@ -70,13 +68,40 @@ export default class App extends React.Component {
     this.setState({ isLoggedIn: bool});
   }
 
-  getAnswering(bool) {
-    this.setState({ answering: bool });
+  getWish(wishItem) {
+    this.setState({ wishItem: wishItem });
   }
 
-  getWish(wishItem) {
-    console.log(wishItem);
-    this.setState({ wishItem: wishItem });
+  upVote(votedWish) {
+    const nextWishes = this.state.wishes.map((wish) => {
+      if (votedWish !== wish) {
+        return wish;
+      }
+
+      const nextUpvotes = votedWish.upvotes + 1;
+
+      const nextWish = Object.assign({}, votedWish, { upvotes: nextUpvotes });
+
+      return nextWish;
+    });
+
+    this.setState({ wishes: nextWishes })
+  }
+
+  downVote(votedWish) {
+    const nextWishes = this.state.wishes.map((wish) => {
+      if (votedWish !== wish) {
+        return wish;
+      }
+
+      const nextUpvotes = votedWish.upvotes - 1;
+
+      const nextWish = Object.assign({}, votedWish, { upvotes: nextUpvotes });
+
+      return nextWish;
+    });
+
+    this.setState({ wishes: nextWishes })
   }
 
   render() {
@@ -89,8 +114,8 @@ export default class App extends React.Component {
             />
         <main>
           <Main
-            answering={this.state.answering}
-            getAnswering={this.getAnswering.bind(this)}
+            upVote={this.upVote.bind(this)}
+            downVote={this.downVote.bind(this)}
             authUser={this.authUser.bind(this)}
             userData={this.state.userData}
             getUserData={this.getUserData.bind(this)}

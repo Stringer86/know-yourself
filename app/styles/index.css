@@ -92,6 +92,7 @@ nav {
   border-right: 25px solid transparent;
 
   border-bottom: 25px solid black;
+  margin: 0 auto;
 }
 
 .arrow-down {
@@ -101,8 +102,24 @@ nav {
   border-right: 25px solid transparent;
 
   border-top: 25px solid black;
+  margin: 0 auto;
 }
 
+.upvote-count {
+  text-align: center;
+}
+
+#wishlist-container{
+  border: 1px solid lightgrey;
+}
+
+.wish-container {
+  margin-top: 50px;
+}
+
+.wish-question {
+  font-size: 20px;
+}
 /* Lesson Card */
 
 .img-circle {

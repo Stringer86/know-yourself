@@ -2,6 +2,7 @@ import React from 'react';
 import NotFound from './NotFound';
 import Home from './Home';
 import Category from './Category';
+import WriteAnswer from './WriteAnswer';
 import WriteLesson from './WriteLesson';
 // import ReadLesson from './Readlesson';
 // import Category from './Category';
@@ -18,8 +19,8 @@ export default class Main extends React.Component {
         <Link to="/profile" style={{'marginTop': '65px', color: 'black'}}>bob</Link>
         <Match pattern="/" exactly render={
           () => <Home
-            answering={this.props.answering}
-            getAnswering={this.props.getAnswering}
+            upVote={this.props.upVote}
+            downVote={this.props.downVote}
             lessons={this.props.lessons}
             getLessons={this.props.getLessons}
             wishes={this.props.wishes}
@@ -53,10 +54,11 @@ export default class Main extends React.Component {
                 getLessons={this.props.getLessons}
               />
         }/>
-        <Match pattern="/write-lesson/:id?" render={
-          () => <WriteLesson
-            answering={this.props.answering}
-            getAnswering={this.props.getAnswering}
+        <Match pattern="/write-lesson" render={
+          () => <WriteLesson />
+        }/>
+        <Match pattern="/write-answer/:id?" render={
+          () => <WriteAnswer
             getWish={this.props.getWish}
             wishItem={this.props.wishItem}
           />
