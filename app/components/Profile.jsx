@@ -21,7 +21,6 @@ export default class Profile extends React.Component {
     if (this.props.userData.length === 0) {
       return <div></div>;
     }
-    console.log(this.props.userData[0].photoUrl.length);
 
     return (
       <div className="container">

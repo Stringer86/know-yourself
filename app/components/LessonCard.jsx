@@ -1,12 +1,34 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, Redirect } from 'react-router';
+import axios from 'axios';
 
 
 export default class LessonCard extends React.Component {
 
+  favorite(event) {
+    event.preventDefault()
+    axios.post('/api/favorites', {
+      lessonId: this.props.id
+    })
+    .then(res => {
+      console.log("added!");
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  }
+
+  removeFav(event) {
+    event.preventDefault()
+    axios({
+      method: 'delete',
+      url: `/api/favorites`,
+      data: {lessonId: this.props.id}
+    })
+  }
 
   render() {
-    return (
+      return (
 
       <div className="row">
       <div className="col s12 card">
@@ -16,8 +38,16 @@ export default class LessonCard extends React.Component {
         <p><strong>Concept:</strong> {this.props.data.concept}</p>
         <p><strong>Description:</strong>{this.props.data.description}</p>
         <p>{this.props.data.body.substring(0, 200)}...</p>
-        <div className="btn">
+        <div className="row btnrow">
+        <div className="btn col s6">
         <Link to={`/lesson/${this.props.data.id}`}>Read</Link>
+        </div>
+        {!this.props.favorited &&
+          <div className="btn col s6" onClick={this.favorite.bind(this)}>Favorite</div>
+        }
+        {this.props.favorited &&
+          <div className="btn col s6" onClick={this.removeFav.bind(this)}>Favorited</div>
+        }
         </div>
       </div>
       </div>

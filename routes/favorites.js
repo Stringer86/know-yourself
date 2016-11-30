@@ -79,8 +79,9 @@ router.get('/api/favorites', authorize, (req, res, next) => {
 
 router.delete('/api/favorites', authorize, (req, res, next) => {
   const { userId } = req.token;
-  const { lessonId } = req.body;
+  const lessonId = req.body.lessonId;
 
+  console.log(req.body);
   knex('favorites')
     .where('lesson_id', lessonId)
     .first()

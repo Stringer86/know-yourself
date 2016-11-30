@@ -13,6 +13,8 @@ export default class Home extends React.Component {
       <div className="col s7">
       <Feed lessons={this.props.lessons}
             getLessons={this.props.getLessons}
+            favorites={this.props.favorites}
+            getFavorites={this.props.getFavorites}
             />
       </div>
       <div className="col s4">

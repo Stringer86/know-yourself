@@ -24,6 +24,8 @@ export default class Main extends React.Component {
             getLessons={this.props.getLessons}
             wishes={this.props.wishes}
             getWishList={this.props.getWishList}
+            favorites={this.props.favorites}
+            getFavorites={this.props.getFavorites}
           />
         }/>
         <Match pattern="/signup" exactly render={
