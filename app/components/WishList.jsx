@@ -21,7 +21,6 @@ export default class WishList extends React.Component {
         downVote={this.props.downVote}
         data={wish}
         key={index}
-        id={index}
       />
     });
 

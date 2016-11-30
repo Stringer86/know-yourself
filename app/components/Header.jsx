@@ -7,7 +7,7 @@ export default class Header extends React.Component {
   logOut(event) {
     event.preventDefault();
 
-    axios.delete('/token')
+    axios.delete('/api/token')
       .then(res => {
         this.props.logoutUser(res.data).bind(this);
       })
@@ -37,7 +37,7 @@ export default class Header extends React.Component {
             {this.props.isLoggedIn &&
               <ul id="auth-list">
                 <li id="write-hook"><Link to="/write-lesson">Write a lesson</Link></li>
-                <li onClick={this.logOut.bind(this)}><Link to="/" style={{color: 'orange'}}>Log Out</Link></li>
+                <li onClick={this.logOut.bind(this)}><Link to="/signin" style={{color: 'orange'}}>Log Out</Link></li>
                 <li><Link to="/profile" style={{color: 'orange'}}>My Profile</Link></li>
               </ul>
             }

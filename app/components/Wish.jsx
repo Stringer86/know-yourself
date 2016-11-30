@@ -5,8 +5,7 @@ import axios from 'axios';
 export default class Wish extends React.Component {
   upvoted() {
     const upvotes = this.props.data.upvotes + 1;
-    console.log(this.props.id);
-    axios.patch(`/api/wishList/${this.props.id + 1}`, {
+    axios.patch(`/api/wishList/${this.props.data.id}`, {
       upvotes: upvotes
     })
     .then((res) => {
@@ -23,7 +22,7 @@ export default class Wish extends React.Component {
 
   downVoted() {
     const upvotes = this.props.data.upvotes - 1;
-    axios.patch(`/api/wishList/${this.props.id + 1}`, {
+    axios.patch(`/api/wishList/${this.props.data.id}`, {
       upvotes: upvotes
     })
     .then((res) => {
@@ -58,11 +57,8 @@ export default class Wish extends React.Component {
            </div>
          </div>
          <div className="row">
-           {/* <div className="col s4 offset-s2 btn">
-             read
-           </div> */}
            <div className="col s4 offset-s1 btn">
-             <Link to={`/write-answer/${this.props.id + 1}`}>Write</Link>
+             <Link to={`/write-lesson/${this.props.data.id}`}>answer</Link>
            </div>
          </div>
        </div>

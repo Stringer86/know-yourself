@@ -107,7 +107,7 @@ export default class App extends React.Component {
       return nextWish;
     });
 
-    this.setState({ wishes: nextWishes })
+    this.setState({ wishes: nextWishes });
   }
 
   render() {

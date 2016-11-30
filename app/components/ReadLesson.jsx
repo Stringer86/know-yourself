@@ -27,6 +27,6 @@ export default class ReadLesson extends React.Component {
         <h1>{this.props.lesson.title}</h1>
         <h4>Category: {this.props.lesson.category} </h4>
         <p>{this.props.lesson.body}</p>
-    </div>
-  }
+      </div>
+    }
 }
