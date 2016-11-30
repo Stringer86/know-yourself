@@ -6,7 +6,7 @@ import WriteLesson from './WriteLesson';
 import ReadLesson from './ReadLesson';
 // import Category from './Category';
 import Profile from './Profile';
-import { Match, Miss, Link} from 'react-router';
+import { Match, Miss, Link, Redirect} from 'react-router';
 import SignUp from './SignUp';
 import SignIn from './SignIn';
 
@@ -30,10 +30,12 @@ export default class Main extends React.Component {
           () => <SignUp
               />
         }/>
-        <Match pattern="/signin" exactly render={
-          () => <SignIn
-                authUser={this.props.authUser}
-              />
+        <Match pattern="/signin" exactly render={() =>
+          this.props.isLoggedIn ? (
+            <Redirect to="/" />
+          ) : (
+            <SignIn authUser={this.props.authUser} />
+          )
         }/>
         <Match pattern="/profile" render={
           () => <Profile
