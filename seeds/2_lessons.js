@@ -21,7 +21,7 @@ exports.seed = function(knex) {
         category: 'Angular',
         concept: 'general understanding',
         title: 'What exactly is Angular?',
-        description: 'I will be explaining what React is and why it is useful',
+        description: 'I will be explaining what Angular is and why it is useful',
         published: false,
         body: 'This AngularJS course is built with the intent of exposing you to the best available resources on each Angular topic. Our desire is to present these topics richly, and from a variety of vantage points, in order to afford you a more complete perspective on them. The learning curve of AngularJS can be described as a hockey stick. Getting started with apps featuring basic functionality is delightfully easy. However, building more complex apps often require understanding Angulars inner workings. Failure to do so will cause development to become awkward and cumbersome. With AngularJS, the "Ready, Fire, Aim" learning methodology of duct taping together a handful of tutorials and a cursory glance through the documentation will lead to confusion and frustration. This curriculum is designed to properly guide you through each of the key Angular concepts thoroughly with a broad exposure to high quality content. With your eventual mastery of AngularJS, you will be able to fluently and efficiently construct large-scale applications.',
         likes: 0,

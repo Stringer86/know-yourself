@@ -16,6 +16,8 @@ export default class App extends React.Component {
 
       lessons: [],
 
+      lesson: [],
+
       myLessons: [],
 
       incompleteLessons: [],
@@ -42,6 +44,10 @@ export default class App extends React.Component {
 
   getLessons(lessons) {
     this.setState({ lessons: lessons });
+  }
+
+  getLesson(lesson) {
+    this.setState({ lesson: lesson })
   }
 
   getUserData(userData) {
@@ -132,6 +138,8 @@ export default class App extends React.Component {
             getIncompleteLessons={this.getIncompleteLessons.bind(this)}
             getWish={this.getWish.bind(this)}
             wishItem={this.state.wishItem}
+            lesson={this.state.lesson}
+            getLesson={this.getLesson.bind(this)}
           />
         </main>
         <Footer />

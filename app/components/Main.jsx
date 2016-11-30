@@ -4,7 +4,7 @@ import Home from './Home';
 import Category from './Category';
 import WriteAnswer from './WriteAnswer';
 import WriteLesson from './WriteLesson';
-// import ReadLesson from './Readlesson';
+import ReadLesson from './ReadLesson';
 // import Category from './Category';
 import Profile from './Profile';
 import { Match, Miss, Link} from 'react-router';
@@ -61,6 +61,12 @@ export default class Main extends React.Component {
           () => <WriteAnswer
             getWish={this.props.getWish}
             wishItem={this.props.wishItem}
+          />
+        }/>
+        <Match pattern="/lesson/:id?" render={
+          () => <ReadLesson
+              lesson={this.props.lesson}
+              getLesson={this.props.getLesson}
           />
         }/>
         <Miss component={NotFound} />

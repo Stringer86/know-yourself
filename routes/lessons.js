@@ -25,8 +25,8 @@ const authorize = function(req, res, next) {
 };
 
 router.get('/api/lessons', (_req, res, next) => {
-  knex('lessons')
-    .innerJoin('users', 'users.id', 'lessons.user_id')
+  knex('users') // refactor to use select as
+    .innerJoin('lessons', 'users.id', 'lessons.user_id')
     .orderBy('lessons.updated_at')
     .then((rows) => {
       const lessons = camelizeKeys(rows);
@@ -41,7 +41,6 @@ router.get('/api/lessons', (_req, res, next) => {
 router.get('/api/lessons/:id', (req, res, next) => {
 
   const id = Number.parseInt(req.params.id);
-  console.log(id);
 
   knex('lessons')
   .where('id', id)
@@ -51,6 +50,28 @@ router.get('/api/lessons/:id', (req, res, next) => {
       throw boom.create(404, 'Not Found');
     }
 
+    const lesson = camelizeKeys(row);
+
+    res.send(lesson);
+  })
+  .catch((err) => {
+    next(err);
+  });
+});
+
+router.get('/api/lesson/:title', (req, res, next) => {
+
+  const title = req.params.title + '?';
+
+  console.log(title);
+
+
+  knex('lessons')
+  .where('title', title)
+  .then((row) => {
+    if (!row) {
+      throw boom.create(404, 'Not Found');
+    }
     const lesson = camelizeKeys(row);
 
     res.send(lesson);
