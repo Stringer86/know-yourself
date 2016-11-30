@@ -10,7 +10,7 @@ export default class WishList extends React.Component {
         this.props.getWishList(res.data).bind(this);
       })
       .catch(err => {
-        this.props.getWishList(err).bind(this);
+        console.log(err);
       });
   }
 
