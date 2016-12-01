@@ -16,6 +16,7 @@ exports.up = function(knex) {
     table.text('description').notNullable().defaultTo('');
     table.boolean('published').notNullable();
     table.text('body').notNullable().defaultTo('');
+    table.text('code').notNullable().defaultTo('');
     table.integer('likes').defaultTo(0);
     table.timestamps(true, true);
   });
