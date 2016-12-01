@@ -10,8 +10,8 @@ export default class WriteAnswer extends React.Component {
       category: this.refs['category'].value,
       description: this.refs['description'].value,
       published: true,
-      code: this.refs.['code'].value,
-      body: this.refs.['body'].value,
+      code: this.refs['code'].value,
+      body: this.refs['body'].value,
       likes: 0
     })
     .then(res => {

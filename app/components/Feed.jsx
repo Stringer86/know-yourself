@@ -29,7 +29,7 @@ export default class Feed extends React.Component {
   render() {
     if (this.props.lessons.length === 0 || this.props.favorites.length === 0) {
       return (
-        <div>popop</div>
+        <div></div>
       )
     }
     const lessonList = this.props.lessons.map((lesson, index) => {

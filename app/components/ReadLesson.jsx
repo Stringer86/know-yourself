@@ -28,7 +28,11 @@ export default class ReadLesson extends React.Component {
     const initialCodeString = this.props.lesson.code;
     return (
           <div className="container">
+          <h4>{this.props.lesson.title}</h4>
+          <h5>Category: {this.props.lesson.category}</h5>
+          <h1>Description: {this.props.lesson.description}</h1>
           <SyntaxHighlighter style={tomorrowNightEighties}>{initialCodeString}</SyntaxHighlighter>
+          <p>{this.props.lesson.body}</p>
 
            </div>
     )}
