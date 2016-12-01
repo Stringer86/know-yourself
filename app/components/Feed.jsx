@@ -17,6 +17,7 @@ export default class Feed extends React.Component {
 
     axios.all([getLess(), getFavs()])
       .then(axios.spread(function (lessons, favs) {
+        console.log(lessons.data);
         feed.props.getLessons(lessons.data)
         feed.props.getFavorites(favs.data)
       }))
@@ -27,7 +28,7 @@ export default class Feed extends React.Component {
   }
 
   render() {
-    if (this.props.lessons.length === 0 || this.props.favorites.length === 0) {
+    if (this.props.lessons.length === 0) {
       return (
         <div></div>
       )

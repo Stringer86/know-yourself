@@ -8,7 +8,6 @@ export default class LessonCard extends React.Component {
   constructor(props) {
     super(props)
     let fav = this.props.favorited;
-    console.log(fav);
     this.state = {
       favorited: fav
     }
@@ -51,6 +50,7 @@ export default class LessonCard extends React.Component {
       url: `/api/lessons/${this.props.data.id}`
     })
     .then(res => {
+      console.log(res.data);
       axios.get('/api/user')
         .then(res => {
           this.props.getMyLessons(res.data).bind(this);

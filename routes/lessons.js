@@ -132,7 +132,6 @@ router.delete('/api/lessons/:id', authorize, (req, res, next) => {
   console.log(id);
 
   knex('lessons')
-    .where('user_id', userId)
     .where('id', id)
     .del()
     .then(() => {
