@@ -28,6 +28,7 @@ export default class Main extends React.Component {
             getWishList={this.props.getWishList}
             favorites={this.props.favorites}
             getFavorites={this.props.getFavorites}
+            isLoggedIn={this.props.isLoggedIn}
           />
         }/>
         <Match pattern="/signup" exactly render={

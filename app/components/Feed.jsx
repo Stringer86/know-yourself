@@ -28,6 +28,7 @@ export default class Feed extends React.Component {
   }
 
   render() {
+    console.log("Feed!");
     if (this.props.lessons.length === 0) {
       return (
         <div></div>
@@ -40,6 +41,7 @@ export default class Feed extends React.Component {
       this.props.favorites.forEach((favorite) => {
         if (lesson.id === favorite.lessonId) {
           favorited = true;
+          console.log(lesson.title, lesson.id, favorite.lessonId, favorited);
         }
         else {
           favorited = false;
