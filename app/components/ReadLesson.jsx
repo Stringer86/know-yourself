@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios';
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { tomorrowNightEighties } from 'react-syntax-highlighter/dist/styles';
 
 export default class ReadLesson extends React.Component {
   componentDidMount() {
@@ -23,10 +25,20 @@ export default class ReadLesson extends React.Component {
       return <div></div>
     }
 
-    return <div className="container center-align">
-        <h1>{this.props.lesson.title}</h1>
-        <h4>Category: {this.props.lesson.category} </h4>
-        <p>{this.props.lesson.body}</p>
-      </div>
+    const initialCodeString = `const woah = fun => fun + 1;
+    const dude = woah(2) + 3;
+    function thisIsAFunction() {
+      return [1,2,3].map(n => n + 1).filter(n !== 3);
     }
+    console.log('making up fake code is really hard');
+    function itIs() {
+      return 'no seriously really it is';
+    }
+      `
+    return (
+          <div>
+          <SyntaxHighlighter style={tomorrowNightEighties}>{initialCodeString}</SyntaxHighlighter>
+
+           </div>
+    )}
 }
