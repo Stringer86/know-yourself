@@ -25,18 +25,9 @@ export default class ReadLesson extends React.Component {
       return <div></div>
     }
 
-    const initialCodeString = `const woah = fun => fun + 1;
-    const dude = woah(2) + 3;
-    function thisIsAFunction() {
-      return [1,2,3].map(n => n + 1).filter(n !== 3);
-    }
-    console.log('making up fake code is really hard');
-    function itIs() {
-      return 'no seriously really it is';
-    }
-      `
+    const initialCodeString = this.props.lesson.code;
     return (
-          <div>
+          <div className="container">
           <SyntaxHighlighter style={tomorrowNightEighties}>{initialCodeString}</SyntaxHighlighter>
 
            </div>
