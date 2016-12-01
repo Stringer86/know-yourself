@@ -44,6 +44,7 @@ export default class LessonCard extends React.Component {
   }
 
   render() {
+    console.log(this.props.data);
       return (
 
       <div className="row">
