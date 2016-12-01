@@ -19,6 +19,15 @@ module.exports.post = {
       .required()
       .trim(),
 
+    published: Joi.boolean()
+      .label('published')
+      .required(),
+
+    code: Joi.string()
+      .label('code')
+      .required()
+      .trim(),
+
     body: Joi.string()
       .label('body')
       .required()

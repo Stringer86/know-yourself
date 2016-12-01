@@ -1,6 +1,7 @@
 import React from 'react';
 import Wish from './Wish';
 import axios from 'axios';
+import { Link } from 'react-router';
 
 export default class WishList extends React.Component {
 
@@ -26,6 +27,9 @@ export default class WishList extends React.Component {
 
     return (
       <div className="row" id="wishlist-container">
+        <div className="col s12 btn">
+          <Link to="question">Ask a Question</Link>
+        </div>
         { wishes }
       </div>
     )

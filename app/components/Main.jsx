@@ -3,6 +3,7 @@ import NotFound from './NotFound';
 import Home from './Home';
 import Category from './Category';
 import WriteLesson from './WriteLesson';
+import WriteQuestion from './WriteQuestion';
 import ReadLesson from './ReadLesson';
 // import Category from './Category';
 import Profile from './Profile';
@@ -59,6 +60,9 @@ export default class Main extends React.Component {
         }/>
         <Match pattern="/write-lesson/:id?" render={
           () => <WriteLesson />
+        }/>
+        <Match pattern="/question" render={
+          () => <WriteQuestion />
         }/>
         <Match pattern="/lesson/:id?" render={
           () => <ReadLesson
