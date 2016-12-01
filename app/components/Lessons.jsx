@@ -5,6 +5,13 @@ import LessonCard from './LessonCard';
 // import Favorites from './Favorites';
 
 export default class Lessons extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      myLesson: true
+    }
+  }
   componentDidMount() {
       axios.get('/api/user')
         .then(res => {
@@ -29,6 +36,8 @@ export default class Lessons extends React.Component {
     }).map((lesson, index) => {
       return <LessonCard data={lesson}
                          key={index}
+                         myLesson={this.state.myLesson}
+                         getMyLessons={this.props.getMyLessons}
             />
     })
 

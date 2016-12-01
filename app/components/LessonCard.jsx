@@ -43,11 +43,35 @@ export default class LessonCard extends React.Component {
     })
   }
 
+  deleteLesson(event) {
+    event.preventDefault();
+    console.log(this.props.data.id);
+    axios({
+      method: 'delete',
+      url: `/api/lessons/${this.props.data.id}`
+    })
+    .then(res => {
+      axios.get('/api/user')
+        .then(res => {
+          this.props.getMyLessons(res.data).bind(this);
+        })
+        .catch(err => {
+        console.log(err);
+      })
+    })
+    .catch(err => {
+      console.log(err);
+    })
+  }
+
   render() {
       return (
 
       <div className="row">
       <div className="col s12 card">
+      {this.props.myLesson &&
+        <div className="btn col s6" onClick={this.deleteLesson.bind(this)}>Delete</div>
+      }
         <p><img className="img-circle" src={this.props.data.photoUrl} height='40px' width='40px' />By: {this.props.data.firstName}</p>
         <h4><strong>{this.props.data.title}</strong></h4>
         <p><strong>Category:</strong> {this.props.data.category}</p>
