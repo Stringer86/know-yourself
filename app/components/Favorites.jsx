@@ -28,6 +28,7 @@ export default class Favorites extends React.Component {
     const myFavorites = this.props.favorites.map((favorite, index) => {
       return <LessonCard data={favorite}
                          key={index}
+                         id={favorite.lessonId}
                          favorited={favorited}
                          />
     })

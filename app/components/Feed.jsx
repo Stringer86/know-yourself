@@ -27,14 +27,21 @@ export default class Feed extends React.Component {
   }
 
   render() {
+    if (this.props.lessons.length === 0 || this.props.favorites.length === 0) {
+      return (
+        <div>popop</div>
+      )
+    }
     const lessonList = this.props.lessons.map((lesson, index) => {
 
-      let favorited = false;
+      let favorited;
 
       this.props.favorites.forEach((favorite) => {
-        console.log(favorite);
         if (lesson.id === favorite.lessonId) {
           favorited = true;
+        }
+        else {
+          favorited = false;
         }
       })
 

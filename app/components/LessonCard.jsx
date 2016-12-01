@@ -5,6 +5,15 @@ import axios from 'axios';
 
 export default class LessonCard extends React.Component {
 
+  constructor(props) {
+    super(props)
+    let fav = this.props.favorited;
+    console.log(fav);
+    this.state = {
+      favorited: fav
+    }
+  }
+
   favorite(event) {
     event.preventDefault()
     axios.post('/api/favorites', {
@@ -12,6 +21,7 @@ export default class LessonCard extends React.Component {
     })
     .then(res => {
       console.log("added!");
+      this.setState({favorited: !this.state.favorited})
     })
     .catch(err => {
       console.log(err);
@@ -24,6 +34,12 @@ export default class LessonCard extends React.Component {
       method: 'delete',
       url: `/api/favorites`,
       data: {lessonId: this.props.id}
+    })
+    .then(res => {
+      this.setState({favorited: !this.state.favorited})
+    })
+    .catch(err => {
+      console.log(err);
     })
   }
 
@@ -42,10 +58,10 @@ export default class LessonCard extends React.Component {
         <div className="btn col s6">
         <Link to={`/lesson/${this.props.data.id}`}>Read</Link>
         </div>
-        {!this.props.favorited &&
+        {!this.state.favorited &&
           <div className="btn col s6" onClick={this.favorite.bind(this)}>Favorite</div>
         }
-        {this.props.favorited &&
+        {this.state.favorited &&
           <div className="btn col s6" onClick={this.removeFav.bind(this)}>Favorited</div>
         }
         </div>
