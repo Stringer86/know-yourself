@@ -56,7 +56,7 @@ export default class Wish extends React.Component {
          </div>
          <div className="row">
            <div className="col s4 offset-s1 btn">
-             <Link to={`/write-lesson/${this.props.data.id}`}>answer</Link>
+             <Link to='/write-lesson'>answer</Link>
            </div>
          </div>
        </div>

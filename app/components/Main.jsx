@@ -10,7 +10,6 @@ import Profile from './Profile';
 import { Match, Miss, Link, Redirect} from 'react-router';
 import SignUp from './SignUp';
 import SignIn from './SignIn';
-import LessonCard from './LessonCard';
 
 export default class Main extends React.Component {
 
@@ -43,20 +42,16 @@ export default class Main extends React.Component {
           )
         }/>
         <Match pattern="/profile" render={
-          () => this.props.isLoggedIn ? (
-            <Profile
-              userData={this.props.userData}
-              getUserData={this.props.getUserData}
-              favorites={this.props.favorites}
-              getFavorites={this.props.getFavorites}
-              myLessons={this.props.myLessons}
-              getMyLessons={this.props.getMyLessons}
-              incompleteLessons={this.props.incompleteLessons}
-              getIncompleteLessons={this.props.getIncompleteLessons}
-            />
-          ) : (
-            <Redirect to="/" />
-          )
+          () => <Profile
+            userData={this.props.userData}
+            getUserData={this.props.getUserData}
+            favorites={this.props.favorites}
+            getFavorites={this.props.getFavorites}
+            myLessons={this.props.myLessons}
+            getMyLessons={this.props.getMyLessons}
+            incompleteLessons={this.props.incompleteLessons}
+            getIncompleteLessons={this.props.getIncompleteLessons}
+          />
         }/>
         <Match pattern="/category" render={
           () => <Category
@@ -64,10 +59,15 @@ export default class Main extends React.Component {
                 getLessons={this.props.getLessons}
               />
         }/>
-        <Match pattern="/write-lesson/:id?" render={
-          () => <WriteLesson />
+        <Match pattern="/write-lesson" exactly render={
+          () => <WriteLesson
+            getUserData={this.props.getUserData}
+            userData={this.props.userData}
+            publishedArticle={this.props.publishedArticle}
+            getPublished={this.props.getPublished}
+          />
         }/>
-        <Match pattern="/question" render={
+        <Match pattern="/question" exactly render={
           () => <WriteQuestion />
         }/>
         <Match pattern="/lesson/:id?" render={

@@ -28,7 +28,9 @@ export default class App extends React.Component {
 
       favorites: [],
 
-      wishItem: []
+      wishItem: [],
+
+      publishedArticle: []
     }
   }
 
@@ -110,7 +112,12 @@ export default class App extends React.Component {
     this.setState({ wishes: nextWishes });
   }
 
+  getPublished(article) {
+    this.setState({publishedArticle: article });
+  }
+
   render() {
+    console.log(this.state.publishedArticle);
     return (
       <BrowserRouter>
       <div>
@@ -120,6 +127,8 @@ export default class App extends React.Component {
             />
         <main>
           <Main
+            publishedArticle={this.state.publishedArticle}
+            getPublished={this.getPublished.bind(this)}
             upVote={this.upVote.bind(this)}
             downVote={this.downVote.bind(this)}
             authUser={this.authUser.bind(this)}
