@@ -14,11 +14,6 @@ module.exports.post = {
       .required()
       .trim(),
 
-    concept: Joi.string()
-      .label('concept')
-      .required()
-      .trim(),
-
     description: Joi.string()
       .label('description')
       .required()

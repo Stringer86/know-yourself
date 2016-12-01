@@ -12,7 +12,6 @@ exports.up = function(knex) {
 
     table.string('title').notNullable().defaultTo('');
     table.string('category');
-    table.string('concept');
     table.text('description').notNullable().defaultTo('');
     table.boolean('published').notNullable();
     table.text('body').notNullable().defaultTo('');
