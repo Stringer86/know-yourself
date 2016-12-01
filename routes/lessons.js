@@ -84,9 +84,9 @@ router.get('/api/lesson/:title', (req, res, next) => {
 router.post('/api/lessons', authorize, ev(validations.post), (req, res, next) => {
   const { userId } = req.token;
 
-  const { title, category, concept, description, published, body, likes } = req.body;
+  const { title, category, description, published, code, body, likes } = req.body;
 
-  const insertLesson = { userId, title, category, concept, description, published, body, likes };
+  const insertLesson = { userId, title, category, description, published, code, body, likes  };
 
   knex('lessons')
       .insert(decamelizeKeys(insertLesson), '*')
@@ -95,12 +95,13 @@ router.post('/api/lessons', authorize, ev(validations.post), (req, res, next) =>
     });
 });
 
+// this may need to be changed b/c we deleted concept
 router.patch('/api/lessons/:id', authorize, (req, res, next) => {
   const { userId } = req.token;
 
   const id = Number.parseInt(req.params.id);
 
-  const { title, category, concept, description, published, body, likes } = req.body;
+  const { title, category, description, published, body, likes } = req.body;
 
   knex('lessons')
   .where('id', id)

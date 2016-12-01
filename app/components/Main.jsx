@@ -58,10 +58,7 @@ export default class Main extends React.Component {
               />
         }/>
         <Match pattern="/write-lesson/:id?" render={
-          () => <WriteLesson
-            getWish={this.props.getWish}
-            wishItem={this.props.wishItem}
-          />
+          () => <WriteLesson />
         }/>
         <Match pattern="/lesson/:id?" render={
           () => <ReadLesson
