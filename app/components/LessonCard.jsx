@@ -78,15 +78,6 @@ export default class LessonCard extends React.Component {
       }
         <p><img className="img-circle" src={this.props.data.photoUrl} height='40px' width='40px' />By: {this.props.data.firstName}</p>
         <h4><strong>{this.props.data.title}</strong></h4>
-        {this.props.publishedArticle &&
-          <p><strong>Category:</strong> {this.props.publishedArticle.category}</p>
-        }
-        {this.props.publishedArticle &&
-          <p><strong>Description:</strong> {this.props.publishedArticle.description}</p>
-        }
-        {this.props.publishedArticle &&
-          <p>{this.props.publishedArticle.body.substring(0, 200)}...</p>
-        }
         <p><strong>Category:</strong> {this.props.data.category}</p>
         <p><strong>Description:</strong>{this.props.data.description}</p>
         <p>{this.props.data.body.substring(0, 200)}...</p>

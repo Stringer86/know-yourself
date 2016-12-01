@@ -59,7 +59,7 @@ export default class Main extends React.Component {
                 getLessons={this.props.getLessons}
               />
         }/>
-        <Match pattern="/write-lesson" exactly render={
+        <Match pattern="/write-lesson" render={
           () => <WriteLesson
             getUserData={this.props.getUserData}
             userData={this.props.userData}

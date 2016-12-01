@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import LessonCard from './LessonCard';
+import ReviewCard from './ReviewCard';
 import { Redirect, Match, Link } from 'react-router';
 
 export default class WriteAnswer extends React.Component {
@@ -12,15 +12,6 @@ export default class WriteAnswer extends React.Component {
 
       favorited: false
     }
-  }
-  componentDidMount() {
-    axios.get('/api/userData')
-      .then(res => {
-        this.props.getUserData(res.data).bind(this);
-      })
-      .catch(err => {
-      console.log(err);
-    });
   }
 
   publish(event) {
@@ -36,6 +27,7 @@ export default class WriteAnswer extends React.Component {
       likes: 0
     })
     .then((res) => {
+      console.log(res.data.lesson[0], 'looking for');
       this.props.getPublished(res.data.lesson[0]).bind(this);
       this.setState({ published: res.data.posted })
 
@@ -47,10 +39,6 @@ export default class WriteAnswer extends React.Component {
 
 
   render() {
-    if (this.props.userData.length === 0) {
-      return <div></div>
-    }
-    
     return <div>
       <div>
         <input type="text" ref="title" placeholder="Title" />
@@ -60,11 +48,12 @@ export default class WriteAnswer extends React.Component {
         <textarea ref="body" placeholder="Now explain the code..."></textarea>
         <button type="submit" onClick={this.publish.bind(this)}><Link to="/write-lesson/review">Publish</Link></button>
       </div>
-      <div>
+      <div className="container">
         <Match pattern="/write-lesson/review" exactly render={
-          () => <LessonCard
+          () => <ReviewCard
             userData={this.props.userData}
             publishedArticle={this.props.publishedArticle}
+            getUserData={this.props.getUserData}
           />
         }/>
       </div>

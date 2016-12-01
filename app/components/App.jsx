@@ -53,6 +53,7 @@ export default class App extends React.Component {
   }
 
   getUserData(userData) {
+    console.log(userData);
     this.setState({ userData: userData });
   }
 
