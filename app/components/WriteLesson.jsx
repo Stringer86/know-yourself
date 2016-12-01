@@ -34,7 +34,6 @@ export default class WriteAnswer extends React.Component {
     });
   }
 
-
   render() {
       if(this.state.publishedArticle.length === 0) {
         return <div>
@@ -54,6 +53,4 @@ export default class WriteAnswer extends React.Component {
       </div>
     }
   }
-
-
 }
