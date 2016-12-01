@@ -27,7 +27,8 @@ export default class WriteAnswer extends React.Component {
       likes: 0
     })
     .then((res) => {
-      this.setState({ published: res.data.posted, publishedArticle: [res.data.lesson[0]] })
+      this.setState({ published: res.data.posted, publishedArticle: [res.data.lesson[0]] });
+      window.location.href="/review";
     })
     .catch(err => {
       return err;
@@ -35,22 +36,25 @@ export default class WriteAnswer extends React.Component {
   }
 
   render() {
-      if(this.state.publishedArticle.length === 0) {
-        return <div>
-          <input type="text" ref="title" placeholder="Title" />
-          <input type="text" ref="category" placeholder="Category" />
-          <textarea ref="description" placeholder="Description"></textarea>
-          <textarea ref="code" placeholder="Let's see the code..."></textarea>
-          <textarea ref="body" placeholder="Now explain the code..."></textarea>
-          <button type="submit" onClick={this.publish.bind(this)}>Publish</button>
-        </div>
-      }
 
-      if(this.state.publishedArticle.length > 0) {
-        return
+    return
+    <div>
       <div>
-        <h1>kadfjlad</h1>
+        <input type="text" ref="title" placeholder="Title" />
+        <input type="text" ref="category" placeholder="Category" />
+        <textarea ref="description" placeholder="Description"></textarea>
+        <textarea ref="code" placeholder="Let's see the code..."></textarea>
+        <textarea ref="body" placeholder="Now explain the code..."></textarea>
+        <button type="submit" onClick={this.publish.bind(this)}>Publish</button>
       </div>
-    }
+    <div>
+      {/* <Match pattern="/write-lesson/review" render={
+        () => <LessonCard
+          publishedArticle={this.state.publishedArticle}
+        />
+      }/> */}
+    </div>
+  </div>
+
   }
 }

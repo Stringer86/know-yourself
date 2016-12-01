@@ -35,8 +35,6 @@ export default class Wish extends React.Component {
     this.props.downVote(wish);
   }
 
-  // check if the title matching the wish has a lesson asscociated. If it is
-  // does show, show read button, otherwise, hide
   componentDidMount() {
     axios.get('/api/lessons/')
   }
