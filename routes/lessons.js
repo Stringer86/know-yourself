@@ -13,7 +13,6 @@ const { camelizeKeys, decamelizeKeys } = require('humps');
 const router = express.Router();
 
 const authorize = function(req, res, next) {
-  console.log("authorize");
   jwt.verify(req.cookies.token, process.env.JWT_SECRET, (err, decoded) => {
     if (err) {
       return next(boom.create(401, 'Unauthorized'));
@@ -83,13 +82,15 @@ router.get('/api/lesson/:title', (req, res, next) => {
 
 router.post('/api/lessons', authorize, ev(validations.post), (req, res, next) => {
   const { userId } = req.token;
-
   const { title, category, description, published, code, body, likes } = req.body;
 
   const insertLesson = { userId, title, category, description, published, code, body, likes  };
 
   knex('lessons')
       .insert(decamelizeKeys(insertLesson), '*')
+      .then((row) => {
+        res.send({lesson: row, posted: true});
+      })
       .catch((err) => {
         next(err);
     });
