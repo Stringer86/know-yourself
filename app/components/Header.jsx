@@ -7,7 +7,7 @@ export default class Header extends React.Component {
   logOut(event) {
     event.preventDefault();
 
-    axios.delete('/api/token')
+    axios.delete('/token')
       .then(res => {
         this.props.authUser(false).bind(this);
       })
