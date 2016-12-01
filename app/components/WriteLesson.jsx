@@ -4,14 +4,16 @@ import ReviewCard from './ReviewCard';
 import { Redirect, Match, Link } from 'react-router';
 
 export default class WriteAnswer extends React.Component {
-  constructor(props) {
-    super(props)
 
-    this.state = {
-      published: false,
+  componentDidMount() {
 
-      favorited: false
-    }
+    axios.get('/api/userData')
+      .then(res => {
+        this.props.getUserData(res.data).bind(this);
+      })
+      .catch(err => {
+      console.log(err);
+    });
   }
 
   publish(event) {
@@ -54,6 +56,7 @@ export default class WriteAnswer extends React.Component {
             userData={this.props.userData}
             publishedArticle={this.props.publishedArticle}
             getUserData={this.props.getUserData}
+            getPublished={this.props.getPublished}
           />
         }/>
       </div>
