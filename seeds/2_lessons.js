@@ -1,3 +1,5 @@
+/* eslint-disable camelcase, max-len */
+
 'use strict';
 
 exports.seed = function(knex) {
@@ -123,14 +125,14 @@ export class MyComponent {
         created_at: new Date('2016-06-26 14:26:16 UTC'),
         updated_at: new Date('2016-06-26 14:26:16 UTC')
       }, {
-          id: 6,
-          user_id: 1,
-          category: 'Meteor',
-          title: '7 Reasons to Develop Your Next Web App with Meteor',
-          description: 'I will be explaining why you should be using Meteor today.',
-          published: false,
-          body: 'When I first learned about the Meteor JavaScript framework, I saw someone write, “Meteor is to Node.js as Rails is to Ruby,” and I think that’s a good comparison. A few years ago, Rails was the hot new thing on the web, sprinkling some useful “magic” through the development process to make programming on the web more approachable and pleasant. Out of the countless new frameworks that have spawned as of late though, none have made me feel the way Rails did as much as Meteor — a framework that you should seriously consider using for your coming projects. Here’s a few reasons why. Lately, companies like Twitter and Facebook have been moving toward a real-time web. It’s inevitable that, sooner than you probably expect, users will expect web applications to work near-instantaneously. I imagine there’s already users who wince whenever a separate page load is required for simple tasks like changing settings and logging out. The problem is, creating real-time web applications is tricky. Or at least, it was. Meteor has real-time built into its core though. When the database is updated, the data in your templates is updated. When a user clicks a button or submits a form, the action occurs immediately. In the vast majority of cases, this doesn’t even require any extra effort. You build a web application as you normally would and, out of the box, it just happens to be real-time.',
-          code: `import { Template } from 'meteor/templating';
+        id: 6,
+        user_id: 1,
+        category: 'Meteor',
+        title: '7 Reasons to Develop Your Next Web App with Meteor',
+        description: 'I will be explaining why you should be using Meteor today.',
+        published: false,
+        body: 'When I first learned about the Meteor JavaScript framework, I saw someone write, “Meteor is to Node.js as Rails is to Ruby,” and I think that’s a good comparison. A few years ago, Rails was the hot new thing on the web, sprinkling some useful “magic” through the development process to make programming on the web more approachable and pleasant. Out of the countless new frameworks that have spawned as of late though, none have made me feel the way Rails did as much as Meteor — a framework that you should seriously consider using for your coming projects. Here’s a few reasons why. Lately, companies like Twitter and Facebook have been moving toward a real-time web. It’s inevitable that, sooner than you probably expect, users will expect web applications to work near-instantaneously. I imagine there’s already users who wince whenever a separate page load is required for simple tasks like changing settings and logging out. The problem is, creating real-time web applications is tricky. Or at least, it was. Meteor has real-time built into its core though. When the database is updated, the data in your templates is updated. When a user clicks a button or submits a form, the action occurs immediately. In the vast majority of cases, this doesn’t even require any extra effort. You build a web application as you normally would and, out of the box, it just happens to be real-time.',
+        code: `import { Template } from 'meteor/templating';
 import { Tasks } from '../api/tasks.js';
 import './body.html';
 Template.body.helpers({
@@ -158,9 +160,9 @@ Template.body.events({
     target.text.value = '';
   },
 });`,
-          likes: 4,
-          created_at: new Date('2016-06-26 14:26:16 UTC'),
-          updated_at: new Date('2016-06-26 14:26:16 UTC')
+        likes: 4,
+        created_at: new Date('2016-06-26 14:26:16 UTC'),
+        updated_at: new Date('2016-06-26 14:26:16 UTC')
       }, {
         id: 7,
         user_id: 2,

@@ -1,3 +1,4 @@
+/* eslint-disable camelcase, max-len */
 'use strict';
 
 exports.seed = function(knex) {
@@ -13,7 +14,7 @@ exports.seed = function(knex) {
         photo_url: 'http://www.jesus-is-savior.com/Evils%20in%20America/Rock-n-Roll/gene_simmons.jpg',
         bio: 'In addition to being a senior developer at google, I also play bass in a Kiss cover band',
         created_at: new Date('2016-06-29 14:26:16 UTC'),
-        updated_at: new Date('2016-06-29 14:26:16 UTC'),
+        updated_at: new Date('2016-06-29 14:26:16 UTC')
       },
       {
         id: 2,
@@ -25,12 +26,12 @@ exports.seed = function(knex) {
         photo_url: 'https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAjYAAAAJDFlYWJlNzk3LTY5YzYtNDk3Yy1iNWQwLTAwZTkzOWVhZGY1OA.jpg',
         bio: 'Everything I learned in life, I learned at Galvanize',
         created_at: new Date('2016-06-29 14:26:16 UTC'),
-        updated_at: new Date('2016-06-29 14:26:16 UTC'),
+        updated_at: new Date('2016-06-29 14:26:16 UTC')
       }
     ]);
     })
     .then(() => {
       return knex.raw("SELECT setval('users_id_seq', (SELECT MAX(id) FROM users));"
     );
-  });
+    });
 };

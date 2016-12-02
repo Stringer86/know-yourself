@@ -11,7 +11,7 @@ exports.up = function(knex) {
       .references('id')
       .inTable('users')
       .onDelete('CASCADE');
-    });
+  });
 };
 
 exports.down = function(knex) {

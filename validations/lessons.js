@@ -31,6 +31,6 @@ module.exports.post = {
     body: Joi.string()
       .label('body')
       .required()
-      .trim(),
+      .trim()
   }
 };

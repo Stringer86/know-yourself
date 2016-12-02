@@ -1,3 +1,4 @@
+/* eslint-disable max-len*/
 'use strict';
 
 const boom = require('boom');
@@ -46,7 +47,6 @@ router.post('/api/wishList', authorize, ev(validations.post), (req, res, next) =
 });
 
 router.patch('/api/wishList/:id', authorize, (req, res, next) => {
-  console.log('here');
   const { userId } = req.token;
   const { upvotes } = req.body;
   const id = Number.parseInt(req.params.id);

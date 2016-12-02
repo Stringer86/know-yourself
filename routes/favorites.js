@@ -1,13 +1,11 @@
+/* eslint-disable max-len */
 'use strict';
 
-const bcrypt = require('bcrypt-as-promised');
 const boom = require('boom');
 const express = require('express');
 const jwt = require('jsonwebtoken');
 const knex = require('../knex');
 const { camelizeKeys, decamelizeKeys } = require('humps');
-const ev = require('express-validation');
-const validations = require('../validations/users')
 
 // eslint-disable-next-line new-cap
 const router = express.Router();
@@ -23,7 +21,6 @@ const authorize = function(req, res, next) {
   });
 };
 
-
 router.post('/api/favorites', authorize, (req, res, next) => {
   const { userId } = req.token;
   const { lessonId } = req.body;
@@ -38,12 +35,13 @@ router.post('/api/favorites', authorize, (req, res, next) => {
     .then((exists) => {
       if (exists) {
         throw next(boom.create(404, 'User already favorited this lesson'));
-      } else {
+      }
+      else {
         return knex('favorites')
           .insert(decamelizeKeys(insertLesson), '*')
           .then((rows) => {
             if (!rows) {
-              throw next(boom.create(404, 'Lesson not found'))
+              throw next(boom.create(404, 'Lesson not found'));
             }
 
             const lesson = camelizeKeys(rows[0]);
@@ -68,8 +66,8 @@ router.get('/api/favorites', authorize, (req, res, next) => {
     .where('favorites.user_id', userId)
     .orderBy('favorites.created_at', 'ASC')  // check to make sure it's ordering properly
     .then((rows) => {
+      const favorites = camelizeKeys(rows);
 
-      const favorites = camelizeKeys(rows)
       res.send(favorites);
     })
     .catch((err) => {
@@ -81,7 +79,6 @@ router.delete('/api/favorites', authorize, (req, res, next) => {
   const { userId } = req.token;
   const lessonId = req.body.lessonId;
 
-  console.log(req.body);
   knex('favorites')
     .where('lesson_id', lessonId)
     .first()
@@ -102,6 +99,5 @@ router.delete('/api/favorites', authorize, (req, res, next) => {
       next(err);
     });
 });
-
 
 module.exports = router;

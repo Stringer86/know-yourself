@@ -1,3 +1,4 @@
+/* eslint-disable max-len camelcase */
 'use strict';
 
 const bcrypt = require('bcrypt-as-promised');
@@ -7,7 +8,7 @@ const jwt = require('jsonwebtoken');
 const knex = require('../knex');
 const { camelizeKeys, decamelizeKeys } = require('humps');
 const ev = require('express-validation');
-const validations = require('../validations/users')
+const validations = require('../validations/users');
 
 // eslint-disable-next-line new-cap
 const router = express.Router();
@@ -55,7 +56,7 @@ router.post('/api/user', ev(validations.post), (req, res, next) => {
         .insert(decamelizeKeys(insertUser), '*');
     })
     .then((row) => {
-      res.send("success")
+      res.send('success');
     })
     .catch((err) => {
       next(err);
@@ -70,8 +71,8 @@ router.get('/api/user', authorize, (req, res, next) => {
     .where('lessons.user_id', userId)
     .orderBy('lessons.updated_at', 'ASC')  // check to make sure it's ordering properly
     .then((rows) => {
+      const userInfo = camelizeKeys(rows);
 
-      const userInfo = camelizeKeys(rows)
       res.send(userInfo);
     })
     .catch((err) => {
@@ -85,7 +86,8 @@ router.get('/api/userData', authorize, (req, res, next) => {
   knex('users')
     .where('id', userId)
     .then((rows) => {
-      const userData = camelizeKeys(rows)
+      const userData = camelizeKeys(rows);
+
       res.send(userData);
     })
     .catch((err) => {
@@ -106,10 +108,12 @@ router.patch('/api/user', authorize, (req, res, next) => {
       photo_url: photoUrl,
       bio: bio
     })
+    .then((row) => {
+      res.send('success');
+    })
     .catch((err) => {
       next(err);
     });
 });
-
 
 module.exports = router;
