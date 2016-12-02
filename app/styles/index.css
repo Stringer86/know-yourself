@@ -221,6 +221,24 @@ nav {
   color: #02b875;
 }
 
+.form-field {
+  margin-top: 30px;
+}
+
+.write-instructions {
+  color: lightgrey;
+}
+
+.instruction-title {
+  font-size: 20px;
+  color: white;
+  font-size: 72px;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0;
+}
+
+
 /*#submit-lesson {
   border: 1px solid #02b875;
   background: transparent;

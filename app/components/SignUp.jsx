@@ -30,25 +30,37 @@ export default class SignUp extends React.Component {
         <div className="row">
           <form className="col s12">
             <h2 className="auth-title center-align">Sign Up</h2>
-            <div className="col s10 offset-s1">
-              <label>First Name</label>
-              <input type="text" autoFocus ref="firstName"/>
+            <div className="row">
+              <div className="col s10 offset-s1 m6 offset-m3">
+                <label>First Name</label>
+                <input type="text" autoFocus ref="firstName"/>
+              </div>
             </div>
-            <div className="col s10 offset-s1">
-              <label>Last Name</label>
-              <input type="text" ref="lastName" />
+            <div className="row">
+              <div className="col s10 offset-s1 m6 offset-m3">
+                <label>Last Name</label>
+                <input type="text" ref="lastName" />
+              </div>
             </div>
-            <div className="col s10 offset-s1">
-              <label>UserName</label>
-              <input type="text" ref="userName" />
+            <div className="row">
+              <div className="col s10 offset-s1 m6 offset-m3">
+                <label>UserName</label>
+                <input type="text" ref="userName" />
+              </div>
             </div>
-            <div className="col s10 offset-s1">
-              <label>Email</label>
-              <input type="email" ref="email"/>
+            <div className="row">
+              <div className="col s10 offset-s1 m6 offset-m3">
+                <label>Email</label>
+                <input type="email" ref="email"/>
+              </div>
             </div>
-            <div className="col s10 offset-s1">
-              <label>Password</label>
-              <input type="password" ref="password"/>
+            <div className="row">
+              <div className="col s10 offset-s1 m6 offset-m3">
+                <label>Password</label>
+                <input type="password" ref="password"/>
+              </div>
+            </div>
+            <div>
               <div className="row center-align">
               <button id="action-button" type="button" name="button" onClick={this.signUp.bind(this)}>Sign Up</button>
               </div>

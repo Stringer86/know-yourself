@@ -48,25 +48,30 @@ export default class WriteAnswer extends React.Component {
   render() {
     return <div>
     <div id="question-container">
-    <div className="row">
-        <input className="col s12 m3 offset-m1" type="text" ref="title" placeholder="Title" />
+      <div className="row">
+        <div className="col s12">
+          <div className="row">
+            <h1 className="instruction-title"><strong>how it works</strong></h1>
+            <p className="col s12 m6 offset-m3 write-instructions center-align">The idea is to write one piece of code on one of the specific framework or libraries you see in the navbar. and then explain what you did in plain english. We feel that
+            often times people are willing to show off code online, but we believe it is more helpful to learn through both code <i>and</i> explanation.</p>
+          </div>
+          <div className="row">
+            <input className="col s12 m3 offset-m1" type="text" ref="title" placeholder="Title" />
+            <input className="col s12 m2 offset-m1" type="text" ref="category" placeholder="Category" />
+            <input className="col s12 m3 offset-m1" type="text" ref="description" placeholder="Description" />
+          </div>
         </div>
-        <div className="row">
-        <input className="col s12 m3 offset-m1" type="text" ref="category" placeholder="Category" />
-        </div>
-        <div className="row">
-        <textarea className="card-1 col s12 m3 offset-m1" ref="description" placeholder="Description"></textarea>
-        </div>
-        <div className="row">
+      </div>
+      <div className="row">
         <textarea className="card-1 col s12 m10 offset-m1 lesson-box" ref="code" placeholder="Let's see the code..."></textarea>
-        </div>
-        <div className="row">
+      </div>
+      <div className="row">
         <textarea className="card-1 col s12 m10 offset-m1 lesson-box" ref="body" placeholder="Now explain the code..."></textarea>
-        </div>
-        <div className="row center-align">
+      </div>
+      <div className="row center-align">
         <button id="submit-question" type="submit" onClick={this.publish.bind(this)}><Link to="/write-lesson/review">Publish</Link></button>
       </div>
-      </div>
+    </div>
       <div className="container">
         <Match pattern="/write-lesson/review" exactly render={
           () => <ReviewCard
