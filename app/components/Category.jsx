@@ -49,9 +49,9 @@ export default class Category extends React.Component {
               categoryLessons }
 
             {filteredLessons.length < 1 &&
-              <div className="row center-align">
+              <div className="row center-align nothingFound">
               <h1>Nothing written on this subject</h1>
-              <button><Link to="/write-lesson">Write a lesson</Link></button>
+              <button id="submit-question"><Link to="/write-lesson">Write a lesson</Link></button>
               </div>
             }
 

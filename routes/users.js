@@ -54,6 +54,9 @@ router.post('/api/user', ev(validations.post), (req, res, next) => {
       return knex('users')
         .insert(decamelizeKeys(insertUser), '*');
     })
+    .then((row) => {
+      res.send("success")
+    })
     .catch((err) => {
       next(err);
     });

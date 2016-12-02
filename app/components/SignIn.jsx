@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router';
+import Notifications, {notify} from 'react-notify-toast';
+
 
 export default class SignIn extends React.Component {
 
@@ -11,10 +13,11 @@ export default class SignIn extends React.Component {
       password: this.refs['password'].value
     })
     .then(res => {
+      notify.show('Signed In!', 'success')
       this.props.authUser(true).bind(this);
     })
     .catch(err => {
-      console.log(err);
+      notify.show('Incorrect username or password', 'error')
     });
   }
 
@@ -32,7 +35,9 @@ export default class SignIn extends React.Component {
             <div className="col s10 offset-s1">
               <label>Password</label>
               <input type="password" ref="password" />
-              <button type="button" name="button" onClick={this.signIn.bind(this)}>Sign In</button>
+              <div className="row center-align">
+              <button id="submit-question" type="button" name="button" onClick={this.signIn.bind(this)}>Sign In</button>
+              </div>
             </div>
           </form>
           </div>

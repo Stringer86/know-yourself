@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios';
+import Notifications, {notify} from 'react-notify-toast';
+
 
 export default class SignUp extends React.Component {
 
@@ -13,10 +15,11 @@ export default class SignUp extends React.Component {
       password: this.refs['password'].value
         })
         .then(function (response) {
-            console.log(response);
+          notify.show('You are now signed up!', 'success')
         })
         .catch(function (error) {
-            console.log(error);
+          notify.show(`${error}`, 'success')
+
         });
   }
 
@@ -46,7 +49,9 @@ export default class SignUp extends React.Component {
             <div className="col s10 offset-s1">
               <label>Password</label>
               <input type="password" ref="password"/>
-              <button type="button" name="button" onClick={this.signUp.bind(this)}>Sign Up</button>
+              <div className="row center-align">
+              <button id="submit-question" type="button" name="button" onClick={this.signUp.bind(this)}>Sign Up</button>
+              </div>
             </div>
           </form>
           </div>
