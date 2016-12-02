@@ -8,25 +8,17 @@ export default class Wish extends React.Component {
     axios.patch(`/api/wishList/${this.props.data.id}`, {
       upvotes: upvotes
     })
-    .then((res) => {
-      console.log(res.data);
-    })
     .catch((err) => {
       return err;
     })
     const wish = this.props.data;
     this.props.upVote(wish);
-
-
   }
 
   downVoted() {
     const upvotes = this.props.data.upvotes - 1;
     axios.patch(`/api/wishList/${this.props.data.id}`, {
       upvotes: upvotes
-    })
-    .then((res) => {
-      console.log(res.data);
     })
     .catch((err) => {
       return err;
@@ -36,27 +28,27 @@ export default class Wish extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/api/lessons/')
+    axios.get('/api/lessons/');
   }
 
   render() {
     return (
-     <div className="row wish-container">
-       <div className="col s12 wish-item">
-         <div className="row info">
-           <div className="col s4">
-               <div className="arrow-up" onClick={this.upvoted.bind(this)}></div>
-               <p className="upvote-count">{this.props.data.upvotes}</p>
-               <div className="arrow-down" onClick={this.downVoted.bind(this)}></div>
-           </div>
-           <div className="col s7">
-             <h4 className="wish-question"><strong>Question:</strong> {this.props.data.question}</h4>
-             <p><strong>Category:</strong> {this.props.data.category}</p>
-             <Link className="btn write-button" to='/write-lesson'>Write Lesson</Link>
-           </div>
-         </div>
-       </div>
-     </div>
-   )
- }
+      <div className="row wish-container">
+        <div className="col s12 wish-item">
+          <div className="row info">
+            <div className="col s4">
+              <div className="arrow-up" onClick={this.upvoted.bind(this)}></div>
+                <p className="upvote-count">{this.props.data.upvotes}</p>
+              <div className="arrow-down" onClick={this.downVoted.bind(this)}></div>
+            </div>
+            <div className="col s7">
+              <h4 className="wish-question"><strong>Question:</strong> {this.props.data.question}</h4>
+              <p><strong>Category:</strong> {this.props.data.category}</p>
+              <Link className="btn write-button" to='/write-lesson'>Write Lesson</Link>
+            </div>
+          </div>
+        </div>
+      </div>
+   );
+  }
 }

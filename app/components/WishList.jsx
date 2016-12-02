@@ -4,7 +4,6 @@ import axios from 'axios';
 import { Link } from 'react-router';
 
 export default class WishList extends React.Component {
-
   componentWillMount() {
     axios.get('/api/wishList')
       .then(res => {
@@ -17,12 +16,11 @@ export default class WishList extends React.Component {
 
   render() {
     const wishes = this.props.wishes.map((wish, index) => {
-      return <Wish
-        upVote={this.props.upVote}
-        downVote={this.props.downVote}
-        data={wish}
-        key={index}
-      />
+      return <Wish upVote={this.props.upVote}
+                   downVote={this.props.downVote}
+                   data={wish}
+                   key={index}
+              />
     });
 
     return (
@@ -42,8 +40,7 @@ export default class WishList extends React.Component {
             { wishes }
           </div>
         </div>
-    </div>
-    )
+      </div>
+    );
   }
-
 }

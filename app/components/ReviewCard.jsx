@@ -4,10 +4,9 @@ import axios from 'axios';
 
 
 export default class ReviewCard extends React.Component {
-
   deleteLesson(event) {
-    console.log(this.props.publishedArticle.id);
     event.preventDefault();
+
     axios({
       method: 'delete',
       url: `/api/lessons/${this.props.publishedArticle.id}`
@@ -24,35 +23,32 @@ export default class ReviewCard extends React.Component {
       })
     })
     .catch(err => {
-      console.log(err);
+      return err;
     })
   }
 
   render() {
-
     if(this.props.publishedArticle.length === 0) {
-      return <div></div>
+      return false;
     }
-      return (
 
+    return (
       <div className="row">
         <div className="col s12 card">
-        <div className="row cardTop">
-        <div classname="col s1">
-        <img className="img-circle" src={this.props.userData[0].photoUrl} height='40px' width='40px' />
-        </div>
-        <div className="col s10 authorName">
-          <p>{this.props.userData[0].firstName} {this.props.lastName} <span className="on"> on </span> <Link to={`/category/${this.props.publishedArticle.category}`}>{this.props.publishedArticle.category}</Link></p>
-        </div>
-        </div>
-        <h4 className="title">{this.props.publishedArticle.title}</h4>
-        <h5 className="description">{this.props.publishedArticle.description}</h5>
-        <p className="readMore"><Link to={`/lesson/${this.props.publishedArticle.id}`}>Read More...</Link></p>
-        <div className="btn delete" onClick={this.deleteLesson.bind(this)}><Link to="/write-lesson">Delete</Link>
-        </div>
+          <div className="row cardTop">
+            <div classname="col s1">
+              <img className="img-circle" src={this.props.userData[0].photoUrl} height='40px' width='40px' />
+            </div>
+            <div className="col s10 authorName">
+              <p>{this.props.userData[0].firstName} {this.props.lastName} <span className="on"> on </span> <Link to={`/category/${this.props.publishedArticle.category}`}>{this.props.publishedArticle.category}</Link></p>
+            </div>
           </div>
+          <h4 className="title">{this.props.publishedArticle.title}</h4>
+          <h5 className="description">{this.props.publishedArticle.description}</h5>
+          <p className="readMore"><Link to={`/lesson/${this.props.publishedArticle.id}`}>Read More...</Link></p>
+          <div className="btn delete" onClick={this.deleteLesson.bind(this)}><Link to="/write-lesson">Delete</Link></div>
         </div>
-
-    )
+      </div>
+    );
   }
 }

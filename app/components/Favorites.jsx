@@ -1,12 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import LessonCard from './LessonCard';
-// import Lessons from './Lessons';
-// import IncompleteLessons from './IncompleteLessons';
-// import Favorites from './Favorites';
 
 export default class Favorites extends React.Component {
-
   componentDidMount() {
       axios.get('/api/favorites')
         .then(res => {
@@ -18,25 +14,23 @@ export default class Favorites extends React.Component {
     }
 
   render() {
-
     if(this.props.favorites.length === 0) {
-      return <div></div>
+      return false;
     }
 
     const favorited = true;
-
     const myFavorites = this.props.favorites.map((favorite, index) => {
       return <LessonCard data={favorite}
                          key={index}
                          id={favorite.lessonId}
                          favorited={favorited}
-                         />
-    })
+              />
+    });
 
     return (
-          <div>
-              { myFavorites }
-          </div>
+      <div>
+          { myFavorites }
+      </div>
     );
   }
 }

@@ -30,20 +30,19 @@ export default class WriteQuestion extends React.Component {
             <input ref="category" type="text" placeholder="Framework or library name..." />
           </div>
         </div>
+
         <div className="row">
           <div className="row">
           <textarea ref="question" className="card-1 col s12 m6 offset-m3" placeholder="Write Question..."></textarea>
           </div>
-          {/* <div className="card-1 col s12 m6 offset-m3">
-            <textarea ref="question" placeholder="Write question..."></textarea>
-          </div> */}
         </div>
+
         <div className="row">
           <div className="col s12 m6 offset-m3 center-align">
             <button id="submit-question" type="submit" onClick={this.submit.bind(this)}>Submit</button>
           </div>
         </div>
       </div>
-    )
+    );
   }
 }

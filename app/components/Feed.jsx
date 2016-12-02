@@ -4,10 +4,7 @@ import axios from 'axios';
 
 
 export default class Feed extends React.Component {
-
   componentDidMount() {
-
-    const feed = this;
     function getLess() {
       return axios.get('/api/lessons')
     }
@@ -16,52 +13,43 @@ export default class Feed extends React.Component {
     }
 
     axios.all([getLess(), getFavs()])
-      .then(axios.spread(function (lessons, favs) {
-        console.log(lessons.data);
-        feed.props.getLessons(lessons.data)
-        feed.props.getFavorites(favs.data)
+      .then(axios.spread((lessons, favs) => {
+        this.props.getLessons(lessons.data)
+        this.props.getFavorites(favs.data)
       }))
-      .catch((error) => {
-        console.log(error);
+      .catch(err => {
+        return err;
       });
-
   }
 
   render() {
     console.log("Feed!");
     if (this.props.lessons.length === 0) {
-      return (
-        <div></div>
-      )
+      return false;
     }
-    const lessonList = this.props.lessons.map((lesson, index) => {
 
+    const lessonList = this.props.lessons.map((lesson, index) => {
       let favorited;
 
       this.props.favorites.forEach((favorite) => {
         if (lesson.id === favorite.lessonId) {
           favorited = true;
-          console.log(lesson.title, lesson.id, favorite.lessonId, favorited);
-        }
-        else {
+        } else {
           favorited = false;
         }
-      })
+      });
 
       return <LessonCard data={lesson}
                          key={index}
                          id={lesson.id}
                          favorited={favorited}
-
-      />
+              />
     });
-
 
     return (
       <div>
         { lessonList }
       </div>
-    )
+    );
   }
-
 }

@@ -1,8 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import LessonCard from './LessonCard';
-// import IncompleteLessons from './IncompleteLessons';
-// import Favorites from './Favorites';
 
 export default class Lessons extends React.Component {
   constructor(props) {
@@ -12,21 +10,20 @@ export default class Lessons extends React.Component {
       myLesson: true
     }
   }
+
   componentDidMount() {
-      axios.get('/api/user')
-        .then(res => {
-          console.log(res.data);
-          this.props.getMyLessons(res.data).bind(this);
-        })
-        .catch(err => {
-        console.log(err);
-      });
-    }
+    axios.get('/api/user')
+      .then(res => {
+        this.props.getMyLessons(res.data).bind(this);
+      })
+      .catch(err => {
+        return err;
+    });
+  }
 
   render() {
-
     if(this.props.myLessons.length === 0) {
-      return <div></div>
+      return false;
     }
 
     const myLessons = this.props.myLessons.filter((e) => {
@@ -38,13 +35,13 @@ export default class Lessons extends React.Component {
                          key={index}
                          myLesson={this.state.myLesson}
                          getMyLessons={this.props.getMyLessons}
-            />
-    })
+              />
+    });
 
     return (
-          <div>
-              { myLessons }
-          </div>
+      <div>
+        { myLessons }
+      </div>
     );
   }
 }

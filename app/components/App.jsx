@@ -54,7 +54,6 @@ export default class App extends React.Component {
   }
 
   getUserData(userData) {
-    console.log(userData);
     this.setState({ userData: userData });
   }
 
@@ -119,43 +118,42 @@ export default class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.publishedArticle);
     return (
       <BrowserRouter>
-      <div>
-        <Notifications />
-        <Header
-            isLoggedIn={this.state.isLoggedIn}
-            authUser={this.authUser.bind(this)}
+        <div>
+          <Notifications />
+          <Header
+              isLoggedIn={this.state.isLoggedIn}
+              authUser={this.authUser.bind(this)}
+              />
+          <main>
+            <Main
+              publishedArticle={this.state.publishedArticle}
+              getPublished={this.getPublished.bind(this)}
+              upVote={this.upVote.bind(this)}
+              downVote={this.downVote.bind(this)}
+              authUser={this.authUser.bind(this)}
+              userData={this.state.userData}
+              getUserData={this.getUserData.bind(this)}
+              lessons={this.state.lessons}
+              getLessons={this.getLessons.bind(this)}
+              isLoggedIn={this.state.isLoggedIn}
+              wishes={this.state.wishes}
+              getWishList={this.getWishList.bind(this)}
+              favorites={this.state.favorites}
+              getFavorites={this.getFavorites.bind(this)}
+              myLessons={this.state.myLessons}
+              getMyLessons={this.getMyLessons.bind(this)}
+              incompleteLessons={this.state.incompleteLessons}
+              getIncompleteLessons={this.getIncompleteLessons.bind(this)}
+              getWish={this.getWish.bind(this)}
+              wishItem={this.state.wishItem}
+              lesson={this.state.lesson}
+              getLesson={this.getLesson.bind(this)}
             />
-        <main>
-          <Main
-            publishedArticle={this.state.publishedArticle}
-            getPublished={this.getPublished.bind(this)}
-            upVote={this.upVote.bind(this)}
-            downVote={this.downVote.bind(this)}
-            authUser={this.authUser.bind(this)}
-            userData={this.state.userData}
-            getUserData={this.getUserData.bind(this)}
-            lessons={this.state.lessons}
-            getLessons={this.getLessons.bind(this)}
-            isLoggedIn={this.state.isLoggedIn}
-            wishes={this.state.wishes}
-            getWishList={this.getWishList.bind(this)}
-            favorites={this.state.favorites}
-            getFavorites={this.getFavorites.bind(this)}
-            myLessons={this.state.myLessons}
-            getMyLessons={this.getMyLessons.bind(this)}
-            incompleteLessons={this.state.incompleteLessons}
-            getIncompleteLessons={this.getIncompleteLessons.bind(this)}
-            getWish={this.getWish.bind(this)}
-            wishItem={this.state.wishItem}
-            lesson={this.state.lesson}
-            getLesson={this.getLesson.bind(this)}
-          />
-        </main>
-        <Footer />
-      </div>
+          </main>
+          <Footer />
+        </div>
       </BrowserRouter>
     )
   }

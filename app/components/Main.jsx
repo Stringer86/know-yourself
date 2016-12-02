@@ -5,34 +5,33 @@ import Category from './Category';
 import WriteLesson from './WriteLesson';
 import WriteQuestion from './WriteQuestion';
 import ReadLesson from './ReadLesson';
-// import Category from './Category';
 import Profile from './Profile';
 import { Match, Miss, Link, Redirect} from 'react-router';
 import SignUp from './SignUp';
 import SignIn from './SignIn';
 
 export default class Main extends React.Component {
-
   render() {
     return (
       <div className="row">
         <Match pattern="/" exactly render={
           () => <Home
-            upVote={this.props.upVote}
-            downVote={this.props.downVote}
-            lessons={this.props.lessons}
-            getLessons={this.props.getLessons}
-            wishes={this.props.wishes}
-            getWishList={this.props.getWishList}
-            favorites={this.props.favorites}
-            getFavorites={this.props.getFavorites}
-            isLoggedIn={this.props.isLoggedIn}
-          />
+                  upVote={this.props.upVote}
+                  downVote={this.props.downVote}
+                  lessons={this.props.lessons}
+                  getLessons={this.props.getLessons}
+                  wishes={this.props.wishes}
+                  getWishList={this.props.getWishList}
+                  favorites={this.props.favorites}
+                  getFavorites={this.props.getFavorites}
+                  isLoggedIn={this.props.isLoggedIn}
+                />
         }/>
+
         <Match pattern="/signup" exactly render={
-          () => <SignUp
-              />
+          () => <SignUp />
         }/>
+
         <Match pattern="/signin" exactly render={() =>
           this.props.isLoggedIn ? (
             <Redirect to="/" />
@@ -40,44 +39,47 @@ export default class Main extends React.Component {
             <SignIn authUser={this.props.authUser} />
           )
         }/>
+
         <Match pattern="/profile" render={
           () => <Profile
-            userData={this.props.userData}
-            getUserData={this.props.getUserData}
-            favorites={this.props.favorites}
-            getFavorites={this.props.getFavorites}
-            myLessons={this.props.myLessons}
-            getMyLessons={this.props.getMyLessons}
-            incompleteLessons={this.props.incompleteLessons}
-            getIncompleteLessons={this.props.getIncompleteLessons}
-          />
+                  userData={this.props.userData}
+                  getUserData={this.props.getUserData}
+                  favorites={this.props.favorites}
+                  getFavorites={this.props.getFavorites}
+                  myLessons={this.props.myLessons}
+                  getMyLessons={this.props.getMyLessons}
+                  incompleteLessons={this.props.incompleteLessons}
+                  getIncompleteLessons={this.props.getIncompleteLessons}
+                />
         }/>
         <Match pattern="/category" render={
           () => <Category
-                lessons={this.props.lessons}
-                getLessons={this.props.getLessons}
-              />
+                  lessons={this.props.lessons}
+                  getLessons={this.props.getLessons}
+                />
         }/>
         <div id="background">
           <Match pattern="/write-lesson" render={
             () => <WriteLesson
-              getUserData={this.props.getUserData}
-              userData={this.props.userData}
-              publishedArticle={this.props.publishedArticle}
-              getPublished={this.props.getPublished}
-            />
+                    getUserData={this.props.getUserData}
+                    userData={this.props.userData}
+                    publishedArticle={this.props.publishedArticle}
+                    getPublished={this.props.getPublished}
+                  />
           }/>
 
           <Match pattern="/question" exactly render={
             () => <WriteQuestion />
           }/>
         </div>
+
         <Match pattern="/lesson/:id?" render={
           () => <ReadLesson
-              lesson={this.props.lesson}
-              getLesson={this.props.getLesson}
+                  lesson={this.props.lesson}
+                  getLesson={this.props.getLesson}
           />
         }/>
+
         <Miss component={NotFound} />
       </div>
     );
