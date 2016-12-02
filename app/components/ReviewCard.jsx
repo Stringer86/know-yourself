@@ -37,20 +37,22 @@ export default class ReviewCard extends React.Component {
 
       <div className="row">
         <div className="col s12 card">
-        <div className="btn col s3" onClick={this.deleteLesson.bind(this)}><Link to="/write-lesson">Delete</Link></div>
-        <div className="row"></div>
-        <p><img className="img-circle" src={this.props.userData[0].photoUrl} height='40px' width='40px' />By: {this.props.userData[0].firstName}</p>
-        <h4><strong>Title: {this.props.publishedArticle.title}</strong></h4>
-        <p><strong>Category:</strong> {this.props.publishedArticle.category}</p>
-        <p><strong>Description:</strong>{this.props.publishedArticle.description}</p>
-        <p>{this.props.publishedArticle.body.substring(0, 200)}...</p>
-        <div className="row btnrow">
-          <div className="btn col s6">
-            <Link to={`/lesson/${this.props.publishedArticle.id}`}>Read</Link>
+        <div className="row cardTop">
+        <div classname="col s1">
+        <img className="img-circle" src={this.props.userData[0].photoUrl} height='40px' width='40px' />
+        </div>
+        <div className="col s10 authorName">
+          <p>{this.props.userData[0].firstName} {this.props.lastName} <span className="on"> on </span> <Link to={`/category/${this.props.publishedArticle.category}`}>{this.props.publishedArticle.category}</Link></p>
+        </div>
+        </div>
+        <h4 className="title">{this.props.publishedArticle.title}</h4>
+        <h5 className="description">{this.props.publishedArticle.description}</h5>
+        <p className="readMore"><Link to={`/lesson/${this.props.publishedArticle.id}`}>Read More...</Link></p>
+        <div className="btn delete" onClick={this.deleteLesson.bind(this)}><Link to="/write-lesson">Delete</Link>
+        </div>
           </div>
         </div>
-      </div>
-    </div>
+
     )
   }
 }
