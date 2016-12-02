@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import SyntaxHighlighter from 'react-syntax-highlighter';
+import { Link } from 'react-router';
 import { tomorrowNightEighties } from 'react-syntax-highlighter/dist/styles';
 
 export default class ReadLesson extends React.Component {
@@ -28,11 +29,13 @@ export default class ReadLesson extends React.Component {
     const initialCodeString = this.props.lesson.code;
     return (
           <div className="container">
-          <h4>{this.props.lesson.title}</h4>
-          <h5>Category: {this.props.lesson.category}</h5>
-          <h1>Description: {this.props.lesson.description}</h1>
+          <div className="row center-align">
+          <p className="lesson-title">{this.props.lesson.title}</p>
+          </div>
+          <p className="lesson-description">{this.props.lesson.description}</p>
+          <p className="lesson-category"><Link to={`/category/${this.props.lesson.category}`}>{this.props.lesson.category}</Link></p>
           <SyntaxHighlighter style={tomorrowNightEighties}>{initialCodeString}</SyntaxHighlighter>
-          <p>{this.props.lesson.body}</p>
+          <p className="lesson-body">{this.props.lesson.body}</p>
 
            </div>
     )}
