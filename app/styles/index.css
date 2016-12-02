@@ -178,7 +178,6 @@ nav {
 #question-button a {
   color: #02b848;
 }
-
 .write-button {
   font-size: 10px;
   letter-spacing: 1.2px;
@@ -194,16 +193,21 @@ nav {
 
 /* WriteQuestion.jsx */
 #submit-question {
-  border: 1px solid #02b875;
+  border: 1px solid white;
   background: transparent;
   padding: 10px;
   width: 142px;
   height: 42px;
   border-radius: 20px;
-  color: #02b875;
+  color: white;
 }
 
-#submit-lesson {
+#submit-question:hover {
+  border: 1px solid #02b875;
+  transition: .8s ease all;
+}
+
+/*#submit-lesson {
   border: 1px solid #02b875;
   background: transparent;
   padding: 10px;
@@ -214,7 +218,7 @@ nav {
 
 #submit-lesson a {
   color: #02b875;
-}
+}*/
 
 #question-container {
   padding: 30px 0;
@@ -397,7 +401,9 @@ div.col.s10.authorName {
 .lesson-body {
   font-family: "Arial", serif;
   line-height: 1.4em;
-  font-size: 18px;
+  font-size: 16px;
+  color: rgba(0, 0, 0, .6);
+  margin-bottom: 100px;
 }
 
 .lesson-title {
@@ -410,6 +416,11 @@ div.col.s10.authorName {
   font-style: italic;
   font-size: 30px;
   color: rgba(0,0,0,.44);
+}
+
+.lesson-description,
+.lesson-category {
+  text-align: center;
 }
 
 .lesson-category a{

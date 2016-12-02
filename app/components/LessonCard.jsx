@@ -87,12 +87,12 @@ export default class LessonCard extends React.Component {
         <div className="row">
         {!this.state.favorited &&
           <div>
-          <img onClick={this.favorite.bind(this)} className="icon icons8-Like" src="../img/outline-heart.png" width="30" height="30" />
+            <img onClick={this.favorite.bind(this)}  src="../img/outline-heart.png" width="30" height="30" />
           </div>
         }
         {this.state.favorited &&
           <div>
-          <img onClick={this.removeFav.bind(this)} className="icon icons8-Like-Filled" src="../img/filled-heart.png" width="30" height="30" />
+            <img onClick={this.removeFav.bind(this)}  src="../img/filled-heart.png" width="30" height="30" />
           </div>
         }
         {this.props.myLesson &&

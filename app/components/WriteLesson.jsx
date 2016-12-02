@@ -31,6 +31,11 @@ export default class WriteAnswer extends React.Component {
     })
     .then((res) => {
       notify.show('Published!', 'success');
+      this.refs['title'].value = '',
+      this.refs['category'].value = '',
+      this.refs['description'].value = '',
+      this.refs['code'].value = '',
+      this.refs['body'].value = '',
       this.props.getPublished(res.data.lesson[0]).bind(this);
       this.setState({ published: res.data.posted })
     })
@@ -59,7 +64,7 @@ export default class WriteAnswer extends React.Component {
         <textarea className="card-1 col s12 m10 offset-m1 lesson-box" ref="body" placeholder="Now explain the code..."></textarea>
         </div>
         <div className="row center-align">
-        <button id="submit-lesson" type="submit" onClick={this.publish.bind(this)}><Link to="/write-lesson/review">Publish</Link></button>
+        <button id="submit-question" type="submit" onClick={this.publish.bind(this)}><Link to="/write-lesson/review">Publish</Link></button>
       </div>
       </div>
       <div className="container">
