@@ -42,13 +42,25 @@ export default class WriteAnswer extends React.Component {
 
   render() {
     return <div>
-      <div>
-        <input type="text" ref="title" placeholder="Title" />
-        <input type="text" ref="category" placeholder="Category" />
-        <textarea ref="description" placeholder="Description"></textarea>
-        <textarea ref="code" placeholder="Let's see the code..."></textarea>
-        <textarea ref="body" placeholder="Now explain the code..."></textarea>
-        <button type="submit" onClick={this.publish.bind(this)}><Link to="/write-lesson/review">Publish</Link></button>
+    <div className="container" id="question-container">
+    <div className="row">
+        <input className="col s12 m6 offset-m3" type="text" ref="title" placeholder="Title" />
+        </div>
+        <div className="row">
+        <input className="col s12 m6 offset-m3" type="text" ref="category" placeholder="Category" />
+        </div>
+        <div className="row">
+        <textarea className="col s12 m6 offset-m3" ref="description" placeholder="Description"></textarea>
+        </div>
+        <div className="row">
+        <textarea className="col s12 m10 offset-m1" ref="code" placeholder="Let's see the code..."></textarea>
+        </div>
+        <div className="row">
+        <textarea className="col s12 m10 offset-m1" ref="body" placeholder="Now explain the code..."></textarea>
+        </div>
+        <div className="row center-align">
+        <button id="submit-lesson" type="submit" onClick={this.publish.bind(this)}><Link to="/write-lesson/review">Publish</Link></button>
+      </div>
       </div>
       <div className="container">
         <Match pattern="/write-lesson/review" exactly render={

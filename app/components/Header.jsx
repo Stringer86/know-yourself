@@ -31,15 +31,15 @@ export default class Header extends React.Component {
             {!this.props.isLoggedIn &&
               <ul id="auth-list">
                 <li id="write-hook"><Link to="/write-lesson">Write a lesson</Link></li>
-                <li><Link to="/signin" style={{color: 'orange'}}>Sign in</Link></li>
-                <li><Link to="/signup" style={{color: 'orange'}}>Sign up</Link></li>
+                <li><Link to="/signin" style={{color: '#02b875', 'fontSize': '14px'}}>Sign in</Link></li>
+                <li><Link to="/signup" style={{color: '#02b875', 'fontSize': '14px'}}>Sign up</Link></li>
               </ul>
             }
             {this.props.isLoggedIn &&
               <ul id="auth-list">
                 <li id="write-hook"><Link to="/write-lesson">Write a lesson</Link></li>
-                <li onClick={this.logOut.bind(this)}><Link to="/signin" style={{color: 'orange'}}>Log Out</Link></li>
-                <li><Link to="/profile" style={{color: 'orange'}}>My Profile</Link></li>
+                <li><Link to="/profile" style={{color: '#02b875', 'fontSize': '14px'}}>My Profile</Link></li>
+                <li onClick={this.logOut.bind(this)}><Link to="/signin" style={{color: '#02b875', 'fontSize': '14px'}}>Log Out</Link></li>
               </ul>
             }
             </div>
