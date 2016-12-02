@@ -7,24 +7,31 @@ exports.seed = function(knex) {
       .insert(
         [{
           id: 1,
-          question: "do you even?",
+          question: "Could someone explain how state works in react?",
           category: "React",
           upvotes: 5,
-          user_id: 1
+          user_id: 2
         },
         {
           id: 2,
-          question: "do you like?",
-          category: "Angular",
+          question: "How does react router work?",
+          category: "React",
           upvotes: 20,
           user_id: 1
         },
         {
           id: 3,
-          question: "do you jeeze?",
-          category: "Ember",
+          question: "How does two way data binding work in angular?",
+          category: "Angular",
           upvotes: 42,
           user_id: 1
+        },
+        {
+          id: 4,
+          question: "What is ember? I have no idea",
+          category: "Ember",
+          upvotes: 42,
+          user_id: 2
         }]
       );
     })
