@@ -56,7 +56,7 @@ nav {
 
 /* notFound */
 .nothingFound {
- margin-top: 10%
+ margin-top: 15%
 }
 
 /* hero */
@@ -112,28 +112,28 @@ nav {
 .arrow-up {
   width: 0;
   height: 0;
-  border-left: 25px solid transparent;
-  border-right: 25px solid transparent;
-  border-bottom: 25px solid #474747;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 15px solid #474747;
   margin: 0 auto;
 }
 
 .arrow-down {
   width: 0;
   height: 0;
-  border-left: 25px solid transparent;
-  border-right: 25px solid transparent;
+  border-left:15px solid transparent;
+  border-right:15px solid transparent;
 
-  border-top: 25px solid #474747;
+  border-top:15px solid #474747;
   margin: 0 auto;
 }
 
 .arrow-up:hover {
-  border-bottom: 25px solid black;
+  border-bottom: 15px solid black;
 }
 
 .arrow-down:hover {
-  border-top: 25px solid black;
+  border-top: 15px solid black;
 }
 
 .upvote-count {
@@ -153,19 +153,34 @@ nav {
 }
 
 .wish-item {
-  margin-top: 30px;
+  margin-top: 10px;
   border-bottom: 1px solid lightgrey;
 }
 
-#question-button {
+.info {
+  margin-bottom: 0;
+}
+
+#question-button  {
   letter-spacing: 1.2px;
   font-size: 12px;
   position: absolute;
   right: 0;
+  margin-left: 5px;
+  padding-left: 7px;
+  padding-right: 7px;
+  display: inline-block;
+  margin-top: -20px;
+  background: none;
+  border: 1px solid #02b848;
+}
+
+#question-button a {
+  color: #02b848;
 }
 
 .write-button {
-  font-size: 12px;
+  font-size: 10px;
   letter-spacing: 1.2px;
   margin-bottom: 30px;
   height: 42px;
@@ -249,42 +264,43 @@ input[type=text] {
 }
 
 input::-webkit-input-placeholder {
-  color: #02b875 !important;
+  color: #fff !important;
+  font-size: 17px;
 }
 
 textarea::-webkit-input-placeholder {
-  color: #02b875 !important;
-  font-size: 20px;
+  color: black;
+  font-size: 17px;
 }
 
 input:-moz-placeholder { /* Firefox 18- */
-color: #02b875 !important;
-font-size: 20px;
+  color: black;
+  font-size: 17px;
 }
 
 textarea::-webkit-input-placeholder {
-  color: #02b875 !important;
-  font-size: 20px;
+  color: black;
+  font-size: 17px;
 }
 
 input::-moz-placeholder {  /* Firefox 19+ */
-color: #02b875 !important;
-font-size: 20px;
+  color: black;
+  font-size: 17px;
 }
 
 textarea::-webkit-input-placeholder {
-  color: #02b875 !important;
-  font-size: 20px;
+  color: black;
+  font-size: 17px;
 }
 
 input:-ms-input-placeholder {
-  color: #02b875 !important;
-  font-size: 16px;
+  color: black;
+  font-size: 17px;
 }
 
 textarea::-webkit-input-placeholder {
-  color: #02b875 !important;
-  font-size: 20px;
+  color: black;
+  font-size: 17px;
 }
 
 

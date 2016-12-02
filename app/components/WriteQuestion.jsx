@@ -24,12 +24,12 @@ export default class WriteQuestion extends React.Component {
       <div className="container" id="question-container">
         <div className="row">
           <div className="col s12 m6 offset-m3">
-            <input ref="category" type="text" placeholder="What framework or library do you have a question about..." />
+            <input ref="category" type="text" placeholder="Framework or library name..." />
           </div>
         </div>
         <div className="row">
           <div className="col s12 m6 offset-m3">
-            <textarea ref="question" placeholder="What's your question? We'll see if someone can get it answered..."></textarea>
+            <textarea ref="question" placeholder="Write question..."></textarea>
           </div>
         </div>
         <div className="row">

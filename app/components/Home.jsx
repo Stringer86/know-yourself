@@ -16,7 +16,7 @@ export default class Home extends React.Component {
           </div>
           <div>
             {this.props.isLoggedIn &&
-              <div className="col s12 m7 l6">
+              <div className="col s12 m6 offset-m1">
                 <Feed lessons={this.props.lessons}
                   getLessons={this.props.getLessons}
                   favorites={this.props.favorites}
@@ -26,7 +26,7 @@ export default class Home extends React.Component {
             }
 
             {!this.props.isLoggedIn &&
-              <div className="col s12 m4 l6">
+              <div className="col s12 m6 offset-m1">
                 <VisitorFeed lessons={this.props.lessons}
                   getLessons={this.props.getLessons}
                   favorites={this.props.favorites}
@@ -35,7 +35,7 @@ export default class Home extends React.Component {
               </div>
             }
 
-            <div className="col s12 m4 l4 offset-s2">
+            <div className="col s12 m4">
               <WishList
                 upVote={this.props.upVote}
                 downVote={this.props.downVote}

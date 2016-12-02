@@ -28,11 +28,14 @@ export default class WishList extends React.Component {
     return (
       <div>
         <div className="row" id="wishlist-title">
-          <p>Recently asked questions</p>
-          <div className="btn" id="question-button">
-            <Link to="question">Ask a Question</Link>
+          <div className="s4">
+            <p>Recently asked questions</p>
           </div>
-
+          <div className="s4">
+            <div className="btn" id="question-button">
+              <Link to="question">Ask a Question</Link>
+            </div>
+          </div>
         </div>
         <div className="row" id="wishlist-container">
           <div>
