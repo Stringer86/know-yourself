@@ -50,7 +50,7 @@ export default class SignUp extends React.Component {
               <label>Password</label>
               <input type="password" ref="password"/>
               <div className="row center-align">
-              <button id="submit-question" type="button" name="button" onClick={this.signUp.bind(this)}>Sign Up</button>
+              <button id="action-button" type="button" name="button" onClick={this.signUp.bind(this)}>Sign Up</button>
               </div>
             </div>
           </form>

@@ -36,7 +36,7 @@ export default class SignIn extends React.Component {
               <label>Password</label>
               <input type="password" ref="password" />
               <div className="row center-align">
-              <button id="submit-question" type="button" name="button" onClick={this.signIn.bind(this)}>Sign In</button>
+              <button id="action-button" type="button" name="button" onClick={this.signIn.bind(this)}>Sign In</button>
               </div>
             </div>
           </form>

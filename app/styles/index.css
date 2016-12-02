@@ -207,6 +207,20 @@ nav {
   transition: .8s ease all;
 }
 
+#action-button {
+  border: 1px solid #02b875;
+  background: transparent;
+  padding: 10px;
+  width: 142px;
+  height: 42px;
+  border-radius: 20px;
+  color: #02b875;
+}
+
+#action-button a {
+  color: #02b875;
+}
+
 /*#submit-lesson {
   border: 1px solid #02b875;
   background: transparent;
