@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import ReviewCard from './ReviewCard';
 import { Redirect, Match, Link } from 'react-router';
+import Notifications, { notify } from 'react-notify-toast';
 
 export default class WriteAnswer extends React.Component {
 
@@ -12,7 +13,7 @@ export default class WriteAnswer extends React.Component {
         this.props.getUserData(res.data).bind(this);
       })
       .catch(err => {
-      console.log(err);
+        return err;
     });
   }
 
@@ -29,34 +30,33 @@ export default class WriteAnswer extends React.Component {
       likes: 0
     })
     .then((res) => {
-      console.log(res.data.lesson[0], 'looking for');
+      notify.show('Published!', 'success');
       this.props.getPublished(res.data.lesson[0]).bind(this);
       this.setState({ published: res.data.posted })
-
     })
     .catch(err => {
-      return err;
+      notify.show('Make sure to fill out all fields', 'error');
     });
   }
 
 
   render() {
     return <div>
-    <div className="container" id="question-container">
+    <div id="question-container">
     <div className="row">
-        <input className="col s12 m6 offset-m3" type="text" ref="title" placeholder="Title" />
+        <input className="col s12 m3 offset-m1" type="text" ref="title" placeholder="Title" />
         </div>
         <div className="row">
-        <input className="col s12 m6 offset-m3" type="text" ref="category" placeholder="Category" />
+        <input className="col s12 m3 offset-m1" type="text" ref="category" placeholder="Category" />
         </div>
         <div className="row">
-        <textarea className="col s12 m6 offset-m3" ref="description" placeholder="Description"></textarea>
+        <textarea className="card-1 col s12 m3 offset-m1" ref="description" placeholder="Description"></textarea>
         </div>
         <div className="row">
-        <textarea className="col s12 m10 offset-m1" ref="code" placeholder="Let's see the code..."></textarea>
+        <textarea className="card-1 col s12 m10 offset-m1 lesson-box" ref="code" placeholder="Let's see the code..."></textarea>
         </div>
         <div className="row">
-        <textarea className="col s12 m10 offset-m1" ref="body" placeholder="Now explain the code..."></textarea>
+        <textarea className="card-1 col s12 m10 offset-m1 lesson-box" ref="body" placeholder="Now explain the code..."></textarea>
         </div>
         <div className="row center-align">
         <button id="submit-lesson" type="submit" onClick={this.publish.bind(this)}><Link to="/write-lesson/review">Publish</Link></button>

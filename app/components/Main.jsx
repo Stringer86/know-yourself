@@ -58,17 +58,20 @@ export default class Main extends React.Component {
                 getLessons={this.props.getLessons}
               />
         }/>
-        <Match pattern="/write-lesson" render={
-          () => <WriteLesson
-            getUserData={this.props.getUserData}
-            userData={this.props.userData}
-            publishedArticle={this.props.publishedArticle}
-            getPublished={this.props.getPublished}
-          />
-        }/>
-        <Match pattern="/question" exactly render={
-          () => <WriteQuestion />
-        }/>
+        <div id="background">
+          <Match pattern="/write-lesson" render={
+            () => <WriteLesson
+              getUserData={this.props.getUserData}
+              userData={this.props.userData}
+              publishedArticle={this.props.publishedArticle}
+              getPublished={this.props.getPublished}
+            />
+          }/>
+
+          <Match pattern="/question" exactly render={
+            () => <WriteQuestion />
+          }/>
+        </div>
         <Match pattern="/lesson/:id?" render={
           () => <ReadLesson
               lesson={this.props.lesson}

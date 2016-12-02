@@ -7,7 +7,6 @@ import axios from 'axios';
 import { Match, Miss } from 'react-router';
 import Notifications, {notify} from 'react-notify-toast';
 
-
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -124,7 +123,7 @@ export default class App extends React.Component {
     return (
       <BrowserRouter>
       <div>
-      <Notifications />
+        <Notifications />
         <Header
             isLoggedIn={this.state.isLoggedIn}
             authUser={this.authUser.bind(this)}
