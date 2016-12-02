@@ -20,10 +20,24 @@ export default class WriteQuestion extends React.Component {
   }
 
   render() {
-    return <div>
-      <input ref="category" type="text" />
-      <textarea ref="question"></textarea>
-      <button type="submit" onClick={this.submit.bind(this)}>Submit</button>
-    </div>
+    return (
+      <div className="container" id="question-container">
+        <div className="row">
+          <div className="col s12 m6 offset-m3">
+            <input ref="category" type="text" placeholder="What framework or library do you have a question about..." />
+          </div>
+        </div>
+        <div className="row">
+          <div className="col s12 m6 offset-m3">
+            <textarea ref="question" placeholder="What's your question? We'll see if someone can get it answered..."></textarea>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col s12 m6 offset-m3">
+            <button id="submit-question" type="submit" onClick={this.submit.bind(this)}>Submit</button>
+          </div>
+        </div>
+      </div>
+    )
   }
 }

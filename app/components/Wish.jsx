@@ -42,7 +42,7 @@ export default class Wish extends React.Component {
   render() {
     return (
      <div className="row wish-container">
-       <div className="col s12">
+       <div className="col s12 wish-item">
          <div className="row">
            <div className="col s4">
                <div className="arrow-up" onClick={this.upvoted.bind(this)}></div>
@@ -50,13 +50,11 @@ export default class Wish extends React.Component {
                <div className="arrow-down" onClick={this.downVoted.bind(this)}></div>
            </div>
            <div className="col s7">
-             <h4 className="wish-question"><strong>{this.props.data.question}</strong></h4>
+             <h4 className="wish-question"><strong>Question:</strong> {this.props.data.question}</h4>
              <p><strong>Category:</strong> {this.props.data.category}</p>
-           </div>
-         </div>
-         <div className="row">
-           <div className="col s4 offset-s1 btn">
-             <Link to='/write-lesson'>answer</Link>
+             <div className="btn write-button">
+               <Link to='/write-lesson'>Write Lesson</Link>
+             </div>
            </div>
          </div>
        </div>

@@ -18,6 +18,7 @@ export default class Header extends React.Component {
 
   render() {
     return (
+      <div className="row">
       <nav>
         <div className="row">
           <div className="col s12">
@@ -58,6 +59,7 @@ export default class Header extends React.Component {
           </div>
         </div>
       </nav>
+    </div>
     );
   }
 };

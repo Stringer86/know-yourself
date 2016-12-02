@@ -73,23 +73,30 @@ export default class LessonCard extends React.Component {
 
       <div className="row">
       <div className="col s12 card">
-      {this.props.myLesson &&
-        <div className="btn col s6" onClick={this.deleteLesson.bind(this)}>Delete</div>
-      }
-        <p><img className="img-circle" src={this.props.data.photoUrl} height='40px' width='40px' />By: {this.props.data.firstName}</p>
-        <h4><strong>{this.props.data.title}</strong></h4>
-        <p><strong>Category:</strong> {this.props.data.category}</p>
-        <p><strong>Description:</strong>{this.props.data.description}</p>
-        <p>{this.props.data.body.substring(0, 200)}...</p>
-        <div className="row btnrow">
-        <div className="btn col s6">
-        <Link to={`/lesson/${this.props.data.id}`}>Read</Link>
+        <div className="row cardTop">
+        <div className="col s1">
+        <img className="img-circle" src={this.props.data.photoUrl} height='40px' width='40px' />
         </div>
+        <div className="col s10 authorName">
+          <p>{this.props.data.firstName} {this.props.data.lastName} <span className="on"> on </span> <Link to={`/category/${this.props.data.category}`}>{this.props.data.category}</Link></p>
+        </div>
+        </div>
+        <h4 className="title">{this.props.data.title}</h4>
+        <h5 className="description">{this.props.data.description}</h5>
+        <p className="readMore"><Link to={`/lesson/${this.props.data.id}`}>Read More...</Link></p>
+        <div className="row">
         {!this.state.favorited &&
-          <div className="btn col s6" onClick={this.favorite.bind(this)}>Favorite</div>
+          <div>
+          <img onClick={this.favorite.bind(this)} className="icon icons8-Like" src="../img/outline-heart.png" width="30" height="30" />
+          </div>
         }
         {this.state.favorited &&
-          <div className="btn col s6" onClick={this.removeFav.bind(this)}>Favorited</div>
+          <div>
+          <img onClick={this.removeFav.bind(this)} className="icon icons8-Like-Filled" src="../img/filled-heart.png" width="30" height="30" />
+          </div>
+        }
+        {this.props.myLesson &&
+          <div className="btn delete" onClick={this.deleteLesson.bind(this)}>Delete</div>
         }
         </div>
       </div>

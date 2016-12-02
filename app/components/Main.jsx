@@ -16,7 +16,6 @@ export default class Main extends React.Component {
   render() {
     return (
       <div className="row">
-        <Link to="/profile" style={{'marginTop': '65px', color: 'black'}}>bob</Link>
         <Match pattern="/" exactly render={
           () => <Home
             upVote={this.props.upVote}

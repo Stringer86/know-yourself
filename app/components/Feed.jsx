@@ -58,7 +58,7 @@ export default class Feed extends React.Component {
 
 
     return (
-      <div className="row">
+      <div>
         { lessonList }
       </div>
     )
