@@ -10,31 +10,45 @@
   },
   "scripts": {
     "deploy": "rm -rf public; brunch build --production; surge public",
+    "heroku-postbuild": "brunch build --production; knex migrate:latest",
     "lint": "eslint --ext .js,.jsx --ignore-pattern public",
+    "nodemon": "nodemon server.js",
+    "nf": "nf start",
     "start": "brunch watch --server",
     "knex": "knex"
   },
   "dependencies": {
     "axios": "^0.15.3",
+    "babel-brunch": "^6.0.6",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.11.1",
     "bcrypt-as-promised": "^1.1.0",
     "body-parser": "^1.15.2",
     "boom": "^4.2.0",
+    "brunch": "^2.8.2",
+    "clean-css-brunch": "^2.0.0",
     "cookie-parser": "^1.4.3",
     "dotenv": "^2.0.0",
     "express": "^4.14.0",
     "express-validation": "^1.0.1",
     "humps": "^2.0.0",
+    "javascript-brunch": "^2.0.0",
     "joi": "^9.2.0",
     "jsonwebtoken": "^7.1.9",
     "knex": "^0.12.6",
     "morgan": "^1.7.0",
     "normalize.css": "^4.2.0",
     "pg": "^6.1.0",
+    "postcss-brunch": "^2.0.1",
     "react": "^15.4.0",
     "react-dom": "^15.3.0",
     "react-notify-toast": "^0.1.3",
     "react-router": "^4.0.0-alpha.5",
-    "react-syntax-highlighter": "^3.0.0"
+    "react-syntax-highlighter": "^3.0.0",
+    "uglify-js-brunch": "^2.0.1"
+  },
+  "engines": {
+    "node": "6.6.0"
   },
   "devDependencies": {
     "auto-reload-brunch": "^2.7.1",
