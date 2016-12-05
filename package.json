@@ -9,6 +9,7 @@
     "url": ""
   },
   "scripts": {
+    "deploy": "rm -rf public; brunch build --production; surge public",
     "heroku-postbuild": "brunch build --production; knex migrate:latest",
     "lint": "eslint --ext .js,.jsx --ignore-pattern public",
     "nodemon": "nodemon server.js",
