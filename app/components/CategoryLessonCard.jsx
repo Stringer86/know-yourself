@@ -45,28 +45,6 @@ export default class CategoryLessonCard extends React.Component {
     })
   }
 
-  deleteLesson(event) {
-    event.preventDefault();
-
-    axios({
-      method: 'delete',
-      url: `/api/lessons/${this.props.data.id}`
-    })
-    .then(res => {
-      notify.show('Lesson deleted', 'success');
-      axios.get('/api/user')
-        .then(res => {
-          this.props.getMyLessons(res.data).bind(this);
-        })
-        .catch(err => {
-          return err;
-      })
-    })
-    .catch(err => {
-      return err;
-    })
-  }
-
   render() {
     return (
       <div className="row">
@@ -94,9 +72,6 @@ export default class CategoryLessonCard extends React.Component {
               <div>
                 <img onClick={this.removeFav.bind(this)}  src="../img/filled-heart.png" width="30" height="30" />
               </div>
-            }
-            {this.props.myLesson &&
-              <div className="btn delete" onClick={this.deleteLesson.bind(this)}>Delete</div>
             }
           </div>
         </div>
