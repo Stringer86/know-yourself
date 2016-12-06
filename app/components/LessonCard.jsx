@@ -71,14 +71,16 @@ export default class LessonCard extends React.Component {
     return (
       <div className="row">
         <div className="col s12 card">
-          <div className="row cardTop">
-            <div className="col s1">
-              <img className="img-circle" src={this.props.data.photoUrl} height='40px' width='40px' />
-            </div>
-            <div className="col s10 authorName">
-              <p>{this.props.data.firstName} {this.props.data.lastName} <span className="on"> on </span> <Link to={`/category/${this.props.data.category}`}>{this.props.data.category}</Link></p>
-            </div>
-          </div>
+            {this.props.data.photoUrl &&
+              <div className="row cardTop">
+              <div className="col s1">
+                <img className="img-circle" src={this.props.data.photoUrl} height='40px' width='40px' />
+              </div>
+              <div className="col s10 authorName">
+                <p>{this.props.data.firstName} {this.props.data.lastName} <span className="on"> on </span> <Link to={`/category/${this.props.data.category}`}>{this.props.data.category}</Link></p>
+              </div>
+              </div>
+            }
 
           <h4 className="title">{this.props.data.title}</h4>
           <h5 className="description">{this.props.data.description}</h5>
