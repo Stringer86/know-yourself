@@ -1,5 +1,5 @@
 import React from 'react';
-import LessonCard from './LessonCard';
+import CategoryLessonCard from './CategoryLessonCard';
 import axios from 'axios';
 import { Link } from 'react-router';
 
@@ -7,13 +7,19 @@ import { Link } from 'react-router';
 
 export default class Category extends React.Component {
 
+  componentDidMount() {
+    function getLess() {
+      return axios.get('/api/lessons')
+    }
+    function getFavs() {
+      return axios.get('/api/favorites')
+    }
 
-  componentWillMount() {
-
-    axios.get('/api/lessons')
-      .then(res => {
-        this.props.getLessons(res.data).bind(this);
-      })
+    axios.all([getLess(), getFavs()])
+      .then(axios.spread((lessons, favs) => {
+        this.props.getLessons(lessons.data)
+        this.props.getFavorites(favs.data)
+      }))
       .catch(err => {
         return err;
       });
@@ -35,9 +41,19 @@ export default class Category extends React.Component {
     });
 
     let categoryLessons= filteredLessons.map((lesson, index) => {
-      return <LessonCard data={lesson}
+        let favorited;
+
+        this.props.favorites.forEach((favorite) => {
+          if (lesson.id === favorite.lessonId) {
+            favorited = true;
+          } else {
+            favorited = false;
+          }
+        })
+      return <CategoryLessonCard data={lesson}
                          key={index}
                          favorited={this.props.favorited}
+                         isLoggedIn={this.props.isLoggedIn}
             />
     });
 

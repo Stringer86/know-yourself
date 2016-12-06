@@ -56,6 +56,9 @@ export default class Main extends React.Component {
           () => <Category
                   lessons={this.props.lessons}
                   getLessons={this.props.getLessons}
+                  favorites={this.props.favorites}
+                  getFavorites={this.props.getFavorites}
+                  isLoggedIn={this.props.isLoggedIn}
                 />
         }/>
         <div id="background">
