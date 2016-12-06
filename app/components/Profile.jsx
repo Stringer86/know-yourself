@@ -7,6 +7,13 @@ import IncompleteLessons from './IncompleteLessons';
 import { Match, Link} from 'react-router';
 
 export default class Profile extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      bio: false,
+      photo: false
+    }
+  }
   componentWillMount() {
     axios.get('/api/userData')
       .then(res => {
@@ -16,6 +23,35 @@ export default class Profile extends React.Component {
       console.log(err);
     });
   }
+
+  updateBio() {
+    this.setState({bio: true})
+  }
+
+  updatePhoto() {
+    this.setState({photo: true})
+  }
+
+  patchBio(bio) {
+    axios.patch('/api/user', {
+      bio: this.refs['bio'].value
+    })
+    .then((res) => {
+      this.setState({bio: false})
+      console.log(res.data);
+    })
+  }
+
+  patchPhoto(url) {
+    axios.patch('/api/user', {
+      photoUrl: this.refs['photo'].value
+    })
+    .then((res) => {
+      this.setState({photo: false})
+      console.log(res.data);
+    })
+  }
+
 
   render() {
     if (this.props.userData.length === 0) {
@@ -32,12 +68,25 @@ export default class Profile extends React.Component {
             }
             {this.props.userData[0].bio.length < 1 &&
               <div className="row">
-                <div className="btn col s3">Add bio</div>
+                <div className="btn col s3" onClick={this.updateBio.bind(this)}>Add bio</div>
+              </div>
+            }
+            {this.state.bio &&
+              <div className="row">
+              <div className="col s8"><textarea ref="bio"></textarea></div>
+              <div className="col s2 btn" onClick={this.patchBio.bind(this)}>update</div>
               </div>
             }
             {this.props.userData[0].photoUrl.length < 1 &&
               <div className="row">
-                <div className="btn col s3">Add photo</div>
+                <div className="btn col s3" onClick={this.updatePhoto.bind(this)}>Add photo</div>
+              </div>
+            }
+            {this.state.photo &&
+              <div className="row">
+              <p><i>link must be a url</i></p>
+              <div className="col s6"><input type="text" ref="photo"></input></div>
+              <div className="col s2 btn" onClick={this.patchPhoto.bind(this)}>upload</div>
               </div>
             }
           </div>
