@@ -62,7 +62,7 @@ export default class Profile extends React.Component {
       <div className="row">
         <div className="row" id="profile-container">
           <div className="col s5 offset-s2">
-            <h3 id="username">{this.props.userData[0].firstName} {this.props.userData[0].lastName}</h3>
+            <h3 id="username">{this.props.userData[0].name}</h3>
             {this.props.userData[0].bio.length > 0 &&
               <h5 id="user-bio">{this.props.userData[0].bio}</h5>
             }

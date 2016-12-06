@@ -40,7 +40,7 @@ export default class ReviewCard extends React.Component {
               <img className="img-circle" src={this.props.userData[0].photoUrl} height='40px' width='40px' />
             </div>
             <div className="col s10 authorName">
-              <p>{this.props.userData[0].firstName} {this.props.lastName} <span className="on"> on </span> <Link to={`/category/${this.props.publishedArticle.category}`}>{this.props.publishedArticle.category}</Link></p>
+              <p>{this.props.userData[0].name} <span className="on"> on </span> <Link to={`/category/${this.props.publishedArticle.category}`}>{this.props.publishedArticle.category}</Link></p>
             </div>
           </div>
           <h4 className="title">{this.props.publishedArticle.title}</h4>
