@@ -37,6 +37,7 @@ export default class Category extends React.Component {
     let categoryLessons= filteredLessons.map((lesson, index) => {
       return <LessonCard data={lesson}
                          key={index}
+                         favorited={this.props.favorited}
             />
     });
 

@@ -20,6 +20,7 @@ export default class WishList extends React.Component {
                    downVote={this.props.downVote}
                    data={wish}
                    key={index}
+                   isLoggedIn={this.props.isLoggedIn}
               />
     });
 
@@ -30,9 +31,16 @@ export default class WishList extends React.Component {
             <p>Recently asked questions</p>
           </div>
           <div className="s4">
+            {this.props.isLoggedIn &&
             <div className="btn" id="question-button">
               <Link to="question">Ask a Question</Link>
             </div>
+          }
+          {!this.props.isLoggedIn &&
+          <div className="btn" id="question-button">
+            <Link to="signin">Ask a Question</Link>
+          </div>
+        }
           </div>
         </div>
         <div className="row" id="wishlist-container">

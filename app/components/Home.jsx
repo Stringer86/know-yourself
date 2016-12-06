@@ -9,7 +9,8 @@ export default class Home extends React.Component {
     return (
       <div>
         <div className="row">
-          <Hero />
+          <Hero isLoggedIn={this.props.isLoggedIn}
+          />
         </div>
 
         <div>
@@ -38,6 +39,7 @@ export default class Home extends React.Component {
                       downVote={this.props.downVote}
                       wishes={this.props.wishes}
                       getWishList={this.props.getWishList}
+                      isLoggedIn={this.props.isLoggedIn}
             />
           </div>
         </div>

@@ -14,7 +14,9 @@ export default class Nav extends React.Component {
             With Dev Connect, we are hoping to foster a community that shares their
             blogs about code in one centralized place. Get learning and sign up today!
           </p>
+          {!this.props.isLoggedIn &&
           <Link id="signup-button" to="/signup">Sign Up</Link>
+        }
         </div>
       </div>
     );

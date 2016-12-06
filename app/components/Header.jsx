@@ -25,10 +25,9 @@ export default class Header extends React.Component {
                 <h1><Link to="/" id="logo">dev connect</Link></h1>
               </div>
 
-              <div className="col s4">
+              <div className="col s4 headerInfo">
                 {!this.props.isLoggedIn &&
                   <ul id="auth-list">
-                    <li id="write-hook"><Link to="/write-lesson">Write a lesson</Link></li>
                     <li><Link to="/signin" style={{color: '#02b875', 'fontSize': '14px'}}>Sign in</Link></li>
                     <li><Link to="/signup" style={{color: '#02b875', 'fontSize': '14px'}}>Sign up</Link></li>
                   </ul>
@@ -46,7 +45,7 @@ export default class Header extends React.Component {
 
             <div className="col s12">
               <ul id="category-list">
-                <li className="frameworks"><Link to="/category/Angular">Angular 1</Link></li>
+                <li className="frameworks"><Link to="/category/Angular1">Angular 1</Link></li>
                 <li className="frameworks"><Link to="/category/Angular2">Angular 2</Link></li>
                 <li className="frameworks"><Link to="/category/Backbone">Backbone</Link></li>
                 <li className="frameworks"><Link to="/category/Ember">Ember</Link></li>

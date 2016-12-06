@@ -12,25 +12,15 @@ export default class App extends React.Component {
     super(props);
 
     this.state = {
-
       isLoggedIn: false,
-
       lessons: [],
-
       lesson: [],
-
       myLessons: [],
-
       incompleteLessons: [],
-
       wishes: [],
-
       userData: [],
-
       favorites: [],
-
       wishItem: [],
-
       publishedArticle: []
     }
   }

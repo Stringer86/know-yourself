@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router';
 import axios from 'axios';
+import Notifications, {notify} from 'react-notify-toast';
 
 
 export default class LessonCard extends React.Component {
@@ -25,7 +26,7 @@ export default class LessonCard extends React.Component {
       this.setState({favorited: !this.state.favorited})
     })
     .catch(err => {
-      console.log(err);
+      notify.show('Must be logged in', 'error');
     });
   }
 
@@ -52,6 +53,7 @@ export default class LessonCard extends React.Component {
       url: `/api/lessons/${this.props.data.id}`
     })
     .then(res => {
+      notify.show('Lesson deleted', 'success');
       axios.get('/api/user')
         .then(res => {
           this.props.getMyLessons(res.data).bind(this);

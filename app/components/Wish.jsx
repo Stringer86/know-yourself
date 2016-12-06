@@ -44,7 +44,12 @@ export default class Wish extends React.Component {
             <div className="col s7">
               <h4 className="wish-question"><strong>Question:</strong> {this.props.data.question}</h4>
               <p><strong>Category:</strong> {this.props.data.category}</p>
-              <Link className="btn write-button" to='/write-lesson'>Write Lesson</Link>
+              {this.props.isLoggedIn &&
+                <Link className="btn write-button" to='/write-lesson'>Write Lesson</Link>
+              }
+              {!this.props.isLoggedIn &&
+                <Link className="btn write-button" to='/signin'>Write Lesson</Link>
+              }
             </div>
           </div>
         </div>
