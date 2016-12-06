@@ -63,6 +63,8 @@ router.post('/api/user', ev(validations.post), (req, res, next) => {
     });
 });
 
+
+
 router.get('/api/user', authorize, (req, res, next) => {
   const { userId } = req.token;
 

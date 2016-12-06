@@ -30,6 +30,7 @@ export default class Header extends React.Component {
                   <ul id="auth-list">
                     <li><Link to="/signin" style={{color: '#02b875', 'fontSize': '14px'}}>Sign in</Link></li>
                     <li><Link to="/signup" style={{color: '#02b875', 'fontSize': '14px'}}>Sign up</Link></li>
+                    <li style={{color: '#02b875', 'fontSize': '14px'}}><a href="/auth/github">github</a></li>
                   </ul>
                 }
 

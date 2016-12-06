@@ -5,6 +5,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 const express = require('express');
+const passport = require('passport');
 const app = express();
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
@@ -30,6 +31,18 @@ switch (app.get('env')) {
 app.use(bodyParser.json());
 app.use(cookieParser());
 
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+
+passport.deserializeUser(function(user, done) {
+  done(null, user);
+});
+
+
 app.use(express.static(path.join('public')));
 
 // CSRF protection
@@ -46,13 +59,14 @@ const token = require('./routes/token');
 const lessons = require('./routes/lessons');
 const wishList = require('./routes/wishList');
 const favorites = require('./routes/favorites');
+const oauth = require('./routes/oauth');
 
 app.use(users);
 app.use(token);
 app.use(lessons);
 app.use(wishList);
 app.use(favorites);
-
+app.use('/auth', oauth);
 app.use((_req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });

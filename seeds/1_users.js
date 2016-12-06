@@ -6,9 +6,7 @@ exports.seed = function(knex) {
     .then(() => {
       return knex('users').insert([{
         id: 1,
-        first_name: 'Chase',
-        last_name: 'Klingel',
-        user_name: 'FreshPrince',
+        name: 'Chase',
         email: 'chase@gmail.com',
         hashed_password: '$2a$12$LaKBUi8mCFc/9LiCtvwcvuNIjgaq9LJuy/NO.m4P5.3FP8zA6t2Va', // ambitionz
         photo_url: 'http://www.jesus-is-savior.com/Evils%20in%20America/Rock-n-Roll/gene_simmons.jpg',
@@ -18,9 +16,7 @@ exports.seed = function(knex) {
       },
       {
         id: 2,
-        first_name: 'Ken',
-        last_name: 'McGrady',
-        user_name: 'Adele',
+        name: 'Ken',
         email: 'ken@gmail.com',
         hashed_password: '$2a$12$LaKBUi8mCFc/9LiCtvwcvuNIjgaq9LJuy/NO.m4P5.3FP8zA6t2Va', // ambitionz
         photo_url: 'https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAjYAAAAJDFlYWJlNzk3LTY5YzYtNDk3Yy1iNWQwLTAwZTkzOWVhZGY1OA.jpg',
