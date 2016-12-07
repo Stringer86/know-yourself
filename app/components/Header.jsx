@@ -67,10 +67,10 @@ export default class Header extends React.Component {
                   {!this.props.isLoggedIn &&
                     <div className="row">
                       <div className="col s4">
-                        <li><Link to="/signin" style={{color: '#02b875', 'fontSize': '14px'}}>Sign in</Link></li>
+                        <li><Link onClick={this.toggleMenu.bind(this)} to="/signin" style={{color: '#02b875', 'fontSize': '14px'}}>Sign in</Link></li>
                       </div>
                       <div className="col s4">
-                        <li><Link to="/signup" style={{color: '#02b875', 'fontSize': '14px'}}>Sign up</Link></li>
+                        <li><Link onClick={this.toggleMenu.bind(this)} to="/signup" style={{color: '#02b875', 'fontSize': '14px'}}>Sign up</Link></li>
                       </div>
                       <div className="col s4">
                         <li className="github-link"><a onClick={this.signIn.bind(this)} style={{color: '#02b875', 'fontSize': '14px'}}>Github</a></li>
