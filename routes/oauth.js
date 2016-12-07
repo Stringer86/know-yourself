@@ -26,62 +26,58 @@ router.get('/github',
     session: false,
   }), (req, res) => { console.log('hello world'); });
 
-router.get('/github/callback',
-  passport.authenticate('github',
-  { failureRedirect: '/signin'}), (req, res, next) => {
-    const user = req.user;
-    const name = JSON.parse(user.profile._raw).name;
-    const email = user.profile.emails[0].value;
-    const photoUrl = JSON.parse(user.profile._raw).avatar_url;
-    const githubId = user.profile.id;
-    const githubToken = user.accessToken;
+router.get('/github/callback', passport.authenticate('github', { failureRedirect: '/signin'}), (req, res, next) => {
+  const user = req.user;
+  const name = JSON.parse(user.profile._raw).name;
+  const email = user.profile.emails[0].value;
+  const photoUrl = JSON.parse(user.profile._raw).avatar_url;
+  const githubId = user.profile.id;
+  const githubToken = user.accessToken;
 
-    knex('users')
-      .select(knex.raw('1=1'))
-      .where('email', email)
-      .then((result) => {
-        if (!result.length) {
-          const newUser = {
-            name,
-            email,
-            photoUrl,
-            githubId,
-            githubToken
-          }
+  knex('users')
+    .select(knex.raw('1=1'))
+    .where('email', email)
+    .then((result) => {
+      if (result.length < 1) {
+        const newUser = {
+          name,
+          email,
+          photoUrl,
+          githubId,
+          githubToken
+        }
 
-          knex('users').insert(decamelizeKeys(newUser), '*')
-          .then(users => {
-            return users;
+        knex('users').insert(decamelizeKeys(newUser), '*')
+          .then(user => {
+            return user;
           }).catch((err) => {
             next(err);
           });
-        }
+      }
+    })
+    .then((user) => {
+      knex('users')
+        .where('email', email)
+        .then((row) => {
+          const userId = row[0].id;
+          const expiry = new Date(Date.now() + 1000 * 60 * 60 * 3);
+          const token = jwt.sign({ userId: userId }, process.env.JWT_SECRET, { expiresIn: '3h' });
 
-        const expiry = new Date(Date.now() + 1000 * 60 * 60 * 3);
-        // USER.PROFILE.ID IS THEIR GITHUB ID
-        const token = jwt.sign({ userId: user.profile.id }, process.env.JWT_SECRET, { expiresIn: '3h' });
+          res.cookie('token', token, {
+            httpOnly: true,
+            expires: expiry,
+            secure: router.get('env') === 'production',
+          });
 
-        res.cookie('token', token, {
-          httpOnly: true,
-          expires: expiry,
-          secure: router.get('env') === 'production',
-        });
-
-        res.cookie('loggedIn', 'true'); // may need to change
-        res.redirect('/');
+          res.redirect('/');
+        })
+        .catch((err) => {
+          return err;
+        })
     })
     .catch(err => {
       next(err);
     });
-  });
-
+});
 
 module.exports = router;
-
-// router.get('/logout', (req, res) => {
-//   const expiry = new Date(Date.now() + 1000 * 60 * 60 * 3);
-//   res.cookie('loggedIn', 'false', { expires: expiry});
-//   res.clearCookie('token');
-//   res.redirect('/');
-// });
-//

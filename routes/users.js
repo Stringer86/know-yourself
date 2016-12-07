@@ -15,11 +15,14 @@ const router = express.Router();
 
 const authorize = function(req, res, next) {
   jwt.verify(req.cookies.token, process.env.JWT_SECRET, (err, decoded) => {
+    console.log(req.cookies, "🍪🍪🍪🍪🍪🍪🍪🍪🍪🍪🍪🍪🍪🍪🍪🍪🍪🍪");
+    console.log(req.cookies.token, 'COOKIES');
     if (err) {
       return next(boom.create(401, 'Unauthorized'));
     }
-
+    console.log(req.token, 'REQ TOKEN BEFORE DECODED');
     req.token = decoded;
+    console.log(req.token, 'REQ TOKEN IN AUTH');
     next();
   });
 };
@@ -84,7 +87,7 @@ router.get('/api/user', authorize, (req, res, next) => {
 
 router.get('/api/userData', authorize, (req, res, next) => {
   const { userId } = req.token;
-
+  console.log(userId, 'USER ID IN USER DATA');
   knex('users')
     .where('id', userId)
     .then((rows) => {
