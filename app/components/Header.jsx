@@ -33,9 +33,10 @@ export default class Header extends React.Component {
               <div className="col s4 headerInfo">
                 {!this.props.isLoggedIn &&
                   <ul id="auth-list">
-                    <li><Link to="/signin" style={{color: '#02b875', 'fontSize': '14px'}}>Sign in</Link></li>
-                    <li><Link to="/signup" style={{color: '#02b875', 'fontSize': '14px'}}>Sign up</Link></li>
-                    <li style={{color: '#02b875', 'fontSize': '14px'}}><a onClick={this.signIn.bind(this)}>github</a></li>
+                    <li className="hide-small"><Link to="/signin" style={{color: '#02b875', 'fontSize': '14px'}}>Sign in</Link></li>
+                    <li className="hide-small"><Link to="/signup" style={{color: '#02b875', 'fontSize': '14px'}}>Sign up</Link></li>
+                    <li className="hide-small" style={{color: '#02b875', 'fontSize': '14px'}}><a onClick={this.signIn.bind(this)}>github</a></li>
+                    <li><img id="menu" src="../img/menu.png" width="25px" height="25px" /></li>
                   </ul>
                 }
 
@@ -44,6 +45,7 @@ export default class Header extends React.Component {
                     <li id="write-hook"><Link to="/write-lesson">Write a lesson</Link></li>
                     <li><Link to="/profile" style={{color: '#02b875', 'fontSize': '14px'}}>My Profile</Link></li>
                     <li onClick={this.logOut.bind(this)}><Link to="/signin" style={{color: '#02b875', 'fontSize': '14px'}}>Log Out</Link></li>
+                    <li><img id="menu" src="../img/menu.png" width="25px" height="25px" /></li>
                   </ul>
                 }
               </div>

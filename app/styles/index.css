@@ -40,6 +40,9 @@ nav {
   text-transform: uppercase;
   letter-spacing: 1.5px;
   font-size: 16px;
+  position: absolute;
+  top: 15px;
+  left: 20px;
 }
 
 #auth-list li a,
@@ -58,35 +61,35 @@ nav {
   background: #52658f;
 }
 
+#menu {
+  top: 15px;
+  right: 30px;
+  display: none;
+  position: absolute;
+}
+
 /* notFound */
 .nothingFound {
  margin-top: 15%
 }
 
-/* hero */
 #hero-img {
-  padding-top: 50px;
-  background: url("https://static.pexels.com/photos/38892/pexels-photo-38892.jpeg");
+  background:
+    /* top, transparent red, faked with gradient */
+    linear-gradient(
+      rgba(0, 0, 0, .4),
+      rgba(0, 0, 0, .4)
+    ),
+    url(https://static.pexels.com/photos/38892/pexels-photo-38892.jpeg);
   background-size: cover;
   height: 500px;
-}
-
-#hero-img:before {
-  content: '';
-	position: absolute;
-	top: 160px;
-  height: 500px;
-	right: 0;
-	left: 0;
-	background-image: linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .4));
-  z-index: 1;
 }
 
 #hero-img p {
   position: relative;
   z-index: 10;
   color: #eee;
-  padding-top: 80px;
+  padding-top: 110px;
   margin-top: 0;
   margin: 0 auto;
   font-size: 18px;
@@ -298,7 +301,6 @@ nav {
   font-size: 16px;
 }
 
-
 /* Input fields */
 input[type=text] {
   border-bottom: 1px solid lightgrey;
@@ -343,7 +345,6 @@ textarea::-webkit-input-placeholder {
   color: black;
   font-size: 17px;
 }
-
 
 .card-1:hover {
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
@@ -479,4 +480,32 @@ footer p {
   color: lightgrey;
   padding-top: 10px;
   text-align: center;
+}
+
+@media (max-width: 746px) {
+  #hero-img {
+    margin-top: -20px;
+  }
+
+  #menu {
+    display: block;
+  }
+
+  .hide-small,
+  .frameworks {
+    display: none;
+  }
+}
+
+@media (max-width: 665px) {
+  #hero-img p {
+    width: 420px;
+  }
+}
+
+@media (max-width: 500px) {
+  #hero-img p {
+    padding-top: 60px;
+    width: 350px;
+  }
 }
