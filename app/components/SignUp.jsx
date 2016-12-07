@@ -8,10 +8,9 @@ export default class SignUp extends React.Component {
     event.preventDefault();
 
     axios.post('/api/user', {
-      firstName: this.refs['firstName'].value,
-      lastName: this.refs['lastName'].value,
-      userName: this.refs['userName'].value,
+      name: this.refs['name'].value,
       email: this.refs['email'].value,
+      bio: this.refs['bio'].value,
       password: this.refs['password'].value
     })
     .then(function (response) {
@@ -31,20 +30,8 @@ export default class SignUp extends React.Component {
               <h2 className="auth-title center-align">Sign Up</h2>
               <div className="row">
                 <div className="col s10 offset-s1 m6 offset-m3">
-                  <label>First Name</label>
-                  <input type="text" autoFocus ref="firstName"/>
-                </div>
-              </div>
-              <div className="row">
-                <div className="col s10 offset-s1 m6 offset-m3">
-                  <label>Last Name</label>
-                  <input type="text" ref="lastName" />
-                </div>
-              </div>
-              <div className="row">
-                <div className="col s10 offset-s1 m6 offset-m3">
-                  <label>UserName</label>
-                  <input type="text" ref="userName" />
+                  <label>Name</label>
+                  <input type="text" autoFocus ref="name"/>
                 </div>
               </div>
               <div className="row">
@@ -59,10 +46,14 @@ export default class SignUp extends React.Component {
                   <input type="password" ref="password"/>
                 </div>
               </div>
-              <div>
+              <div className="row">
+                <div className="col s10 offset-s1 m6 offset-m3">
+                  <label>Tell us a bit about yourself</label>
+                  <input type="text" ref="bio" />
+                </div>
+              </div>
                 <div className="row center-align">
                   <button id="action-button" type="button" name="button" onClick={this.signUp.bind(this)}>Sign Up</button>
-                </div>
               </div>
             </form>
           </div>

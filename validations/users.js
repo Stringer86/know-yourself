@@ -4,31 +4,24 @@ const Joi = require('joi');
 
 module.exports.post = {
   body: {
-    firstName: Joi.string()
-      .label('FirstName')
-      .required()
-      .trim(),
-
-    lastName: Joi.string()
-      .label('FirstName')
-      .required()
-      .trim(),
-
-    userName: Joi.string()
-      .label('userName')
+    name: Joi.string()
+      .label('name')
       .required()
       .trim(),
 
     email: Joi.string()
-      .label('Email')
+      .label('email')
       .required()
-      .email()
       .trim(),
 
     password: Joi.string()
-      .label('Password')
+      .label('password')
       .required()
       .min(8)
+      .trim(),
+
+    bio: Joi.string()
+      .label('bio')
       .trim()
   }
 };

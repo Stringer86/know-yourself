@@ -28,32 +28,24 @@ const authorize = function(req, res, next) {
 };
 
 router.post('/api/user', ev(validations.post), (req, res, next) => {
-  const { firstName, lastName, userName, email, password } = req.body;
+  const { name, email, password, bio } = req.body;
+  console.log(name, " name", email, " email", password, " password", bio, " bio");
 
   knex('users')
     .select(knex.raw('1=1'))
-    .where('user_name', userName)
+    .where('email', email)
     .first()
-    .then((exists) => {
-      if (exists) {
-        throw boom.create(400, 'User Name already exists');
-      }
-
-      return knex('users')
-        .select(knex.raw('1=1'))
-        .where('email', email)
-        .first();
-    })
     .then((exists) => {
       if (exists) {
         throw boom.create(400, 'Email already exists');
       }
 
       return bcrypt.hash(password, 12);
+
     })
     .then((hashedPassword) => {
-      // const { firstName, lastName } = req.body;
-      const insertUser = { firstName, lastName, userName, email, hashedPassword };
+
+      const insertUser = { name, email, bio, hashedPassword };
 
       return knex('users')
         .insert(decamelizeKeys(insertUser), '*');
