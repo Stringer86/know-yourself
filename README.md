@@ -4,18 +4,18 @@ If you are a developer, you know it can be hard to find quality resources online
 
 ##Technologies used include:
 
-+ReactJS
-+Node.js
-+Express
-+Knex
-+PostgreSQL
-+Brunch
-+OAuth 2.0
-+CSS
-+Materialize
-+React-router
-+Axios
-+JWT
-+Boom
-+Humps
-+Joi
+* ReactJS
+* Node.js
+* Express
+* Knex
+* PostgreSQL
+* Brunch
+* OAuth 2.0
+* CSS
+* Materialize
+* React-router
+* Axios
+* JWT
+* Boom
+* Humps
+* Joi
