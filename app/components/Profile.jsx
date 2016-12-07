@@ -61,11 +61,13 @@ export default class Profile extends React.Component {
     return (
       <div className="row">
         <div className="row" id="profile-container">
-          <div className="col s5 offset-s2">
+          <div className="col s8 offset-s2">
             <h3 id="username">{this.props.userData[0].name}</h3>
-            {this.props.userData[0].bio.length > 0 &&
-              <h5 id="user-bio">{this.props.userData[0].bio}</h5>
-            }
+            <div className="col s12 m9 l7 bio-container">
+              {this.props.userData[0].bio.length > 0 &&
+                <h5 id="user-bio">{this.props.userData[0].bio}</h5>
+              }
+            </div>
             {this.props.userData[0].bio.length < 1 &&
               <div className="row">
                 <div className="btn col s3" onClick={this.updateBio.bind(this)}>Add bio</div>
@@ -90,14 +92,14 @@ export default class Profile extends React.Component {
               </div>
             }
           </div>
-          <div className="col s3" id="profile-img">
+          <div id="profile-img">
             {this.props.userData[0].photoUrl.length > 0 &&
               <img className="img-circle" src={this.props.userData[0].photoUrl} height="100px" width="100px;" />
             }
           </div>
           <div className="row center-align">
-            <div className="col s12 m7 offset-m2">
-              <div class="row">
+            <div className="col s12 m8 offset-m2">
+              <div className="row">
               <ul id="profile-section">
                 <li>
                   <div className="col s4 section-title">
@@ -121,7 +123,7 @@ export default class Profile extends React.Component {
         </div>
 
         <div className="row align-center">
-          <div className="col s12">
+          <div className="col s12 m8 offset-m2">
             <Match pattern="/profile/myLessons" exactly render={
               () => <Lessons myLessons={this.props.myLessons}
                        getMyLessons={this.props.getMyLessons}
@@ -131,7 +133,7 @@ export default class Profile extends React.Component {
         </div>
 
         <div className="row">
-          <div className="col s12">
+          <div className="col s12 m7 offset-m2">
             <Match pattern="/profile/incompleteLessons" exactly render={
               () => <IncompleteLessons incompleteLessons={this.props.incompleteLessons}
                                 getIncompleteLessons={this.props.getIncompleteLessons}
@@ -141,7 +143,7 @@ export default class Profile extends React.Component {
           </div>
         </div>
         <div className="row">
-          <div className="col s12">
+          <div className="col s12 m7 offset-m2">
             <Match pattern="/profile/favorites" exactly render={
               () => <Favorites favorites={this.props.favorites}
                          getFavorites={this.props.getFavorites}
