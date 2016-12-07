@@ -84,17 +84,17 @@ export default class LessonCard extends React.Component {
 
           <h4 className="title">{this.props.data.title}</h4>
           <h5 className="description">{this.props.data.description}</h5>
-          <p className="readMore"><Link to={`/lesson/${this.props.data.id}`}>Read More...</Link></p>
+          <p className="read-more"><Link to={`/lesson/${this.props.data.id}`}>Read More...</Link></p>
 
           <div className="row">
             {!this.state.favorited &&
-              <div>
-                <img onClick={this.favorite.bind(this)}  src="../img/outline-heart.png" width="30" height="30" />
+              <div className="heart">
+                <img onClick={this.favorite.bind(this)}  src="../img/outline-heart.png" width="25" height="25" />
               </div>
             }
             {this.state.favorited &&
-              <div>
-                <img onClick={this.removeFav.bind(this)}  src="../img/filled-heart.png" width="30" height="30" />
+              <div className="heart">
+                <img onClick={this.removeFav.bind(this)}  src="../img/filled-heart.png" width="25" height="25" />
               </div>
             }
             {this.props.myLesson &&

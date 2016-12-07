@@ -96,7 +96,7 @@ export default class Profile extends React.Component {
             }
           </div>
           <div className="row center-align">
-            <div className="col s7 offset-s2">
+            <div className="col s12 m7 offset-m2">
               <div class="row">
               <ul id="profile-section">
                 <li>
@@ -106,7 +106,7 @@ export default class Profile extends React.Component {
                 </li>
                 <li className="col s4">
                   <div className="section-title">
-                    <h5><Link to="/profile/incompleteLessons">Lessons In Progress</Link></h5>
+                    <h5><Link to="/profile/incompleteLessons">Unpublished</Link></h5>
                   </div>
                 </li>
                 <li className="col s4">
@@ -121,7 +121,7 @@ export default class Profile extends React.Component {
         </div>
 
         <div className="row align-center">
-          <div className="col s8 offset-s2">
+          <div className="col s12">
             <Match pattern="/profile/myLessons" exactly render={
               () => <Lessons myLessons={this.props.myLessons}
                        getMyLessons={this.props.getMyLessons}
@@ -131,7 +131,7 @@ export default class Profile extends React.Component {
         </div>
 
         <div className="row">
-          <div className="col s8 offset-s2">
+          <div className="col s12">
             <Match pattern="/profile/incompleteLessons" exactly render={
               () => <IncompleteLessons incompleteLessons={this.props.incompleteLessons}
                                 getIncompleteLessons={this.props.getIncompleteLessons}
@@ -141,7 +141,7 @@ export default class Profile extends React.Component {
           </div>
         </div>
         <div className="row">
-          <div className="col s8 offset-s2">
+          <div className="col s12">
             <Match pattern="/profile/favorites" exactly render={
               () => <Favorites favorites={this.props.favorites}
                          getFavorites={this.props.getFavorites}

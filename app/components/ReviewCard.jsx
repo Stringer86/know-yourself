@@ -45,7 +45,7 @@ export default class ReviewCard extends React.Component {
           </div>
           <h4 className="title">{this.props.publishedArticle.title}</h4>
           <h5 className="description">{this.props.publishedArticle.description}</h5>
-          <p className="readMore"><Link to={`/lesson/${this.props.publishedArticle.id}`}>Read More...</Link></p>
+          <p className="read-more"><Link to={`/lesson/${this.props.publishedArticle.id}`}>Read More...</Link></p>
           <div className="btn delete" onClick={this.deleteLesson.bind(this)}><Link to="/write-lesson">Delete</Link></div>
         </div>
       </div>
