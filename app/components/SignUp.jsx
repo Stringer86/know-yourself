@@ -39,12 +39,12 @@ export default class SignUp extends React.Component {
       password: this.refs['password'].value
     })
     .then(res => {
-      console.log('here');
       axios.post('/api/token', {
         email: this.refs['email'].value,
         password: this.refs['password'].value
       })
       .then(res => {
+          notify.show('You are now signed up!', 'success');
           this.props.authUser(res.data.bool).bind(this);
         })
         .catch(err => {

@@ -28,8 +28,12 @@ export default class Main extends React.Component {
                 />
         }/>
 
-        <Match pattern="/signup" exactly render={
-          () => <SignUp authUser={this.props.authUser} />
+        <Match pattern="/signup" exactly render={() =>
+          this.props.isLoggedIn ? (
+            <Redirect to="/" />
+          ) : (
+            <SignUp authUser={this.props.authUser} />
+          )
         }/>
 
         <Match pattern="/signin" exactly render={() =>

@@ -65,10 +65,6 @@ export default class App extends React.Component {
 
   authUser(bool) {
     this.setState({ isLoggedIn: bool });
-
-    window.location.href = '/';
-
-    notify.show('You are now signed up!', 'success');
   }
 
   getWish(wishItem) {
