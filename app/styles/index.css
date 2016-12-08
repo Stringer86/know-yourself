@@ -187,6 +187,14 @@ nav {
   border-bottom: 15px solid #474747;
   margin: 0 auto;
 }
+.arrow-up-active {
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 15px solid orange;
+  margin: 0 auto;
+}
 
 .arrow-down {
   width: 0;
@@ -195,6 +203,16 @@ nav {
   border-right:15px solid transparent;
 
   border-top:15px solid #474747;
+  margin: 0 auto;
+}
+
+.arrow-down-active {
+  width: 0;
+  height: 0;
+  border-left:15px solid transparent;
+  border-right:15px solid transparent;
+
+  border-top:15px solid blue;
   margin: 0 auto;
 }
 
