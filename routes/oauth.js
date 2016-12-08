@@ -37,8 +37,9 @@ router.get('/github/callback', passport.authenticate('github', { failureRedirect
   knex('users')
     .select(knex.raw('1=1'))
     .where('email', email)
+    .first()
     .then((result) => {
-      if (result.length < 1) {
+      if (!result) {
         const newUser = {
           name,
           email,
@@ -47,33 +48,22 @@ router.get('/github/callback', passport.authenticate('github', { failureRedirect
           githubToken
         }
 
-        knex('users').insert(decamelizeKeys(newUser), '*')
-          .then(user => {
-            return user;
-          }).catch((err) => {
-            next(err);
-          });
+        return knex('users').insert(decamelizeKeys(newUser), '*');
       }
+
+      return result;
     })
     .then((user) => {
-      knex('users')
-        .where('email', email)
-        .then((row) => {
-          const userId = row[0].id;
-          const expiry = new Date(Date.now() + 1000 * 60 * 60 * 3);
-          const token = jwt.sign({ userId: userId }, process.env.JWT_SECRET, { expiresIn: '3h' });
+      const expiry = new Date(Date.now() + 1000 * 60 * 60 * 3);
+      const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET, { expiresIn: '3h' });
 
-          res.cookie('token', token, {
-            httpOnly: true,
-            expires: expiry,
-            secure: router.get('env') === 'production',
-          });
+      res.cookie('token', token, {
+        httpOnly: true,
+        expires: expiry,
+        secure: router.get('env') === 'production',
+      });
 
-          res.redirect('/');
-        })
-        .catch((err) => {
-          return err;
-        })
+      res.redirect('/');
     })
     .catch(err => {
       next(err);
