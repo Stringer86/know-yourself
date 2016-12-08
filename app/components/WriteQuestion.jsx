@@ -2,9 +2,19 @@ import React from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router';
 import Notifications, { notify } from 'react-notify-toast';
+import ReactDOM from 'react-dom';
+
 
 export default class WriteQuestion extends React.Component {
 
+  componentDidMount() {
+    var element = ReactDOM.findDOMNode(this.refs.category)
+
+    $(element).ready(function() {
+      $('select').material_select();
+    })
+
+  }
   submit(event) {
     event.preventDefault();
 
@@ -26,9 +36,17 @@ export default class WriteQuestion extends React.Component {
     return (
       <div className="container" id="question-container">
         <div className="row">
-          <div className="col s12 m6 offset-m3">
-            <input ref="category" type="text" placeholder="Framework or library name..." />
-          </div>
+          <select className="col s12 m6 offset-m3" ref="category">
+            <option value="" disabled selected>Select Category</option>
+            <option>Angular1</option>
+            <option>Angular2</option>
+            <option>Backbone</option>
+            <option>Ember</option>
+            <option>Meteor</option>
+            <option>Polymer</option>
+            <option>React</option>
+            <option>Vue</option>
+          </select>
         </div>
 
         <div className="row">
