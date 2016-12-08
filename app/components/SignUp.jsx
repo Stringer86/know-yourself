@@ -28,6 +28,10 @@ export default class SignUp extends React.Component {
       notify.show('Password must be at least 8 characters long.', 'error', 2000);
     }
 
+    if (!this.refs['bio'].value) {
+      notify.show('Don\'t forget to tell us a bit about yourself!', 'error', 2000);
+    }
+
     axios.post('/api/user', {
       name: this.refs['name'].value,
       email: this.refs['email'].value,
@@ -42,23 +46,13 @@ export default class SignUp extends React.Component {
       })
       .then(res => {
           this.props.authUser(res.data.bool).bind(this);
-
-          notify.show('You are now signed up!', 'success');
-
-          <Match pattern="/signup" exactly render={() =>
-            this.props.isLoggedIn ? (
-              <Redirect to="/" />
-            ) : (
-              <SignUp authUser={this.props.authUser} />
-            )
-          }/>
         })
         .catch(err => {
           notify.show('something went wrong', 'error');
         });
     })
     .catch(function (error) {
-      notify.show(`${error}`, 'error');
+      notify.show('An error occurred while processing your info. Please try again.', 'error');
     });
   }
 

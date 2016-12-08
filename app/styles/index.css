@@ -340,6 +340,10 @@ nav {
   position: relative;
 }
 
+.remove-margin {
+  margin: 0;
+}
+
 #username {
   font-size: 32px;
   font-weight: bold;
@@ -351,14 +355,12 @@ nav {
 }
 
 .add-photo {
-  position: absolute;
-  top: 250px;
+  margin-top: 20px;
 }
 
 #user-bio {
   color: rgba(0, 0, 0, .6);
   font-size: 18px;
-  margin: 0;
 }
 
 #profile-img {
@@ -627,7 +629,7 @@ footer p {
 }
 
 
-@media (max-width: 746px) {
+@media (max-width: 755px) {
   #hero-img {
     margin-top: 0px;
   }

@@ -67,6 +67,8 @@ export default class App extends React.Component {
     this.setState({ isLoggedIn: bool });
 
     window.location.href = '/';
+
+    notify.show('You are now signed up!', 'success');
   }
 
   getWish(wishItem) {

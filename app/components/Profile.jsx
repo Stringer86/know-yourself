@@ -60,35 +60,40 @@ export default class Profile extends React.Component {
 
     return (
       <div className="row">
+
         <div className="row" id="profile-container">
+          {/* {this.props.userData[0].bio.length < 1 &&
+            <div className="btn add-bio" onClick={this.updateBio.bind(this)}>Add bio</div>
+          } */}
+
           <div className="col s8 offset-s2">
-            <h3 id="username">{this.props.userData[0].name}</h3>
-            <div className="col s12 m9 l7 bio-container">
-              {this.props.userData[0].bio.length > 0 &&
-                <h5 id="user-bio">{this.props.userData[0].bio}</h5>
-              }
-            </div>
-            {this.props.userData[0].bio.length < 1 &&
-              <div className="row">
-                <div className="btn col s3" onClick={this.updateBio.bind(this)}>Add bio</div>
+            <div className="row remove-margin">
+              <div className="col s8">
+                <h3 id="username">{this.props.userData[0].name}</h3>
+                {this.props.userData[0].bio.length > 0 &&
+                  <h5 id="user-bio">{this.props.userData[0].bio}</h5>
+                }
               </div>
-            }
+              <div className="col s4">
+                {this.props.userData[0].photoUrl.length < 1 &&
+                  <div className="btn add-photo" onClick={this.updatePhoto.bind(this)}>Add photo</div>
+                }
+              </div>
+            </div>
             {this.state.bio &&
               <div className="row">
               <div className="col s8"><textarea ref="bio"></textarea></div>
               <div className="col s2 btn" onClick={this.patchBio.bind(this)}>update</div>
               </div>
             }
-            {this.props.userData[0].photoUrl.length < 1 &&
-              <div className="row">
-                <div className="btn add-photo" onClick={this.updatePhoto.bind(this)}>Add photo</div>
-              </div>
-            }
+
             {this.state.photo &&
               <div className="row">
-              <p><i>link must be a url</i></p>
-              <div className="col s6"><input type="text" ref="photo"></input></div>
-              <div className="col s2 btn" onClick={this.patchPhoto.bind(this)}>upload</div>
+                <div className="col s12">
+                  <p><i>link must be a url</i></p>
+                  <div className="col s6"><input type="text" ref="photo"></input></div>
+                  <div className="col s2 btn" onClick={this.patchPhoto.bind(this)}>upload</div>
+                </div>
               </div>
             }
           </div>
