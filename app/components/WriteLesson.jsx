@@ -3,6 +3,8 @@ import axios from 'axios';
 import ReviewCard from './ReviewCard';
 import { Redirect, Match, Link } from 'react-router';
 import Notifications, { notify } from 'react-notify-toast';
+import ReactDOM from 'react-dom';
+
 
 export default class WriteAnswer extends React.Component {
 
@@ -14,7 +16,16 @@ export default class WriteAnswer extends React.Component {
       .catch(err => {
         return err;
     });
+
+    var element = ReactDOM.findDOMNode(this.refs.category)
+
+    $(element).ready(function() {
+      $('select').material_select();
+    })
+
   }
+
+
 
   publish(event) {
     event.preventDefault();
@@ -56,7 +67,18 @@ export default class WriteAnswer extends React.Component {
               </div>
               <div className="row">
                 <input className="col s12 m3 offset-m1" type="text" ref="title" placeholder="Title" />
-                <input className="col s12 m2 offset-m1" type="text" ref="category" placeholder="Category" />
+                {/* <input className="col s12 m2 offset-m1" type="text" ref="category" placeholder="Category" /> */}
+                <select className="col s12 m2 offset-m1" ref="category">
+                  <option value="" disabled selected>Select Category</option>
+                  <option>Angular1</option>
+                  <option>Angular2</option>
+                  <option>Backbone</option>
+                  <option>Ember</option>
+                  <option>Meteor</option>
+                  <option>Polymer</option>
+                  <option>React</option>
+                  <option>Vue</option>
+                </select>
                 <input className="col s12 m3 offset-m1" type="text" ref="description" placeholder="Description" />
               </div>
             </div>
