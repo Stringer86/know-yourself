@@ -69,15 +69,15 @@ export default class WriteAnswer extends React.Component {
                 <input className="col s12 m3 offset-m1" type="text" ref="title" placeholder="Title" />
                 {/* <input className="col s12 m2 offset-m1" type="text" ref="category" placeholder="Category" /> */}
                 <select className="col s12 m2 offset-m1" ref="category">
-                  <option value="" disabled selected>Select Category</option>
-                  <option>Angular1</option>
-                  <option>Angular2</option>
-                  <option>Backbone</option>
-                  <option>Ember</option>
-                  <option>Meteor</option>
-                  <option>Polymer</option>
-                  <option>React</option>
-                  <option>Vue</option>
+                  <option value="" disabled selected id="select-category" style={{color: 'orange'}}>Select Category</option>
+                  <option className="select-option">Angular1</option>
+                  <option className="select-option">Angular2</option>
+                  <option className="select-option">Backbone</option>
+                  <option className="select-option">Ember</option>
+                  <option className="select-option">Meteor</option>
+                  <option className="select-option">Polymer</option>
+                  <option className="select-option">React</option>
+                  <option className="select-option">Vue</option>
                 </select>
                 <input className="col s12 m3 offset-m1" type="text" ref="description" placeholder="Description" />
               </div>

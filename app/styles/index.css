@@ -546,6 +546,10 @@ div.col.s10.authorName {
   height: 350px;
 }
 
+ul.dropdown-content.select-dropdown li span {
+  color: #02b875;
+}
+
 /* ReadLesson.jsx */
 .lesson-body {
   font-family: "Arial", serif;
