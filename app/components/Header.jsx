@@ -72,7 +72,7 @@ export default class Header extends React.Component {
                         <li><Link onClick={this.toggleMenu.bind(this)} to="/signup" style={{color: '#02b875', 'fontSize': '14px'}}>Sign up</Link></li>
                       </div>
                       <div className="col s4">
-                        <li className="github-link"><a onClick={this.signIn.bind(this)} style={{color: '#02b875', 'fontSize': '14px'}}>Github</a></li>
+                        <li className="github-link"><a onClick={this.signIn.bind(this)} style={{color: '#02b875', 'fontSize': '14px'}}>sign in with github</a></li>
                       </div>
                     </div>
                   }

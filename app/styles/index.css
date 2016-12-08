@@ -212,7 +212,7 @@ nav {
   border-left:15px solid transparent;
   border-right:15px solid transparent;
 
-  border-top:15px solid blue;
+  border-top:15px solid #ff3333;
   margin: 0 auto;
 }
 
@@ -254,18 +254,46 @@ nav {
   font-size: 12px;
   position: absolute;
   right: 0;
-  margin-left: 5px;
   padding-left: 7px;
   padding-right: 7px;
+  line-height: 40px;
+  height: 40px;
+  line-height: 40px;
   display: inline-block;
   margin-top: -20px;
   background: none;
   border: 1px solid #02b848;
+  overflow: hidden;
+  transition: .35s;
 }
 
 #question-button a {
   color: #02b848;
 }
+
+#question-button:hover > a {
+  color: white;
+  border: none;
+}
+
+#question-button:hover::after {
+  transform: translateX(-16%) rotate(12deg);
+}
+
+#question-button:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -2px;
+  width: 270%;
+  height: 420%;
+  background: #02b848;
+  z-index: -1;
+  transform-origin: bottom center;
+  transform: translateX(calc(-105%)) rotate(12deg);
+  transition: transform .35s;
+}
+
 .write-button {
   font-size: 10px;
   letter-spacing: 1.2px;
@@ -548,6 +576,14 @@ div.col.s10.authorName {
 
 ul.dropdown-content.select-dropdown li span {
   color: #02b875;
+}
+
+.caret {
+  display: none;
+}
+
+.select-wrapper input.select-dropdown {
+  text-align: center;
 }
 
 /* ReadLesson.jsx */
