@@ -81,7 +81,7 @@ export default class Profile extends React.Component {
             }
             {this.props.userData[0].photoUrl.length < 1 &&
               <div className="row">
-                <div className="btn col s3" onClick={this.updatePhoto.bind(this)}>Add photo</div>
+                <div className="btn add-photo" onClick={this.updatePhoto.bind(this)}>Add photo</div>
               </div>
             }
             {this.state.photo &&
@@ -123,7 +123,7 @@ export default class Profile extends React.Component {
         </div>
 
         <div className="row align-center">
-          <div className="col s12 m8 offset-m2">
+          <div className="col s12 m6 offset-m3">
             <Match pattern="/profile/myLessons" exactly render={
               () => <Lessons myLessons={this.props.myLessons}
                        getMyLessons={this.props.getMyLessons}
@@ -133,7 +133,7 @@ export default class Profile extends React.Component {
         </div>
 
         <div className="row">
-          <div className="col s12 m7 offset-m2">
+          <div className="col s12 m6 offset-m3">
             <Match pattern="/profile/incompleteLessons" exactly render={
               () => <IncompleteLessons incompleteLessons={this.props.incompleteLessons}
                                 getIncompleteLessons={this.props.getIncompleteLessons}
@@ -143,7 +143,7 @@ export default class Profile extends React.Component {
           </div>
         </div>
         <div className="row">
-          <div className="col s12 m7 offset-m2">
+          <div className="col s12 m6 offset-m3">
             <Match pattern="/profile/favorites" exactly render={
               () => <Favorites favorites={this.props.favorites}
                          getFavorites={this.props.getFavorites}

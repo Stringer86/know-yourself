@@ -53,8 +53,8 @@ router.post('/api/token', ev(validations.post), (req, res, next) => {
         expires: expiry,
         secure: router.get('env') === 'production'
       });
-
-      res.send(user);
+      // had just sent user. if things get messed up, that's why.
+      res.send({user: user, bool: true});
     })
     .catch(bcrypt.MISMATCH_ERROR, () => {
       throw boom.create(400, 'Bad email or password');

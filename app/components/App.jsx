@@ -64,7 +64,9 @@ export default class App extends React.Component {
   }
 
   authUser(bool) {
-    this.setState({ isLoggedIn: bool});
+    this.setState({ isLoggedIn: bool });
+
+    window.location.href = '/';
   }
 
   getWish(wishItem) {
@@ -119,6 +121,7 @@ export default class App extends React.Component {
           <main>
             <Main
               { ...this.state }
+              authUser={this.authUser.bind(this)}
               getPublished={this.getPublished.bind(this)}
               upVote={this.upVote.bind(this)}
               downVote={this.downVote.bind(this)}

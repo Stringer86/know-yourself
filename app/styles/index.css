@@ -350,6 +350,11 @@ nav {
   padding-left: 0 !important;
 }
 
+.add-photo {
+  position: absolute;
+  top: 250px;
+}
+
 #user-bio {
   color: rgba(0, 0, 0, .6);
   font-size: 18px;

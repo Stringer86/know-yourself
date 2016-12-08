@@ -1,11 +1,32 @@
 import React from 'react';
 import axios from 'axios';
 import Notifications, {notify} from 'react-notify-toast';
+import { Match, Link, Redirect} from 'react-router';
 
 export default class SignUp extends React.Component {
 
   signUp(event) {
     event.preventDefault();
+
+    if (!this.refs['name'].value) {
+      notify.show('Name must not be blank.', 'error', 2000);
+    }
+
+    if (!this.refs['email'].value) {
+      notify.show('Email must not be blank.', 'error', 2000);
+    }
+
+    if (this.refs['email'].value.indexOf('@') < 0) {
+      notify.show('Invalid email.', 'error', 2000);
+    }
+
+    if (!this.refs['password'].value) {
+      notify.show('Password must not be blank.', 'error', 2000);
+    }
+
+    if (this.refs['password'].value.length < 8) {
+      notify.show('Password must be at least 8 characters long.', 'error', 2000);
+    }
 
     axios.post('/api/user', {
       name: this.refs['name'].value,
@@ -13,11 +34,31 @@ export default class SignUp extends React.Component {
       bio: this.refs['bio'].value,
       password: this.refs['password'].value
     })
-    .then(function (response) {
-      notify.show('You are now signed up!', 'success');
+    .then(res => {
+      console.log('here');
+      axios.post('/api/token', {
+        email: this.refs['email'].value,
+        password: this.refs['password'].value
+      })
+      .then(res => {
+          this.props.authUser(res.data.bool).bind(this);
+
+          notify.show('You are now signed up!', 'success');
+
+          <Match pattern="/signup" exactly render={() =>
+            this.props.isLoggedIn ? (
+              <Redirect to="/" />
+            ) : (
+              <SignUp authUser={this.props.authUser} />
+            )
+          }/>
+        })
+        .catch(err => {
+          notify.show('something went wrong', 'error');
+        });
     })
     .catch(function (error) {
-      notify.show(`${error}`, 'success');
+      notify.show(`${error}`, 'error');
     });
   }
 
