@@ -92,10 +92,10 @@ export default class WriteAnswer extends React.Component {
               </div>
               <div className="row">
                 <div className="row">
-                  <input className="col s12 m6 offset-m3 center-align lesson-details" type="text" ref="title" placeholder="Title" />
+                  <input className="col s12 m6 offset-m3 lesson-details" type="text" ref="title" placeholder="Title" />
                 </div>
                 <div className="row">
-                  <input className="col s12 m6 offset-m3  center-align lesson-details" type="text" ref="description" placeholder="Description" />
+                  <input className="col s12 m6 offset-m3 lesson-details" type="text" ref="description" placeholder="Description" />
                 </div>
                 <div className="row">
                   <select className="col s12 m6 offset-m3 center-align" id="select-arrow" ref="category">
@@ -163,7 +163,7 @@ export default class WriteAnswer extends React.Component {
 
 
           <div className="row">
-            <div className="col s12 m6 offset-m3">
+            <div className="col s12 m6 offset-m3" style={{marginTop: '50px'}}>
               <textarea className="card-1  lesson-box" ref="body" placeholder="Now explain the code..."></textarea>
             </div>
           </div>

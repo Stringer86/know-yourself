@@ -355,7 +355,7 @@ nav {
 }
 
 #question-container {
-  padding: 150px 0;
+  padding: 120px 0;
 }
 
 .input-area {
@@ -582,6 +582,10 @@ ul.dropdown-content.select-dropdown li:first-child span {
 
 .select-wrapper input.select-dropdown {
   text-align: center;
+}
+
+.select-wrapper.col.s12.offset-m3 {
+  padding: 0;
 }
 
 #select-category {
