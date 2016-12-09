@@ -9,6 +9,7 @@ import 'brace/mode/css';
 import 'brace/mode/javascript';
 import 'brace/theme/tomorrow_night_eighties';
 import AceEditor from 'react-ace';
+import Rnd from 'react-rnd';
 import ReactDOM from 'react-dom';
 
 
@@ -91,6 +92,7 @@ export default class WriteAnswer extends React.Component {
                 <h1 className="instruction-title"><strong>how it works</strong></h1>
                 <p className="col s12 m6 offset-m3 write-instructions center-align">Know how to make something awesome? Don't hide it. Share it with the rest of the community. First, walk us through the code. After, make sure to explain how you did what you did. We want this to
                 be a place where code is not only shared but <i>also</i> explained.</p>
+                <p className="col s12 m6 offset-m3">PRO TIP: the editors are resizable so you can code in an environment that fits your needs.</p>
               </div>
               <div className="row">
                 <div className="row">
@@ -116,45 +118,70 @@ export default class WriteAnswer extends React.Component {
               </div>
             </div>
           </div>
-          <div className="row">
+          <div className="row" id="editor-container">
             <div className="col s12 m4" style={{padding: '0'}}>
               <h5 className="center-align">HTML</h5>
-              <AceEditor
-                onChange={this.getHtml.bind(this)}
-                ref="html"
-                tabSize="2"
-                width="100%"
-                height="350px"
-                mode="html"
-                theme="tomorrow_night_eighties"
-                value={this.state.html}
-              />
+
+              <Rnd
+                ref={c => { this.rnd = c; }}
+                initial={{
+                  width: window.innerWidth / 3,
+                  height: 160
+                }}
+              >
+                <AceEditor
+                  onChange={this.getHtml.bind(this)}
+                  ref="html"
+                  tabSize="2"
+                  width="100%"
+                  height="350px"
+                  mode="html"
+                  theme="tomorrow_night_eighties"
+                  value={this.state.html}
+                />
+              </Rnd>
             </div>
             <div className="col s12 m4" style={{padding: '0'}}>
               <h5 className="center-align">CSS</h5>
-              <AceEditor
-                onChange={this.getCss.bind(this)}
-                ref="css"
-                tabSize="2"
-                width="100%"
-                height="350px"
-                mode="css"
-                theme="tomorrow_night_eighties"
-                value={this.state.css}
-              />
+              <Rnd
+                ref={b => { this.rnd = b; }}
+                initial={{
+                  width: window.innerWidth / 3,
+                  height: 160
+                }}
+              >
+                <AceEditor
+                  onChange={this.getCss.bind(this)}
+                  ref="css"
+                  tabSize="2"
+                  width="100%"
+                  height="350px"
+                  mode="css"
+                  theme="tomorrow_night_eighties"
+                  value={this.state.css}
+                />
+              </Rnd>
             </div>
             <div className="col s12 m4" style={{padding: '0'}}>
               <h5 className="center-align">JavaScript</h5>
-              <AceEditor
-                onChange={this.getJs.bind(this)}
-                ref="js"
-                tabSize="2"
-                width="100%"
-                height="350px"
-                mode="javascript"
-                theme="tomorrow_night_eighties"
-                value={this.state.js}
-              />
+              <Rnd
+                ref={a => { this.rnd = a; }}
+                initial={{
+                  width: window.innerWidth / 3,
+                  height: 160
+                }}
+              >
+                <AceEditor
+                  onChange={this.getJs.bind(this)}
+                  ref="js"
+                  tabSize="2"
+                  width="100%"
+                  height="350px"
+                  mode="javascript"
+                  theme="tomorrow_night_eighties"
+                  value={this.state.js}
+                />
+              </Rnd>
             </div>
           </div>
           <div className="row">
