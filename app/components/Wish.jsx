@@ -13,6 +13,10 @@ export default class Wish extends React.Component {
   }
 
   upvoted() {
+    if (!this.props.isLoggedIn) {
+      return;
+    }
+
     const upvotes = this.props.data.upvotes + 1;
     axios.patch(`/api/wishList/${this.props.data.id}`, {
       upvotes: upvotes
@@ -27,6 +31,10 @@ export default class Wish extends React.Component {
   }
 
   downVoted() {
+    if (!this.props.isLoggedIn) {
+      return;
+    }
+
     const upvotes = this.props.data.upvotes - 1;
     axios.patch(`/api/wishList/${this.props.data.id}`, {
       upvotes: upvotes
@@ -76,8 +84,8 @@ export default class Wish extends React.Component {
         <div className="col s12 wish-item">
           <div className="row info">
             <div className="col s4">
-            {!this.state.upvoteActive &&  <div className="arrow-up" onClick={this.upvoted.bind(this)}></div>}
-            {this.state.upvoteActive &&  <div className="arrow-up-active" onClick={this.cancelUpvote.bind(this)}></div>}
+            {!this.state.upvoteActive && <div className="arrow-up" onClick={this.upvoted.bind(this)}></div>}
+            {this.state.upvoteActive && <div className="arrow-up-active" onClick={this.cancelUpvote.bind(this)}></div>}
                 <p className="upvote-count">{this.props.data.upvotes}</p>
             {!this.state.downvoteActive && <div className="arrow-down" onClick={this.downVoted.bind(this)}></div>}
             {this.state.downvoteActive && <div className="arrow-down-active" onClick={this.cancelDownvote.bind(this)}></div>}

@@ -59,16 +59,16 @@ nav {
   color: black;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  font-size: 20px;
+  font-size: 16px;
   position: absolute;
-  top: 15px;
+  top: 10px;
   left: 20px;
 }
 
 #auth-list {
   position: absolute;
   right: 20px;
-  top: 0;
+  top: -10px;
 }
 
 #auth-list li a,
@@ -104,6 +104,7 @@ nav {
 #background {
   color: white;
   background: #52658f;
+  margin-top: 60px;
 }
 
 #menu {
@@ -175,7 +176,6 @@ nav {
 
 #signup-button:hover {
   box-shadow: 0 20px 32px rgba(0,0,0,0.25), 0 14px 14px rgba(0,0,0,0.22);
-
 }
 
 /* wishlist */
@@ -354,22 +354,8 @@ nav {
   margin: 0;
 }
 
-
-/*#submit-lesson {
-  border: 1px solid #02b875;
-  background: transparent;
-  padding: 10px;
-  width: 120px;
-  border-radius: 20px;
-  color: #02b875;
-}
-
-#submit-lesson a {
-  color: #02b875;
-}*/
-
 #question-container {
-  padding: 30px 0;
+  padding: 200px 0;
 }
 
 .input-area {
@@ -576,6 +562,13 @@ div.col.s10.authorName {
 
 ul.dropdown-content.select-dropdown li span {
   color: #02b875;
+  text-align: center;
+}
+
+ul.dropdown-content.select-dropdown li:first-child span {
+  color: white;
+  border-bottom: 1px solid lightgrey;
+  background: black;
 }
 
 .caret {
@@ -584,6 +577,11 @@ ul.dropdown-content.select-dropdown li span {
 
 .select-wrapper input.select-dropdown {
   text-align: center;
+}
+
+#select-category {
+  text-align: center;
+  color: orange;
 }
 
 /* ReadLesson.jsx */

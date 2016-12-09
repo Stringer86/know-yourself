@@ -74,7 +74,8 @@ export default class WriteAnswer extends React.Component {
                 </div>
                 <div className="row">
                   <select className="col s12 m6 offset-m3 center-align" id="select-arrow" ref="category">
-                    <option value="" disabled selected id="select-category">Select Category</option>
+
+                    <option className="select-category" defaultValue="Select Category" disabled selected>Select Category</option>
                     <option className="select-option">Angular1</option>
                     <option className="select-option">Angular2</option>
                     <option className="select-option">Backbone</option>
