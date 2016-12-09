@@ -115,52 +115,57 @@ export default class WriteAnswer extends React.Component {
             </div>
           </div>
           <div className="row">
-            <div className="col s12 m10 offset-m1">
-              <h5>HTML</h5>
+            <div className="col s4" style={{padding: '0'}}>
+              <h5 className="center-align">HTML</h5>
               <AceEditor
                 onChange={this.getHtml.bind(this)}
                 ref="html"
                 tabSize="2"
                 width="100%"
+                height="350px"
                 mode="html"
                 theme="tomorrow_night_eighties"
                 value={this.state.html}
               />
             </div>
-          </div>
-          <div className="row">
-            <div className="col s12 m10 offset-m1">
-              <h5>CSS</h5>
+            <div className="col s4" style={{padding: '0'}}>
+              <h5 className="center-align">CSS</h5>
               <AceEditor
                 onChange={this.getCss.bind(this)}
                 ref="css"
                 tabSize="2"
                 width="100%"
+                height="350px"
                 mode="css"
                 theme="tomorrow_night_eighties"
                 value={this.state.css}
               />
             </div>
-          </div>
-            {/* <textarea className="card-1 col s12 m10 offset-m1 lesson-box" ref="code" placeholder="Let's see the code..."></textarea> */}
-          <div className="row">
-            <div className="col s12 m10 offset-m1">
-              <h5>JavaScript</h5>
+            <div className="col s4" style={{padding: '0'}}>
+              <h5 className="center-align">JavaScript</h5>
               <AceEditor
                 onChange={this.getJs.bind(this)}
                 ref="js"
                 tabSize="2"
                 width="100%"
+                height="350px"
                 mode="javascript"
                 theme="tomorrow_night_eighties"
                 value={this.state.js}
               />
             </div>
-            {/* <textarea className="card-1 col s12 m10 offset-m1 lesson-box" ref="code" placeholder="Let's see the code..."></textarea> */}
           </div>
 
+            {/* <textarea className="card-1 col s12 m10 offset-m1 lesson-box" ref="code" placeholder="Let's see the code..."></textarea> */}
+
+
+            {/* <textarea className="card-1 col s12 m10 offset-m1 lesson-box" ref="code" placeholder="Let's see the code..."></textarea> */}
+
+
           <div className="row">
-            <textarea className="card-1 col s12 m10 offset-m1 lesson-box" ref="body" placeholder="Now explain the code..."></textarea>
+            <div className="col s12 m6 offset-m3">
+              <textarea className="card-1  lesson-box" ref="body" placeholder="Now explain the code..."></textarea>
+            </div>
           </div>
 
           <div className="row center-align">
