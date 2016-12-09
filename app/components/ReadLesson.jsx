@@ -10,6 +10,7 @@ export default class ReadLesson extends React.Component {
 
     axios.get(`/api/lessons/${id}`)
       .then((res) => {
+        console.log(res.data, 'RESPONSE');
         this.props.getLesson(res.data).bind(this);
       })
       .catch((err) => {
@@ -22,7 +23,23 @@ export default class ReadLesson extends React.Component {
       return false;
     }
 
-    const initialCodeString = this.props.lesson.code;
+    let html;
+    let css;
+    let js;
+
+    if (this.props.lesson.html) {
+      html = this.props.lesson.html;
+    }
+
+    if (this.props.lesson.css) {
+      css = this.props.lesson.css;
+    }
+
+    if (this.props.lesson.js) {
+      js = this.props.lesson.js;
+    }
+
+    // const initialCodeString = this.props.lesson.html;
 
     return (
       <div className="container">
@@ -31,7 +48,9 @@ export default class ReadLesson extends React.Component {
         </div>
         <p className="lesson-description">{this.props.lesson.description}</p>
         <p className="lesson-category"><Link to={`/category/${this.props.lesson.category}`}>{this.props.lesson.category}</Link></p>
-        <SyntaxHighlighter style={tomorrowNightEighties}>{initialCodeString}</SyntaxHighlighter>
+        <SyntaxHighlighter style={tomorrowNightEighties}>{html}</SyntaxHighlighter>
+        <SyntaxHighlighter style={tomorrowNightEighties}>{css}</SyntaxHighlighter>
+        <SyntaxHighlighter style={tomorrowNightEighties}>{js}</SyntaxHighlighter>
         <p className="lesson-body">{this.props.lesson.body}</p>
       </div>
     );

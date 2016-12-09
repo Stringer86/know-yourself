@@ -23,8 +23,18 @@ module.exports.post = {
       .label('published')
       .required(),
 
-    code: Joi.string()
-      .label('code')
+    html: Joi.string()
+      .label('html')
+      .required()
+      .trim(),
+
+    css: Joi.string()
+      .label('css')
+      .required()
+      .trim(),
+
+    js: Joi.string()
+      .label('js')
       .required()
       .trim(),
 

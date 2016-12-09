@@ -3,10 +3,25 @@ import axios from 'axios';
 import ReviewCard from './ReviewCard';
 import { Redirect, Match, Link } from 'react-router';
 import Notifications, { notify } from 'react-notify-toast';
+import brace from 'brace';
+import 'brace/mode/html';
+import 'brace/mode/css';
+import 'brace/mode/javascript';
+import 'brace/theme/tomorrow_night_eighties';
+import AceEditor from 'react-ace';
 import ReactDOM from 'react-dom';
 
 
 export default class WriteAnswer extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      html: '',
+      css: '',
+      js: ''
+    }
+  }
 
   componentDidMount() {
     axios.get('/api/userData')
@@ -22,10 +37,19 @@ export default class WriteAnswer extends React.Component {
     $(element).ready(function() {
       $('select').material_select();
     })
-
   }
 
+  getHtml(event) {
+    this.setState({ html: event });
+  }
 
+  getCss(event) {
+    this.setState({ css: event });
+  }
+
+  getJs(event) {
+    this.setState({ js: event });
+  }
 
   publish(event) {
     event.preventDefault();
@@ -35,7 +59,9 @@ export default class WriteAnswer extends React.Component {
       category: this.refs['category'].value,
       description: this.refs['description'].value,
       published: true,
-      code: this.refs['code'].value,
+      html: this.state.html,
+      css: this.state.css,
+      js: this.state.js,
       body: this.refs['body'].value,
       likes: 0
     })
@@ -44,7 +70,6 @@ export default class WriteAnswer extends React.Component {
       this.refs['title'].value = '',
       this.refs['category'].value = '',
       this.refs['description'].value = '',
-      this.refs['code'].value = '',
       this.refs['body'].value = '',
       this.props.getPublished(res.data.lesson[0]).bind(this);
       this.setState({ published: res.data.posted })
@@ -89,9 +114,46 @@ export default class WriteAnswer extends React.Component {
               </div>
             </div>
           </div>
-
           <div className="row">
-            <textarea className="card-1 col s12 m10 offset-m1 lesson-box" ref="code" placeholder="Let's see the code..."></textarea>
+            <div className="col s12 m10 offset-m1">
+              <AceEditor
+                onChange={this.getHtml.bind(this)}
+                ref="html"
+                tabSize="2"
+                width="100%"
+                mode="html"
+                theme="tomorrow_night_eighties"
+                value={this.state.html}
+              />
+            </div>
+          </div>
+          <div className="row">
+            <div className="col s12 m10 offset-m1">
+              <AceEditor
+                onChange={this.getCss.bind(this)}
+                ref="css"
+                tabSize="2"
+                width="100%"
+                mode="css"
+                theme="tomorrow_night_eighties"
+                value={this.state.css}
+              />
+            </div>
+          </div>
+            {/* <textarea className="card-1 col s12 m10 offset-m1 lesson-box" ref="code" placeholder="Let's see the code..."></textarea> */}
+          <div className="row">
+            <div className="col s12 m10 offset-m1">
+              <AceEditor
+                onChange={this.getJs.bind(this)}
+                ref="js"
+                tabSize="2"
+                width="100%"
+                mode="javascript"
+                theme="tomorrow_night_eighties"
+                value={this.state.js}
+              />
+            </div>
+            {/* <textarea className="card-1 col s12 m10 offset-m1 lesson-box" ref="code" placeholder="Let's see the code..."></textarea> */}
           </div>
 
           <div className="row">

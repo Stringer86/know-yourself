@@ -355,7 +355,7 @@ nav {
 }
 
 #question-container {
-  padding: 200px 0;
+  padding: 150px 0;
 }
 
 .input-area {
@@ -601,7 +601,6 @@ ul.dropdown-content.select-dropdown li:first-child span {
 }
 
 .lesson-description {
-  font-style: italic;
   font-size: 30px;
   color: rgba(0,0,0,.44);
 }
