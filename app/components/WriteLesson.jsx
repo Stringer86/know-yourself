@@ -116,6 +116,7 @@ export default class WriteAnswer extends React.Component {
           </div>
           <div className="row">
             <div className="col s12 m10 offset-m1">
+              <h5>HTML</h5>
               <AceEditor
                 onChange={this.getHtml.bind(this)}
                 ref="html"
@@ -129,6 +130,7 @@ export default class WriteAnswer extends React.Component {
           </div>
           <div className="row">
             <div className="col s12 m10 offset-m1">
+              <h5>CSS</h5>
               <AceEditor
                 onChange={this.getCss.bind(this)}
                 ref="css"
@@ -143,6 +145,7 @@ export default class WriteAnswer extends React.Component {
             {/* <textarea className="card-1 col s12 m10 offset-m1 lesson-box" ref="code" placeholder="Let's see the code..."></textarea> */}
           <div className="row">
             <div className="col s12 m10 offset-m1">
+              <h5>JavaScript</h5>
               <AceEditor
                 onChange={this.getJs.bind(this)}
                 ref="js"
