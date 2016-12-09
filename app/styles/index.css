@@ -308,7 +308,8 @@ nav {
 }
 
 /* WriteQuestion.jsx */
-#submit-question {
+#submit-question,
+.published-option {
   border: 1px solid white;
   background: transparent;
   padding: 10px;
@@ -318,7 +319,8 @@ nav {
   color: white;
 }
 
-#submit-question:hover {
+#submit-question:hover,
+.published-option:hover {
   border: 1px solid #02b875;
   transition: .8s ease all;
 }
@@ -592,6 +594,8 @@ ul.dropdown-content.select-dropdown li:first-child span {
   text-align: center;
   color: orange;
 }
+
+
 
 /* ReadLesson.jsx */
 .lesson-body {

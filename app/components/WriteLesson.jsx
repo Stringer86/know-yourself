@@ -19,7 +19,8 @@ export default class WriteAnswer extends React.Component {
     this.state = {
       html: '',
       css: '',
-      js: ''
+      js: '',
+      submittedArticle: false
     }
   }
 
@@ -67,6 +68,7 @@ export default class WriteAnswer extends React.Component {
     })
     .then((res) => {
       notify.show('Published!', 'success');
+      this.state.submittedArticle = true;
       this.refs['title'].value = '',
       this.refs['category'].value = '',
       this.refs['description'].value = '',
@@ -115,7 +117,7 @@ export default class WriteAnswer extends React.Component {
             </div>
           </div>
           <div className="row">
-            <div className="col s4" style={{padding: '0'}}>
+            <div className="col s12 m4" style={{padding: '0'}}>
               <h5 className="center-align">HTML</h5>
               <AceEditor
                 onChange={this.getHtml.bind(this)}
@@ -128,7 +130,7 @@ export default class WriteAnswer extends React.Component {
                 value={this.state.html}
               />
             </div>
-            <div className="col s4" style={{padding: '0'}}>
+            <div className="col s12 m4" style={{padding: '0'}}>
               <h5 className="center-align">CSS</h5>
               <AceEditor
                 onChange={this.getCss.bind(this)}
@@ -141,7 +143,7 @@ export default class WriteAnswer extends React.Component {
                 value={this.state.css}
               />
             </div>
-            <div className="col s4" style={{padding: '0'}}>
+            <div className="col s12 m4" style={{padding: '0'}}>
               <h5 className="center-align">JavaScript</h5>
               <AceEditor
                 onChange={this.getJs.bind(this)}
@@ -155,13 +157,6 @@ export default class WriteAnswer extends React.Component {
               />
             </div>
           </div>
-
-            {/* <textarea className="card-1 col s12 m10 offset-m1 lesson-box" ref="code" placeholder="Let's see the code..."></textarea> */}
-
-
-            {/* <textarea className="card-1 col s12 m10 offset-m1 lesson-box" ref="code" placeholder="Let's see the code..."></textarea> */}
-
-
           <div className="row">
             <div className="col s12 m6 offset-m3" style={{marginTop: '50px'}}>
               <textarea className="card-1  lesson-box" ref="body" placeholder="Now explain the code..."></textarea>
@@ -169,11 +164,26 @@ export default class WriteAnswer extends React.Component {
           </div>
 
           <div className="row center-align">
-            <button id="submit-question" type="submit" onClick={this.publish.bind(this)}><Link to="/write-lesson/review">Publish</Link></button>
+            {!this.state.submittedArticle &&
+              <button id="submit-question" type="submit"
+                onClick={this.publish.bind(this)}>
+                <Link to="/write-lesson/review">Publish</Link>
+              </button>
+            }
+            {this.state.submittedArticle &&
+              <div>
+                <div className="row">
+                  <button className="published-option"><Link to="/">Home</Link></button>
+                </div>
+                <div className="row">
+                  <button className="published-option"><Link to={`/lesson/${this.props.publishedArticle.id}`}>Published Article</Link></button>
+                </div>
+              </div>
+            }
           </div>
         </div>
 
-        <div className="container">
+        {/* <div className="container">
           <Match pattern="/write-lesson/review" exactly render={
             () => <ReviewCard
               userData={this.props.userData}
@@ -182,7 +192,7 @@ export default class WriteAnswer extends React.Component {
               getPublished={this.props.getPublished}
             />
           }/>
-        </div>
+        </div> */}
       </div>
     );
   }
