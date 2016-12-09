@@ -23,24 +23,10 @@ module.exports.post = {
       .label('published')
       .required(),
 
-    html: Joi.string()
-      .label('html')
-      .required()
-      .trim(),
-
-    css: Joi.string()
-      .label('css')
-      .required()
-      .trim(),
-
-    js: Joi.string()
-      .label('js')
-      .required()
-      .trim(),
-
     body: Joi.string()
       .label('body')
       .required()
-      .trim()
+      .trim(),
+
   }
 };
