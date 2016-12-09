@@ -87,8 +87,8 @@ export default class WriteAnswer extends React.Component {
             <div className="col s12">
               <div className="row">
                 <h1 className="instruction-title"><strong>how it works</strong></h1>
-                <p className="col s12 m6 offset-m3 write-instructions center-align">The idea is to write one piece of code on one of the specific framework or libraries you see in the navbar. and then explain what you did in plain english. We feel that
-                often times people are willing to show off code online, but we believe it is more helpful to learn through both code <i>and</i> explanation.</p>
+                <p className="col s12 m6 offset-m3 write-instructions center-align">Know how to make something awesome? Don't hide it. Share it with the rest of the community. First, walk us through the code. After, make sure to explain how you did what you did. We want this to
+                be a place where code is not only shared but <i>also</i> explained.</p>
               </div>
               <div className="row">
                 <div className="row">
