@@ -92,7 +92,8 @@ export default class WriteAnswer extends React.Component {
                 <h1 className="instruction-title"><strong>how it works</strong></h1>
                 <p className="col s12 m6 offset-m3 write-instructions center-align">Know how to make something awesome? Don't hide it. Share it with the rest of the community. First, walk us through the code. After, make sure to explain how you did what you did. We want this to
                 be a place where code is not only shared but <i>also</i> explained.</p>
-                <p className="col s12 m6 offset-m3">PRO TIP: the editors are resizable so you can code in an environment that fits your needs.</p>
+                <h5 className="col s12 m6 offset-m3 center-align">PRO TIP:</h5>
+                <p className="col s12 m6 offset-m3 center-align">The editors are resizable and draggable so you can code in an environment that fits your needs.</p>
               </div>
               <div className="row">
                 <div className="row">

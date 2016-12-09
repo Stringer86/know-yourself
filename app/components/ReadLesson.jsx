@@ -48,9 +48,17 @@ export default class ReadLesson extends React.Component {
         </div>
         <p className="lesson-description">{this.props.lesson.description}</p>
         <p className="lesson-category"><Link to={`/category/${this.props.lesson.category}`}>{this.props.lesson.category}</Link></p>
-        <SyntaxHighlighter style={tomorrowNightEighties}>{html}</SyntaxHighlighter>
-        <SyntaxHighlighter style={tomorrowNightEighties}>{css}</SyntaxHighlighter>
-        <SyntaxHighlighter style={tomorrowNightEighties}>{js}</SyntaxHighlighter>
+        {this.props.lesson.html !== "" &&
+          <div>
+            <SyntaxHighlighter style={tomorrowNightEighties}>{html}</SyntaxHighlighter>
+          </div>
+        }
+        {this.props.lesson.css !== "" &&
+          <SyntaxHighlighter style={tomorrowNightEighties}>{css}</SyntaxHighlighter>
+        }
+        {this.props.lesson.js !== "" &&
+          <SyntaxHighlighter style={tomorrowNightEighties}>{js}</SyntaxHighlighter>
+        }
         <p className="lesson-body">{this.props.lesson.body}</p>
       </div>
     );
