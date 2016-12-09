@@ -459,6 +459,11 @@ textarea::-webkit-input-placeholder {
   font-size: 17px;
 }
 
+.card-border {
+  border: 1px solid lightgrey;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.25), 0 0 1px rgba(0,0,0,0.22);
+}
+
 .card-1:hover {
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
@@ -539,7 +544,7 @@ div.col.s10.authorName {
   color: rgba(0,0,0,.44);
 }
 .read-more {
-  margin-top: 5%;
+  font-size: 14px;
 }
 
 .btn {

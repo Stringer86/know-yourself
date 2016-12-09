@@ -15,9 +15,9 @@ exports.up = function(knex) {
     table.text('description').notNullable().defaultTo('');
     table.boolean('published').notNullable();
     table.text('body').notNullable().defaultTo('');
-    table.text('html').notNullable().defaultTo('');
-    table.text('css').notNullable().defaultTo('');
-    table.text('js').notNullable().defaultTo('');
+    table.text('html').defaultTo('');
+    table.text('css').defaultTo('');
+    table.text('js').defaultTo('');
     table.integer('likes').defaultTo(0);
     table.timestamps(true, true);
   });

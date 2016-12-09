@@ -48,7 +48,7 @@ export default class CategoryLessonCard extends React.Component {
   render() {
     return (
       <div className="row">
-        <div className="col s10 offset-s1 m8 offset-m2 card category-card">
+        <div className="col s10 offset-s1 m8 offset-m2 card-border category-card">
           <div className="row cardTop">
             <div className="col s1">
               <img className="img-circle" src={this.props.data.photoUrl} height='40px' width='40px' />

@@ -70,7 +70,7 @@ export default class LessonCard extends React.Component {
   render() {
     return (
       <div className="row">
-        <div className="col s12 card">
+        <div className="col s12 card-border">
             {this.props.data.photoUrl &&
               <div className="row cardTop">
               <div className="col s1">
