@@ -26,7 +26,7 @@ exports.seed = function(knex) {
         function itIs() {
           return 'no seriously really it is';
         }`,
-        likes: 0,
+        likes: 1,
         created_at: new Date('2016-06-26 14:26:16 UTC'),
         updated_at: new Date('2016-06-26 14:26:16 UTC')
       }, {
@@ -50,7 +50,7 @@ exports.seed = function(knex) {
         function itIs() {
           return 'no seriously really it is';
         }`,
-        likes: 0,
+        likes: 1,
         created_at: new Date('2016-06-26 14:26:16 UTC'),
         updated_at: new Date('2016-06-26 14:26:16 UTC')
       }, {
