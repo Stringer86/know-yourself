@@ -104,7 +104,6 @@ export default class App extends React.Component {
   }
 
   getPublished(article) {
-    console.log(article, 'ARTICLE');
     this.setState({ publishedArticle: article });
   }
 

@@ -45,9 +45,9 @@ export default class Category extends React.Component {
 
         this.props.favorites.forEach((favorite) => {
           if (lesson.id === favorite.lessonId) {
-            favorited = true;
+            lesson.favorited = true;
           } else {
-            favorited = false;
+            lesson.favorited = false;
           }
         })
       return <CategoryLessonCard data={lesson}

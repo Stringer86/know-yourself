@@ -7,14 +7,14 @@ import Notifications, {notify} from 'react-notify-toast';
 export default class CategoryLessonCard extends React.Component {
   constructor(props) {
     super(props)
-    let fav = this.props.favorited;
+    let fav = this.props.data.favorited;
     this.state = {
       favorited: fav
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({ favorited: nextProps.favorited });
+    this.setState({ favorited: nextProps.data.favorited });
   }
 
   favorite(event) {
@@ -46,6 +46,7 @@ export default class CategoryLessonCard extends React.Component {
   }
 
   render() {
+    console.log(this.state.favorited);
     return (
       <div className="row">
         <div className="col s10 offset-s1 m8 offset-m2 card-border category-card">
