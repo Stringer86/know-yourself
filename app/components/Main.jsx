@@ -9,6 +9,7 @@ import Profile from './Profile';
 import { Match, Miss, Link, Redirect} from 'react-router';
 import SignUp from './SignUp';
 import SignIn from './SignIn';
+import PublicProfile from './PublicProfile';
 
 export default class Main extends React.Component {
   render() {
@@ -54,6 +55,16 @@ export default class Main extends React.Component {
                   getMyLessons={this.props.getMyLessons}
                   incompleteLessons={this.props.incompleteLessons}
                   getIncompleteLessons={this.props.getIncompleteLessons}
+                />
+        }/>
+        <Match pattern="/user/:id?" render={
+          () => <PublicProfile
+                  userData={this.props.userData}
+                  getUserData={this.props.getUserData}
+                  myLessons={this.props.myLessons}
+                  getMyLessons={this.props.getMyLessons}
+                  favorites={this.props.favorites}
+                  getFavorites={this.props.getFavorites}
                 />
         }/>
         <Match pattern="/category" render={

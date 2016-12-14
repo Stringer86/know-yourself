@@ -20,7 +20,7 @@ const authorize = function(req, res, next) {
     }
 
     req.token = decoded;
-    
+
     next();
   });
 };
@@ -75,6 +75,26 @@ router.get('/api/user', authorize, (req, res, next) => {
     });
 });
 
+router.get('/api/user/:id', (req, res, next) => {
+  console.log("hello");
+  const userId  = Number.parseInt(req.params.id);
+
+  knex('users')
+    .innerJoin('lessons', 'users.id', 'lessons.user_id')
+    .where('lessons.user_id', userId)
+    .orderBy('lessons.updated_at', 'ASC')  // check to make sure it's ordering properly
+    .then((rows) => {
+      const userInfo = camelizeKeys(rows);
+
+      res.send(userInfo);
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
+
+
+
 router.get('/api/userData', authorize, (req, res, next) => {
   const { userId } = req.token;
   console.log(userId, 'USER ID IN USER DATA');
@@ -82,6 +102,25 @@ router.get('/api/userData', authorize, (req, res, next) => {
     .where('id', userId)
     .then((rows) => {
       const userData = camelizeKeys(rows);
+
+      res.send(userData);
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
+
+router.get('/api/userData/:id', (req, res, next) => {
+  const userId  = Number.parseInt(req.params.id);
+  knex('users')
+    .where('id', userId)
+    .then((rows) => {
+      const userData = camelizeKeys(rows);
+
+      delete userData[0].hashedPassword;
+      delete userData[0].email;
+      delete userData[0].githubId;
+      delete userData[0].githubToken;
 
       res.send(userData);
     })
