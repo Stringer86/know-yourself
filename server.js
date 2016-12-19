@@ -54,17 +54,18 @@ app.use(express.static(path.join('public')));
 //   res.sendStatus(406);
 // });
 
-// const users = require('./routes/users');
-// const token = require('./routes/token');
-// const lessons = require('./routes/lessons');
+const users = require('./routes/users');
+const token = require('./routes/token');
+const bigfive = require('./routes/bigfive');
+const entries = require('./routes/entries');
 // const wishList = require('./routes/wishList');
 // const favorites = require('./routes/favorites');
 // const oauth = require('./routes/oauth');
 //
-// app.use(users);
-// app.use(token);
-// app.use(lessons);
-// app.use(wishList);
+app.use(users);
+app.use(token);
+app.use(bigfive);
+app.use(entries);
 // app.use(favorites);
 // app.use('/auth', oauth);
 // app.use((_req, res) => {

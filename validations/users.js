@@ -19,9 +19,5 @@ module.exports.post = {
       .required()
       .min(8)
       .trim(),
-
-    bio: Joi.string()
-      .label('bio')
-      .trim()
   }
 };

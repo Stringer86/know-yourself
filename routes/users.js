@@ -25,9 +25,25 @@ const authorize = function(req, res, next) {
   });
 };
 
+router.get('/api/user', authorize, (req, res, next) => {
+  const { userId } = req.token;
+  knex('users')
+    .where('id', userId)
+    .then((rows) => {
+      const userData = camelizeKeys(rows);
+
+      delete userData[0].hashedPassword;
+
+      res.send(userData);
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
+
 router.post('/api/user', ev(validations.post), (req, res, next) => {
-  const { name, email, password, bio } = req.body;
-  console.log(name, " name", email, " email", password, " password", bio, " bio");
+  const { name, email, password,} = req.body;
+  console.log(name, " name", email, " email", password, " password");
 
   knex('users')
     .select(knex.raw('1=1'))
@@ -43,7 +59,7 @@ router.post('/api/user', ev(validations.post), (req, res, next) => {
     })
     .then((hashedPassword) => {
 
-      const insertUser = { name, email, bio, hashedPassword };
+      const insertUser = { name, email, hashedPassword };
 
       return knex('users')
         .insert(decamelizeKeys(insertUser), '*');
@@ -56,98 +72,5 @@ router.post('/api/user', ev(validations.post), (req, res, next) => {
     });
 });
 
-
-
-router.get('/api/user', authorize, (req, res, next) => {
-  const { userId } = req.token;
-
-  knex('users')
-    .innerJoin('lessons', 'users.id', 'lessons.user_id')
-    .where('lessons.user_id', userId)
-    .orderBy('lessons.updated_at', 'ASC')  // check to make sure it's ordering properly
-    .then((rows) => {
-      const userInfo = camelizeKeys(rows);
-
-      res.send(userInfo);
-    })
-    .catch((err) => {
-      next(err);
-    });
-});
-
-router.get('/api/user/:id', (req, res, next) => {
-  console.log("hello");
-  const userId  = Number.parseInt(req.params.id);
-
-  knex('users')
-    .innerJoin('lessons', 'users.id', 'lessons.user_id')
-    .where('lessons.user_id', userId)
-    .orderBy('lessons.updated_at', 'ASC')  // check to make sure it's ordering properly
-    .then((rows) => {
-      const userInfo = camelizeKeys(rows);
-
-      res.send(userInfo);
-    })
-    .catch((err) => {
-      next(err);
-    });
-});
-
-
-
-router.get('/api/userData', authorize, (req, res, next) => {
-  const { userId } = req.token;
-  console.log(userId, 'USER ID IN USER DATA');
-  knex('users')
-    .where('id', userId)
-    .then((rows) => {
-      const userData = camelizeKeys(rows);
-
-      res.send(userData);
-    })
-    .catch((err) => {
-      next(err);
-    });
-});
-
-router.get('/api/userData/:id', (req, res, next) => {
-  const userId  = Number.parseInt(req.params.id);
-  knex('users')
-    .where('id', userId)
-    .then((rows) => {
-      const userData = camelizeKeys(rows);
-
-      delete userData[0].hashedPassword;
-      delete userData[0].email;
-      delete userData[0].githubId;
-      delete userData[0].githubToken;
-
-      res.send(userData);
-    })
-    .catch((err) => {
-      next(err);
-    });
-});
-
-router.patch('/api/user', authorize, (req, res, next) => {
-  const { userId } = req.token;
-
-  const { firstName, lastName, photoUrl, bio } = req.body;
-
-  knex('users')
-    .where('id', userId)
-    .update({
-      first_name: firstName,
-      last_name: lastName,
-      photo_url: photoUrl,
-      bio: bio
-    })
-    .then((row) => {
-      res.send('success');
-    })
-    .catch((err) => {
-      next(err);
-    });
-});
 
 module.exports = router;
