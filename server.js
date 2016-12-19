@@ -54,22 +54,22 @@ app.use(express.static(path.join('public')));
 //   res.sendStatus(406);
 // });
 
-const users = require('./routes/users');
-const token = require('./routes/token');
-const lessons = require('./routes/lessons');
-const wishList = require('./routes/wishList');
-const favorites = require('./routes/favorites');
-const oauth = require('./routes/oauth');
-
-app.use(users);
-app.use(token);
-app.use(lessons);
-app.use(wishList);
-app.use(favorites);
-app.use('/auth', oauth);
-app.use((_req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
+// const users = require('./routes/users');
+// const token = require('./routes/token');
+// const lessons = require('./routes/lessons');
+// const wishList = require('./routes/wishList');
+// const favorites = require('./routes/favorites');
+// const oauth = require('./routes/oauth');
+//
+// app.use(users);
+// app.use(token);
+// app.use(lessons);
+// app.use(wishList);
+// app.use(favorites);
+// app.use('/auth', oauth);
+// app.use((_req, res) => {
+//   res.sendFile(path.join(__dirname, 'public', 'index.html'));
+// });
 
 app.use((err, _req, res, _next) => {
   if (err.output && err.output.statusCode) {

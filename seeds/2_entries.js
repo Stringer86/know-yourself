@@ -1,0 +1,30 @@
+/* eslint-disable camelcase, max-len */
+'use strict';
+
+exports.seed = function(knex) {
+  return knex('entries').del()
+    .then(() => {
+      return knex('entries').insert([{
+        id: 1,
+        user_id: 1,
+        body: 'Today was a great day. I learned a lot in class and the cute girls talked to me.  I got a big pizza for lunch and ate the whole thing!',
+        anger: 3.057,
+        disgust: 14.874,
+        fear: 1.020,
+        joy: 77.171,
+        sadness: 11.109,
+        openness: 4.742,
+        conscientiousness: 62.982,
+        extraversion: 85.864,
+        agreeableness: 81.769,
+        emotional_range: 54.183,
+        created_at: new Date('2016-06-29 14:26:16 UTC'),
+        updated_at: new Date('2016-06-29 14:26:16 UTC')
+      }
+    ]);
+    })
+    .then(() => {
+      return knex.raw("SELECT setval('entries_id_seq', (SELECT MAX(id) FROM entries));"
+    );
+    });
+};
