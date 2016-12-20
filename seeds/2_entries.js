@@ -20,7 +20,24 @@ exports.seed = function(knex) {
         emotional_range: 54.183,
         created_at: new Date('2016-06-29 14:26:16 UTC'),
         updated_at: new Date('2016-06-29 14:26:16 UTC')
-      }
+      }, {
+      id: 2,
+      user_id: 1,
+      body: 'A friendly reminder to submit your personal branding assignment. (Please note that this is a graduation requirement.) Let me know if you need any help! Hope that you had a great, long labor day weekend! Cheers, Gina',
+      anger: 4.339,
+      disgust: 2.039,
+      fear: 9.889,
+      joy: 81.852,
+      sadness: 6.297,
+      openness: 25.742,
+      conscientiousness: 88.982,
+      extraversion: 94.864,
+      agreeableness: 95.769,
+      emotional_range: 77.183,
+      created_at: new Date('2016-06-30 14:26:16 UTC'),
+      updated_at: new Date('2016-06-30 14:26:16 UTC')
+    }
+
     ]);
     })
     .then(() => {
