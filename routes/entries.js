@@ -8,6 +8,14 @@ const jwt = require('jsonwebtoken');
 const ev = require('express-validation');
 const validations = require('../validations/entries');
 const { camelizeKeys, decamelizeKeys } = require('humps');
+const watson = require('watson-developer-cloud');
+
+const TONE_ANALYZER = watson.tone_analyzer({
+  username: '34f3a33a-9ffd-45aa-9fc0-c17cfe16cbc8',
+  password: 'KR0TZ6CmuE8X',
+  version: 'v3',
+  version_date: '2016-05-19'
+});
 
 // eslint-disable-next-line new-cap
 const router = express.Router();
@@ -25,7 +33,7 @@ const authorize = function(req, res, next) {
 
 router.get('/api/entries', authorize, (req, res, next) => {
   const { userId } = req.token;
-  
+
   knex('entries')
     .where('entries.user_id', userId)
     .orderBy('entries.updated_at', 'ASC')  // check to make sure it's ordering properly
@@ -41,17 +49,70 @@ router.get('/api/entries', authorize, (req, res, next) => {
 
 router.post('/api/entries', authorize, ev(validations.post), (req, res, next) => {
   const { userId } = req.token;
-  const { body, anger, disgust, fear, joy, sadness, openness, conscientiousness, extraversion, agreeableness, emotionalRange } = req.body;
-  const insertEntry = { userId, body, anger, disgust, fear, joy, sadness, openness, conscientiousness, extraversion, agreeableness, emotionalRange };
+  const { body } = req.body;
 
-  knex('entries')
-      .insert(decamelizeKeys(insertEntry), '*')
-      .then((row) => {
-        res.send({ entry: row, posted: true });
-      })
-      .catch((err) => {
-        next(err);
+  const apiCall = new Promise((resolve, reject) => {
+
+    TONE_ANALYZER.tone({ text: body },
+    function(err, tone) {
+      if (err) {
+        return reject (err);
+      }
+
+      const emotionScores = tone['document_tone']['tone_categories'][0].tones
+      const anger = emotionScores[0].score * 100;
+      const disgust = emotionScores[1].score * 100;
+      const fear = emotionScores[2].score * 100;
+      const joy = emotionScores[3].score * 100;
+      const sadness = emotionScores[4].score * 100;
+
+      const bigFiveScores = tone['document_tone']['tone_categories'][2].tones;
+      const openness = bigFiveScores[0].score * 100;
+      const conscientiousness = bigFiveScores[1].score * 100;
+      const extraversion = bigFiveScores[2].score * 100;
+      const agreeableness = bigFiveScores[3].score * 100;
+      const emotionalRange = bigFiveScores[4].score * 100;
+
+      return resolve({
+        anger,
+        disgust,
+        fear,
+        joy,
+        sadness,
+        openness,
+        conscientiousness,
+        extraversion,
+        agreeableness,
+        emotionalRange,
       });
+    })
+  })
+
+
+  apiCall.then((data) => {
+    const insertEntry = {
+      userId,
+      body,
+      anger: data.anger,
+      disgust: data.disgust,
+      fear: data.disgust,
+      joy: data.joy,
+      sadness: data.sadness,
+      openness: data.openness,
+      conscientiousness: data.conscientiousness,
+      extraversion: data.extraversion,
+      agreeableness: data.agreeableness,
+      emotionalRange: data.emotionalRange
+    };
+    knex('entries')
+        .insert(decamelizeKeys(insertEntry), '*')
+        .then((row) => {
+          res.send({ entry: row, posted: true });
+        })
+        .catch((err) => {
+          next(err);
+        });
+  })
 });
 
 router.delete('/api/entries/:id', authorize, (req, res, next) => {

@@ -4,6 +4,8 @@ import Home from './Home';
 import Profile from './Profile';
 import SignUp from './SignUp';
 import SignIn from './SignIn';
+import Journal from './Journal';
+
 import { Match, Miss, Link, Redirect} from 'react-router';
 
 export default class Main extends React.Component {
@@ -28,6 +30,13 @@ export default class Main extends React.Component {
           ) : (
             <SignIn authUser={this.props.authUser} />
           )
+        }/>
+
+        <Match pattern="/myjournal" exactly render={
+          () => <Journal
+                        entries={this.props.entries}
+                        getEntries={this.props.getEntries}
+          />
         }/>
 
         <Match pattern="/profile" exactly render={
