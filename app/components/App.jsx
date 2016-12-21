@@ -12,7 +12,8 @@ export default class App extends React.Component {
     super(props);
 
     this.state = {
-    
+      isLoggedIn: false,
+      entries: [],
     }
   }
 
@@ -26,6 +27,14 @@ export default class App extends React.Component {
       });
   }
 
+  getEntries(entries) {
+    this.setState({ entries: entries })
+  }
+
+  authUser(bool) {
+    this.setState({ isLoggedIn: bool });
+  }
+
   render() {
     return (
       <BrowserRouter>
@@ -37,7 +46,11 @@ export default class App extends React.Component {
               />
           <main>
             <Main
-            />
+                isLoggedIn={this.state.isLoggedIn}
+                authUser={this.authUser.bind(this)}
+                entries={this.state.entries}
+                getEntries={this.getEntries.bind(this)}
+                />
           </main>
           <Footer />
         </div>

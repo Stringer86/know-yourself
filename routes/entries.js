@@ -25,7 +25,7 @@ const authorize = function(req, res, next) {
 
 router.get('/api/entries', authorize, (req, res, next) => {
   const { userId } = req.token;
-
+  
   knex('entries')
     .where('entries.user_id', userId)
     .orderBy('entries.updated_at', 'ASC')  // check to make sure it's ordering properly
