@@ -23,15 +23,18 @@ export default class Header extends React.Component {
             <Link to='/' className="brand-logo center">My Journal</Link>
             <ul id="nav-mobile" className="right hide-on-med-and-down">
             {this.props.isLoggedIn &&
+              <div>
+              <li><Link to='/analyzer'>E-mail analyzer</Link></li>
               <li><Link to='/profile'>My Profile</Link></li>
+              </div>
             }
             {!this.props.isLoggedIn &&
               <div>
               <li><Link to='/signin'>Sign in</Link></li>
               <li><Link to='/signup'>Sign up</Link></li>
+              <li><Link to='/analyzer'>E-mail analyzer</Link></li>
               </div>
             }
-            <li><Link to='/analyzer'>E-mail analyzer</Link></li>
             </ul>
           </div>
         </nav>
