@@ -31,22 +31,35 @@ export default class Analyzer extends React.Component {
 
    }
 
+   changeState(event) {
+     event.preventDefault();
+
+     this.setState({submitted: false})
+   }
+
   render() {
 
       return (
         <div className="center-align analyzer">
-          <h1>Input your email and we'll analyze it for you</h1>
-          <div className="row">
+
+          {!this.state.submitted &&
+          <div className="row center-align">
+            <h1>Input your email and we'll analyze it for you</h1>
+            <div className="row">
             <div className="input-field col s8 offset-s2">
                    <textarea id="textarea2" ref="body" placeholder="enter email here"></textarea>
                 </div>
-            </div>
-            <div className="row center-align">
+              </div>
+              <div className="row">
               <button onClick={this.publishEntry.bind(this)}><Link to="/analyzer/complete">Analyze!</Link></button>
+              </div>
 
             </div>
-            <div className="row"></div>
+          }
+          {this.state.submitted &&
             <div className="row align-center">
+            <div className="row"><button onClick={this.changeState.bind(this)}><Link to="/analyzer">New Email</Link></button></div>
+              <div className="row">
               <div className="col s12 m6 offset-m3">
                 <Match pattern="/analyzer/complete" exactly render={
                     () => <MessageChart entry={this.state.entry}
@@ -54,6 +67,8 @@ export default class Analyzer extends React.Component {
                         }/>
               </div>
               </div>
+              </div>
+          }
         </div>
       );
     }
