@@ -5,6 +5,7 @@ import Profile from './Profile';
 import SignUp from './SignUp';
 import SignIn from './SignIn';
 import Journal from './Journal';
+import Analyzer from './Analyzer';
 
 import { Match, Miss, Link, Redirect} from 'react-router';
 
@@ -37,6 +38,10 @@ export default class Main extends React.Component {
                         entries={this.props.entries}
                         getEntries={this.props.getEntries}
           />
+        }/>
+
+        <Match pattern="/analyzer" render={
+          () => <Analyzer />
         }/>
 
         <Match pattern="/profile" exactly render={

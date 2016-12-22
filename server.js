@@ -58,11 +58,13 @@ const users = require('./routes/users');
 const token = require('./routes/token');
 const bigfive = require('./routes/bigfive');
 const entries = require('./routes/entries');
+const analyzer = require('./routes/analyzer');
 
 app.use(users);
 app.use(token);
 app.use(bigfive);
 app.use(entries);
+app.use(analyzer);
 
 app.use((_req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));

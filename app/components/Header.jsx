@@ -19,13 +19,19 @@ export default class Header extends React.Component {
   render() {
       return (
         <nav>
-          <div className="nav-wrapper">
+          <div className="nav-wrapper blue">
             <Link to='/' className="brand-logo center">My Journal</Link>
-            <ul id="nav-mobile" className="left hide-on-med-and-down">
-              <li><Link to='/'>My Journal</Link></li>
+            <ul id="nav-mobile" className="right hide-on-med-and-down">
+            {this.props.isLoggedIn &&
               <li><Link to='/profile'>My Profile</Link></li>
+            }
+            {!this.props.isLoggedIn &&
+              <div>
               <li><Link to='/signin'>Sign in</Link></li>
               <li><Link to='/signup'>Sign up</Link></li>
+              </div>
+            }
+            <li><Link to='/analyzer'>E-mail analyzer</Link></li>
             </ul>
           </div>
         </nav>

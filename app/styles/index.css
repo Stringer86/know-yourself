@@ -23,3 +23,23 @@ footer p {
   height: 300px;
   width: 300px;
 }
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+  color: #333;
+  background-color: #fafafa;
+  margin: 0 0 65px;
+}
+
+footer {
+  background: #474747;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 65px;
+  width: 100%;
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import {Line, Polar, Radar} from 'react-chartjs-2';
+import {Link} from 'react-router';
 
 
 export default class Profile extends React.Component {
@@ -268,7 +269,7 @@ export default class Profile extends React.Component {
 
     return (
       <div className="row">
-        <h1>Hello Profile</h1>
+        <h1>Your History</h1>
         <div className="col s4">
         <Line data={lineData}
         width={200}
@@ -283,7 +284,7 @@ export default class Profile extends React.Component {
       options={{
       maintainAspectRatio: false
     }}/>
-      </div>
+    </div>
       {/* <div className="col s4">
         <Radar data={radarData}
               width={200}
@@ -292,7 +293,9 @@ export default class Profile extends React.Component {
               maintainAspectRatio: false
             }}/>
       </div> */}
-
+      <div className="col s4">
+        <button><Link to="/myjournal">New Entry</Link></button>
+      </div>
 
       </div>
     );
