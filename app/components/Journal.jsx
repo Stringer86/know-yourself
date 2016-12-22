@@ -24,12 +24,13 @@ export default class Journal extends React.Component {
     return (
       <div>
         <h1>Hello journal</h1>
-        <div className="row">
-          <div className="input-field col s12">
-                 <textarea id="textarea1" className="materialize-textarea" ref="body"></textarea>
-                 <label htmlFor="textarea1">Textarea</label>
+        <div className="row journal">
+          <div className="input-field col s8 offset-s2">
+                 <textarea autoFocus id="textarea1" ref="body" placeholder="Share your thoughts...."></textarea>
               </div>
-              <button onClick={this.publishEntry.bind(this)}>submit</button>
+          </div>
+          <div className="row center-align">
+          <button onClick={this.publishEntry.bind(this)}>submit</button>
           </div>
       </div>
     );

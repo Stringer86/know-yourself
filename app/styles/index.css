@@ -24,6 +24,7 @@ footer p {
   width: 300px;
 }
 
+
 html {
     position: relative;
     min-height: 100%;
@@ -42,4 +43,28 @@ footer {
   bottom: 0;
   height: 65px;
   width: 100%;
+}
+
+.analyzer {
+  background: #b2d5ee;
+  margin-top: -20px;
+  margin-bottom: -20px;
+}
+
+#textarea2 {
+  background: white;
+  border-radius: 5px;
+  height: 500px;
+  outline: none;
+}
+
+#textarea1 {
+  background: url(http://i.stack.imgur.com/ynxjD.png) repeat-y;
+  font: normal 14px verdana;
+  line-height: 25px;
+  padding-left: 13%;
+  padding-top: 3%;
+  border: solid 1px #ddd;
+  outline: none;
+  height: 500px;
 }

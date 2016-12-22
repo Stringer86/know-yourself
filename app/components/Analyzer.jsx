@@ -34,14 +34,16 @@ export default class Analyzer extends React.Component {
   render() {
 
       return (
-        <div className="center-align">
+        <div className="center-align analyzer">
           <h1>Input your email and we'll analyze it for you</h1>
           <div className="row">
-            <div className="input-field col s12">
-                   <textarea id="textarea1" className="materialize-textarea" ref="body"></textarea>
-                   <label htmlFor="textarea1">Textarea</label>
+            <div className="input-field col s8 offset-s2">
+                   <textarea id="textarea2" ref="body" placeholder="enter email here"></textarea>
                 </div>
-                <button onClick={this.publishEntry.bind(this)}><Link to="/analyzer/complete">Analyze!</Link></button>
+            </div>
+            <div className="row center-align">
+              <button onClick={this.publishEntry.bind(this)}><Link to="/analyzer/complete">Analyze!</Link></button>
+
             </div>
             <div className="row"></div>
             <div className="row align-center">
