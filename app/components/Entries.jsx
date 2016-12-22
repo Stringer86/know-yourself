@@ -24,6 +24,7 @@ export default class Entries extends React.Component {
 
     const entries = this.props.entries.map((entry, index) => {
       return <Entry data={entry}
+                    getEntries={this.props.getEntries}
                     key={index}
                     id={entry.id}
                 />
@@ -33,7 +34,7 @@ export default class Entries extends React.Component {
     return (
       <div>
       <div className="row">
-        <h1>Your History mother fucker</h1>
+        <h1>Your Journal Entries</h1>
       </div>
       { entries }
       </div>
