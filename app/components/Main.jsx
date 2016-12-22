@@ -6,6 +6,7 @@ import SignUp from './SignUp';
 import SignIn from './SignIn';
 import Journal from './Journal';
 import Analyzer from './Analyzer';
+import Entries from './Entries';
 
 import { Match, Miss, Link, Redirect} from 'react-router';
 
@@ -49,6 +50,15 @@ export default class Main extends React.Component {
                       entries={this.props.entries}
                       getEntries={this.props.getEntries}
                       />
+        }/>
+        <Match pattern="/entries" exactly render={() =>
+          !this.props.isLoggedIn ? (
+            <Redirect to="/" />
+          ) : (
+            <Entries  entries={this.props.entries}
+                      getEntries={this.props.getEntries}
+            />
+          )
         }/>
         <Miss component={NotFound} />
       </div>

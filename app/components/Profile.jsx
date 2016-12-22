@@ -167,7 +167,7 @@ export default class Profile extends React.Component {
             spanGaps: false,
         },
         {
-            label: "openness",
+            label: "sadness",
             fill: false,
             lineTension: 0,
             backgroundColor: "rgba(75,75,192,0.4)",
@@ -268,6 +268,7 @@ export default class Profile extends React.Component {
     ]}
 
     return (
+      <div>
       <div className="row">
         <h1>Your History</h1>
         <div className="col s4">
@@ -297,6 +298,13 @@ export default class Profile extends React.Component {
         <button><Link to="/myjournal">New Entry</Link></button>
       </div>
 
+      </div>
+      <div className="row">
+        <div className="col s4">
+          <button><Link to="/entries">View past posts</Link></button>
+        </div>
+
+      </div>
       </div>
     );
   }
