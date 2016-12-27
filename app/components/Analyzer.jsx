@@ -41,6 +41,7 @@ export default class Analyzer extends React.Component {
 
       return (
         <div className="center-align analyzer">
+        <hr></hr>
 
           {!this.state.submitted &&
           <div className="row center-align">
@@ -51,14 +52,14 @@ export default class Analyzer extends React.Component {
                 </div>
               </div>
               <div className="row">
-              <button onClick={this.publishEntry.bind(this)}><Link to="/analyzer/complete">Analyze!</Link></button>
+              <a className="btn" onClick={this.publishEntry.bind(this)}><Link to="/analyzer/complete" className="white-text">Analyze!</Link></a>
               </div>
 
             </div>
           }
           {this.state.submitted &&
             <div className="row align-center">
-            <div className="row"><button onClick={this.changeState.bind(this)}><Link to="/analyzer">New Email</Link></button></div>
+            <div className="row"><a className="btn" onClick={this.changeState.bind(this)}><Link to="/analyzer" className="white-text">New Email</Link></a></div>
               <div className="row">
               <div className="col s12 m6 offset-m3">
                 <Match pattern="/analyzer/complete" exactly render={

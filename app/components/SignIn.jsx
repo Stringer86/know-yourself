@@ -24,6 +24,7 @@ export default class SignIn extends React.Component {
   render() {
     return (
       <div>
+      <hr></hr>
         <div className="container">
           <div className="row">
             <form className="col s12">
