@@ -1,7 +1,32 @@
-
-.headerInfo {
-  margin-left: 200px;
+nav {
+    height: 50px;
+    line-height: 50px;
+    background: #fafafa;
+    font-family: GillSans, Calibri, Trebuchet, sans-serif;
+    font-size: 2.0rem;
 }
+
+nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
+    height: 40px;
+    line-height: 40px;
+}
+
+nav .button-collapse i {
+    height: 40px;
+    line-height: 40px;
+}
+
+nav .brand-logo {
+    font-size: 2.0rem;
+}
+
+@media only screen and (min-width: 601px){
+    nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
+        height: 40px;
+        line-height: 40px;
+    }
+}
+
 
 footer {
   background: #474747;
@@ -32,24 +57,39 @@ html {
 
 body {
   color: #333;
-  background-color: #fafafa;
-  margin: 0 0 65px;
+  background-color: white;
+  margin: 0 4% 65px 4%;
 }
 
 footer {
   background: #474747;
-  position: absolute;
-  left: 0;
-  bottom: 0;
   height: 65px;
-  width: 100%;
 }
 
 .analyzer {
+  background: white;
+  padding-top: 2%;
+}
+
+.analyzersize {
+  max-height: 400px;
+  max-width: 400px;
+  min-height: 400px;
+  min-width: 400px;
+  margin-bottom: 200px;
+}
+
+.journalEntry {
+  background: #b2d5ee;
+  margin-bottom: -20px;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.entry {
   background: #b2d5ee;
   margin-top: -20px;
   margin-bottom: -20px;
-  padding-top: 5%;
 }
 
 #textarea2 {

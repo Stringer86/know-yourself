@@ -20,6 +20,7 @@ export default class App extends React.Component {
   componentDidMount() {
     axios.get('/api/token')
       .then(res => {
+        console.log(res.data);
         this.setState({ isLoggedIn: res.data });
       })
       .catch(err => {

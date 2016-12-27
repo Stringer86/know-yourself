@@ -27,6 +27,7 @@ switch (app.get('env')) {
 
   default:
 }
+console.log("hi");
 
 app.use(bodyParser.json());
 app.use(cookieParser());

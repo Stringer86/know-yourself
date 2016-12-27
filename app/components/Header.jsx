@@ -18,9 +18,9 @@ export default class Header extends React.Component {
 
   render() {
       return (
-        <nav className="black-text">
-          <div className="nav-wrapper white">
-            <Link to='/' className="brand-logo center black-text">My Journal</Link>
+        <nav className="black-text z-depth-0">
+          <div className="nav-wrapper">
+            <Link to='/' className="brand-logo left black-text">My Journal</Link>
             <ul id="nav-mobile" className="right hide-on-med-and-down">
             {this.props.isLoggedIn &&
               <div>

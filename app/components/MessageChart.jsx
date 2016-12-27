@@ -16,14 +16,14 @@ export default class MessageChart extends React.Component {
         {
           label: "Watson Summary",
           data: [data.anger, data.disgust, data.fear, data.joy, data.sadness],
-          backgroundColor: ['red', 'green', 'goldenrod', 'yellow', 'blue' ],
+          backgroundColor: ['#A70A0A', '#34C916', '#A743EE', '#EFF320', '#0F5DCB' ],
         }
       ]
     }
 
 
     return (
-        <div className="row">
+        <div className="row analyzersize">
         <LazyLoad height={200}>
         <Doughnut data={doughnutData}
         width={500}
@@ -32,6 +32,8 @@ export default class MessageChart extends React.Component {
         maintainAspectRatio: false
       }}/>
       </LazyLoad>
+      <h4>Is Sadness the main emotion you want to convey?</h4>
+      <br></br>
         </div>
     );
   }

@@ -22,8 +22,8 @@ export default class Journal extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Hello journal</h1>
+      <div className="journalEntry center-align">
+        <h1>New Entry</h1>
         <div className="row journal">
           <div className="input-field col s8 offset-s2">
                  <textarea autoFocus id="textarea1" ref="body" placeholder="Share your thoughts...."></textarea>

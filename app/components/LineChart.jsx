@@ -141,12 +141,21 @@ export default class LineChart extends React.Component {
         },
     ]
   }
+
     return (
         <Line data={lineData}
         width={200}
         height={300}
         options={{
-        maintainAspectRatio: false
+        maintainAspectRatio: false,
+        scales: {
+          yAxes: [{
+            ticks: {
+              max: 100,
+              beginAtZero: true
+            }
+          }]
+        }
       }}/>
     );
   }

@@ -62,8 +62,17 @@ export default class Profile extends React.Component {
 
     return (
       <div>
-      <div className="row">
         <h1>Your Timeline</h1>
+        <div className="row">
+          <button><Link to="/myjournal">New Entry</Link></button>
+        </div>
+
+
+        <div className="row">
+            <button><Link to="/entries">View past posts</Link></button>
+
+        </div>
+        <div className="row">
         <div className="col s4">
         <LineChart entries={this.props.entries}
         />
@@ -79,16 +88,6 @@ export default class Profile extends React.Component {
               maintainAspectRatio: false
             }}/>
       </div> */}
-      <div className="col s4">
-        <button><Link to="/myjournal">New Entry</Link></button>
-      </div>
-
-      </div>
-      <div className="row">
-        <div className="col s4">
-          <button><Link to="/entries">View past posts</Link></button>
-        </div>
-
       </div>
       </div>
     );
