@@ -26,12 +26,12 @@ export default class Header extends React.Component {
               <div>
               <li><Link to='/analyzer' className="black-text">E-mail analyzer</Link></li>
               <li><Link to='/profile' className="black-text">My Profile</Link></li>
+              <li><Link to='/' className="black-text" onClick={this.logOut.bind(this)}>Log out</Link></li>
               </div>
             }
             {!this.props.isLoggedIn &&
               <div>
-              <li><Link to='/signin' className="black-text">Sign in</Link></li>
-              <li><Link to='/signup' className="black-text">Sign up</Link></li>
+              <li><Link to='/signin' className="black-text">Log-in</Link></li>
               <li><Link to='/analyzer' className="black-text">E-mail analyzer</Link></li>
               </div>
             }
