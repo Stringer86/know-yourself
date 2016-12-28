@@ -33,12 +33,13 @@ nav .nav-wrapper {
   font-family: helvetica;
   align-items: center;
   text-align: center;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)), url('../img/hero.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4),rgba(0, 0, 0, 0.4)), url('../img/hero.jpg');
   background-size: cover;
   min-height: 580px;
   padding-top: 28%;
   padding-left: 21%;
   padding-right: 21%;
+  margin-bottom: 2%;
   color: black;
 }
 
@@ -47,14 +48,29 @@ nav .nav-wrapper {
   font-weight: bold;
 }
 
-.middleHeader {
-  padding-left: 5%;
-  padding-right: 5%;
-  margin-bottom: 2%;
-  margin-top: 2%;
-  text-align: center;
+h3 {
+  font-weight: bold;
 }
 
+.browser-default {
+  font-size: 30px;
+}
+
+.middleSections {
+  margin-bottom: 4%;
+}
+
+.explanation {
+  font-size: 18px;
+}
+
+#doughnut, #line, #polar {
+  margin-top: 10%;
+}
+
+#polar {
+  padding-left: 15%;
+}
 
 .emailExp {
   padding-left: 20%;
