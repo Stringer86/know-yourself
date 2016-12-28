@@ -23,45 +23,10 @@ export default class Profile extends React.Component {
     }
 
     const entries = this.props.entries;
-  //   const radarData = {
-  //   labels: ["Openness", "Conscientiousness", "Extraversion", "Agreeableness", "Neuroticism"],
-  //   datasets: [
-  //     {
-  //     label: "Post 1",
-  //     borderColor: 'blue',
-  //     data: bigFive[0],
-  //     backgroundColor: 'rgba(00, 255, 00, 0.1)',
-  //   },
-  //   {
-  //   label: "Post 2",
-  //   borderColor: 'yellow',
-  //   data: bigFive[1],
-  //   backgroundColor: 'rgba(255, 255, 00, 0.1)',
-  //   },
-  //   {
-  //   label: "Post 3",
-  //   borderColor: 'blue',
-  //   data: bigFive[2],
-  //   backgroundColor: 'rgba(255, 00, 00, 0.1)',
-  //   },
-  //   {
-  //   label: "Post 4",
-  //   borderColor: 'blue',
-  //   data: bigFive[3],
-  //   backgroundColor: 'rgba(255, 255, 255, 0.1)',
-  //   },
-  //   {
-  //   label: "Post 5",
-  //   borderColor: 'blue',
-  //   data: bigFive[4],
-  //   backgroundColor: 'rgba(145, 25, 200, 0.1)',
-  //   },
-  //
-  //   ]
-  // }
 
     return (
       <div>
+      <hr></hr>
         <h1>Your Timeline</h1>
         <div className="row">
           <button><Link to="/myjournal">New Entry</Link></button>

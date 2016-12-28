@@ -52,6 +52,30 @@ h3 {
   font-weight: bold;
 }
 
+h1 {
+  font-weight: bold; /* big five */
+  text-decoration: underline;
+
+}
+
+.big5 {
+  margin-bottom: 10%;
+}
+
+#openness {
+  padding-top: 6%;
+  padding-left: 3%;
+}
+
+#extraversion {
+  padding-top: 7%;
+  padding-left: 4%;
+}
+
+#neuroticism {
+  padding-top: 7%;
+  padding-left: 3%;
+}
 .browser-default {
   font-size: 30px;
 }

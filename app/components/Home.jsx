@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router';
+import { Link } from 'react-router';
 
 export default class Home extends React.Component {
   render() {
@@ -65,7 +65,7 @@ export default class Home extends React.Component {
         <p className="explanation">After you have recorded multiple entries, our service will analyze your posts and give you a score on each of the big five personality traits</p>
         <br></br>
         <div className="row center-align">
-        <a className="btn">Learn more!<Link to="/bigfive"></Link></a>
+        <a className="btn"><Link to="/bigfive" className="white-text">Learn more!</Link></a>
         </div>
         </div>
       </div>
