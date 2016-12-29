@@ -32,12 +32,14 @@ export default class Entries extends React.Component {
 
 
     return (
+      <div>
+      <hr></hr>
       <div className="entry">
-      <div className="row">
-        <h1>Your Journal Entries</h1>
-      </div>
       { entries }
       </div>
+
+      </div>
+
     );
   }
 }

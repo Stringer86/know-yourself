@@ -3,6 +3,8 @@ import { Link, Redirect } from 'react-router';
 import axios from 'axios';
 import Notifications, {notify} from 'react-notify-toast';
 import {  Doughnut } from 'react-chartjs-2';
+import Moment from 'moment';
+
 
 export default class Entry extends React.Component {
 
@@ -46,15 +48,15 @@ export default class Entry extends React.Component {
     }
 
     const date = this.props.data.createdAt,
-          cdate = (new Date(date)).toString();
+          formattedDate = Moment(date).format('LL')
 
     return (
       <div className="row">
         <div className="row card">
           <div className="col s7">
-            <p>{cdate}</p>
+            <p className="strong">{formattedDate}</p>
             <p>{this.props.data.body}</p>
-            <button onClick={this.deletePost.bind(this)}>Delete</button>
+            <a className="btn delete" onClick={this.deletePost.bind(this)}>Delete</a>
             </div>
             <div className="col s4">
             <Doughnut data={doughnutData}

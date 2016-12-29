@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Notifications, {notify} from 'react-notify-toast';
+import Moment from 'moment';
 
 export default class Journal extends React.Component {
 
@@ -21,16 +22,21 @@ export default class Journal extends React.Component {
    }
 
   render() {
+
+    const date = new Date();
+
+    const modDate = Moment(date).format('LL')
     return (
       <div className="journalEntry center-align">
-        <h1>New Entry</h1>
+      <hr></hr>
+        <h1>{modDate}</h1>
         <div className="row journal">
           <div className="input-field col s8 offset-s2">
                  <textarea autoFocus id="textarea1" ref="body" placeholder="Share your thoughts...."></textarea>
               </div>
           </div>
           <div className="row center-align">
-          <button onClick={this.publishEntry.bind(this)}>submit</button>
+          <a className="btn" onClick={this.publishEntry.bind(this)}>submit</a>
           </div>
       </div>
     );

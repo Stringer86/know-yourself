@@ -2,6 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import {Line, Polar, Radar} from 'react-chartjs-2';
 import {Link} from 'react-router';
+import Moment from 'moment';
+
 
 
 export default class LineChart extends React.Component {
@@ -31,11 +33,10 @@ export default class LineChart extends React.Component {
 
     Chart.defaults.global.animation.duration = 4000;
 
-    let start = 0;
     const lineDataLabels = entries.map((e) => {
-      start++;
-      return `Post ${start}`
+      return Moment(e.createdAt).format('L');
     })
+
     const lineData = {
     labels: lineDataLabels,
     datasets: [
@@ -143,8 +144,9 @@ export default class LineChart extends React.Component {
   }
 
     return (
+      <div height="100px" width="100px">
         <Line data={lineData}
-        width={200}
+        width={55}
         height={300}
         options={{
         maintainAspectRatio: false,
@@ -157,6 +159,7 @@ export default class LineChart extends React.Component {
           }]
         }
       }}/>
+      </div>
     );
   }
 }

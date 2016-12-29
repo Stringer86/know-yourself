@@ -74,12 +74,13 @@ export default class PolarChart extends React.Component {
     ]}
 
     return (
-
-      <Polar data={polarData} width={200}
+      <div>
+      <Polar data={polarData} width={300}
       height={300}
       options={{
       maintainAspectRatio: false
     }}/>
+    </div>
     );
   }
 }

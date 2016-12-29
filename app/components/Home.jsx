@@ -31,7 +31,7 @@ export default class Home extends React.Component {
       <hr></hr>
       <div className="row middleSections">
       <div className="col s12 l6 m6 center-align">
-      <img id="line" src="./img/line.png" alt="line chart" width="75%" height="75%"></img>
+      <img id="line" src="./img/line.png" alt="line chart" width="85%" height="95%"></img>
       </div>
       <div className="col s12 l6 m6">
       <div className="row center-align">
@@ -70,7 +70,7 @@ export default class Home extends React.Component {
         </div>
       </div>
         <div className="col s12 m6 l6">
-        <img id="polar" src="./img/polar.png" alt="polar chart" width="80%" height="75%"></img>
+        <img id="polar" src="./img/polar.png" alt="polar chart" width="100%" height="100%"></img>
         </div>
 
       </div>
@@ -87,7 +87,7 @@ export default class Home extends React.Component {
       <img id="arrow" src="./img/arrow.png" alt="arrow" width="100%" height="100%"></img>
       </div>
       <div className="col s12 l5 m5 results">
-      <img src="./img/results.png" alt="results image" width="45%" height="20%"></img>
+      <img src="./img/results.png" alt="results image" width="50%" height="20%"></img>
       </div>
       </div>
       <div className="row center-align">
