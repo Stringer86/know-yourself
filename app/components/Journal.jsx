@@ -2,8 +2,19 @@ import React from 'react';
 import axios from 'axios';
 import Notifications, {notify} from 'react-notify-toast';
 import Moment from 'moment';
+import Loading from './Loading';
+import MessageChart from './MessageChart';
 
 export default class Journal extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      submitted: false,
+      loading: false,
+      entry: {},
+    }
+  }
 
    publishEntry(event) {
      event.preventDefault();
@@ -13,6 +24,7 @@ export default class Journal extends React.Component {
      })
      .then((res) => {
        notify.show('Published!', 'success');
+       this.setState({submitted: true, entry: res.data})
        this.refs['body'].value = '';
      })
      .catch(err => {
@@ -26,9 +38,12 @@ export default class Journal extends React.Component {
     const date = new Date();
 
     const modDate = Moment(date).format('LL')
+
     return (
       <div className="journalEntry center-align">
       <hr></hr>
+        {!this.state.submitted &&
+          <div>
         <h1>{modDate}</h1>
         <div className="row journal">
           <div className="input-field col s8 offset-s2">
@@ -38,7 +53,24 @@ export default class Journal extends React.Component {
           <div className="row center-align">
           <a className="btn" onClick={this.publishEntry.bind(this)}>submit</a>
           </div>
-      </div>
-    );
+          </div>
+
+        }
+        {this.state.submitted &&
+          <div className="row">
+          <div className="col s12 l7 m7">
+            <div className="card">
+              <p className="journalBody">{this.state.entry[0].body}</p>
+            </div>
+          </div>
+          <div className="col s12 l3 m3 journalChart">
+          <MessageChart entry={this.state.entry[0]}/>
+          </div>
+          </div>
+
+        }
+    </div>
+      )
+
   }
 }

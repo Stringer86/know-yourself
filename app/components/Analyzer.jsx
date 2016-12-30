@@ -3,6 +3,7 @@ import axios from 'axios';
 import Notifications, {notify} from 'react-notify-toast';
 import { Match, Miss, Link } from 'react-router';
 import MessageChart from './MessageChart';
+import Loading from './Loading';
 
 export default class Analyzer extends React.Component {
   constructor(props) {
@@ -10,6 +11,7 @@ export default class Analyzer extends React.Component {
 
     this.state = {
       submitted: false,
+      loading: false,
       entry: {},
     }
   }
@@ -17,13 +19,15 @@ export default class Analyzer extends React.Component {
    publishEntry(event) {
      event.preventDefault();
 
+     this.setState({loading: true})
+
      axios.post('/api/analyzer', {
        body: this.refs['body'].value,
      })
      .then((res) => {
        notify.show('Analysis complete!', 'success');
        this.refs['body'].value = '';
-       this.setState({submitted: true, entry: res.data})
+       this.setState({submitted: true, loading: false, entry: res.data})
      })
      .catch(err => {
        notify.show("something went wrong", 'error')
@@ -34,11 +38,10 @@ export default class Analyzer extends React.Component {
    changeState(event) {
      event.preventDefault();
 
-     this.setState({submitted: false})
+     this.setState({submitted: this.state.submitted})
    }
 
   render() {
-
       return (
         <div className="center-align analyzer">
         <hr></hr>
@@ -62,10 +65,19 @@ export default class Analyzer extends React.Component {
             <div className="row"><a className="btn" onClick={this.changeState.bind(this)}><Link to="/analyzer" className="white-text">New Email</Link></a></div>
               <div className="row">
               <div className="col s12 m6 offset-m3">
-                <Match pattern="/analyzer/complete" exactly render={
-                    () => <MessageChart entry={this.state.entry}
-                            />
-                        }/>
+                {!this.state.loading &&
+                  <Match pattern="/analyzer/complete" exactly render={
+                      () => <MessageChart entry={this.state.entry}
+                              />
+                          }/>
+                }
+                {this.state.loading &&
+                  <Match pattern="/analyzer/complete" exactly render={
+                      () => <Loading
+                              />
+                          }/>
+                }
+
               </div>
               </div>
               </div>

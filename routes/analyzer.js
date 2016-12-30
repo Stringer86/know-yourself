@@ -60,6 +60,9 @@ router.post('/api/analyzer', (req, res, next) => {
   apiCall.then((data) => {
     res.send(data)
   })
+  .catch((err) => {
+    console.log(err);
+  })
 });
 
 module.exports = router;

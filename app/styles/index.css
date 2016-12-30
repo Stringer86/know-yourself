@@ -131,6 +131,34 @@ h3 {
   font-size: 18px;
 }
 
+.journalBody {
+  font-size: 16px;
+  line-height: 2em;
+}
+
+.journalChart {
+  margin-top: 4%;
+  margin-left: 5%;
+}
+
+.readCard {
+  padding-left: 2%;
+  padding-right: 2%;
+  min-height: 450px;
+}
+
+.read {
+  background: green;
+  margin-bottom: 2%;
+  margin-left: 2%;
+}
+
+.read:hover {
+  background: green;
+}
+.inline {
+  display: inline;
+}
 .analyzerBtn {
   display: flex;
   justify-content: center;
@@ -215,6 +243,7 @@ body {
 .delete {
   background: #a70a0a;
   border-radius: 5%;
+  margin-bottom: 2%;
 }
 
 .delete:hover {

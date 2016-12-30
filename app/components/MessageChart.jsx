@@ -24,16 +24,12 @@ export default class MessageChart extends React.Component {
 
     return (
         <div className="row analyzersize">
-        <LazyLoad height={200}>
         <Doughnut data={doughnutData}
         width={500}
         height={500}
         options={{
         maintainAspectRatio: false
       }}/>
-      </LazyLoad>
-      <h4>Is Sadness the main emotion you want to convey?</h4>
-      <br></br>
         </div>
     );
   }

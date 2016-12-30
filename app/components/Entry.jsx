@@ -8,9 +8,6 @@ import Moment from 'moment';
 
 export default class Entry extends React.Component {
 
-
-
-
   deletePost(event) {
     event.preventDefault();
 
@@ -50,13 +47,21 @@ export default class Entry extends React.Component {
     const date = this.props.data.createdAt,
           formattedDate = Moment(date).format('LL')
 
+    let body = this.props.data.body;
+
+    if(body.length > 255) body = body.substring(0,255) + '...';
+
     return (
+
       <div className="row">
         <div className="row card">
           <div className="col s7">
             <p className="strong">{formattedDate}</p>
-            <p>{this.props.data.body}</p>
+            <p>{body}</p>
+            <div className="row inline">
             <a className="btn delete" onClick={this.deletePost.bind(this)}>Delete</a>
+            <a className="btn read"><Link to={`/entry/${this.props.data.id}`} className="white-text">Read More</Link></a>
+            </div>
             </div>
             <div className="col s4">
             <Doughnut data={doughnutData}

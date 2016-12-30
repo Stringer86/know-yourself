@@ -47,6 +47,26 @@ router.get('/api/entries', authorize, (req, res, next) => {
     });
 });
 
+router.get('/api/entries/:id', (req, res, next) => {
+  const id = Number.parseInt(req.params.id);
+
+  knex('entries')
+  .where('id', id)
+  .first()
+  .then((row) => {
+    if (!row) {
+      throw boom.create(404, 'Not Found');
+    }
+
+    const lesson = camelizeKeys(row);
+
+    res.send(lesson);
+  })
+  .catch((err) => {
+    next(err);
+  });
+});
+
 router.post('/api/entries', authorize, ev(validations.post), (req, res, next) => {
   const { userId } = req.token;
   const { body } = req.body;
@@ -107,7 +127,11 @@ router.post('/api/entries', authorize, ev(validations.post), (req, res, next) =>
     knex('entries')
         .insert(decamelizeKeys(insertEntry), '*')
         .then((row) => {
-          res.send({ entry: row, posted: true });
+          const entry = row;
+
+          delete entry[0]['user_id']
+
+          res.send(entry);
         })
         .catch((err) => {
           next(err);

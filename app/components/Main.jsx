@@ -8,6 +8,7 @@ import Journal from './Journal';
 import Analyzer from './Analyzer';
 import Entries from './Entries';
 import Big5 from './Big5';
+import ReadEntry from './ReadEntry';
 
 import { Match, Miss, Link, Redirect} from 'react-router';
 
@@ -66,6 +67,9 @@ export default class Main extends React.Component {
                       getEntries={this.props.getEntries}
             />
           )
+        }/>
+        <Match pattern="/entry/:id?" exactly render={
+          () => <ReadEntry getEntries={this.props.getEntries}/>
         }/>
         <Miss component={NotFound} />
       </div>
