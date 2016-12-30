@@ -50,6 +50,51 @@ export default class Profile extends React.Component {
     const formattedDT = Moment(signupDate).format('LL');
     console.log(formattedDT);
 
+    if (this.props.entries.length < 5) {  //new member, few posts.
+      return (
+        <div>
+        <hr></hr>
+        <div className="row userInfo">
+        <div className="col s3">
+          <img src="http://www.all-about-psychology.com/psychology-fb.jpg"></img>
+        </div>
+          <div className="col s8 offset-s1 profile">
+            <h1 id="name">{name}</h1>
+            <p>Member since: {formattedDT}</p>
+            <p>Total posts: {this.props.entries.length}</p>
+          </div>
+          </div>
+        <div className="row">
+          <div className="col s2 sidebar">
+            <a className="btn"><Link to="/myjournal" className="white-text">My Journal</Link></a>
+            <p><Link to="/entries">Past Posts</Link></p>
+            <p><Link to="/analyzer">Analyzer</Link></p>
+            <p><Link to="/bigfive">Big Five</Link></p>
+          </div>
+          <div className="col s8 offset-s2 center-align">
+          <div className="row card timeline">
+          <h3>My Timeline</h3>
+            <p>Write 5 posts to see your timeline in action!</p>
+          </div>
+          <br></br>
+          <hr></hr>
+          <br></br>
+          <div className="row card timeline">
+            <div className="col s12 m9 l9">
+            <h3>My Personality</h3>
+            <br></br>
+            <p>Once you have 5 posts, check back here!</p>
+            </div>
+          </div>
+          </div>
+
+          </div>
+
+
+        </div>
+      )
+    }
+
 
     return (
       <div>
@@ -65,14 +110,14 @@ export default class Profile extends React.Component {
         </div>
         </div>
       <div className="row">
-        <div className="col s2 sidebar">
-          <a className="btn"><Link to="/myjournal" className="white-text">Journal</Link></a>
+        <div className="col s3 sidebar">
+          <a className="btn"><Link to="/myjournal" className="white-text">New Entry</Link></a>
           <p><Link to="/entries">Past Posts</Link></p>
           <p><Link to="/analyzer">Analyzer</Link></p>
           <p><Link to="/bigfive">Big Five</Link></p>
         </div>
-        <div className="col s8 offset-s2 center-align">
-        <div className="row card timeline">
+        <div className="col s7">
+        <div className="row card timeline center-align">
         <h3>My Timeline</h3>
         <LineChart entries={this.props.entries}
         />
