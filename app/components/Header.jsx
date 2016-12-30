@@ -24,7 +24,7 @@ export default class Header extends React.Component {
             <ul id="nav-mobile" className="right hide-on-med-and-down">
             {this.props.isLoggedIn &&
               <div>
-              <li><a className="btn"><Link to='/analyzer' className="white-text">E-mail analyzer</Link></a></li>
+              <li><a className="btn"><Link to='/analyzer' className="white-text">Analyzer</Link></a></li>
               <li><Link to='/profile' className="blue-text">My Profile</Link></li>
               <li><Link to='/' className="black-text" onClick={this.logOut.bind(this)}>Log out</Link></li>
               </div>

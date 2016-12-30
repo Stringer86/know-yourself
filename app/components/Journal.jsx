@@ -19,12 +19,14 @@ export default class Journal extends React.Component {
    publishEntry(event) {
      event.preventDefault();
 
+     this.setState({loading: true})
+
      axios.post('/api/entries', {
        body: this.refs['body'].value,
      })
      .then((res) => {
        notify.show('Published!', 'success');
-       this.setState({submitted: true, entry: res.data})
+       this.setState({submitted: true, loading: false, entry: res.data})
        this.refs['body'].value = '';
      })
      .catch(err => {
@@ -42,7 +44,11 @@ export default class Journal extends React.Component {
     return (
       <div className="journalEntry center-align">
       <hr></hr>
-        {!this.state.submitted &&
+      {this.state.loading &&
+        <Loading />
+
+      }
+        {!this.state.submitted && !this.state.loading &&
           <div>
         <h1>{modDate}</h1>
         <div className="row journal">

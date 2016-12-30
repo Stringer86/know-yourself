@@ -26,8 +26,8 @@ export default class Analyzer extends React.Component {
      })
      .then((res) => {
        notify.show('Analysis complete!', 'success');
-       this.refs['body'].value = '';
        this.setState({submitted: true, loading: false, entry: res.data})
+       this.refs['body'].value = '';
      })
      .catch(err => {
        notify.show("something went wrong", 'error')
@@ -38,7 +38,7 @@ export default class Analyzer extends React.Component {
    changeState(event) {
      event.preventDefault();
 
-     this.setState({submitted: this.state.submitted})
+     this.setState({submitted: false})
    }
 
   render() {
@@ -46,38 +46,29 @@ export default class Analyzer extends React.Component {
         <div className="center-align analyzer">
         <hr></hr>
 
-          {!this.state.submitted &&
+        {this.state.loading &&
+          <Loading />
+        }
+          {!this.state.submitted && !this.state.loading &&
           <div className="row center-align">
-            <h1>Input your email and we'll analyze it for you</h1>
+            <h1>Input your email, message, or blog post and we'll analyze it for you</h1>
             <div className="row">
             <div className="input-field col s8 offset-s2">
-                   <textarea id="textarea2" ref="body" placeholder="enter email here"></textarea>
+                   <textarea id="textarea2" ref="body" placeholder="enter text here"></textarea>
                 </div>
               </div>
               <div className="row">
-              <a className="btn" onClick={this.publishEntry.bind(this)}><Link to="/analyzer/complete" className="white-text">Analyze!</Link></a>
+              <a className="btn" onClick={this.publishEntry.bind(this)}>Analyze!</a>
               </div>
 
             </div>
           }
           {this.state.submitted &&
             <div className="row align-center">
-            <div className="row"><a className="btn" onClick={this.changeState.bind(this)}><Link to="/analyzer" className="white-text">New Email</Link></a></div>
               <div className="row">
               <div className="col s12 m6 offset-m3">
-                {!this.state.loading &&
-                  <Match pattern="/analyzer/complete" exactly render={
-                      () => <MessageChart entry={this.state.entry}
-                              />
-                          }/>
-                }
-                {this.state.loading &&
-                  <Match pattern="/analyzer/complete" exactly render={
-                      () => <Loading
-                              />
-                          }/>
-                }
-
+                  <MessageChart entry={this.state.entry} />
+                <div className="row"><a className="btn" onClick={this.changeState.bind(this)}><Link to="/analyzer" className="white-text">New Post</Link></a></div>
               </div>
               </div>
               </div>

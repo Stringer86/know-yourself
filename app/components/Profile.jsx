@@ -68,7 +68,7 @@ export default class Profile extends React.Component {
         <div className="col s2 sidebar">
           <a className="btn"><Link to="/myjournal" className="white-text">Journal</Link></a>
           <p><Link to="/entries">Past Posts</Link></p>
-          <p><Link to="/analyzer">Email Analyzer</Link></p>
+          <p><Link to="/analyzer">Analyzer</Link></p>
           <p><Link to="/bigfive">Big Five</Link></p>
         </div>
         <div className="col s8 offset-s2 center-align">

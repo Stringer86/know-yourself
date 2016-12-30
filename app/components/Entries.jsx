@@ -2,12 +2,17 @@ import React from 'react';
 import axios from 'axios';
 import {Line, Polar, Radar} from 'react-chartjs-2';
 import {Link} from 'react-router';
+import ReactDOM from 'react-dom';
 import Entry from './Entry';
 
 
 export default class Entries extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
   componentDidMount() {
+
     axios.get('/api/entries')
       .then(res => {
         this.props.getEntries(res.data);
@@ -15,11 +20,24 @@ export default class Entries extends React.Component {
       .catch(err => {
         this.setState({ loadErr: err });
       });
+
+      const element = ReactDOM.findDOMNode(this.refs.dropdown)
+
+      $(element).ready(function() {
+        $('select').material_select();
+      }).on('change', this.sortIt.bind(this))
+
   }
+
+  sortIt(event) {
+  let newValue = event.target.value;
+  this.props.sortIt(newValue)
+  }
+
 
   render() {
     if (this.props.entries.length === 0) {
-      return <div><p>there doesn't seem to be anything here</p></div>
+      return <div><p>You haven't made any posts yet! Get writing!</p></div>
     }
 
     const entries = this.props.entries.map((entry, index) => {
@@ -34,6 +52,18 @@ export default class Entries extends React.Component {
     return (
       <div>
       <hr></hr>
+      <select className="col s4 browser-default dropdown" ref="dropdown" onChange={this.sortIt.bind(this)}>
+          <option value="" disabled selected>Sort By</option>
+          <option>Most Recent</option>
+          <option>Saddest</option>
+          <option>Angriest</option>
+          <option>Most Full of Disgust</option>
+          <option>Most Fearful</option>
+          <option>Most Joyous</option>
+        </select>
+        <br>
+
+        </br>
       <div className="entry">
       { entries }
       </div>

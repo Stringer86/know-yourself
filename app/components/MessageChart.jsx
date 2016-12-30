@@ -21,7 +21,6 @@ export default class MessageChart extends React.Component {
       ]
     }
 
-
     return (
         <div className="row analyzersize">
         <Doughnut data={doughnutData}

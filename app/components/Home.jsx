@@ -55,7 +55,7 @@ export default class Home extends React.Component {
         <h3>The Big Five</h3>
         </div>
         <div className="row">
-        <ul className="browser-default">
+        <ul className="browser-default homeList">
           <li>Openness</li>
           <li>Conscientiousness</li>
           <li>Extraversion</li>
@@ -91,7 +91,7 @@ export default class Home extends React.Component {
       </div>
       </div>
       <div className="row center-align">
-        <a className="btn"><Link to="/analyzer" className="white-text">Email Analyzer</Link></a>
+        <a className="btn"><Link to="/analyzer" className="white-text">Analyzer</Link></a>
       </div>
       <hr></hr>
       <br></br>

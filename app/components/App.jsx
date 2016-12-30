@@ -36,6 +36,42 @@ export default class App extends React.Component {
     this.setState({ isLoggedIn: bool });
   }
 
+  sortIt(selectValue) {
+    let value;
+    if (selectValue === 'Saddest') value = 'sadness';
+
+    if (selectValue === 'Angriest') value = 'anger';
+
+    if (selectValue === 'Most Full of Disgust') value = 'disgust';
+
+    if (selectValue === 'Most Fearful') value = 'fear';
+
+    if (selectValue === 'Most Joyous') value = 'joy';
+
+    if (selectValue === 'Most Recent') value = 'createdAt';
+
+    let entries = this.state.entries.sort((a, b) => {
+      if (value !== 'createdAt') {
+        if (Number(a[value]) < Number(b[value])) {
+          return 1;
+        } else {
+          return -1;
+        }
+      } else {
+        if (new Date(a[value]).getTime() < new Date(b[value]).getTime()) {
+          return 1;
+        } else {
+          return -1;
+        }
+      }
+
+
+    });
+
+    this.setState({entries: entries })
+
+  }
+
   render() {
     return (
       <BrowserRouter>
@@ -51,6 +87,7 @@ export default class App extends React.Component {
                 authUser={this.authUser.bind(this)}
                 entries={this.state.entries}
                 getEntries={this.getEntries.bind(this)}
+                sortIt={this.sortIt.bind(this)}
                 />
           </main>
           <Footer />

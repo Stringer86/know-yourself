@@ -75,10 +75,10 @@ h3 {
   padding-top: 7%;
   padding-left: 3%;
 }
-.browser-default {
-  font-size: 30px;
-}
 
+.homeList {
+  font-size: 28px;
+}
 .middleSections {
   color: black;
   margin-bottom: 4%;
@@ -219,12 +219,15 @@ body {
   padding-top: 2%;
 }
 
+.loading {
+  margin-top: 15%;
+}
+
 .analyzersize {
   max-height: 400px;
   max-width: 400px;
   min-height: 400px;
   min-width: 400px;
-  margin-bottom: 200px;
 }
 
 .journalEntry {

@@ -49,7 +49,7 @@ export default class Main extends React.Component {
           />
         }/>
 
-        <Match pattern="/analyzer" render={
+        <Match pattern="/analyzer" exactly render={
           () => <Analyzer />
         }/>
 
@@ -65,6 +65,7 @@ export default class Main extends React.Component {
           ) : (
             <Entries  entries={this.props.entries}
                       getEntries={this.props.getEntries}
+                      sortIt={this.props.sortIt}
             />
           )
         }/>
