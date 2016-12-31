@@ -113,6 +113,34 @@ h3 {
   background: #fafafa !important;
 }
 
+.Sadness {
+  background: rgba(15, 93, 203, 0.5);
+}
+
+.Joy {
+  background: rgba(239, 243, 32, 0.5);
+}
+
+.Fear {
+  background: rgba(167, 67, 238, 0.5);
+}
+
+.Anger {
+  background: rgba(167, 10, 10, 0.5)
+}
+
+.Disgust {
+  background: rgba(52, 201, 22, 0.5)
+}
+
+
+.profileInfo {
+  padding-left: 10%;
+}
+
+.noEntries {
+  margin-top: 20%;
+}
 #doughnut {
   margin-top: 10%;
 }

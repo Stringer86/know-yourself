@@ -70,7 +70,8 @@ export default class Journal extends React.Component {
             </div>
           </div>
           <div className="col s12 l3 m3 journalChart">
-          <MessageChart entry={this.state.entry[0]}/>
+          <MessageChart entry={this.state.entry[0]}
+          />
           </div>
           </div>
 

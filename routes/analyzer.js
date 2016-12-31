@@ -6,6 +6,8 @@ const express = require('express');
 const knex = require('../knex');
 const { camelizeKeys, decamelizeKeys } = require('humps');
 const watson = require('watson-developer-cloud');
+const _ = require('lodash');
+
 
 const TONE_ANALYZER = watson.tone_analyzer({
   username: '34f3a33a-9ffd-45aa-9fc0-c17cfe16cbc8',
@@ -35,24 +37,19 @@ router.post('/api/analyzer', (req, res, next) => {
       const joy = emotionScores[3].score * 100;
       const sadness = emotionScores[4].score * 100;
 
-      const bigFiveScores = tone['document_tone']['tone_categories'][2].tones;
-      const openness = bigFiveScores[0].score * 100;
-      const conscientiousness = bigFiveScores[1].score * 100;
-      const extraversion = bigFiveScores[2].score * 100;
-      const agreeableness = bigFiveScores[3].score * 100;
-      const emotionalRange = bigFiveScores[4].score * 100;
+      const sentencesArr= tone['sentences_tone']
 
-      return resolve({
-        anger,
-        disgust,
-        fear,
-        joy,
-        sadness,
-        openness,
-        conscientiousness,
-        extraversion,
-        agreeableness,
-        emotionalRange,
+      const sentences = sentencesArr.map((sentence) => {
+        let tones = sentence['tone_categories'][0].tones
+        let text = sentence.text;
+        return {text: text ,
+                highest: _.chain(tones).sortBy('score').last().value().tone_name
+              }
+      })
+
+
+      return resolve({ sentences: sentences,
+                       emotions: { anger, disgust, fear, joy, sadness }
       });
     })
   })

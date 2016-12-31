@@ -37,7 +37,12 @@ export default class Entries extends React.Component {
 
   render() {
     if (this.props.entries.length === 0) {
-      return <div><p>You haven't made any posts yet! Get writing!</p></div>
+      return <div>
+      <hr></hr>
+      <div className="row center-align noEntries">
+      <h1>You haven't made any entries yet! Get writing!</h1>
+      </div>
+      </div>
     }
 
     const entries = this.props.entries.map((entry, index) => {

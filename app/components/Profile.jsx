@@ -65,25 +65,24 @@ export default class Profile extends React.Component {
           </div>
           </div>
         <div className="row">
-          <div className="col s2 sidebar">
-            <a className="btn"><Link to="/myjournal" className="white-text">My Journal</Link></a>
-            <p><Link to="/entries">Past Posts</Link></p>
+          <div className="col s3 sidebar">
+            <a className="btn"><Link to="/myjournal" className="white-text">New Entry</Link></a>
+            <p><Link to="/entries">Past Entries</Link></p>
             <p><Link to="/analyzer">Analyzer</Link></p>
             <p><Link to="/bigfive">Big Five</Link></p>
           </div>
-          <div className="col s8 offset-s2 center-align">
-          <div className="row card timeline">
+          <div className="col s8 offset-s1">
+          <div className="row card timeline center-align">
           <h3>My Timeline</h3>
-            <p>Write 5 posts to see your timeline in action!</p>
+            <p>Write 5 entries to see your timeline in action!</p>
           </div>
           <br></br>
           <hr></hr>
           <br></br>
           <div className="row card timeline">
-            <div className="col s12 m9 l9">
+            <div className="col s12 center-align">
             <h3>My Personality</h3>
-            <br></br>
-            <p>Once you have 5 posts, check back here!</p>
+            <p>Once you have 5 entries, check back here!</p>
             </div>
           </div>
           </div>
@@ -116,7 +115,7 @@ export default class Profile extends React.Component {
           <p><Link to="/analyzer">Analyzer</Link></p>
           <p><Link to="/bigfive">Big Five</Link></p>
         </div>
-        <div className="col s7">
+        <div className="col s8 offset-s1">
         <div className="row card timeline center-align">
         <h3>My Timeline</h3>
         <LineChart entries={this.props.entries}
@@ -126,7 +125,7 @@ export default class Profile extends React.Component {
         <hr></hr>
         <br></br>
         <div className="row card timeline">
-          <div className="col s12 m9 l9">
+          <div className="col s12 m9 l9 center-align">
           <h3>My Personality</h3>
           <br></br>
           <PolarChart entries={this.props.entries}/>

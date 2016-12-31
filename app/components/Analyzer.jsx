@@ -42,6 +42,15 @@ export default class Analyzer extends React.Component {
    }
 
   render() {
+
+    const text = this.state.entry.sentences;
+    let sentences;
+    if (text) {
+      sentences = text.map((sentence) => {
+        return <p><span className={sentence.highest}>{sentence.text}</span></p>
+      })
+    }
+
       return (
         <div className="center-align analyzer">
         <hr></hr>
@@ -66,11 +75,17 @@ export default class Analyzer extends React.Component {
           {this.state.submitted &&
             <div className="row align-center">
               <div className="row">
-              <div className="col s12 m6 offset-m3">
-                  <MessageChart entry={this.state.entry} />
+              <div className="col m6">
+              <div className="card"> {sentences } </div>
+              <strong>Highlights indicate the emotion with the highest score for each sentence.</strong>
+              </div>
+
+              <div className="col s12 m6">
+                  <MessageChart entry={this.state.entry.emotions} />
                 <div className="row"><a className="btn" onClick={this.changeState.bind(this)}><Link to="/analyzer" className="white-text">New Post</Link></a></div>
               </div>
               </div>
+
               </div>
           }
         </div>

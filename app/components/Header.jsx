@@ -32,7 +32,7 @@ export default class Header extends React.Component {
             {!this.props.isLoggedIn &&
               <div>
               <li><Link to='/signin' className="blue-text">Log-in</Link></li>
-              <a className="btn"><Link to='/analyzer' className="white-text">E-mail analyzer</Link></a>
+              <a className="btn"><Link to='/analyzer' className="white-text">Analyzer</Link></a>
               </div>
             }
             </ul>
