@@ -12,7 +12,9 @@ export default class Home extends React.Component {
       We use the state of the art Watson supercomputer created by IBM to analyze your posts and provide instant feedback
       about the emotional tones of your entries. Try it for free today!
       </div>
-      <a className="btn" id="btn2"><Link to="/signup" className="white-text">Sign Up!</Link></a>
+      {!this.props.isLoggedIn &&
+        <a className="btn" id="btn2"><Link to="/signup" className="white-text">Sign Up!</Link></a>
+      }
       </div>
       <div className="row middleSections">
       <div className="col s12 l6 m6 instant">
@@ -42,7 +44,9 @@ export default class Home extends React.Component {
         </div>
         <div className="row center-align">
           <div>
-          <a className="btn"><Link to="/signup" className="white-text">Sign Up Today!</Link></a>
+          {!this.props.isLoggedIn &&
+            <a className="btn"><Link to="/signup" className="white-text">Sign Up Today!</Link></a>
+          }
         </div>
       </div>
 

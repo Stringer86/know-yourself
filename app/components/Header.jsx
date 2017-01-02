@@ -21,19 +21,21 @@ export default class Header extends React.Component {
         <nav className="z-depth-0">
           <div className="nav-wrapper">
             <Link to='/' className="brand-logo left">My Journal</Link>
+            <ul id="nav-mobile" className="right hide-on-med-and-down">
             {this.props.isLoggedIn &&
-              <ul id="nav-mobile" className="right hide-on-down">
+              <div>
               <li><a className="btn"><Link to='/analyzer' className="white-text">Analyzer</Link></a></li>
               <li><Link to='/profile' className="blue-text">My Profile</Link></li>
               <li><Link to='/' className="black-text" onClick={this.logOut.bind(this)}>Log out</Link></li>
-              </ul>
+              </div>
             }
             {!this.props.isLoggedIn &&
-              <ul id="nav-mobile" className="right hide-on-down">
+              <div>
               <li><Link to='/signin' className="blue-text">Log-in</Link></li>
               <a className="btn"><Link to='/analyzer' className="white-text">Analyzer</Link></a>
-              </ul>
+              </div>
             }
+            </ul>
           </div>
         </nav>
       )

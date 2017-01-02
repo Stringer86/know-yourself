@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router';
 import MessageChart from './MessageChart';
+import NotFound from './NotFound';
 
 export default class ReadEntry extends React.Component {
   constructor(props) {
@@ -50,7 +51,11 @@ export default class ReadEntry extends React.Component {
 
 
   render() {
-    console.log(this.state.entry);
+
+    if (!this.state.entry.id) {
+      return <NotFound />
+    }
+
 
     return (
       <div className="row">

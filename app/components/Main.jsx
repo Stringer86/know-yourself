@@ -24,7 +24,8 @@ export default class Main extends React.Component {
               isLoggedIn={this.props.isLoggedIn}
               authUser={this.props.authUser}
               />
-              <Home />
+              <Home isLoggedIn={this.props.isLoggedIn}
+              />
           </div>
         }/>
 
@@ -57,7 +58,9 @@ export default class Main extends React.Component {
         }/>
 
         <Match pattern="/myjournal" exactly render={
-          () => <Journal
+          () => !this.props.isLoggedIn ? (
+            <Redirect to="/" />
+          ) : <Journal
                         entries={this.props.entries}
                         getEntries={this.props.getEntries}
           />
@@ -86,7 +89,9 @@ export default class Main extends React.Component {
         }/>
 
         <Match pattern="/profile" exactly render={
-          () =>
+          () => !this.props.isLoggedIn ? (
+            <Redirect to="/" />
+          ) :
           <div>
           <Header
               isLoggedIn={this.props.isLoggedIn}
@@ -115,7 +120,9 @@ export default class Main extends React.Component {
           )
         }/>
         <Match pattern="/entry/:id?" exactly render={
-          () =>
+          () => !this.props.isLoggedIn ? (
+            <Redirect to="/" />
+          ) :
           <div>
           <Header
               isLoggedIn={this.props.isLoggedIn}

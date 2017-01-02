@@ -32,7 +32,7 @@ export default class SignIn extends React.Component {
               <div className="row form-field">
                 <div className="col s10 offset-s1 m6 offset-m3">
                   <label>Email</label>
-                  <input type="email" ref="email"/>
+                  <input type="email" ref="email" autoFocus/>
                 </div>
               </div>
               <div className="row">
@@ -43,7 +43,7 @@ export default class SignIn extends React.Component {
                     Don't have an account? <Link to='/signup'>Sign Up </Link>today!
                   </div>
                   <div className="row center-align">
-                    <button id="action-button" type="button" name="button" onClick={this.signIn.bind(this)}>Sign In</button>
+                    <button id="action-button" type="submit" name="button" onClick={this.signIn.bind(this)}>Sign In</button>
                   </div>
                 </div>
               </div>

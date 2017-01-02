@@ -18,6 +18,12 @@ export default class Analyzer extends React.Component {
 
    publishEntry(event) {
      event.preventDefault();
+     console.log(this);
+
+     if (this.refs['body'].value.length < 100) {
+       notify.show('Too short!', 'error', 2000);
+       return;
+     }
 
      this.setState({loading: true})
 
@@ -79,7 +85,6 @@ export default class Analyzer extends React.Component {
               <div className="card"> {sentences } </div>
               <strong>Highlights indicate the emotion with the highest score for each sentence.</strong>
               </div>
-
               <div className="col s12 m12 l6">
                   <MessageChart entry={this.state.entry.emotions} />
                 <div className="row"><a className="btn" onClick={this.changeState.bind(this)}><Link to="/analyzer" className="white-text">New Post</Link></a></div>

@@ -71,7 +71,7 @@ export default class Profile extends React.Component {
             <p><Link to="/analyzer">Analyzer</Link></p>
             <p><Link to="/bigfive">Big Five</Link></p>
           </div>
-          <div className="col s12 m8 offset-m1 l8 offset-l1">
+          <div className="col s12 m8 offset-m1 l8 offset-l1 center-align">
           <div className="row card timeline center-align">
           <h3>My Timeline</h3>
             <p>Write 5 entries to see your timeline in action!</p>
@@ -79,11 +79,9 @@ export default class Profile extends React.Component {
           <br></br>
           <hr></hr>
           <br></br>
-          <div className="row card timeline">
-          <div className="col s9 m9 l9 center-align">
+          <div className="row card timeline center-align">
             <h3>My Personality</h3>
             <p>Once you have 5 entries, check back here!</p>
-            </div>
           </div>
           </div>
 

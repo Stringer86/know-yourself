@@ -78,7 +78,7 @@ export default class SignUp extends React.Component {
                 </div>
               </div>
                 <div className="row center-align">
-                  <button id="action-button" type="button" name="button" onClick={this.signUp.bind(this)}>Sign Up</button>
+                  <button id="action-button" type="submit" name="button" onClick={this.signUp.bind(this)}>Sign Up</button>
               </div>
             </form>
           </div>
