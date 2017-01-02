@@ -77,10 +77,6 @@ export default class App extends React.Component {
       <BrowserRouter>
         <div>
           <Notifications />
-          <Header
-              isLoggedIn={this.state.isLoggedIn}
-              authUser={this.authUser.bind(this)}
-              />
           <main>
             <Main
                 isLoggedIn={this.state.isLoggedIn}

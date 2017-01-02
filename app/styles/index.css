@@ -99,7 +99,7 @@ h3 {
 }
 
 #scores {
-  margin-top: 45%;
+  margin-top: 35%;
   padding-top: 100%;
 }
 
@@ -147,10 +147,6 @@ h3 {
 
 #line, #polar {
   margin-top: 15%;
-}
-
-#polar {
-  padding-left: 15%;
 }
 
 .emailExp {
@@ -261,8 +257,13 @@ body {
 .journalEntry {
   color: black;
   margin-bottom: -20px;
+  margin-left: -60px;
+  margin-right: -60px;
   padding-top: 2%;
   padding-bottom: 2%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('http://az616578.vo.msecnd.net/files/2015/12/26/635867526811956096266245127_452830868_0f1406ba87_b.jpg');
 }
 
 .entry {

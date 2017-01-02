@@ -42,17 +42,18 @@ export default class Journal extends React.Component {
     const modDate = Moment(date).format('LL')
 
     return (
-      <div className="journalEntry center-align">
-      <hr></hr>
+      <div>
       {this.state.loading &&
+        <div className="row center-align">
         <Loading />
+        </div>
 
       }
         {!this.state.submitted && !this.state.loading &&
-          <div>
+        <div className="journalEntry center-align">
         <h1>{modDate}</h1>
         <div className="row journal">
-          <div className="input-field col s8 offset-s2">
+          <div className="input-field col s12 col l8 offset-l2">
                  <textarea autoFocus id="textarea1" ref="body" placeholder="Share your thoughts...."></textarea>
               </div>
           </div>
@@ -62,8 +63,9 @@ export default class Journal extends React.Component {
           </div>
 
         }
+
         {this.state.submitted &&
-          <div className="row">
+          <div className="row center-align">
           <div className="col s12 l7 m7">
             <div className="card">
               <p className="journalBody">{this.state.entry[0].body}</p>
@@ -77,6 +79,7 @@ export default class Journal extends React.Component {
 
         }
     </div>
+
       )
 
   }

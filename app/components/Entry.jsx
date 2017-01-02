@@ -55,7 +55,7 @@ export default class Entry extends React.Component {
 
       <div className="row">
         <div className="row card">
-          <div className="col s7">
+          <div className="col s12 m7 l7">
             <p className="strong">{formattedDate}</p>
             <p>{body}</p>
             <div className="row inline">
@@ -63,7 +63,7 @@ export default class Entry extends React.Component {
             <a className="btn read"><Link to={`/entry/${this.props.data.id}`} className="white-text">Read More</Link></a>
             </div>
             </div>
-            <div className="col s4">
+            <div className="col s12 m4 l4">
             <Doughnut data={doughnutData}
             width={200}
             height={200}

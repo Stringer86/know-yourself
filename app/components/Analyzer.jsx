@@ -62,7 +62,7 @@ export default class Analyzer extends React.Component {
           <div className="row center-align">
             <h1>Input your email, message, or blog post and we'll analyze it for you</h1>
             <div className="row">
-            <div className="input-field col s8 offset-s2">
+            <div className="input-field col s12 col l8 offset-l2 col m8 offset-m2">
                    <textarea id="textarea2" ref="body" placeholder="enter text here"></textarea>
                 </div>
               </div>
@@ -75,12 +75,12 @@ export default class Analyzer extends React.Component {
           {this.state.submitted &&
             <div className="row align-center">
               <div className="row">
-              <div className="col m6">
+              <div className="col s12 m12 l6">
               <div className="card"> {sentences } </div>
               <strong>Highlights indicate the emotion with the highest score for each sentence.</strong>
               </div>
 
-              <div className="col s12 m6">
+              <div className="col s12 m12 l6">
                   <MessageChart entry={this.state.entry.emotions} />
                 <div className="row"><a className="btn" onClick={this.changeState.bind(this)}><Link to="/analyzer" className="white-text">New Post</Link></a></div>
               </div>

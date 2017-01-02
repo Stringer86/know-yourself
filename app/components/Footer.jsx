@@ -5,7 +5,7 @@ export default class Footer extends React.Component {
   render() {
     return (
       <footer>
-        <p>© 2016 MyJournal</p>
+        <p><Link to="/profile" className="grey-text text-lighten-2">© 2016 MyJournal</Link></p>
       </footer>
     );
   }

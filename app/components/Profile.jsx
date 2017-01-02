@@ -55,23 +55,23 @@ export default class Profile extends React.Component {
         <div>
         <hr></hr>
         <div className="row userInfo">
-        <div className="col s3">
+        <div className="col s12 m3 l3">
           <img src="http://www.all-about-psychology.com/psychology-fb.jpg"></img>
         </div>
-          <div className="col s8 offset-s1 profile">
+        <div className="col s12 m8 offset-m1 l8 offset-l1 profile">
             <h1 id="name">{name}</h1>
             <p>Member since: {formattedDT}</p>
             <p>Total posts: {this.props.entries.length}</p>
           </div>
           </div>
         <div className="row">
-          <div className="col s3 sidebar">
+        <div className="col s12 m3 l3 sidebar">
             <a className="btn"><Link to="/myjournal" className="white-text">New Entry</Link></a>
             <p><Link to="/entries">Past Entries</Link></p>
             <p><Link to="/analyzer">Analyzer</Link></p>
             <p><Link to="/bigfive">Big Five</Link></p>
           </div>
-          <div className="col s8 offset-s1">
+          <div className="col s12 m8 offset-m1 l8 offset-l1">
           <div className="row card timeline center-align">
           <h3>My Timeline</h3>
             <p>Write 5 entries to see your timeline in action!</p>
@@ -80,7 +80,7 @@ export default class Profile extends React.Component {
           <hr></hr>
           <br></br>
           <div className="row card timeline">
-            <div className="col s12 center-align">
+          <div className="col s9 m9 l9 center-align">
             <h3>My Personality</h3>
             <p>Once you have 5 entries, check back here!</p>
             </div>
@@ -99,23 +99,23 @@ export default class Profile extends React.Component {
       <div>
       <hr></hr>
       <div className="row userInfo">
-      <div className="col s3">
+      <div className="col s12 m3 l3">
         <img src="http://www.all-about-psychology.com/psychology-fb.jpg"></img>
       </div>
-        <div className="col s8 offset-s1 profile">
+        <div className="col s12 m8 offset-m1 l8 offset-l1 profile">
           <h1 id="name">{name}</h1>
           <p>Member since: {formattedDT}</p>
           <p>Total posts: {this.props.entries.length}</p>
         </div>
         </div>
       <div className="row">
-        <div className="col s3 sidebar">
+        <div className="col s12 m3 l3 sidebar">
           <a className="btn"><Link to="/myjournal" className="white-text">New Entry</Link></a>
           <p><Link to="/entries">Past Posts</Link></p>
           <p><Link to="/analyzer">Analyzer</Link></p>
           <p><Link to="/bigfive">Big Five</Link></p>
         </div>
-        <div className="col s8 offset-s1">
+        <div className="col s12 m8 offset-m1 l8 offset-l1">
         <div className="row card timeline center-align">
         <h3>My Timeline</h3>
         <LineChart entries={this.props.entries}
@@ -125,12 +125,12 @@ export default class Profile extends React.Component {
         <hr></hr>
         <br></br>
         <div className="row card timeline">
-          <div className="col s12 m9 l9 center-align">
+          <div className="col s9 m9 l9 center-align">
           <h3>My Personality</h3>
           <br></br>
           <PolarChart entries={this.props.entries}/>
           </div>
-          <div className="col s12 m3 l3">
+          <div className="col s3 m3 l3">
             <p id="scores"><em>Scores are calculated based on your previous posts and are out of 100. Read about each <Link to="/bigfive">here</Link></em></p>
           </div>
 

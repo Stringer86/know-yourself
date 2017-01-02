@@ -80,13 +80,13 @@ export default class Home extends React.Component {
         <p className="explanation">You can also use our state of the art email and message analyzer!</p>
       </div>
       <div className="row">
-      <div className="col s12 l5 m5">
+      <div className="col s5 l5 m5">
       <img src="./img/email.png" alt="analyzer image" width="100%" height="100%"></img>
       </div>
-      <div className="col s12 l2 m2 center-align">
+      <div className="col s2 l2 m2 center-align">
       <img id="arrow" src="./img/arrow.png" alt="arrow" width="100%" height="100%"></img>
       </div>
-      <div className="col s12 l5 m5 results">
+      <div className="col s5 l5 m5 results">
       <img src="./img/results.png" alt="results image" width="50%" height="20%"></img>
       </div>
       </div>
