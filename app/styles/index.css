@@ -35,17 +35,24 @@ nav .nav-wrapper {
   text-align: center;
   background-image: linear-gradient(rgba(0, 0, 0, 0.4),rgba(0, 0, 0, 0.4)), url('../img/hero.jpg');
   background-size: cover;
-  min-height: 580px;
+  height: 120%;
+  width: 100%;
   padding-top: 28%;
   padding-left: 21%;
   padding-right: 21%;
+  padding-bottom: 10%;
   margin-bottom: 2%;
   color: black;
 }
 
 .heroText {
+  background-color:black;
+  border-radius: 2%;
+  display: inline-block;
+  z-index:0;
+  opacity:0.5;
   font-size: 25px;
-  font-weight: bold;
+  color: white;
 }
 
 h3 {
@@ -161,7 +168,7 @@ h3 {
 }
 
 .journalChart {
-  margin-top: 4%;
+  margin-top: 1%;
   margin-left: 5%;
 }
 
@@ -174,7 +181,7 @@ h3 {
 .read {
   background: green;
   margin-bottom: 2%;
-  margin-left: 2%;
+  margin-right: 2%;
 }
 
 .read:hover {
@@ -259,11 +266,14 @@ body {
   margin-bottom: -20px;
   margin-left: -60px;
   margin-right: -60px;
-  padding-top: 2%;
-  padding-bottom: 2%;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url('http://az616578.vo.msecnd.net/files/2015/12/26/635867526811956096266245127_452830868_0f1406ba87_b.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1),rgba(0, 0, 0, 0.1)), url('http://az616578.vo.msecnd.net/files/2015/12/26/635867526811956096266245127_452830868_0f1406ba87_b.jpg');
+}
+
+.journalBtn {
+  padding-top: 1%;
+  padding-right: 5%;
 }
 
 .entry {
@@ -303,9 +313,9 @@ body {
   background: url(http://i.stack.imgur.com/ynxjD.png) repeat-y;
   font: normal 14px verdana;
   line-height: 25px;
-  padding-left: 14%;
+  padding-left: 13%;
   padding-top: 4%;
-  border: solid 1px #ddd;
+  border: solid 1px transparent;
   outline: none;
   height: 500px;
 }

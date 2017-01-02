@@ -59,8 +59,8 @@ export default class Entry extends React.Component {
             <p className="strong">{formattedDate}</p>
             <p>{body}</p>
             <div className="row inline">
-            <a className="btn delete" onClick={this.deletePost.bind(this)}>Delete</a>
             <a className="btn read"><Link to={`/entry/${this.props.data.id}`} className="white-text">Read More</Link></a>
+            <a className="btn delete" onClick={this.deletePost.bind(this)}>Delete</a>
             </div>
             </div>
             <div className="col s12 m4 l4">

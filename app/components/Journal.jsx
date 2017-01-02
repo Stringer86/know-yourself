@@ -4,6 +4,7 @@ import Notifications, {notify} from 'react-notify-toast';
 import Moment from 'moment';
 import Loading from './Loading';
 import MessageChart from './MessageChart';
+import { Link } from 'react-router';
 
 export default class Journal extends React.Component {
   constructor(props) {
@@ -14,6 +15,22 @@ export default class Journal extends React.Component {
       loading: false,
       entry: {},
     }
+  }
+
+  deletePost(event) {
+    event.preventDefault();
+
+    axios({
+      method: 'delete',
+      url: `/api/entries/${this.state.entry[0].id}`
+    })
+    .then(res => {
+      notify.show('Post Deleted', 'success');
+      this.setState({submitted: false, entry: {}})
+    })
+    .catch(err => {
+      return err;
+    })
   }
 
    publishEntry(event) {
@@ -50,8 +67,12 @@ export default class Journal extends React.Component {
 
       }
         {!this.state.submitted && !this.state.loading &&
-        <div className="journalEntry center-align">
-        <h1>{modDate}</h1>
+        <div className="journalEntry">
+        <div className="row right-align journalBtn">
+        <a className="btn"><Link to="/profile" className="white-text">My Profile</Link></a>
+        </div>
+        <div className="center-align row">
+        <h1><strong>{modDate}</strong></h1>
         <div className="row journal">
           <div className="input-field col s12 col l8 offset-l2">
                  <textarea autoFocus id="textarea1" ref="body" placeholder="Share your thoughts...."></textarea>
@@ -61,14 +82,21 @@ export default class Journal extends React.Component {
           <a className="btn" onClick={this.publishEntry.bind(this)}>submit</a>
           </div>
           </div>
+          </div>
+
 
         }
 
         {this.state.submitted &&
-          <div className="row center-align">
+          <div>
+          <div className="row right-align journalBtn">
+          <a className="btn"><Link to="/profile" className="white-text">My Profile</Link></a>
+          </div>
           <div className="col s12 l7 m7">
-            <div className="card">
+            <div className="card center-align">
               <p className="journalBody">{this.state.entry[0].body}</p>
+              <a className="btn read"><Link to="/entries" className="white-text">All entries</Link></a>
+              <a className="btn delete" onClick={this.deletePost.bind(this)}>Delete</a>
             </div>
           </div>
           <div className="col s12 l3 m3 journalChart">
