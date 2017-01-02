@@ -40,11 +40,19 @@ router.post('/api/analyzer', (req, res, next) => {
       const sentencesArr= tone['sentences_tone']
 
       const sentences = sentencesArr.map((sentence) => {
-        let tones = sentence['tone_categories'][0].tones
-        let text = sentence.text;
-        return {text: text ,
-                highest: _.chain(tones).sortBy('score').last().value().tone_name
-              }
+        if (sentence['tone_categories'][0]) {
+          let tones = sentence['tone_categories'][0].tones
+          let text = sentence.text;
+          return {text: text ,
+                  highest: _.chain(tones).sortBy('score').last().value().tone_name
+                }
+        } else {  // necessary since watson api can't find tone of short sentences.
+          let text = sentence.text;
+          return {text: text ,
+                 highest: 'none'
+               }
+        }
+
       })
 
 
