@@ -1,6 +1,5 @@
 
 nav {
-  margin-top: 1%;
   background: #fafafa;
   color: #4e4d43;
 }
@@ -125,6 +124,10 @@ h3 {
 #scores {
   margin-top: 35%;
   padding-top: 100%;
+}
+
+.instructables {
+  padding-top: 10%;
 }
 
 .sidebar {

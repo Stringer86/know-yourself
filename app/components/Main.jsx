@@ -11,6 +11,7 @@ import Big5 from './Big5';
 import ReadEntry from './ReadEntry';
 import Header from './Header';
 import axios from 'axios';
+import Headroom from 'react-headroom';
 
 import { Match, Miss, Link, Redirect} from 'react-router';
 
@@ -32,10 +33,12 @@ export default class Main extends React.Component {
         <Match pattern="/" exactly render={
           () =>
           <div>
+          <Headroom >
           <Header
               isLoggedIn={this.props.isLoggedIn}
               authUser={this.props.authUser}
               />
+              </Headroom>
               <Home isLoggedIn={this.props.isLoggedIn}
               />
           </div>
@@ -46,10 +49,13 @@ export default class Main extends React.Component {
             <Redirect to="/" />
           ) : (
             <div>
+            <Headroom >
+
             <Header
                 isLoggedIn={this.props.isLoggedIn}
                 authUser={this.props.authUser}
                 />
+            </Headroom>
             <SignUp authUser={this.props.authUser} />
             </div>
           )
@@ -60,10 +66,13 @@ export default class Main extends React.Component {
             <Redirect to="/" />
           ) : (
             <div>
+            <Headroom >
+
             <Header
                 isLoggedIn={this.props.isLoggedIn}
                 authUser={this.props.authUser}
                 />
+            </Headroom>
             <SignIn authUser={this.props.authUser} />
             </div>
           )
@@ -81,10 +90,13 @@ export default class Main extends React.Component {
         <Match pattern="/bigfive" exactly render={
           () =>
           <div>
+          <Headroom >
+
           <Header
               isLoggedIn={this.props.isLoggedIn}
               authUser={this.props.authUser}
               />
+          </Headroom>
           <Big5 />
           </div>
         }/>
@@ -92,10 +104,13 @@ export default class Main extends React.Component {
         <Match pattern="/analyzer" exactly render={
           () =>
           <div>
+          <Headroom >
+
           <Header
               isLoggedIn={this.props.isLoggedIn}
               authUser={this.props.authUser}
               />
+          </Headroom>
           <Analyzer />
           </div>
         }/>
@@ -105,10 +120,13 @@ export default class Main extends React.Component {
             <Redirect to="/" />
           ) :
           <div>
+          <Headroom >
+
           <Header
               isLoggedIn={this.props.isLoggedIn}
               authUser={this.props.authUser}
               />
+          </Headroom>
           <Profile
                       entries={this.props.entries}
                       getEntries={this.props.getEntries}
@@ -120,10 +138,13 @@ export default class Main extends React.Component {
             <Redirect to="/" />
           ) : (
             <div>
+            <Headroom >
+
             <Header
                 isLoggedIn={this.props.isLoggedIn}
                 authUser={this.props.authUser}
                 />
+            </Headroom>
             <Entries  entries={this.props.entries}
                       getEntries={this.props.getEntries}
                       sortIt={this.props.sortIt}
@@ -136,10 +157,13 @@ export default class Main extends React.Component {
             <Redirect to="/" />
           ) :
           <div>
+          <Headroom >
+
           <Header
               isLoggedIn={this.props.isLoggedIn}
               authUser={this.props.authUser}
               />
+          </Headroom>
           <ReadEntry getEntries={this.props.getEntries}/>
           </div>
         }/>
