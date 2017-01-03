@@ -5,6 +5,10 @@ import {Link} from 'react-router';
 import LineChart from './LineChart';
 import PolarChart from './PolarChart';
 import Moment from 'moment';
+import Loading from './Loading';
+import Donors from './Donors';
+import Instructables from './Instructables';
+
 
 
 export default class Profile extends React.Component {
@@ -13,30 +17,23 @@ export default class Profile extends React.Component {
     super(props);
 
     this.state = {
-      userInfo: []
+      userInfo: [],
     }
   }
 
   componentDidMount() {
-    function getEntries() {
-      return axios.get('/api/entries')
-    }
 
-    function getUserInfo() {
-      return axios.get('/api/user')
-    }
-
-    axios.all([getEntries(), getUserInfo()])
-      .then(axios.spread((entries, userData) => {
-        this.props.getEntries(entries.data)
-        this.setState({userInfo: userData.data})
-      }))
+    axios.get('/api/user')
+      .then(res => {
+        this.setState({userInfo: res.data});
+      })
       .catch(err => {
-        return err;
+        this.setState({ loadErr: err });
       });
   }
 
   render() {
+
     if (this.state.userInfo.length === 0) {
       return false;
     }
@@ -48,7 +45,6 @@ export default class Profile extends React.Component {
     const entries = this.props.entries;
 
     const formattedDT = Moment(signupDate).format('LL');
-    console.log(formattedDT);
 
     if (this.props.entries.length < 5) {  //new member, few posts.
       return (
@@ -93,6 +89,7 @@ export default class Profile extends React.Component {
     }
 
 
+    console.log(this.props.entries[this.props.entries.length -1]);
     return (
       <div>
       <hr></hr>
@@ -119,6 +116,8 @@ export default class Profile extends React.Component {
         <LineChart entries={this.props.entries}
         />
         </div>
+        <Donors />
+        <Instructables />
         <br></br>
         <hr></hr>
         <br></br>

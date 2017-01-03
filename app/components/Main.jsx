@@ -10,10 +10,22 @@ import Entries from './Entries';
 import Big5 from './Big5';
 import ReadEntry from './ReadEntry';
 import Header from './Header';
+import axios from 'axios';
 
 import { Match, Miss, Link, Redirect} from 'react-router';
 
 export default class Main extends React.Component {
+
+  componentDidMount() {
+    axios.get('/api/entries')
+      .then(res => {
+        this.props.getEntries(res.data)
+      })
+      .catch(err => {
+        return err;
+      })
+  }
+
   render() {
     return (
       <div className="row">
@@ -99,7 +111,6 @@ export default class Main extends React.Component {
               />
           <Profile
                       entries={this.props.entries}
-                      getEntries={this.props.getEntries}
                       />
           </div>
         }/>

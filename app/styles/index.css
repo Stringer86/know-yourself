@@ -101,6 +101,14 @@ h3 {
   margin-top: 5%;
 }
 
+.apiInfo {
+  word-wrap: break-word;
+}
+
+#apiTitle {
+  font-size: 20px;
+}
+
 #name {
   font-weight: bold;
 }
