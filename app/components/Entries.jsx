@@ -57,9 +57,9 @@ export default class Entries extends React.Component {
     return (
       <div>
       <hr></hr>
-      <select className="col s4 browser-default dropdown" ref="dropdown" onChange={this.sortIt.bind(this)}>
+      <select className="col s4 browser-default" ref="dropdown" onChange={this.sortIt.bind(this)}>
           <option value="" disabled selected>Sort By</option>
-          <option>Most Recent</option>
+          <option className="dropdown">Most Recent</option>
           <option>Saddest</option>
           <option>Angriest</option>
           <option>Most Full of Disgust</option>

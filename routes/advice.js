@@ -6,6 +6,8 @@ const express = require('express');
 const knex = require('../knex');
 const { camelizeKeys, decamelizeKeys } = require('humps');
 const request = require("request");
+const striptags = require('striptags');
+
 
 
 
@@ -17,8 +19,6 @@ const router = express.Router();
 
 
 router.get('/api/donors', (req, res, next) => {
-
-
 
 const apiCall = new Promise ((resolve, reject) => {
 
@@ -47,7 +47,9 @@ const apiCall = new Promise ((resolve, reject) => {
 });
 
 apiCall.then((data) => {
-  res.send(data[2])
+  let send = data[2]
+  striptags(send.shortDescription)
+  res.send(send)
 }).catch((err) => {
   console.log(err);
 })

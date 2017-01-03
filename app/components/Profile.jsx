@@ -22,13 +22,21 @@ export default class Profile extends React.Component {
   }
 
   componentDidMount() {
+    function getEntries() {
+      return axios.get('/api/entries')
+    }
 
-    axios.get('/api/user')
-      .then(res => {
-        this.setState({userInfo: res.data});
-      })
+    function getUserInfo() {
+      return axios.get('/api/user')
+    }
+
+    axios.all([getEntries(), getUserInfo()])
+      .then(axios.spread((entries, userData) => {
+        this.props.getEntries(entries.data)
+        this.setState({userInfo: userData.data})
+      }))
       .catch(err => {
-        this.setState({ loadErr: err });
+        return err;
       });
   }
 
@@ -46,7 +54,7 @@ export default class Profile extends React.Component {
 
     const formattedDT = Moment(signupDate).format('LL');
 
-    if (this.props.entries.length < 5) {  //new member, few posts.
+    if (this.props.entries.length < 4) {  //new member, few posts.
       return (
         <div>
         <hr></hr>
@@ -88,8 +96,21 @@ export default class Profile extends React.Component {
       )
     }
 
+    const entry = entries[entries.length -1]
 
-    console.log(this.props.entries[this.props.entries.length -1]);
+    const arr = ['fear', 'anger', 'sadness', 'joy', 'disgust']
+
+    const highest = arr.reduce((accum, curr, idx) => {
+      if (accum === 'minimum') return curr;
+      if (entry[accum] <= entry[curr]) return curr;
+      return accum
+    }, 'minimum');
+
+    function api(highest) {
+      if (highest === 'joy') return <Donors />
+      return <Instructables />
+    }
+
     return (
       <div>
       <hr></hr>
@@ -116,8 +137,10 @@ export default class Profile extends React.Component {
         <LineChart entries={this.props.entries}
         />
         </div>
-        <Donors />
-        <Instructables />
+        <br></br>
+        <hr></hr>
+        <br></br>
+        {api(highest)}
         <br></br>
         <hr></hr>
         <br></br>

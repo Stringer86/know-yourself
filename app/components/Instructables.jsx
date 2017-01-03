@@ -37,10 +37,13 @@ export default class Instructables extends React.Component {
     }
 
     const URL = 'http://www.instructables.com' + this.state.apiData.url;
+
+    console.log(this.state.apiData);
+
     return (
       <div className="row apiInfo card">
-        <div className="row center-align">
-        <p id="apiTitle">You seem unhappy. Let's channel it into something creative!</p>
+        <div className="row center-align titleRow">
+        <p id="apiTitle">You've seemed unhappy lately. Let's channel it into something creative!</p>
         </div>
         <div className="row">
           <img className="col s4" src={this.state.apiData.imageUrl}></img>
@@ -48,7 +51,7 @@ export default class Instructables extends React.Component {
           <p><strong>Title: </strong><i>{this.state.apiData.title}</i></p>
           <p><strong>Category:</strong> {this.state.apiData.category}</p>
           <p><strong>Author:</strong> {this.state.apiData.author}</p>
-          <p>Click<a href={URL}> Here</a> to learn how to make it</p>
+          <div className="row center-align ">Click<a href={URL} target="_blank"> Here</a> to learn how to make it</div>
           </div>
         </div>
       </div>

@@ -60,6 +60,7 @@
     "react-syntax-highlighter": "^3.0.0",
     "react-tap-event-plugin": "^2.0.1",
     "request-promise": "^4.1.1",
+    "striptags": "^2.1.1",
     "uglify-js-brunch": "^2.0.1",
     "watson-developer-cloud": "^2.14.3"
   },

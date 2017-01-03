@@ -65,6 +65,7 @@ export default class ReadEntry extends React.Component {
         <div className="card readCard">
           <p className="journalBody">{this.state.entry.body}</p>
           <div className="row center-align">
+          <a className="btn read"><Link to="/entries" className="white-text">All entries</Link></a>
           <a className="btn delete" onClick={this.deletePost.bind(this)}><Link to="/entries" className="white-text">Delete</Link></a>
           </div>
         </div>

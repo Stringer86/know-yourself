@@ -111,6 +111,7 @@ export default class Main extends React.Component {
               />
           <Profile
                       entries={this.props.entries}
+                      getEntries={this.props.getEntries}
                       />
           </div>
         }/>

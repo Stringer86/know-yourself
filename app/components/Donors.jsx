@@ -39,18 +39,18 @@ export default class Donors extends React.Component {
     }
     return (
       <div className="row apiInfo card">
-        <div className="row center-align">
+        <div className="row center-align titleRow">
         <p id="apiTitle">You seem happy. Why not help out <strong>{this.state.apiData.schoolName}</strong>?</p>
         </div>
         <div className="row">
-          <img className="col s4" src={this.state.apiData.imageURL}></img>
+          <img className="col s4" id="apiImg" src={this.state.apiData.imageURL}></img>
           <div className="col s7">
           <p><strong>Title: </strong><i>{this.state.apiData.title}</i></p>
           <p><strong>Location:</strong> {this.state.apiData.city}, {this.state.apiData.state}</p>
           <p><strong>Need:</strong> {this.state.apiData.fulfillmentTrailer}</p>
           <p><strong>Number of Students:</strong> {this.state.apiData.numStudents}</p>
           <blockquote>{this.state.apiData.shortDescription}</blockquote>
-          <p>Click<a href={this.state.apiData.fundURL}> Here</a> to help</p>
+          <div className="row center-align">Click<a href={this.state.apiData.fundURL} target="_blank"> Here</a> to help or learn more</div>
           </div>
         </div>
       </div>
