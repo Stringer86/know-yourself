@@ -46,9 +46,9 @@ export default class Instructables extends React.Component {
         <div className="row">
           <img className="col s4" src={this.state.apiData.imageUrl}></img>
           <div className="col s7">
-          <p><strong>Title: </strong><i>{this.state.apiData.title}</i></p>
-          <p><strong>Category:</strong> {this.state.apiData.category}</p>
-          <p><strong>Author:</strong> {this.state.apiData.author}</p>
+          <p className="apiContent"><strong>Title: </strong><i>{this.state.apiData.title}</i></p>
+          <p className="apiContent"><strong>Category:</strong> {this.state.apiData.category}</p>
+          <p className="apiContent"><strong>Author:</strong> {this.state.apiData.author}</p>
           <div className="row center-align instructables">Click<a href={URL} target="_blank"> Here</a> to learn how to make it</div>
           </div>
         </div>

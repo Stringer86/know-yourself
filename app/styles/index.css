@@ -1,6 +1,6 @@
 
 nav {
-  background: #fafafa;
+  background: #f2e9e0;
   color: #4e4d43;
 }
 
@@ -10,11 +10,11 @@ nav .nav-wrapper {
 
 
 .btn {
-  background: orange;
+  background: #FFA500;
 }
 
 .btn:hover {
-  background: orange;
+  background: #FFA500;
 }
 
 .brand-logo {
@@ -23,7 +23,7 @@ nav .nav-wrapper {
 
 .bar {
   height: 50px;
-  background: #efefef;
+  background: #474747;
   margin-top: 3%;
   border-radius: 2px;
 }
@@ -56,6 +56,7 @@ nav .nav-wrapper {
 }
 
 h3 {
+  color: #29292d;
   font-weight: bold;
 }
 
@@ -106,6 +107,10 @@ h3 {
   word-wrap: break-word;
 }
 
+.apiContent {
+  font-size: 18px;
+}
+
 .titleRow {
   margin-bottom: 0px;
 }
@@ -115,7 +120,7 @@ h3 {
 }
 
 #apiTitle {
-  font-size: 20px;
+  font-size: 24px;
   padding-top: 2%;
 }
 
@@ -140,7 +145,20 @@ h3 {
 .sidebtn {
   margin-top: 5%;
   margin-bottom: 5%;
-  background: rgb(3, 155, 229);
+  background: #0288ca;
+}
+
+.sidebtn:hover {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  background: #0288ca;
+}
+
+.blue-text {
+    color: #0288ca !important;
+}
+a {
+  color: rgb(3, 155, 229)
 }
 
 
@@ -174,6 +192,11 @@ h3 {
   padding-left: 10%;
 }
 
+.profilebackground {
+  background: #f2e9e0;
+  overflow-x: hidden;
+}
+
 .noEntries {
   margin-top: 20%;
 }
@@ -181,8 +204,11 @@ h3 {
   margin-top: 10%;
 }
 
-#line, #polar {
-  margin-top: 15%;
+#line {
+  margin-top: 25%;
+}
+#polar{
+  margin-top: 12%;
 }
 
 .emailExp {
@@ -200,9 +226,8 @@ h3 {
   margin-top: 1%;
   margin-left: 5%;
 }
-.dropdown {
-  background-color: blue;
-}
+
+
 .readCard {
   padding-left: 2%;
   padding-right: 2%;
@@ -210,13 +235,13 @@ h3 {
 }
 
 .read {
-  background: green;
+  background: rgb(3, 155, 229);
   margin-bottom: 2%;
   margin-right: 2%;
 }
 
 .read:hover {
-  background: green;
+  background: rgb(3, 155, 229);
 }
 .inline {
   display: inline;
@@ -230,11 +255,11 @@ h3 {
 
 #arrow {
   margin-top: 60%;
+  margin-left: 30%;
 }
 
 .results {
   padding-left: 6% !important;
-  padding-top: 2% !important;
 }
 
 .font:hover {
@@ -271,7 +296,7 @@ html {
 }
 
 body {
-  background-color: #fafafa;
+  background-color: #f2e9e0;
   margin: 0 5% 65px 5%;
 }
 
@@ -309,7 +334,7 @@ body {
   margin-right: -60px;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1),rgba(0, 0, 0, 0.1)), url('http://az616578.vo.msecnd.net/files/2015/12/26/635867526811956096266245127_452830868_0f1406ba87_b.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1),rgba(0, 0, 0, 0.1)), url('https://static1.squarespace.com/static/53cf1b78e4b0e9800a539b93/t/53cffe16e4b07647985de5bd/1406139977399/?format=1500w');
 }
 
 .journalBtn {

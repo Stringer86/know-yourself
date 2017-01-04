@@ -45,10 +45,10 @@ export default class Donors extends React.Component {
         <div className="row">
           <img className="col s4" id="apiImg" src={this.state.apiData.imageURL}></img>
           <div className="col s7">
-          <p><strong>Title: </strong><i>{this.state.apiData.title}</i></p>
-          <p><strong>Location:</strong> {this.state.apiData.city}, {this.state.apiData.state}</p>
-          <p><strong>Need:</strong> {this.state.apiData.fulfillmentTrailer}</p>
-          <p><strong>Number of Students:</strong> {this.state.apiData.numStudents}</p>
+          <p className="apiContent"><strong>Title: </strong><i>{this.state.apiData.title}</i></p>
+          <p className="apiContent"><strong>Location:</strong> {this.state.apiData.city}, {this.state.apiData.state}</p>
+          <p className="apiContent"><strong>Need:</strong> {this.state.apiData.fulfillmentTrailer}</p>
+          <p className="apiContent"><strong>Number of Students:</strong> {this.state.apiData.numStudents}</p>
           <blockquote>{this.state.apiData.shortDescription}</blockquote>
           <div className="row center-align">Click<a href={this.state.apiData.fundURL} target="_blank"> Here</a> to help or learn more</div>
           </div>

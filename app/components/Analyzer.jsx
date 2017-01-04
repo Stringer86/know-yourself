@@ -62,7 +62,7 @@ export default class Analyzer extends React.Component {
 
     if (entry) {
       highest = Object.keys(entry).reduce(function(a, b){ return entry[a] > entry[b] ? a : b });
-      console.log(highest);
+      highest = highest[0].toUpperCase() + highest.slice(1);
     }
       return (
         <div className="center-align analyzer">
@@ -76,7 +76,7 @@ export default class Analyzer extends React.Component {
             <h1>Input your email, message, or blog post and we'll analyze it for you</h1>
             <div className="row">
             <div className="input-field col s12 col l8 offset-l2 col m8 offset-m2">
-                   <textarea id="textarea2" ref="body" placeholder="enter text here"></textarea>
+                   <textarea id="textarea2" ref="body" placeholder="enter text here" autoFocus></textarea>
                 </div>
               </div>
               <div className="row">

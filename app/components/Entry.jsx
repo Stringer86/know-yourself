@@ -39,7 +39,7 @@ export default class Entry extends React.Component {
         {
           label: "Watson Summary",
           data: [data.anger, data.disgust, data.fear, data.joy, data.sadness],
-          backgroundColor: ['#A70A0A', '#34C916', '#A743EE', '#EFF320', '#0F5DCB' ],
+          backgroundColor: ['#771F1F', '#33825e', '#783982', '#F6E481', '#5687d4' ],
         }
       ]
     }
@@ -59,7 +59,7 @@ export default class Entry extends React.Component {
             <p className="strong">{formattedDate}</p>
             <p>{body}</p>
             <div className="row inline">
-            <a className="btn read"><Link to={`/entry/${this.props.data.id}`} className="white-text">Read More</Link></a>
+            <a className="btn read"><Link to={`/entry/${this.props.data.id}`} className="white-text">Read</Link></a>
             <a className="btn delete" onClick={this.deletePost.bind(this)}>Delete</a>
             </div>
             </div>

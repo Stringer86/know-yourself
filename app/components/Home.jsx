@@ -8,6 +8,7 @@ export default class Home extends React.Component {
 
     return (
       <div>
+      <hr></hr>
         <div className="bar"></div>
         <div className="hero">
         <div className="heroText">
@@ -33,7 +34,7 @@ export default class Home extends React.Component {
       <Reveal effect="animated fadeInRight">
       <div className="col s12 l6 m6 center-align">
         <img id="doughnut" src="./img/doughnut.png" alt="doughnut chart" width="75%" height="75%"></img>
-        <p>Here are your results!</p>
+        <p className="explanation">Immediate analysis!</p>
       </div>
       </Reveal>
       </div>
@@ -41,7 +42,7 @@ export default class Home extends React.Component {
       <div className="row middleSections">
       <Reveal effect="animated fadeInLeft">
       <div className="col s12 l6 m6 center-align">
-      <img id="line" src="./img/line.png" alt="line chart" width="85%" height="95%"></img>
+      <img id="line" src="./img/line.png" alt="line chart" width="95%" height="120%"></img>
       </div>
       </Reveal>
       <Reveal effect="animated fadeInRight">
@@ -106,7 +107,7 @@ export default class Home extends React.Component {
       <img id="arrow" src="./img/arrow.png" alt="arrow" width="100%" height="100%"></img>
       </div>
       <div className="col s5 l5 m5 results">
-      <img src="./img/results.png" alt="results image" width="50%" height="20%"></img>
+      <img src="./img/results.png" alt="results image" width="75%" height="100%"></img>
       </div>
       </div>
       <div className="row center-align">

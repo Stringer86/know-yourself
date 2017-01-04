@@ -16,7 +16,7 @@ export default class MessageChart extends React.Component {
         {
           label: "Watson Summary",
           data: [data.anger, data.disgust, data.fear, data.joy, data.sadness],
-          backgroundColor: ['#A70A0A', '#34C916', '#A743EE', '#EFF320', '#0F5DCB' ],
+          backgroundColor: ['#771F1F', '#33825e', '#783982', '#F6E481', '#5687d4' ],
         }
       ]
     }
