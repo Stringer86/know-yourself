@@ -15,6 +15,7 @@ export default class App extends React.Component {
     this.state = {
       isLoggedIn: false,
       entries: [],
+      search: ''
     }
   }
 
@@ -72,6 +73,12 @@ export default class App extends React.Component {
 
   }
 
+  handleSearch(searchTerm) {
+
+    this.setState({search: searchTerm})
+
+  }
+
   render() {
     return (
       <BrowserRouter>
@@ -79,9 +86,9 @@ export default class App extends React.Component {
           <Notifications />
           <main>
             <Main
-                isLoggedIn={this.state.isLoggedIn}
+                { ... this.state }
+                handleSearch={this.handleSearch.bind(this)}
                 authUser={this.authUser.bind(this)}
-                entries={this.state.entries}
                 getEntries={this.getEntries.bind(this)}
                 sortIt={this.sortIt.bind(this)}
                 />

@@ -235,13 +235,13 @@ a {
 }
 
 .read {
-  background: rgb(3, 155, 229);
+  background: #0288ca;
   margin-bottom: 2%;
   margin-right: 2%;
 }
 
 .read:hover {
-  background: rgb(3, 155, 229);
+  background: #0288ca;
 }
 .inline {
   display: inline;

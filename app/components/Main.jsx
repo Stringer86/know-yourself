@@ -39,6 +39,7 @@ export default class Main extends React.Component {
               authUser={this.props.authUser}
               />
               </Headroom>
+              <hr></hr>
               <Home isLoggedIn={this.props.isLoggedIn}
               />
           </div>
@@ -50,12 +51,12 @@ export default class Main extends React.Component {
           ) : (
             <div>
             <Headroom >
-
             <Header
                 isLoggedIn={this.props.isLoggedIn}
                 authUser={this.props.authUser}
                 />
             </Headroom>
+            <hr></hr>
             <SignUp authUser={this.props.authUser} />
             </div>
           )
@@ -73,6 +74,7 @@ export default class Main extends React.Component {
                 authUser={this.props.authUser}
                 />
             </Headroom>
+            <hr></hr>
             <SignIn authUser={this.props.authUser} />
             </div>
           )
@@ -97,6 +99,7 @@ export default class Main extends React.Component {
               authUser={this.props.authUser}
               />
           </Headroom>
+          <hr></hr>
           <Big5 />
           </div>
         }/>
@@ -111,6 +114,7 @@ export default class Main extends React.Component {
               authUser={this.props.authUser}
               />
           </Headroom>
+          <hr></hr>
           <Analyzer />
           </div>
         }/>
@@ -148,9 +152,12 @@ export default class Main extends React.Component {
                 authUser={this.props.authUser}
                 />
             </Headroom>
+            <hr></hr>
             <Entries  entries={this.props.entries}
                       getEntries={this.props.getEntries}
                       sortIt={this.props.sortIt}
+                      handleSearch={this.props.handleSearch}
+                      searchFilter={this.props.search}
             />
             </div>
           )
@@ -167,6 +174,7 @@ export default class Main extends React.Component {
               authUser={this.props.authUser}
               />
           </Headroom>
+          <hr></hr>
           <ReadEntry getEntries={this.props.getEntries}/>
           </div>
         }/>

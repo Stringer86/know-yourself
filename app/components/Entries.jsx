@@ -28,18 +28,28 @@ export default class Entries extends React.Component {
         $('select').material_select();
       }).on('change', this.sortIt.bind(this))
 
+      this.props.handleSearch('');
+
   }
 
   sortIt(event) {
+
   let newValue = event.target.value;
   this.props.sortIt(newValue)
+
+  }
+
+  handleSearch(event) {
+    let newSearch = event.target.value;
+
+    this.props.handleSearch(newSearch);
+
   }
 
 
   render() {
     if (this.props.entries.length === 0) {
       return <div>
-      <hr></hr>
       <div className="row center-align noEntries">
       <h1>You haven't made any entries yet! Get writing!</h1>
       </div>
@@ -48,7 +58,13 @@ export default class Entries extends React.Component {
 
 
 
-    const entries = this.props.entries.map((entry, index) => {
+    const entries = this.props.entries.filter((entry) => {
+      let body = entry.body.toLowerCase();
+      let search = this.props.searchFilter.toLowerCase();
+      if (body.indexOf(search) !== -1) {
+        return entry;
+      }
+    }).map((entry, index) => {
       return <Entry data={entry}
                     getEntries={this.props.getEntries}
                     key={index}
@@ -65,8 +81,10 @@ export default class Entries extends React.Component {
 
     return (
       <div>
-      <hr></hr>
-      <select className="col s4 browser-default" ref="dropdown" onChange={this.sortIt.bind(this)}>
+      <div className="row">
+      <input className="col s7" type="text" placeholder="Search Entries Here" autoFocus onChange={this.handleSearch.bind(this)}>
+        </input>
+      <select className="col s4 offset-s1 browser-default" ref="dropdown" onChange={this.sortIt.bind(this)}>
           <option value="" disabled selected>Sort By</option>
           <option className="dropdown">Most Recent</option>
           <option>Saddest</option>
@@ -75,9 +93,7 @@ export default class Entries extends React.Component {
           <option>Most Fearful</option>
           <option>Most Joyous</option>
         </select>
-        <br>
-
-        </br>
+        </div>
       <div className="entry">
       <ReactCSSTransitionGroup {...transitionOptions}>
       { entries }

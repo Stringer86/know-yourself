@@ -8,7 +8,6 @@ export default class Home extends React.Component {
 
     return (
       <div>
-      <hr></hr>
         <div className="bar"></div>
         <div className="hero">
         <div className="heroText">

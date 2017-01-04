@@ -57,7 +57,6 @@ export default class Profile extends React.Component {
     if (this.props.entries.length < 4) {  //new member, few posts.
       return (
         <div>
-        <hr></hr>
         <div className="row userInfo">
         <div className="col s12 m3 l3">
           <img src="http://www.all-about-psychology.com/psychology-fb.jpg" height="100%" width="100%"></img>
@@ -119,16 +118,16 @@ export default class Profile extends React.Component {
       </div>
         <div className="col s12 m8 offset-m1 l8 offset-l1 profile">
           <h1 id="name">{name}</h1>
-          <p><strong>Member since:</strong> {formattedDT}</p>
-          <p><strong>Journal entries:</strong> {this.props.entries.length}</p>
+          <p>Member since: {formattedDT}</p>
+          <p>Total posts: {this.props.entries.length}</p>
         </div>
         </div>
       <div className="row">
         <div className="col s12 m3 l3 sidebar">
-          <a className="btn col s8 sidebtn"><i className="material-icons right">add</i><Link to="/myjournal" className="white-text">New Entry</Link></a>
-          <a className="btn col s8 sidebtn"><Link to="/entries" className="white-text">Past Entries</Link></a>
-          <a className="btn col s8 sidebtn"><Link to="/analyzer" className="white-text">Analyzer</Link></a>
-          <a className="btn col s8 sidebtn"><Link to="/bigfive" className="white-text">Big Five</Link></a>
+          <a className="btn sidebtn"><i className="material-icons right">add</i><Link to="/myjournal" className="white-text">New Entry</Link></a>
+          <a className="btn sidebtn"><Link to="/entries" className="white-text">Past Entries</Link></a>
+          <a className="btn sidebtn"><Link to="/analyzer" className="white-text">Analyzer</Link></a>
+          <a className="btn sidebtn"><Link to="/bigfive" className="white-text">Big Five</Link></a>
         </div>
         <div className="col s12 m8 offset-m1 l8 offset-l1">
         <div className="row card timeline center-align">
@@ -150,7 +149,7 @@ export default class Profile extends React.Component {
           <PolarChart entries={this.props.entries}/>
           </div>
           <div className="col s3 m3 l3">
-            <p id="scores"><em>Scores are calculated based on your previous journal entries and are scored out of 100. Read about each <Link to="/bigfive">here</Link></em></p>
+            <p id="scores"><em>Scores are calculated based on your previous posts and are out of 100. Read about each <Link to="/bigfive">here</Link></em></p>
           </div>
 
         </div>

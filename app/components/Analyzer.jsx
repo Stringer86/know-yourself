@@ -18,7 +18,6 @@ export default class Analyzer extends React.Component {
 
    publishEntry(event) {
      event.preventDefault();
-     console.log(this);
 
      if (this.refs['body'].value.length < 100) {
        notify.show('Too short!', 'error', 2000);
@@ -66,8 +65,6 @@ export default class Analyzer extends React.Component {
     }
       return (
         <div className="center-align analyzer">
-        <hr></hr>
-
         {this.state.loading &&
           <Loading />
         }

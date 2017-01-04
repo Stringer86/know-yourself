@@ -12,7 +12,6 @@ export default class Big5 extends React.Component {
   render() {
     return (
       <div>
-      <hr></hr>
       <div className="row big5">
         <div className="col s12 m6 l6">
         <h1 className="bigFiveTitle">Openness</h1>

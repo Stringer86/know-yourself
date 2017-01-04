@@ -59,7 +59,6 @@ export default class ReadEntry extends React.Component {
 
     return (
       <div className="row">
-      <hr></hr>
       <br></br>
       <div className="col s12 l7 m7">
         <div className="card readCard">
