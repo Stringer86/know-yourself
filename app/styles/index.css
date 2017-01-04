@@ -140,7 +140,9 @@ h3 {
 .sidebtn {
   margin-top: 5%;
   margin-bottom: 5%;
+  background: rgb(3, 155, 229);
 }
+
 
 .timeline {
   margin-top: 3%;

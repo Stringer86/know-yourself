@@ -57,6 +57,13 @@ export default class Analyzer extends React.Component {
       })
     }
 
+    const entry = this.state.entry.emotions;
+    let highest;
+
+    if (entry) {
+      highest = Object.keys(entry).reduce(function(a, b){ return entry[a] > entry[b] ? a : b });
+      console.log(highest);
+    }
       return (
         <div className="center-align analyzer">
         <hr></hr>
@@ -87,6 +94,7 @@ export default class Analyzer extends React.Component {
               </div>
               <div className="col s12 m12 l6">
                   <MessageChart entry={this.state.entry.emotions} />
+                  <h1>Is <strong>{highest}</strong> the emotion you most wanted to convey?</h1>
                 <div className="row"><a className="btn" onClick={this.changeState.bind(this)}><Link to="/analyzer" className="white-text">New Post</Link></a></div>
               </div>
               </div>

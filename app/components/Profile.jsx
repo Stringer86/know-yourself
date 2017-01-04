@@ -126,7 +126,7 @@ export default class Profile extends React.Component {
         </div>
       <div className="row">
         <div className="col s12 m3 l3 sidebar">
-          <a className="btn sidebtn"><Link to="/myjournal" className="white-text">New Entry</Link></a>
+          <a className="btn sidebtn"><i className="material-icons right">add</i><Link to="/myjournal" className="white-text">New Entry</Link></a>
           <a className="btn sidebtn"><Link to="/entries" className="white-text">Past Entries</Link></a>
           <a className="btn sidebtn"><Link to="/analyzer" className="white-text">Analyzer</Link></a>
           <a className="btn sidebtn"><Link to="/bigfive" className="white-text">Big Five</Link></a>
