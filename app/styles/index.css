@@ -334,7 +334,7 @@ body {
   margin-right: -60px;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1),rgba(0, 0, 0, 0.1)), url('https://static1.squarespace.com/static/53cf1b78e4b0e9800a539b93/t/53cffe16e4b07647985de5bd/1406139977399/?format=1500w');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1),rgba(0, 0, 0, 0.1)), url('../img/journal.jpeg');
 }
 
 .journalBtn {
@@ -376,7 +376,7 @@ body {
 }
 
 #textarea1 {
-  background: url(http://i.stack.imgur.com/ynxjD.png) repeat-y;
+  background: url('../img/journalpaper.png') repeat-y;
   font: normal 14px verdana;
   line-height: 25px;
   padding-left: 13%;
