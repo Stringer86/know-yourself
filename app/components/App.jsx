@@ -8,6 +8,7 @@ import { Match, Miss } from 'react-router';
 import Notifications, {notify} from 'react-notify-toast';
 
 
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -15,7 +16,8 @@ export default class App extends React.Component {
     this.state = {
       isLoggedIn: false,
       entries: [],
-      search: ''
+      search: '',
+      hideBtn: true
     }
   }
 

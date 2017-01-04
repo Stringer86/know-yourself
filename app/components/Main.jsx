@@ -10,6 +10,7 @@ import Entries from './Entries';
 import Big5 from './Big5';
 import ReadEntry from './ReadEntry';
 import Header from './Header';
+import AnalyzerHeader from './AnalyzerHeader';
 import axios from 'axios';
 import Headroom from 'react-headroom';
 
@@ -109,7 +110,7 @@ export default class Main extends React.Component {
           <div>
           <Headroom >
 
-          <Header
+          <AnalyzerHeader
               isLoggedIn={this.props.isLoggedIn}
               authUser={this.props.authUser}
               />

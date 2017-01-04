@@ -8,6 +8,7 @@ import Moment from 'moment';
 import Loading from './Loading';
 import Donors from './Donors';
 import Instructables from './Instructables';
+import Reveal from 'react-reveal';
 
 
 
@@ -138,10 +139,13 @@ export default class Profile extends React.Component {
         <br></br>
         <hr></hr>
         <br></br>
+        <Reveal effect="animated fadeIn">
         {api(highest)}
+        </Reveal>
         <br></br>
         <hr></hr>
         <br></br>
+        <Reveal effect="animated fadeIn">
         <div className="row card timeline">
           <div className="col s9 m9 l9 center-align">
           <h3>My Personality</h3>
@@ -153,6 +157,7 @@ export default class Profile extends React.Component {
           </div>
 
         </div>
+        </Reveal>
         </div>
 
         </div>

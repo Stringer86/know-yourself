@@ -100,7 +100,7 @@ h3 {
 
 .userInfo {
   color: #1B1B1E;
-  margin-top: 5%;
+  margin-top: 2%;
 }
 
 .apiInfo {
@@ -206,6 +206,10 @@ a {
 
 #line {
   margin-top: 25%;
+}
+
+#apiImg {
+  margin-top: 13%;
 }
 #polar{
   margin-top: 12%;
