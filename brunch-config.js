@@ -19,7 +19,8 @@ module.exports = {
 
   npm: {
     styles: {
-      'normalize.css': ['normalize.css']
+      'normalize.css': ['normalize.css'],
+      'animate.css': ['animate.css']
     }
   },
 

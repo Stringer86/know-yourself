@@ -54,7 +54,7 @@ export default class Entry extends React.Component {
     return (
 
       <div className="row">
-        <div className="row card">
+        <div className="row card fade">
           <div className="col s12 m7 l7">
             <p className="strong">{formattedDate}</p>
             <p>{body}</p>

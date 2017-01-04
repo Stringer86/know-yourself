@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router';
+import Reveal from 'react-reveal';
 
 export default class Home extends React.Component {
   render() {
+
+
     return (
       <div>
         <div className="bar"></div>
@@ -21,27 +24,35 @@ export default class Home extends React.Component {
       <div className="row center-align">
         <h3>Get instant feedback!</h3>
         </div>
+        <Reveal effect="animated fadeInLeft">
         <div className="row">
         <p className="explanation">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. </p>
         </div>
+        </Reveal>
       </div>
+      <Reveal effect="animated fadeInRight">
       <div className="col s12 l6 m6 center-align">
         <img id="doughnut" src="./img/doughnut.png" alt="doughnut chart" width="75%" height="75%"></img>
         <p>Here are your results!</p>
       </div>
+      </Reveal>
       </div>
       <hr></hr>
       <div className="row middleSections">
+      <Reveal effect="animated fadeInLeft">
       <div className="col s12 l6 m6 center-align">
       <img id="line" src="./img/line.png" alt="line chart" width="85%" height="95%"></img>
       </div>
+      </Reveal>
       <div className="col s12 l6 m6">
       <div className="row center-align">
         <h3>See how your posts change over time!</h3>
         </div>
+        <Reveal effect="animated fadeInRight">
         <div className="row">
         <p className="explanation">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. </p>
         </div>
+        </Reveal>
         <div className="row center-align">
           <div>
           {!this.props.isLoggedIn &&
@@ -54,6 +65,7 @@ export default class Home extends React.Component {
       </div>
       <hr></hr>
       <div className="row middleSections">
+      <Reveal effect="animated fadeInLeft">
       <div className="col s12 m6 l6">
         <div className="row center-align">
         <h3>The Big Five</h3>
@@ -73,16 +85,19 @@ export default class Home extends React.Component {
         </div>
         </div>
       </div>
+      </Reveal>
+      <Reveal effect="animated fadeInRight">
         <div className="col s12 m6 l6">
         <img id="polar" src="./img/polar.png" alt="polar chart" width="100%" height="100%"></img>
         </div>
+      </Reveal>
 
       </div>
       <hr></hr>
+      <Reveal effect="animated fadeInUp">
       <div className="row center-align middleSections">
         <h3>Besides journaling, what else can you do here?</h3>
         <p className="explanation">You can also use our state of the art email and message analyzer!</p>
-      </div>
       <div className="row">
       <div className="col s5 l5 m5">
       <img src="./img/email.png" alt="analyzer image" width="100%" height="100%"></img>
@@ -101,6 +116,9 @@ export default class Home extends React.Component {
       <br></br>
       <br></br>
       </div>
+      </Reveal>
+      </div>
+
     );
   }
 }

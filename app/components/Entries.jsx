@@ -4,6 +4,7 @@ import {Line, Polar, Radar} from 'react-chartjs-2';
 import {Link} from 'react-router';
 import ReactDOM from 'react-dom';
 import Entry from './Entry';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 
 export default class Entries extends React.Component {
@@ -45,6 +46,8 @@ export default class Entries extends React.Component {
       </div>
     }
 
+
+
     const entries = this.props.entries.map((entry, index) => {
       return <Entry data={entry}
                     getEntries={this.props.getEntries}
@@ -52,6 +55,12 @@ export default class Entries extends React.Component {
                     id={entry.id}
                 />
     });
+
+    const transitionOptions = {
+      transitionName: 'fade',
+      transitionEnterTimeout: 500,
+      transitionLeaveTimeout: 500
+    }
 
 
     return (
@@ -70,7 +79,9 @@ export default class Entries extends React.Component {
 
         </br>
       <div className="entry">
+      <ReactCSSTransitionGroup {...transitionOptions}>
       { entries }
+      </ReactCSSTransitionGroup>
       </div>
 
       </div>

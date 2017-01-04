@@ -60,7 +60,7 @@ export default class Profile extends React.Component {
         <hr></hr>
         <div className="row userInfo">
         <div className="col s12 m3 l3">
-          <img src="http://www.all-about-psychology.com/psychology-fb.jpg"></img>
+          <img src="http://www.all-about-psychology.com/psychology-fb.jpg" height="100%" width="100%"></img>
         </div>
         <div className="col s12 m8 offset-m1 l8 offset-l1 profile">
             <h1 id="name">{name}</h1>
@@ -70,10 +70,10 @@ export default class Profile extends React.Component {
           </div>
         <div className="row">
         <div className="col s12 m3 l3 sidebar">
-            <a className="btn"><Link to="/myjournal" className="white-text">New Entry</Link></a>
-            <p><Link to="/entries">Past Entries</Link></p>
-            <p><Link to="/analyzer">Analyzer</Link></p>
-            <p><Link to="/bigfive">Big Five</Link></p>
+            <a className="btn sidebtn"><Link to="/myjournal" className="white-text">New Entry</Link></a>
+            <a className="btn sidebtn"><Link to="/entries" className="white-text">Past Entries</Link></a>
+            <a className="btn sidebtn"><Link to="/analyzer" className="white-text">Analyzer</Link></a>
+            <a className="btn sidebtn"><Link to="/bigfive" className="white-text">Big Five</Link></a>
           </div>
           <div className="col s12 m8 offset-m1 l8 offset-l1 center-align">
           <div className="row card timeline center-align">
@@ -126,10 +126,10 @@ export default class Profile extends React.Component {
         </div>
       <div className="row">
         <div className="col s12 m3 l3 sidebar">
-          <a className="btn"><Link to="/myjournal" className="white-text">New Entry</Link></a>
-          <p><Link to="/entries">Past Posts</Link></p>
-          <p><Link to="/analyzer">Analyzer</Link></p>
-          <p><Link to="/bigfive">Big Five</Link></p>
+          <a className="btn sidebtn"><Link to="/myjournal" className="white-text">New Entry</Link></a>
+          <a className="btn sidebtn"><Link to="/entries" className="white-text">Past Entries</Link></a>
+          <a className="btn sidebtn"><Link to="/analyzer" className="white-text">Analyzer</Link></a>
+          <a className="btn sidebtn"><Link to="/bigfive" className="white-text">Big Five</Link></a>
         </div>
         <div className="col s12 m8 offset-m1 l8 offset-l1">
         <div className="row card timeline center-align">

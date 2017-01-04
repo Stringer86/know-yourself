@@ -127,10 +127,12 @@ export default class Main extends React.Component {
               authUser={this.props.authUser}
               />
           </Headroom>
+          <div>
           <Profile
                       entries={this.props.entries}
                       getEntries={this.props.getEntries}
                       />
+          </div>
           </div>
         }/>
         <Match pattern="/entries" exactly render={() =>

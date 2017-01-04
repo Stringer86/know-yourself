@@ -1,9 +1,13 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import axios from 'axios';
 import { Link } from 'react-router';
 
 export default class Big5 extends React.Component {
 
+  componentDidMount () {
+    window.scrollTo(0, 0)
+  }
 
   render() {
     return (
