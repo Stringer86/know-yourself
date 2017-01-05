@@ -23,10 +23,10 @@ export default class Home extends React.Component {
       <Reveal effect="animated fadeIn">
       <div className="col s12 l6 m6 instant">
       <div className="row center-align">
-        <h3>Get instant feedback!</h3>
+        <h3>Not your average journal!</h3>
         </div>
         <div className="row">
-        <p className="explanation">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. </p>
+        <p className="explanation">There are many journaling websites out there today, but what sets ours apart is that we analyze the language of each individual entry to help you better understand yourself. The language we use can have a big impact on our thoughts and moods and, as a result, our personalities.  Learn more about yourself today!</p>
         </div>
       </div>
       </Reveal>
@@ -47,10 +47,10 @@ export default class Home extends React.Component {
       <Reveal effect="animated fadeInRight">
       <div className="col s12 l6 m6">
       <div className="row center-align">
-        <h3>See how your posts change over time!</h3>
+        <h3>See how your emotions change over time!</h3>
         </div>
         <div className="row">
-        <p className="explanation">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. </p>
+        <p className="explanation">MyJournal will chart out the emotional tones of each of your past entries in order to help you see changes over time.  Never before has it been this easy!</p>
         </div>
         <div className="row center-align">
           <div>
@@ -68,10 +68,10 @@ export default class Home extends React.Component {
       <Reveal effect="animated fadeIn">
       <div className="col s12 l6 m6 instant">
       <div className="row center-align">
-        <h3>Get Recommendations!</h3>
+        <h3>Feeling down? happy?</h3>
         </div>
         <div className="row">
-        <p className="explanation">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. </p>
+        <p className="explanation">No matter how you have been feeling, MyJournal will give you recommendations to help improve your day.  Bad day? Why not create something new?  Great day? Share the happiness by helping someone in need!</p>
         </div>
       </div>
       </Reveal>

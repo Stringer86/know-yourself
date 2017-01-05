@@ -64,7 +64,7 @@ export default class Profile extends React.Component {
         <div>
         <div className="row userInfo">
         <div className="col s12 m3 l3">
-          <img src="http://www.all-about-psychology.com/psychology-fb.jpg" height="100%" width="100%"></img>
+          <img src="http://www.all-about-psychology.com/psychology-fb.jpg" height="60%" width="60%"></img>
         </div>
         <div className="col s12 m8 offset-m1 l8 offset-l1 profile">
             <h1 id="name">{name}</h1>
@@ -126,7 +126,7 @@ export default class Profile extends React.Component {
       <div>
       <div className="row userInfo">
       <div className="col s12 m3 l3">
-        <img src="http://www.all-about-psychology.com/psychology-fb.jpg"></img>
+        <img src="http://www.all-about-psychology.com/psychology-fb.jpg" height="60%" width="60%"></img>
       </div>
         <div className="col s12 m8 offset-m1 l8 offset-l1 profile">
           <h1 id="name">{name}</h1>

@@ -70,7 +70,7 @@ export default class Analyzer extends React.Component {
         }
           {!this.state.submitted && !this.state.loading &&
           <div className="row center-align">
-            <h1>Input your email, message, or blog post and we'll analyze it for you</h1>
+            <h1>Input your email, message, or blog post and we'll analyze it for you.</h1>
             <div className="row">
             <div className="input-field col s12 col l8 offset-l2 col m8 offset-m2">
                    <textarea id="textarea2" ref="body" placeholder="enter text here" autoFocus></textarea>
@@ -88,11 +88,14 @@ export default class Analyzer extends React.Component {
               <div className="col s12 m12 l6">
               <div className="card"> {sentences } </div>
               <strong>Highlights indicate the emotion with the highest score for each sentence.</strong>
+              <br></br>
+              <br></br>
+              <div className="row"><a className="btn" onClick={this.changeState.bind(this)}><Link to="/analyzer" className="white-text">New Post</Link></a></div>
               </div>
               <div className="col s12 m12 l6">
                   <MessageChart entry={this.state.entry.emotions} />
                   <h1>Is <strong>{highest}</strong> the emotion you most wanted to convey?</h1>
-                <div className="row"><a className="btn" onClick={this.changeState.bind(this)}><Link to="/analyzer" className="white-text">New Post</Link></a></div>
+                  <p><Link to="/interpretation">How do I interpret this?</Link></p>
               </div>
               </div>
 

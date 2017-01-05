@@ -18,8 +18,8 @@ exports.seed = function(knex) {
         extraversion: 85.864,
         agreeableness: 81.769,
         emotional_range: 54.183,
-        created_at: new Date('2016-06-29 14:26:16 UTC'),
-        updated_at: new Date('2016-06-29 14:26:16 UTC')
+        created_at: new Date('2016-10-22 14:26:16 UTC'),
+        updated_at: new Date('2016-10-22 14:26:16 UTC')
       }, {
         id: 2,
         user_id: 1,
@@ -34,8 +34,8 @@ exports.seed = function(knex) {
         extraversion: 94.864,
         agreeableness: 95.769,
         emotional_range: 77.183,
-        created_at: new Date('2016-06-30 14:26:16 UTC'),
-        updated_at: new Date('2016-06-30 14:26:16 UTC')
+        created_at: new Date('2016-010-30 14:26:16 UTC'),
+        updated_at: new Date('2016-010-30 14:26:16 UTC')
       },
       {
       id: 3,
@@ -51,8 +51,8 @@ exports.seed = function(knex) {
       extraversion: 0.760,
       agreeableness: 20.552,
       emotional_range: 3.661,
-      created_at: new Date('2016-07-01 14:26:16 UTC'),
-      updated_at: new Date('2016-07-01 14:26:16 UTC')
+      created_at: new Date('2016-11-01 14:26:16 UTC'),
+      updated_at: new Date('2016-11-01 14:26:16 UTC')
       },
       {
         id: 4,
@@ -68,8 +68,8 @@ exports.seed = function(knex) {
         extraversion: 0,
         agreeableness: 44.054,
         emotional_range: 17.387,
-        created_at: new Date('2016-07-02 14:26:16 UTC'),
-        updated_at: new Date('2016-07-02 14:26:16 UTC')
+        created_at: new Date('2016-11-02 14:26:16 UTC'),
+        updated_at: new Date('2016-11-02 14:26:16 UTC')
       },
       {
         id: 5,
@@ -85,8 +85,8 @@ exports.seed = function(knex) {
         extraversion: 5.19,
         agreeableness: 97.054,
         emotional_range: 15.387,
-        created_at: new Date('2016-07-03 14:26:16 UTC'),
-        updated_at: new Date('2016-07-03 14:26:16 UTC')
+        created_at: new Date('2016-11-03 14:26:16 UTC'),
+        updated_at: new Date('2016-11-03 14:26:16 UTC')
       }
     ]);
     })

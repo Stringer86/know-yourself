@@ -169,13 +169,13 @@ h3 {
 .blue-text {
     color: #0288ca !important;
 }
+
 a {
   color: #0288ca
 }
 
 
 .timeline {
-  margin-top: 3%;
   background: #fafafa !important;
 }
 
@@ -212,6 +212,7 @@ a {
 .noEntries {
   margin-top: 12%;
 }
+
 #doughnut {
   margin-top: 10%;
 }
@@ -223,6 +224,7 @@ a {
 #apiImg {
   margin-top: 13%;
 }
+
 #polar{
   margin-top: 10%;
 }
@@ -259,9 +261,11 @@ a {
 .read:hover {
   background: #0288ca;
 }
+
 .inline {
   display: inline;
 }
+
 .analyzerBtn {
   display: flex;
   justify-content: center;
@@ -396,7 +400,7 @@ body {
   background: url('../img/journalpaper.png') repeat-y;
   font: normal 14px verdana;
   line-height: 1.8em;
-  padding-left: 13%;
+  padding-left: 14%;
   padding-top: 4%;
   border: solid 1px transparent;
   outline: none;
