@@ -57,14 +57,12 @@ app.use(express.static(path.join('public')));
 
 const users = require('./routes/users');
 const token = require('./routes/token');
-const bigfive = require('./routes/bigfive');
 const entries = require('./routes/entries');
 const analyzer = require('./routes/analyzer');
 const advice = require('./routes/advice');
 
 app.use(users);
 app.use(token);
-app.use(bigfive);
 app.use(entries);
 app.use(analyzer);
 app.use(advice);
