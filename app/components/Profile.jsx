@@ -146,6 +146,7 @@ export default class Profile extends React.Component {
         <h3>My Timeline</h3>
         <LineChart entries={this.props.entries}
         />
+        <p><Link to="/interpretation">How do I interpret this?</Link></p>
         </div>
         <br></br>
         <hr></hr>
@@ -157,14 +158,14 @@ export default class Profile extends React.Component {
         <hr></hr>
         <br></br>
         <Reveal effect="animated fadeIn">
-        <div className="row card timeline">
+        <div className="row card timeline center-align">
           <div className="col s9 m9 l9 center-align">
           <h3>My Personality</h3>
           <br></br>
           <PolarChart entries={this.props.entries}/>
           </div>
           <div className="col s3 m3 l3">
-            <p id="scores"><em>Scores are calculated based on your previous posts and are out of 100. Read about each <Link to="/bigfive">here</Link></em></p>
+            <p id="scores"><em>Scores are calculated based on your previous posts and are out of 100. Read about each <Link to="/bigfive">here</Link> and <Link to="/interpretation">here.</Link></em></p>
           </div>
 
         </div>

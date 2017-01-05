@@ -70,6 +70,18 @@ h3 {
   margin-bottom: 10%;
 }
 
+.th-pad {
+  padding-left: 20%;
+}
+
+.td-pad {
+  padding-left: 5%;
+}
+
+.interpretation {
+  color: #003F69;
+}
+
 #openness {
   padding-top: 6%;
   padding-left: 3%;
@@ -383,7 +395,7 @@ body {
 #textarea1 {
   background: url('../img/journalpaper.png') repeat-y;
   font: normal 14px verdana;
-  line-height: 25px;
+  line-height: 1.8em;
   padding-left: 13%;
   padding-top: 4%;
   border: solid 1px transparent;

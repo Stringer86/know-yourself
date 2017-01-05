@@ -11,9 +11,10 @@ import Big5 from './Big5';
 import ReadEntry from './ReadEntry';
 import Header from './Header';
 import AnalyzerHeader from './AnalyzerHeader';
-import axios from 'axios';
 import Headroom from 'react-headroom';
+import Interpretation from './Interpretation';
 
+import axios from 'axios';
 import { Match, Miss, Link, Redirect} from 'react-router';
 
 export default class Main extends React.Component {
@@ -105,6 +106,21 @@ export default class Main extends React.Component {
           </Headroom>
           <hr></hr>
           <Big5 />
+          </div>
+        }/>
+
+        <Match pattern="/interpretation" exactly render={
+          () =>
+          <div>
+          <Headroom >
+
+          <Header
+              isLoggedIn={this.props.isLoggedIn}
+              authUser={this.props.authUser}
+              />
+          </Headroom>
+          <hr></hr>
+          <Interpretation />
           </div>
         }/>
 
