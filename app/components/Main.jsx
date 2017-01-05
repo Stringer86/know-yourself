@@ -84,10 +84,13 @@ export default class Main extends React.Component {
         <Match pattern="/myjournal" exactly render={
           () => !this.props.isLoggedIn ? (
             <Redirect to="/" />
-          ) : <Journal
+          ) :
+          <div className="background-color">
+          <Journal
                         entries={this.props.entries}
                         getEntries={this.props.getEntries}
           />
+          </div>
         }/>
 
         <Match pattern="/bigfive" exactly render={

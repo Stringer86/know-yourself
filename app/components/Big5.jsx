@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import { Link } from 'react-router';
+import Reveal from 'react-reveal';
+
 
 export default class Big5 extends React.Component {
 
@@ -21,6 +23,7 @@ export default class Big5 extends React.Component {
           <img id="openness" src="http://4.bp.blogspot.com/-M1H0FoqnAGI/UACZW3mewTI/AAAAAAAAA04/GKjRZxaF2vQ/s1600/O+socorro+de+Deus.jpg" height="75%" width="75%"></img>
         </div>
         </div>
+        <Reveal effect="animated fadeIn">
         <div className="row big5">
         <div className="col s12 m6 l6">
           <img id="conscientiousness" src="http://img.best-crowdfunding-websites.com/2016/05/planning-your-crowdfunding-campaign-brainstorming.jpg" height="75%" width="75%"></img>
@@ -32,6 +35,8 @@ export default class Big5 extends React.Component {
           </div>
 
           </div>
+          </Reveal>
+          <Reveal effect="animated fadeIn">
           <div className="row big5">
             <div className="col s12 m6 l6">
             <h1 className="bigFiveTitle">Extraversion</h1>
@@ -41,6 +46,8 @@ export default class Big5 extends React.Component {
               <img id="extraversion" src="http://psychology.iresearchnet.com/wp-content/uploads/2016/01/Extraversion.jpg" height="75%" width="75%"></img>
             </div>
             </div>
+            </Reveal>
+            <Reveal effect="animated fadeIn">
             <div className="row big5">
             <div className="col s12 m6 l6">
               <img id="agreeableness" src="http://i1.wp.com/1.bp.blogspot.com/-zQco0Ut-pWs/T85HhQGMl2I/AAAAAAAAAus/6CZCh6Mv1dA/s1600/officeWorkersHighFive.jpg" height="75%" width="75%"></img>
@@ -51,6 +58,8 @@ export default class Big5 extends React.Component {
               </p>
               </div>
               </div>
+              </Reveal>
+              <Reveal effect="animated fadeIn">
               <div className="row">
                 <div className="col s12 m6 l6">
                 <h1 className="bigFiveTitle">Neuroticism</h1>
@@ -60,6 +69,7 @@ export default class Big5 extends React.Component {
                   <img id="neuroticism" src="https://www.papermasters.com/images/neurotic-anxiety.jpg" height="75%" width="75%"></img>
                 </div>
                 </div>
+                </Reveal>
         </div>
     );
   }

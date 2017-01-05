@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import Notifications, {notify} from 'react-notify-toast';
 import Moment from 'moment';
-import Loading from './Loading';
+import BlueLoading from './BlueLoading';
 import MessageChart from './MessageChart';
 import { Link } from 'react-router';
 
@@ -15,6 +15,10 @@ export default class Journal extends React.Component {
       loading: false,
       entry: {},
     }
+  }
+
+  componentDidMount(){
+    document.body.style.backgroundColor = '#6e9bc4'
   }
 
   deletePost(event) {
@@ -59,18 +63,19 @@ export default class Journal extends React.Component {
     const modDate = Moment(date).format('LL')
 
     return (
-      <div>
+      <div className="journal-background">
       {this.state.loading &&
         <div className="row center-align">
-        <Loading />
+        <BlueLoading />
         </div>
 
       }
         {!this.state.submitted && !this.state.loading &&
-        <div className="journalEntry">
+        <div>
         <div className="row right-align journalBtn">
         <a className="btn"><Link to="/profile" className="white-text">My Profile</Link></a>
         </div>
+        <hr></hr>
         <div className="center-align row">
         <h1><strong>{modDate}</strong></h1>
         <div className="row journal">
@@ -79,7 +84,7 @@ export default class Journal extends React.Component {
               </div>
           </div>
           <div className="row center-align">
-          <a className="btn" onClick={this.publishEntry.bind(this)}>submit</a>
+          <a className="btn" onClick={this.publishEntry.bind(this)}>save</a>
           </div>
           </div>
           </div>

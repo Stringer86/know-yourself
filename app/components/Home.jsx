@@ -32,7 +32,7 @@ export default class Home extends React.Component {
       </Reveal>
       <Reveal effect="animated fadeIn">
       <div className="col s12 l6 m6 center-align">
-        <img id="doughnut" src="./img/doughnut.png" alt="doughnut chart" width="75%" height="75%"></img>
+        <img id="doughnut" src="./img/doughnut.png" alt="doughnut chart" width="100%" height="100%"></img>
         <p className="explanation">Immediate analysis!</p>
       </div>
       </Reveal>
@@ -41,7 +41,7 @@ export default class Home extends React.Component {
       <div className="row middleSections">
       <Reveal effect="animated fadeInLeft">
       <div className="col s12 l6 m6 center-align">
-      <img id="line" src="./img/line.png" alt="line chart" width="95%" height="120%"></img>
+      <img id="line" src="./img/line.png" alt="line chart" width="100%" height="100%"></img>
       </div>
       </Reveal>
       <Reveal effect="animated fadeInRight">
@@ -77,7 +77,7 @@ export default class Home extends React.Component {
       </Reveal>
       <Reveal effect="animated fadeIn">
       <div className="col s12 l6 m6 center-align">
-        <img id="apiImg" src="./img/apiImg.png" alt="Instructables image" width="85%" height="85%"></img>
+        <img id="apiImg" src="./img/apiImg.png" alt="Instructables image" width="100%" height="100%"></img>
       </div>
       </Reveal>
       </div>

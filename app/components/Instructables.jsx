@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import ReactDOM from 'react-dom';
-import Loading from './Loading';
+import WhiteLoading from './WhiteLoading';
 
 
 export default class Instructables extends React.Component {
@@ -31,7 +31,7 @@ export default class Instructables extends React.Component {
     if (this.state.apiData < 1) {
       return (
         <div className="card center-align">
-      <Loading />
+      <WhiteLoading />
       </div>
     )
     }

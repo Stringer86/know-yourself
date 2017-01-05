@@ -13,6 +13,10 @@ export default class Entries extends React.Component {
   }
 
   componentDidMount() {
+    if (document.body.style.backgroundColor !== '#f2e9e0') {
+      document.body.style.backgroundColor = '#f2e9e0'
+    }
+
 
     axios.get('/api/entries')
       .then(res => {
@@ -52,6 +56,7 @@ export default class Entries extends React.Component {
       return <div>
       <div className="row center-align noEntries">
       <h1>You haven't made any entries yet! Get writing!</h1>
+      <a className="btn sidebtn"><Link to="/myjournal" className="white-text">New Entry</Link></a>
       </div>
       </div>
     }

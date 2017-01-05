@@ -5,7 +5,6 @@ import {Link} from 'react-router';
 import LineChart from './LineChart';
 import PolarChart from './PolarChart';
 import Moment from 'moment';
-import Loading from './Loading';
 import Donors from './Donors';
 import Instructables from './Instructables';
 import Reveal from 'react-reveal';
@@ -23,6 +22,11 @@ export default class Profile extends React.Component {
   }
 
   componentDidMount() {
+
+    if (document.body.style.backgroundColor !== '#f2e9e0') {
+      document.body.style.backgroundColor = '#f2e9e0'
+    }
+
     function getEntries() {
       return axios.get('/api/entries')
     }
@@ -79,6 +83,13 @@ export default class Profile extends React.Component {
           <div className="row card timeline center-align">
           <h3>My Timeline</h3>
             <p>Write 5 entries to see your timeline in action!</p>
+          </div>
+          <br></br>
+          <hr></hr>
+          <br></br>
+          <div className="row card timeline center-align">
+            <h3>Recommendations</h3>
+            <p>Once you have 5 entries, check back here!</p>
           </div>
           <br></br>
           <hr></hr>
