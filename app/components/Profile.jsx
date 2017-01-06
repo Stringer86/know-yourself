@@ -109,11 +109,11 @@ export default class Profile extends React.Component {
 
     const entry = entries[entries.length -1]
 
-    const arr = ['fear', 'anger', 'sadness', 'joy', 'disgust']
+    const arr = ['fear', 'anger', 'joy', 'sadness', 'disgust']
 
     const highest = arr.reduce((accum, curr, idx) => {
       if (accum === 'minimum') return curr;
-      if (entry[accum] <= entry[curr]) return curr;
+      if (parseFloat(entry[accum]) <= parseFloat(entry[curr])) return curr;
       return accum
     }, 'minimum');
 

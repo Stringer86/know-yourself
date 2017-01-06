@@ -43,7 +43,7 @@ export default class Donors extends React.Component {
         <p id="apiTitle">You seem happy. Why not help out <strong>{this.state.apiData.schoolName}</strong>?</p>
         </div>
         <div className="row">
-          <img className="col s4" id="apiImg" src={this.state.apiData.imageURL}></img>
+          <img className="col s4" src={this.state.apiData.imageURL}></img>
           <div className="col s7">
           <p className="apiContent"><strong>Title: </strong><i>{this.state.apiData.title}</i></p>
           <p className="apiContent"><strong>Location:</strong> {this.state.apiData.city}, {this.state.apiData.state}</p>

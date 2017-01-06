@@ -10,8 +10,8 @@ const _ = require('lodash');
 
 
 const TONE_ANALYZER = watson.tone_analyzer({
-  username: '34f3a33a-9ffd-45aa-9fc0-c17cfe16cbc8',
-  password: 'KR0TZ6CmuE8X',
+  username: '85a4ba31-6bdb-4e9b-9574-555ff80921e9',
+  password: 'hYbMkblAhgqJ',
   version: 'v3',
   version_date: '2016-05-19'
 });
