@@ -69,7 +69,7 @@ export default class ReadEntry extends React.Component {
           </div>
         </div>
       </div>
-      <div className="col s12 l3 m3 journalChart">
+      <div className="col s12 l3 offset-l1 m3 offset-m1" id="read-chart">
       <MessageChart entry={this.state.entry}/>
       </div>
       </div>

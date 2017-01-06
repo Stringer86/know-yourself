@@ -97,14 +97,14 @@ export default class Journal extends React.Component {
           <div className="row right-align journalBtn">
           <a className="btn"><Link to="/profile" className="white-text">My Profile</Link></a>
           </div>
-          <div className="col s12 l7 m7">
+          <div className="col s12 l7 m7 submitted-journal">
             <div className="card center-align">
               <p className="journalBody">{this.state.entry[0].body}</p>
               <a className="btn read"><Link to="/entries" className="white-text">All entries</Link></a>
               <a className="btn delete" onClick={this.deletePost.bind(this)}>Delete</a>
             </div>
           </div>
-          <div className="col s12 l3 m3 journalChart">
+          <div className="col s12 l3 offset-l1 m3 offset-m1 journalChart">
           <MessageChart entry={this.state.entry[0]}
           />
           </div>

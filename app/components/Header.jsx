@@ -34,12 +34,12 @@ export default class Header extends React.Component {
           <div className="nav-wrapper">
             <Link to='/' className="brand-logo left">MyJournal</Link>
             <a href="#" data-activates="mobile-demo" className="button-collapse black-text right"><i className="material-icons right">menu</i></a>
-            <ul className="right hide-on-med-and-down">
+            <ul className="right hide-on-small-and-down">
               <li><a className="btn"><Link to='/analyzer' className="white-text">Analyzer</Link></a></li>
               <li><Link to='/profile' className="blue-text">My Profile</Link></li>
               <li><Link to='/' className="black-text" onClick={this.logOut.bind(this)}>Log out</Link></li>
             </ul>
-            <ul class="side-nav" id="mobile-demo">
+            <ul className="side-nav" id="mobile-demo">
             <li><a className="btn"><Link to='/analyzer' className="white-text">Analyzer</Link></a></li>
             <li><a><Link to='/profile' className="blue-text">My Profile</Link></a></li>
             <li><a><Link to='/' className="black-text" onClick={this.logOut.bind(this)}>Log out</Link></a></li>
@@ -54,11 +54,11 @@ export default class Header extends React.Component {
         <div className="nav-wrapper">
           <Link to='/' className="brand-logo left">MyJournal</Link>
           <a href="#" data-activates="mobile-demo" className="button-collapse black-text right"><i className="material-icons">menu</i></a>
-          <ul className="right hide-on-med-and-down">
+          <ul className="right hide-on-small-and-down">
             <li><Link to='/signin' className="blue-text">Log-in</Link></li>
             <a className="btn"><Link to='/analyzer' className="white-text">Analyzer</Link></a>
           </ul>
-          <ul class="side-nav" id="mobile-demo">
+          <ul className="side-nav" id="mobile-demo">
           <li><a className="btn"><Link to='/analyzer' className="white-text">Analyzer</Link></a></li>
           <li><Link to='/signin' className="blue-text">Log-in</Link></li>
         </ul>
