@@ -252,6 +252,10 @@ a {
   min-height: 450px;
 }
 
+#read-chart {
+  margin-top: 3%;
+}
+
 .read {
   background: #0288ca;
   margin-bottom: 2%;
@@ -345,6 +349,13 @@ body {
 
 
 .analyzersize {
+  max-height: 400px;
+  max-width: 400px;
+  min-height: 400px;
+  min-width: 400px;
+}
+
+.result-size {
   max-height: 400px;
   max-width: 400px;
   min-height: 400px;

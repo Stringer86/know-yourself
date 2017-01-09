@@ -3,7 +3,7 @@ import axios from 'axios';
 import Notifications, {notify} from 'react-notify-toast';
 import Moment from 'moment';
 import BlueLoading from './BlueLoading';
-import MessageChart from './MessageChart';
+import MessageChartJournal from './MessageChartJournal';
 import { Link } from 'react-router';
 
 export default class Journal extends React.Component {
@@ -105,7 +105,7 @@ export default class Journal extends React.Component {
             </div>
           </div>
           <div className="col s12 l3 offset-l1 m3 offset-m1 journalChart">
-          <MessageChart entry={this.state.entry[0]}
+          <MessageChartJournal entry={this.state.entry[0]}
           />
           </div>
           </div>
