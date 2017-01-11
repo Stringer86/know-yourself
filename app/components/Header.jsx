@@ -32,7 +32,7 @@ export default class Header extends React.Component {
       return (
         <nav className="z-depth-0">
           <div className="nav-wrapper">
-            <Link to='/' className="brand-logo left">MyJournal</Link>
+            <Link to='/' className="brand-logo left">My Journal</Link>
             <a href="#" data-activates="mobile-demo" className="button-collapse black-text right"><i className="material-icons right">menu</i></a>
             <ul className="right hide-on-small-and-down">
               <li><a className="btn"><Link to='/analyzer' className="white-text">Analyzer</Link></a></li>
