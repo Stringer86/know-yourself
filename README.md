@@ -19,7 +19,6 @@ This is not your average journaling site. We use the state of the art Watson sup
 * Knex
 * PostgreSQL
 * Brunch
-* OAuth 2.0
 * CSS
 * Materialize
 * React-router
