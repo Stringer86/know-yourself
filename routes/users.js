@@ -27,6 +27,7 @@ const authorize = function(req, res, next) {
 
 router.get('/api/user', authorize, (req, res, next) => {
   const { userId } = req.token;
+
   knex('users')
     .where('id', userId)
     .then((rows) => {
@@ -42,8 +43,7 @@ router.get('/api/user', authorize, (req, res, next) => {
 });
 
 router.post('/api/user', ev(validations.post), (req, res, next) => {
-  const { name, email, password,} = req.body;
-  console.log(name, " name", email, " email", password, " password");
+  const { name, email, password } = req.body;
 
   knex('users')
     .select(knex.raw('1=1'))
@@ -55,22 +55,19 @@ router.post('/api/user', ev(validations.post), (req, res, next) => {
       }
 
       return bcrypt.hash(password, 12);
-
     })
     .then((hashedPassword) => {
-
       const insertUser = { name, email, hashedPassword };
 
       return knex('users')
         .insert(decamelizeKeys(insertUser), '*');
     })
-    .then((row) => {
+    .then(() => {
       res.send('success');
     })
     .catch((err) => {
       next(err);
     });
 });
-
 
 module.exports = router;

@@ -11,16 +11,16 @@ exports.up = function(knex) {
       .onDelete('CASCADE');
 
     table.text('body').notNullable().defaultTo('');
-    table.decimal('anger',5,3).notNullable();
-    table.decimal('disgust',5,3).notNullable();
-    table.decimal('fear',5,3).notNullable();
-    table.decimal('joy',5,3).notNullable();
-    table.decimal('sadness',5,3).notNullable();
-    table.decimal('openness',5,3).notNullable();
-    table.decimal('conscientiousness',5,3).notNullable();
-    table.decimal('extraversion',5,3).notNullable();
-    table.decimal('agreeableness',5,3).notNullable();
-    table.decimal('emotional_range',5,3).notNullable();
+    table.decimal('anger', 5, 3).notNullable();
+    table.decimal('disgust', 5, 3).notNullable();
+    table.decimal('fear', 5, 3).notNullable();
+    table.decimal('joy', 5, 3).notNullable();
+    table.decimal('sadness', 5, 3).notNullable();
+    table.decimal('openness', 5, 3).notNullable();
+    table.decimal('conscientiousness', 5, 3).notNullable();
+    table.decimal('extraversion', 5, 3).notNullable();
+    table.decimal('agreeableness', 5, 3).notNullable();
+    table.decimal('emotional_range', 5, 3).notNullable();
     table.timestamps(true, true);
   });
 };

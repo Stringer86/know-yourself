@@ -38,21 +38,21 @@ exports.seed = function(knex) {
         updated_at: new Date('2016-010-30 14:26:16 UTC')
       },
       {
-      id: 3,
-      user_id: 1,
-      body: 'I am having a miserable day today.  I forgot that I had a test and think I failed.  My mom yelled at me again for not cleaning the dishes but I didn\'t even use any this week!  Because I did so poorly on the quiz, i decided to talk to the teacher.  The meeting took so long.  I missed my bus.  I hate my life',
-      anger: 19.339,
-      disgust: 4.584,
-      fear: 10.2392,
-      joy: 17.016,
-      sadness: 58.297,
-      openness: 0.670,
-      conscientiousness: 4.738,
-      extraversion: 0.760,
-      agreeableness: 20.552,
-      emotional_range: 3.661,
-      created_at: new Date('2016-11-01 14:26:16 UTC'),
-      updated_at: new Date('2016-11-01 14:26:16 UTC')
+        id: 3,
+        user_id: 1,
+        body: 'I am having a miserable day today.  I forgot that I had a test and think I failed.  My mom yelled at me again for not cleaning the dishes but I didn\'t even use any this week!  Because I did so poorly on the quiz, i decided to talk to the teacher.  The meeting took so long.  I missed my bus.  I hate my life',
+        anger: 19.339,
+        disgust: 4.584,
+        fear: 10.2392,
+        joy: 17.016,
+        sadness: 58.297,
+        openness: 0.670,
+        conscientiousness: 4.738,
+        extraversion: 0.760,
+        agreeableness: 20.552,
+        emotional_range: 3.661,
+        created_at: new Date('2016-11-01 14:26:16 UTC'),
+        updated_at: new Date('2016-11-01 14:26:16 UTC')
       },
       {
         id: 4,
@@ -88,7 +88,7 @@ exports.seed = function(knex) {
         created_at: new Date('2016-11-03 14:26:16 UTC'),
         updated_at: new Date('2016-11-03 14:26:16 UTC')
       }
-    ]);
+      ]);
     })
     .then(() => {
       return knex.raw("SELECT setval('entries_id_seq', (SELECT MAX(id) FROM entries));"

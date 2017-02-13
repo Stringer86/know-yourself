@@ -5,7 +5,6 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 const express = require('express');
-const passport = require('passport');
 const app = express();
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
@@ -27,22 +26,9 @@ switch (app.get('env')) {
 
   default:
 }
-console.log("hi");
 
 app.use(bodyParser.json());
 app.use(cookieParser());
-
-app.use(passport.initialize());
-app.use(passport.session());
-
-passport.serializeUser(function(user, done) {
-  done(null, user);
-});
-
-passport.deserializeUser(function(user, done) {
-  done(null, user);
-});
-
 
 app.use(express.static(path.join('public')));
 

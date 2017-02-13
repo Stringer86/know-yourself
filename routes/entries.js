@@ -72,21 +72,19 @@ router.post('/api/entries', authorize, ev(validations.post), (req, res, next) =>
   const { body } = req.body;
 
   const apiCall = new Promise((resolve, reject) => {
-
-    TONE_ANALYZER.tone({ text: body },
-    function(err, tone) {
+    TONE_ANALYZER.tone({ text: body }, (err, tone) => {
       if (err) {
-        return reject (err);
+        return reject(err);
       }
 
-      const emotionScores = tone['document_tone']['tone_categories'][0].tones
+      const emotionScores = tone.document_tone.tone_categories[0].tones;
       const anger = emotionScores[0].score * 100;
       const disgust = emotionScores[1].score * 100;
       const fear = emotionScores[2].score * 100;
       const joy = emotionScores[3].score * 100;
       const sadness = emotionScores[4].score * 100;
 
-      const bigFiveScores = tone['document_tone']['tone_categories'][2].tones;
+      const bigFiveScores = tone.document_tone.tone_categories[2].tones;
       const openness = bigFiveScores[0].score * 100;
       const conscientiousness = bigFiveScores[1].score * 100;
       const extraversion = bigFiveScores[2].score * 100;
@@ -105,9 +103,8 @@ router.post('/api/entries', authorize, ev(validations.post), (req, res, next) =>
         agreeableness,
         emotionalRange,
       });
-    })
-  })
-
+    });
+  });
 
   apiCall.then((data) => {
     const insertEntry = {
@@ -124,24 +121,23 @@ router.post('/api/entries', authorize, ev(validations.post), (req, res, next) =>
       agreeableness: data.agreeableness,
       emotionalRange: data.emotionalRange
     };
+
     knex('entries')
         .insert(decamelizeKeys(insertEntry), '*')
         .then((row) => {
           const entry = row;
 
-          delete entry[0]['user_id']
+          delete entry[0].user_id;
 
           res.send(entry);
         })
         .catch((err) => {
           next(err);
         });
-  })
+  });
 });
 
 router.delete('/api/entries/:id', authorize, (req, res, next) => {
-  const { userId } = req.token;
-
   const id = Number.parseInt(req.params.id);
 
   knex('entries')
@@ -154,6 +150,5 @@ router.delete('/api/entries/:id', authorize, (req, res, next) => {
       next(err);
     });
 });
-
 
 module.exports = router;
