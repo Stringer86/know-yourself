@@ -1,6 +1,6 @@
+import { Link } from 'react-router';
 import React from 'react';
 import axios from 'axios';
-import { Link } from 'react-router';
 
 export default class Header extends React.Component {
 

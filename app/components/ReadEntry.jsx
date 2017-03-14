@@ -15,7 +15,6 @@ export default class ReadEntry extends React.Component {
 
   componentDidMount() {
     const id = Number(location.pathname.slice(7));
-    console.log(id);
 
     axios.get(`/api/entries/${id}`)
       .then((res) => {

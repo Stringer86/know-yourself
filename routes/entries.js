@@ -11,8 +11,8 @@ const { camelizeKeys, decamelizeKeys } = require('humps');
 const watson = require('watson-developer-cloud');
 
 const TONE_ANALYZER = watson.tone_analyzer({
-  username: '4d0064c5-9124-4d72-bba8-03350465b3e7',
-  password: 'LsCnlrwMFdpv',
+  username: '65e1093d-c41f-41c1-9379-598eb04c9ea6',
+  password: 'apMipWUx86MJ',
   version: 'v3',
   version_date: '2016-05-19'
 });
