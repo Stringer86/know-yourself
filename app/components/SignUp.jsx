@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import Notifications, {notify} from 'react-notify-toast';
-import { Match, Link, Redirect} from 'react-router';
 
 export default class SignUp extends React.Component {
 

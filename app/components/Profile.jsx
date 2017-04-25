@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import {Line, Polar, Radar} from 'react-chartjs-2';
-import {Link} from 'react-router';
+import { Link } from 'react-router-dom';
 import LineChart from './LineChart';
 import PolarChart from './PolarChart';
 import Moment from 'moment';
@@ -23,8 +23,8 @@ export default class Profile extends React.Component {
 
   componentDidMount() {
 
-    if (document.body.style.backgroundColor !== '#f2e9e0') {
-      document.body.style.backgroundColor = '#f2e9e0'
+    if (document.body.style.backgroundColor !== '#f3f3f3') {
+      document.body.style.backgroundColor = '#f3f3f3'
     }
 
     function getEntries() {
@@ -64,7 +64,7 @@ export default class Profile extends React.Component {
         <div>
         <div className="row userInfo">
         <div className="col s12 m3 l3">
-          <img src="http://www.all-about-psychology.com/psychology-fb.jpg" height="60%" width="60%"></img>
+          <img src="http://www.all-about-psychology.com/psychology-fb.jpg"></img>
         </div>
         <div className="col s12 m8 offset-m1 l8 offset-l1 profile">
             <h1 id="name">{name}</h1>

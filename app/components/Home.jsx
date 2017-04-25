@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import Reveal from 'react-reveal';
 
 export default class Home extends React.Component {

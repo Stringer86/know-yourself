@@ -1,9 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import {  Doughnut } from 'react-chartjs-2';
-import ReactDOM from 'react-dom';
 import LazyLoad from 'react-lazyload';
-
 
 export default class MessageChart extends React.Component {
 

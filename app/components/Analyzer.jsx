@@ -1,4 +1,4 @@
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import Loading from './Loading';
 import MessageChart from './MessageChart';
 import React from 'react';
@@ -70,6 +70,7 @@ export default class Analyzer extends React.Component {
         }
         { !this.state.submitted && !this.state.loading &&
           <div className="row center-align">
+          <hr></hr>
             <h1>Input your email, message, or blog post and we'll analyze it for you.</h1>
             <div className="row">
               <div className="input-field col s12 col l8 offset-l2 col m8 offset-m2">
@@ -84,6 +85,7 @@ export default class Analyzer extends React.Component {
           }
           { this.state.submitted &&
             <div className="row align-center">
+            <hr></hr>
               <div className="row">
                 <div className="col s12 m12 l6">
                   <div className="card"> {sentences } </div>

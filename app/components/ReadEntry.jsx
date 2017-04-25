@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import MessageChart from './MessageChart';
 import NotFound from './NotFound';
 

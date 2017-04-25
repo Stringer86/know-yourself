@@ -4,7 +4,7 @@ import Notifications, {notify} from 'react-notify-toast';
 import Moment from 'moment';
 import BlueLoading from './BlueLoading';
 import MessageChartJournal from './MessageChartJournal';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 
 export default class Journal extends React.Component {
   constructor(props) {

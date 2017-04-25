@@ -11,11 +11,11 @@ import Big5 from './Big5';
 import ReadEntry from './ReadEntry';
 import Header from './Header';
 import AnalyzerHeader from './AnalyzerHeader';
-import Headroom from 'react-headroom';
 import Interpretation from './Interpretation';
 
 import axios from 'axios';
-import { Match, Miss, Link, Redirect} from 'react-router';
+import { Route, Redirect, Link, Miss } from 'react-router-dom';
+
 
 export default class Main extends React.Component {
 
@@ -32,173 +32,75 @@ export default class Main extends React.Component {
   render() {
     return (
       <div className="row">
-        <Match pattern="/" exactly render={
-          () =>
-          <div>
-          <Headroom >
-          <Header
-              isLoggedIn={this.props.isLoggedIn}
-              authUser={this.props.authUser}
-              />
-              </Headroom>
-              <hr></hr>
-              <Home isLoggedIn={this.props.isLoggedIn}
-              />
-          </div>
-        }/>
+        <Route exact path="/" component={Home} />
 
-        <Match pattern="/signup" exactly render={() =>
+        <Route path="/signup" exactly render={() =>
           this.props.isLoggedIn ? (
             <Redirect to="/" />
           ) : (
             <div>
-            <Headroom >
-            <Header
-                isLoggedIn={this.props.isLoggedIn}
-                authUser={this.props.authUser}
-                />
-            </Headroom>
-            <hr></hr>
             <SignUp authUser={this.props.authUser} />
             </div>
           )
         }/>
 
-        <Match pattern="/signin" exactly render={() =>
+        <Route path="/signin" exactly render={() =>
           this.props.isLoggedIn ? (
             <Redirect to="/" />
           ) : (
             <div>
-            <Headroom >
-
-            <Header
-                isLoggedIn={this.props.isLoggedIn}
-                authUser={this.props.authUser}
-                />
-            </Headroom>
-            <hr></hr>
             <SignIn authUser={this.props.authUser} />
             </div>
           )
         }/>
 
-        <Match pattern="/myjournal" exactly render={
+        <Route path="/myjournal" exactly render={
           () => !this.props.isLoggedIn ? (
             <Redirect to="/" />
           ) :
           <div className="background-color">
-          <Journal
-                        entries={this.props.entries}
-                        getEntries={this.props.getEntries}
+          <Journal entries={this.props.entries}
+                   getEntries={this.props.getEntries}
           />
           </div>
         }/>
 
-        <Match pattern="/bigfive" exactly render={
-          () =>
-          <div>
-          <Headroom >
+        <Route path="/bigfive" component={Big5}/>
 
-          <Header
-              isLoggedIn={this.props.isLoggedIn}
-              authUser={this.props.authUser}
-              />
-          </Headroom>
-          <hr></hr>
-          <Big5 />
-          </div>
-        }/>
+        <Route path="/interpretation" component={Interpretation}/>
 
-        <Match pattern="/interpretation" exactly render={
-          () =>
-          <div>
-          <Headroom >
+        <Route path="/analyzer" component={Analyzer}/>
 
-          <Header
-              isLoggedIn={this.props.isLoggedIn}
-              authUser={this.props.authUser}
-              />
-          </Headroom>
-          <hr></hr>
-          <Interpretation />
-          </div>
-        }/>
-
-        <Match pattern="/analyzer" exactly render={
-          () =>
-          <div>
-          <Headroom >
-
-          <AnalyzerHeader
-              isLoggedIn={this.props.isLoggedIn}
-              authUser={this.props.authUser}
-              />
-          </Headroom>
-          <hr></hr>
-          <Analyzer />
-          </div>
-        }/>
-
-        <Match pattern="/profile" exactly render={
+        <Route path="/profile" exactly render={
           () => !this.props.isLoggedIn ? (
             <Redirect to="/" />
           ) :
-          <div>
-          <Headroom >
-
-          <Header
-              isLoggedIn={this.props.isLoggedIn}
-              authUser={this.props.authUser}
-              />
-          </Headroom>
-          <hr></hr>
           <div className="profilebackground">
           <Profile
                       entries={this.props.entries}
                       getEntries={this.props.getEntries}
                       />
           </div>
-          </div>
         }/>
-        <Match pattern="/entries" exactly render={() =>
+        <Route path="/entries" exactly render={() =>
           !this.props.isLoggedIn ? (
             <Redirect to="/" />
           ) : (
-            <div>
-            <Headroom >
-
-            <Header
-                isLoggedIn={this.props.isLoggedIn}
-                authUser={this.props.authUser}
-                />
-            </Headroom>
-            <hr></hr>
             <Entries  entries={this.props.entries}
                       getEntries={this.props.getEntries}
                       sortIt={this.props.sortIt}
                       handleSearch={this.props.handleSearch}
                       searchFilter={this.props.search}
             />
-            </div>
           )
         }/>
-        <Match pattern="/entry/:id?" exactly render={
+        <Route path="/entry/:id?" exactly render={
           () => !this.props.isLoggedIn ? (
             <Redirect to="/" />
           ) :
-          <div>
-          <Headroom >
-
-          <Header
-              isLoggedIn={this.props.isLoggedIn}
-              authUser={this.props.authUser}
-              />
-          </Headroom>
-          <hr></hr>
           <ReadEntry getEntries={this.props.getEntries}/>
-          </div>
         }/>
-        <Miss component={NotFound} />
+        {/* <Miss component={NotFound} /> */}
       </div>
     );
   }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router';
+import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
 import Notifications, {notify} from 'react-notify-toast';
 import {  Doughnut } from 'react-chartjs-2';

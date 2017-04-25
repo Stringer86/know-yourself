@@ -13,8 +13,8 @@ export default class Entries extends React.Component {
   }
 
   componentDidMount() {
-    if (document.body.style.backgroundColor !== '#f2e9e0') {
-      document.body.style.backgroundColor = '#f2e9e0'
+    if (document.body.style.backgroundColor !== '#f3f3f3') {
+      document.body.style.backgroundColor = '#f3f3f3'
     }
 
 
@@ -25,15 +25,6 @@ export default class Entries extends React.Component {
       .catch(err => {
         this.setState({ loadErr: err });
       });
-
-      const element = ReactDOM.findDOMNode(this.refs.dropdown)
-
-      $(element).ready(function() {
-        $('select').material_select();
-      }).on('change', this.sortIt.bind(this))
-
-      this.props.handleSearch('');
-
   }
 
   sortIt(event) {
@@ -86,6 +77,7 @@ export default class Entries extends React.Component {
 
     return (
       <div>
+      <br></br>
       <div className="row">
       <input className="col s7" type="text" placeholder="Search Entries Here" autoFocus onChange={this.handleSearch.bind(this)}>
         </input>

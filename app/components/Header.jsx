@@ -1,19 +1,12 @@
 import React from 'react';
 import axios from 'axios';
-import { Link } from 'react-router';
-import ReactDOM from 'react-dom';
+import { Link } from 'react-router-dom';
+import Headroom from 'react-headroom';
 
 export default class Header extends React.Component {
-
-  componentDidMount() {
-    const navi = ReactDOM.findDOMNode(this.refs.navi)
-
-    $(navi).ready(function() {
-      $(".button-collapse").sideNav();
-    })
-
+  constructor(props) {
+    super(props);
   }
-
   logOut(event) {
     event.preventDefault();
 
@@ -26,13 +19,20 @@ export default class Header extends React.Component {
       });
   }
 
+
+
   render() {
+    if (window.location.pathname === '/myjournal') {
+      return null;
+    }
 
     if (this.props.isLoggedIn) {
       return (
-        <nav className="z-depth-0">
+        <Headroom >
+        <header>
+        <nav className="z-depth-0 header">
           <div className="nav-wrapper">
-            <Link to='/' className="brand-logo left">My Journal</Link>
+            <Link to='/' className="brand-logo left"><strong>My Journal</strong></Link>
             <a href="#" data-activates="mobile-demo" className="button-collapse black-text right"><i className="material-icons right">menu</i></a>
             <ul className="right hide-on-small-and-down">
               <li><a className="btn"><Link to='/analyzer' className="white-text">Analyzer</Link></a></li>
@@ -46,11 +46,15 @@ export default class Header extends React.Component {
           </ul>
           </div>
         </nav>
+        </header>
+        </Headroom>
       )
     }
 
     return (
-      <nav className="z-depth-0">
+      <Headroom>
+      <header>
+      <nav className="z-depth-0 header">
         <div className="nav-wrapper">
           <Link to='/' className="brand-logo left">My Journal</Link>
           <a href="#" data-activates="mobile-demo" className="button-collapse black-text right"><i className="material-icons">menu</i></a>
@@ -64,6 +68,8 @@ export default class Header extends React.Component {
         </ul>
         </div>
       </nav>
+      </header>
+      </Headroom>
     )
 
     }

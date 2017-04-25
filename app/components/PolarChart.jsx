@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import {Line, Polar, Radar} from 'react-chartjs-2';
-import {Link} from 'react-router';
 
 export default class PolarChart extends React.Component {
 

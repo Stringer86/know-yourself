@@ -1,8 +1,10 @@
 
 nav {
-  background: #f2e9e0;
+  background: #f3f3f3;
   color: #4e4d43;
 }
+
+
 
 nav .nav-wrapper {
   color: #1B1B1E;
@@ -83,20 +85,26 @@ h3 {
 }
 
 #openness {
-  padding-top: 6%;
+  padding-top: 15%;
   padding-left: 3%;
 }
 
 #extraversion {
-  padding-top: 7%;
+  padding-top: 15%;
   padding-left: 4%;
 }
 
 #neuroticism {
-  padding-top: 7%;
+  padding-top: 15%;
   padding-left: 3%;
 }
 
+#conscientiousness {
+  padding-top: 6%;
+}
+#agreeableness {
+  padding-top: 10%;
+}
 .homeList {
   font-size: 2em;
 }
@@ -157,13 +165,13 @@ h3 {
 .sidebtn {
   margin-top: 5%;
   margin-bottom: 5%;
-  background: #0288ca;
+  background: #3498db;
 }
 
 .sidebtn:hover {
   margin-top: 5%;
   margin-bottom: 5%;
-  background: #0288ca;
+  background: #3498db;
 }
 
 .blue-text {
@@ -205,7 +213,7 @@ a {
 }
 
 .profilebackground {
-  background: #f2e9e0;
+  background: #f3f3f3;
   overflow-x: hidden;
 }
 
@@ -320,8 +328,9 @@ html {
 }
 
 body {
-  background-color: #f2e9e0;
+  background-color: #f3f3f3;
   margin: 0 5% 65px 5%;
+  font-family: 'Quicksand', sans-serif;
 }
 
 @media only screen and (min-width: 400px) {
