@@ -14,7 +14,7 @@ import AnalyzerHeader from './AnalyzerHeader';
 import Interpretation from './Interpretation';
 
 import axios from 'axios';
-import { Route, Redirect, Link, Miss } from 'react-router-dom';
+import { Route, Redirect, Link, Switch} from 'react-router-dom';
 
 
 export default class Main extends React.Component {
@@ -32,6 +32,7 @@ export default class Main extends React.Component {
   render() {
     return (
       <div className="row">
+      <Switch>
         <Route exact path="/" component={Home} />
 
         <Route path="/signup" exactly render={() =>
@@ -100,6 +101,8 @@ export default class Main extends React.Component {
           ) :
           <ReadEntry getEntries={this.props.getEntries}/>
         }/>
+        <Redirect to="/"/>
+        </Switch>
       </div>
     );
   }
