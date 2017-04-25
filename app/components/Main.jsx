@@ -100,7 +100,7 @@ export default class Main extends React.Component {
           ) :
           <ReadEntry getEntries={this.props.getEntries}/>
         }/>
-        {/* <Miss component={NotFound} /> */}
+        <Route path="/*" component={NotFound} />
       </div>
     );
   }
