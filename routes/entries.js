@@ -11,8 +11,8 @@ const { camelizeKeys, decamelizeKeys } = require('humps');
 const watson = require('watson-developer-cloud');
 
 const TONE_ANALYZER = watson.tone_analyzer({
-  username: '65e1093d-c41f-41c1-9379-598eb04c9ea6', //change for heroku
-  password: 'apMipWUx86MJ',
+  username: process.env.WATSON_USERNAME, //change for heroku
+  password: process.env.WATSON_PW,
   version: 'v3',
   version_date: '2016-05-19'
 });
