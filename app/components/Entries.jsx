@@ -1,8 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import {Line, Polar, Radar} from 'react-chartjs-2';
-import {Link} from 'react-router';
-import ReactDOM from 'react-dom';
+import {Link} from 'react-router-dom';
 import Entry from './Entry';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
@@ -10,6 +9,8 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 export default class Entries extends React.Component {
   constructor(props) {
     super(props);
+    this.handleSearch = this.handleSearch.bind(this);
+    this.sortIt = this.sortIt.bind(this);
   }
 
   componentDidMount() {
@@ -44,12 +45,14 @@ export default class Entries extends React.Component {
 
   render() {
     if (this.props.entries.length === 0) {
-      return <div>
-      <div className="row center-align noEntries">
-      <h1>You haven't made any entries yet! Get writing!</h1>
-      <a className="btn sidebtn"><Link to="/myjournal" className="white-text">New Entry</Link></a>
+      return (
+      <div>
+        <div className="row center-align noEntries">
+        <h1>You haven't made any entries yet! Get writing!</h1>
+        <a className="btn sidebtn"><Link to="/myjournal" className="white-text">New Entry</Link></a>
+        </div>
       </div>
-      </div>
+    )
     }
 
 
@@ -79,9 +82,9 @@ export default class Entries extends React.Component {
       <div>
       <br></br>
       <div className="row">
-      <input className="col s7" type="text" placeholder="Search Entries Here" autoFocus onChange={this.handleSearch.bind(this)}>
+      <input className="col s7" type="text" placeholder="Search Entries Here" autoFocus onChange={this.handleSearch}>
         </input>
-      <select className="col s4 offset-s1 browser-default" ref="dropdown" onChange={this.sortIt.bind(this)}>
+      <select className="col s4 offset-s1 browser-default" ref="dropdown" onChange={this.sortIt}>
           <option value="" disabled selected>Sort By</option>
           <option className="dropdown">Most Recent</option>
           <option>Saddest</option>

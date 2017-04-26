@@ -30,6 +30,7 @@ export default class Main extends React.Component {
   }
 
   render() {
+    console.log(this.props.isLoggedIn);
     return (
       <div className="row">
       <Switch>
@@ -78,22 +79,24 @@ export default class Main extends React.Component {
           ) :
           <div className="profilebackground">
           <Profile
-                      entries={this.props.entries}
-                      getEntries={this.props.getEntries}
-                      />
+                    entries={this.props.entries}
+                    getEntries={this.props.getEntries}
+                    />
           </div>
         }/>
-        <Route path="/entries" exactly render={() =>
-          !this.props.isLoggedIn ? (
+        <Route path="/entries" exactly render={
+          () => !this.props.isLoggedIn ? (
             <Redirect to="/" />
-          ) : (
+          ) :
+            <div>
             <Entries  entries={this.props.entries}
                       getEntries={this.props.getEntries}
                       sortIt={this.props.sortIt}
                       handleSearch={this.props.handleSearch}
                       searchFilter={this.props.search}
             />
-          )
+            </div>
+
         }/>
         <Route path="/entry/:id?" exactly render={
           () => !this.props.isLoggedIn ? (
