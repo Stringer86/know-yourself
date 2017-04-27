@@ -10,7 +10,6 @@ import Entries from './Entries';
 import Big5 from './Big5';
 import ReadEntry from './ReadEntry';
 import Header from './Header';
-import AnalyzerHeader from './AnalyzerHeader';
 import Interpretation from './Interpretation';
 
 import axios from 'axios';
@@ -30,11 +29,12 @@ export default class Main extends React.Component {
   }
 
   render() {
-    console.log(this.props.isLoggedIn);
     return (
       <div className="row">
       <Switch>
-        <Route exact path="/" component={Home} />
+        <Route exact path="/" exactly render={() =>
+          <Home isLoggedIn={this.props.isLoggedIn} />
+        }/>
 
         <Route path="/signup" exactly render={() =>
           this.props.isLoggedIn ? (

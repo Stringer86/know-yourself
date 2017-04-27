@@ -21,20 +21,16 @@ export default class Donors extends React.Component {
       .catch(err => {
         this.setState({ loadErr: err });
       });
-
-
   }
-
-
 
   render() {
 
     if (this.state.apiData < 1) {
       return (
         <div className="card center-align">
-      <WhiteLoading />
-      </div>
-    )
+          <WhiteLoading />
+        </div>
+      )
     }
     return (
       <div className="row apiInfo card">

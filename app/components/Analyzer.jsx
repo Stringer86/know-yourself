@@ -9,6 +9,9 @@ export default class Analyzer extends React.Component {
   constructor(props) {
     super(props);
 
+    this.publishEntry = this.publishEntry.bind(this)
+    this.changeState = this.changeState.bind(this);
+
     this.state = {
       submitted: false,
       loading: false,
@@ -65,10 +68,8 @@ export default class Analyzer extends React.Component {
 
     return (
       <div className="center-align analyzer">
-        { this.state.loading &&
-        <Loading />
-        }
-        { !this.state.submitted && !this.state.loading &&
+        { this.state.loading && <Loading /> }
+        { !this.state.submitted && !this.state.loading && (
           <div className="row center-align">
           <hr></hr>
             <h1>Input your email, message, or blog post and we'll analyze it for you.</h1>
@@ -78,12 +79,13 @@ export default class Analyzer extends React.Component {
               </div>
             </div>
             <div className="row">
-              <a className="btn" onClick={this.publishEntry.bind(this)}>Analyze!</a>
+              <a className="btn" onClick={this.publishEntry}>Analyze!</a>
             </div>
 
           </div>
-          }
-          { this.state.submitted &&
+        )}
+
+        { this.state.submitted && (
             <div className="row align-center">
             <hr></hr>
               <div className="row">
@@ -93,7 +95,7 @@ export default class Analyzer extends React.Component {
                   <br></br>
                   <br></br>
                   <div className="row">
-                    <a className="btn" onClick={this.changeState.bind(this)}><Link to="/analyzer" className="white-text">New Post</Link></a>
+                    <a className="btn" onClick={this.changeState}><Link to="/analyzer" className="white-text">New Post</Link></a>
                   </div>
                 </div>
                 <div className="col s12 m12 l6">
@@ -103,7 +105,7 @@ export default class Analyzer extends React.Component {
                 </div>
               </div>
             </div>
-          }
+          )}
       </div>
     );
   }

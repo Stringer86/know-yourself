@@ -55,8 +55,6 @@ export default class Entries extends React.Component {
     )
     }
 
-
-
     const entries = this.props.entries.filter((entry) => {
       let body = entry.body.toLowerCase();
       let search = this.props.searchFilter.toLowerCase();
@@ -76,7 +74,6 @@ export default class Entries extends React.Component {
       transitionEnterTimeout: 500,
       transitionLeaveTimeout: 500
     }
-
 
     return (
       <div>
@@ -99,7 +96,6 @@ export default class Entries extends React.Component {
       { entries }
       </ReactCSSTransitionGroup>
       </div>
-
       </div>
 
     );

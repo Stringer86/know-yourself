@@ -86,19 +86,20 @@ export default class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
-      <div>
+        <div>
           <Notifications />
           <Header authUser={this.authUser}
-                  isLoggedIn={this.state.isLoggedIn}/>
-            <Main
-                { ... this.state }
-                handleSearch={this.handleSearch}
-                authUser={this.authUser}
-                getEntries={this.getEntries}
-                sortIt={this.sortIt}
-                />
+                  isLoggedIn={this.state.isLoggedIn}
+          />
+          <Main
+              { ... this.state }
+              handleSearch={this.handleSearch}
+              authUser={this.authUser}
+              getEntries={this.getEntries}
+              sortIt={this.sortIt}
+          />
           <Footer />
-          </div>
+        </div>
       </BrowserRouter>
     )
   }

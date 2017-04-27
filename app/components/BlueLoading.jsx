@@ -2,7 +2,7 @@ import React from 'react';
 import LazyLoad from 'react-lazyload';
 
 
-export default class Loading extends React.Component {
+export default class BlueLoading extends React.Component {
 
   render() {
     return (
