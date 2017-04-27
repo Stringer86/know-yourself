@@ -7,6 +7,7 @@ export default class Header extends React.Component {
   constructor(props) {
     super(props);
   }
+
   logOut(event) {
     event.preventDefault();
 
@@ -18,8 +19,6 @@ export default class Header extends React.Component {
         return err;
       });
   }
-
-
 
   render() {
     if (window.location.pathname === '/myjournal') {

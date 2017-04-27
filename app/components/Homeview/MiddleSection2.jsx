@@ -2,10 +2,8 @@ import React from 'react';
 import Reveal from 'react-reveal';
 import { Link } from 'react-router-dom';
 
-export default class MiddleSection2 extends React.Component {
-
-  render() {
-  const isLoggedIn = this.props.isLoggedIn;
+const MiddleSection2 = (props) => {
+  const isLoggedIn = props.isLoggedIn;
 
   return (
     <div className="row middleSections">
@@ -24,7 +22,7 @@ export default class MiddleSection2 extends React.Component {
       </div>
       <div className="row center-align">
         <div>
-        {isLoggedIn &&
+        {!isLoggedIn &&
           <a className="btn"><Link to="/signup" className="white-text">Sign Up Today!</Link></a>
         }
         </div>
@@ -33,5 +31,6 @@ export default class MiddleSection2 extends React.Component {
     </Reveal>
     </div>
     );
-  };
 }
+
+module.exports = MiddleSection2;

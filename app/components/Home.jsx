@@ -6,19 +6,16 @@ import MiddleSection1 from './Homeview/MiddleSection1';
 import MiddleSection2 from './Homeview/MiddleSection2';
 import MiddleSection3 from './Homeview/MiddleSection3';
 
-export default class Home extends React.Component {
-
-  render() {
+const Home = (props) => {
 
     return (
       <div>
-      <Hero isLoggedIn={this.props.isLoggedIn} />
+      <Hero isLoggedIn={props.isLoggedIn} />
       <MiddleSection1 />
-      <MiddleSection2 isLoggedIn={this.props.isLoggedIn} />
-      <hr></hr>
+      <MiddleSection2 isLoggedIn={props.isLoggedIn} />
       <MiddleSection3 />
       </div>
-
     );
-  }
 }
+
+module.exports = Home;

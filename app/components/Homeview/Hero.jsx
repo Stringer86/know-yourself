@@ -1,10 +1,9 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-export default class Hero extends React.Component {
+const Hero = (props) =>  {
 
-  render() {
-    const isLoggedIn = this.props.isLoggedIn;
+    const isLoggedIn = props.isLoggedIn;
 
     return (
       <div>
@@ -22,5 +21,6 @@ export default class Hero extends React.Component {
       </div>
 
     );
-  }
 }
+
+module.exports = Hero;

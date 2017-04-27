@@ -3,14 +3,13 @@ import axios from 'axios';
 import Reveal from 'react-reveal';
 
 
-export default class Interpretation extends React.Component {
+const Interpretation = () => {
 
-  componentDidMount () {
     window.scrollTo(0, 0)
-  }
 
-  render() {
     return (
+      <div>
+        <hr></hr>
       <div className="container">
       <div className="row">
         <h1 className="interpretation">Emotional Tone</h1>
@@ -125,6 +124,8 @@ export default class Interpretation extends React.Component {
     <p><i>Special thanks to IBM for their awesome open sourced api</i></p>
   </div>
       </div>
+  </div>
     );
-  }
 }
+
+module.exports = Interpretation;

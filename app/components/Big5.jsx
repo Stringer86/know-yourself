@@ -4,13 +4,9 @@ import { Link } from 'react-router-dom';
 import Reveal from 'react-reveal';
 
 
-export default class Big5 extends React.Component {
-
-  componentDidMount () {
+const Big5 = () => {
     window.scrollTo(0, 0)
-  }
 
-  render() {
     return (
       <div>
       <hr></hr>
@@ -72,5 +68,6 @@ export default class Big5 extends React.Component {
                 </Reveal>
         </div>
     );
-  }
 }
+
+module.exports = Big5;

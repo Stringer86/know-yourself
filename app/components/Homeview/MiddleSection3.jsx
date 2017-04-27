@@ -6,6 +6,7 @@ const MiddleSection3 = () => {
 
   return (
     <div>
+    <hr></hr>
     <div className="row middleSections">
     <Reveal effect="animated fadeIn">
     <div className="col s12 l6 m6 instant">
