@@ -1,11 +1,10 @@
 import React from 'react';
 import axios from 'axios';
-import {Line, Polar, Radar} from 'react-chartjs-2';
+import { Polar } from 'react-chartjs-2';
 
-export default class PolarChart extends React.Component {
+const PolarChart = (props) => {
 
-  render() {
-    const entries = this.props.entries;
+    const entries = props.entries;
 
     const bigFive = entries.map((e) => {
       return [parseFloat(e.openness), parseFloat(e.conscientiousness), parseFloat(e.extraversion), parseFloat(e.agreeableness), parseFloat(e.emotionalRange)]
@@ -81,5 +80,6 @@ export default class PolarChart extends React.Component {
     }}/>
     </div>
     );
-  }
 }
+
+module.exports = PolarChart;

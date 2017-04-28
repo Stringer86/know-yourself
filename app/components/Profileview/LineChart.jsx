@@ -1,14 +1,10 @@
 import React from 'react';
 import axios from 'axios';
-import {Line, Polar, Radar} from 'react-chartjs-2';
+import { Line } from 'react-chartjs-2';
 import Moment from 'moment';
 
-
-
-export default class LineChart extends React.Component {
-
-  render() {
-    const entries = this.props.entries;
+const LineChart = (props) => {
+    const entries = props.entries;
 
     const anger = entries.map((e) => {
       return parseFloat(e.anger);
@@ -160,5 +156,6 @@ export default class LineChart extends React.Component {
       }}/>
       </div>
     );
-  }
 }
+
+module.exports = LineChart;
