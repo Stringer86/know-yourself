@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import WhiteLoading from '../WhiteLoading';
+import WhiteLoading from './WhiteLoading';
 
 
 export default class Donors extends React.Component {
@@ -32,6 +32,7 @@ export default class Donors extends React.Component {
         </div>
       )
     }
+    
     return (
       <div className="row apiInfo card">
         <div className="row center-align titleRow">

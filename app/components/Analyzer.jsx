@@ -1,9 +1,9 @@
-import { Link } from 'react-router-dom';
-import Loading from './Analyzerview/Loading';
-import Display from './Analyzerview/Display';
-import Submitted from './Analyzerview/Submitted';
 import React from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+import Loading from './Analyzer-components/Loading';
+import Display from './Analyzer-components/Display';
+import Submitted from './Analyzer-components/Submitted';
 import { notify } from 'react-notify-toast';
 
 export default class Analyzer extends React.Component {

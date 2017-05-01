@@ -6,6 +6,8 @@ import Headroom from 'react-headroom';
 export default class Header extends React.Component {
   constructor(props) {
     super(props);
+
+    this.logOut = this.logOut.bind(this);
   }
 
   logOut(event) {
@@ -36,12 +38,12 @@ export default class Header extends React.Component {
             <ul className="right hide-on-small-and-down">
               <li><a className="btn"><Link to='/analyzer' className="white-text">Analyzer</Link></a></li>
               <li><Link to='/profile' className="blue-text">My Profile</Link></li>
-              <li><Link to='/' className="black-text" onClick={this.logOut.bind(this)}>Log out</Link></li>
+              <li><Link to='/' className="black-text" onClick={this.logOut}>Log out</Link></li>
             </ul>
             <ul className="side-nav" id="mobile-demo">
             <li><a className="btn"><Link to='/analyzer' className="white-text">Analyzer</Link></a></li>
             <li><a><Link to='/profile' className="blue-text">My Profile</Link></a></li>
-            <li><a><Link to='/' className="black-text" onClick={this.logOut.bind(this)}>Log out</Link></a></li>
+            <li><a><Link to='/' className="black-text" onClick={this.logOut}>Log out</Link></a></li>
           </ul>
           </div>
         </nav>

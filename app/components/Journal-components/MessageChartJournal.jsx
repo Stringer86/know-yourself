@@ -23,11 +23,10 @@ export default class MessageChartJournal extends React.Component {
     return (
         <div className="row result-size card">
         <Doughnut data={doughnutData}
-        width={500}
-        height={500}
-        options={{
-        maintainAspectRatio: false
-      }}/>
+                  width={500}
+                  height={500}
+                  options={{ maintainAspectRatio: false }}
+        />
         </div>
     );
   }

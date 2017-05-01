@@ -73,12 +73,11 @@ const PolarChart = (props) => {
 
     return (
       <div>
-      <Polar data={polarData} width={300}
-      height={300}
-      options={{
-      maintainAspectRatio: false
-    }}/>
-    </div>
+        <Polar data={polarData} width={300}
+               height={300}
+               options={{ maintainAspectRatio: false }}
+        />
+      </div>
     );
 }
 

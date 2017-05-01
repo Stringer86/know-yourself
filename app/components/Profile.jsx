@@ -1,8 +1,8 @@
 import React from 'react';
 import axios from 'axios';
-import NewUser from './Profileview/NewUser';
-import UserInfo from './Profileview/UserInfo';
-import ActiveUser from './Profileview/ActiveUser';
+import NewUser from './Profile-components/NewUser';
+import UserInfo from './Profile-components/UserInfo';
+import ActiveUser from './Profile-components/ActiveUser';
 
 export default class Profile extends React.Component {
 

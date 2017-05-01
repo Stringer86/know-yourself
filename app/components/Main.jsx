@@ -4,7 +4,7 @@ import Home from './Home';
 import Profile from './Profile';
 import SignUp from './SignUp';
 import SignIn from './SignIn';
-import Journal from './Journal';
+import JournalHome from './JournalHome';
 import Analyzer from './Analyzer';
 import Entries from './Entries';
 import Big5 from './Big5';
@@ -61,7 +61,7 @@ export default class Main extends React.Component {
             <Redirect to="/" />
           ) :
           <div className="background-color">
-          <Journal entries={this.props.entries}
+          <JournalHome entries={this.props.entries}
                    getEntries={this.props.getEntries}
           />
           </div>

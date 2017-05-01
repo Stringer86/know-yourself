@@ -128,7 +128,7 @@ router.post('/api/entries', authorize, ev(validations.post), (req, res, next) =>
           const entry = row;
 
           delete entry[0].user_id;
-
+          console.log(entry);
           res.send(entry);
         })
         .catch((err) => {

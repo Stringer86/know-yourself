@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Reveal from 'react-reveal';
-import Hero from './Homeview/Hero';
-import MiddleSection1 from './Homeview/MiddleSection1';
-import MiddleSection2 from './Homeview/MiddleSection2';
-import MiddleSection3 from './Homeview/MiddleSection3';
+import Hero from './Home-components/Hero';
+import MiddleSection1 from './Home-components/MiddleSection1';
+import MiddleSection2 from './Home-components/MiddleSection2';
+import MiddleSection3 from './Home-components/MiddleSection3';
 
 const Home = (props) => {
 
