@@ -55,7 +55,10 @@ export default class Analyzer extends React.Component {
     return (
       <div className="center-align analyzer">
         <Loading loading={this.state.loading} />
-        <Display submitted={this.state.submitted} loading={this.state.loading} publishEntry={this.publishEntry} />
+        <Display submitted={this.state.submitted}
+                 loading={this.state.loading}
+                 publishEntry={this.publishEntry}
+        />
         <Submitted submitted={this.state.submitted}
                    sentences={this.state.entry.sentences}
                    changeState={this.changeState}

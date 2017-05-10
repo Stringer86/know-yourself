@@ -3,7 +3,7 @@ import Main from './Main';
 import React from 'react';
 import axios from 'axios';
 import { BrowserRouter } from 'react-router-dom';
-import Notifications, {notify} from 'react-notify-toast';
+import Notifications, { notify } from 'react-notify-toast';
 import Header from './Header';
 
 

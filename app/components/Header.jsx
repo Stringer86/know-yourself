@@ -15,7 +15,7 @@ export default class Header extends React.Component {
 
     axios.delete('/token')
       .then(res => {
-        this.props.authUser(false).bind(this);
+        this.props.authUser(false);
       })
       .catch(err => {
         return err;

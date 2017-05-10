@@ -10,10 +10,10 @@ const Home = (props) => {
 
     return (
       <div>
-      <Hero isLoggedIn={props.isLoggedIn} />
-      <MiddleSection1 />
-      <MiddleSection2 isLoggedIn={props.isLoggedIn} />
-      <MiddleSection3 />
+        <Hero isLoggedIn={props.isLoggedIn} />
+        <MiddleSection1 />
+        <MiddleSection2 isLoggedIn={props.isLoggedIn} />
+        <MiddleSection3 />
       </div>
     );
 }

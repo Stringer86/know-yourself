@@ -7,6 +7,11 @@ import Moment from 'moment';
 
 
 export default class Entry extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.deletePost = this.deletePost.bind(this);
+  }
 
   deletePost(event) {
     event.preventDefault();
@@ -60,16 +65,17 @@ export default class Entry extends React.Component {
             <p>{body}</p>
             <div className="row inline">
             <a className="btn read"><Link to={`/entry/${this.props.data.id}`} className="white-text">Read</Link></a>
-            <a className="btn delete" onClick={this.deletePost.bind(this)}>Delete</a>
+            <a className="btn delete" onClick={this.deletePost}>Delete</a>
             </div>
             </div>
             <div className="col s12 m4 l4">
-            <Doughnut data={doughnutData}
-            width={200}
-            height={200}
-            options={{
-            maintainAspectRatio: false
-          }}/>
+              <Doughnut data={doughnutData}
+              width={200}
+              height={200}
+              options={{
+              maintainAspectRatio: false
+              }}
+            />
             </div>
         </div>
       </div>

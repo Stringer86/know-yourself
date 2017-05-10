@@ -62,7 +62,7 @@ export default class Main extends React.Component {
           ) :
           <div className="background-color">
           <JournalHome entries={this.props.entries}
-                   getEntries={this.props.getEntries}
+                       getEntries={this.props.getEntries}
           />
           </div>
         }/>
@@ -78,10 +78,9 @@ export default class Main extends React.Component {
             <Redirect to="/" />
           ) :
           <div className="profilebackground">
-          <Profile
-                    entries={this.props.entries}
-                    getEntries={this.props.getEntries}
-                    />
+          <Profile entries={this.props.entries}
+                   getEntries={this.props.getEntries}
+          />
           </div>
         }/>
         <Route path="/entries" exactly render={
@@ -102,7 +101,7 @@ export default class Main extends React.Component {
           () => !this.props.isLoggedIn ? (
             <Redirect to="/" />
           ) :
-          <ReadEntry getEntries={this.props.getEntries}/>
+          <ReadEntry getEntries={this.props.getEntries} />
         }/>
         <Redirect to="/"/>
         </Switch>

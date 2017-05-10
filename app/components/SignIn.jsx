@@ -5,6 +5,11 @@ import Notifications, {notify} from 'react-notify-toast';
 
 
 export default class SignIn extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.signIn = this.signIn.bind(this);
+  }
   signIn(event) {
     event.preventDefault();
 
@@ -14,7 +19,7 @@ export default class SignIn extends React.Component {
     })
     .then(res => {
       notify.show('Signed In!', 'success')
-      this.props.authUser(true).bind(this);
+      this.props.authUser(true);
     })
     .catch(err => {
       notify.show('Incorrect username or password', 'error')
@@ -42,7 +47,7 @@ export default class SignIn extends React.Component {
                     Don't have an account? <Link to='/signup'>Sign Up </Link>today!
                   </div>
                   <div className="row center-align">
-                    <button id="action-button" type="submit" name="button" onClick={this.signIn.bind(this)}>Sign In</button>
+                    <button id="action-button" type="submit" name="button" onClick={this.signIn}>Sign In</button>
                   </div>
                 </div>
               </div>

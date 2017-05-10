@@ -19,9 +19,9 @@ export default class JournalHome extends React.Component {
     this.deletePost = this.deletePost.bind(this);
   }
 
-  componentDidMount(){
-   document.body.style.backgroundColor = '#6e9bc4'
- }
+  componentDidMount() {
+    document.body.style.backgroundColor = '#6e9bc4'
+  }
 
   deletePost(event, id) {
     event.preventDefault();

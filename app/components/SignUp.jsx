@@ -3,7 +3,11 @@ import axios from 'axios';
 import Notifications, {notify} from 'react-notify-toast';
 
 export default class SignUp extends React.Component {
+  constructor(props) {
+    super(props)
 
+    this.signUp = this.signUp.bind(this);
+  }
   signUp(event) {
     event.preventDefault();
 
@@ -39,7 +43,7 @@ export default class SignUp extends React.Component {
       })
       .then(res => {
           notify.show('You are now signed up!', 'success');
-          this.props.authUser(res.data.bool).bind(this);
+          this.props.authUser(res.data.bool);
         })
         .catch(err => {
           notify.show('something went wrong', 'error');
@@ -76,7 +80,7 @@ export default class SignUp extends React.Component {
                 </div>
               </div>
                 <div className="row center-align">
-                  <button id="action-button" type="submit" name="button" onClick={this.signUp.bind(this)}>Sign Up</button>
+                  <button id="action-button" type="submit" name="button" onClick={this.signUp}>Sign Up</button>
               </div>
             </form>
           </div>

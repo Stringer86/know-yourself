@@ -11,6 +11,8 @@ export default class ReadEntry extends React.Component {
     this.state = {
       entry: {},
     }
+
+    this.deletePost = this.deletePost.bind(this);
   }
 
   componentDidMount() {
@@ -64,7 +66,7 @@ export default class ReadEntry extends React.Component {
           <p className="journalBody">{this.state.entry.body}</p>
           <div className="row center-align">
           <a className="btn read"><Link to="/entries" className="white-text">All entries</Link></a>
-          <a className="btn delete" onClick={this.deletePost.bind(this)}><Link to="/entries" className="white-text">Delete</Link></a>
+          <a className="btn delete" onClick={this.deletePost}><Link to="/entries" className="white-text">Delete</Link></a>
           </div>
         </div>
       </div>
